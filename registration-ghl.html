@@ -951,25 +951,18 @@ section li{font-size:16px;line-height:1.6}
 .fi-d1{transition-delay:.14s}.fi-d2{transition-delay:.28s}.fi-d3{transition-delay:.42s}
 /* GHL: force fade-in visible */
 .fi{opacity:1 !important;transform:none !important}
-/* GHL FULL-BLEED BREAKOUT — forces each section to viewport width
-   regardless of any parent container constraints.
-   Uses the calc(-50vw + 50%) trick to break out of any wrapper. */
-.hero,.qualify,.cta-sec,.origin,.proof,.testimonials,
-.breakdown,.vsl-cta,.urg-cta,.imagine,.transform,.final,
-.ticker-wrap{
-  width:100vw !important;
-  margin-left:calc(-50vw + 50%) !important;
-  position:relative !important;
-}
-.topbar-wrap{
-  width:100vw !important;
-  left:0 !important;
-  right:0 !important;
-}
-/* Prevent horizontal scroll from 100vw */
-body{overflow-x:clip !important}
-/* Kill double vertical scroll — let GHL's outer container be the only scroll */
-html,body{overflow-y:visible !important;height:auto !important;max-height:none !important}
+/* GHL: let GHL handle scrolling */
+html,body{overflow:visible !important;height:auto !important}
+/* GHL: sections that use max-width+margin:auto need full-width wrapper behavior
+   so they center correctly inside GHL's container */
+.breakdown,.imagine,.transform,.final{max-width:none !important;display:flex;flex-direction:column;align-items:center}
+.breakdown>*,.imagine>*,.transform>*,.final>*{max-width:1100px;width:100%}
+.imagine>*,.final>*{max-width:1000px}
+/* Keep absolute-positioned deco elements full-width */
+.breakdown .deco-float,.breakdown .deco-leaf,.breakdown .deco-circle,
+.imagine .deco-float,.imagine .deco-leaf,.imagine .deco-circle,
+.transform .deco-float,.transform .deco-leaf,.transform .deco-circle,
+.final .deco-float,.final .deco-leaf,.final .deco-circle{position:absolute;max-width:none}
 </style>
 
 <!-- TOP BAR -->
