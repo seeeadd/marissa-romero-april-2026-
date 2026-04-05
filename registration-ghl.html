@@ -952,8 +952,11 @@ section li{font-size:16px;line-height:1.6}
 /* GHL fixes */
 .fi{opacity:1 !important;transform:none !important}
 html,body{overflow:visible !important;height:auto !important}
+/* Break out of GHL container — one wrapper, viewport width */
+.ghl-break{width:100vw;position:relative;left:50%;transform:translateX(-50%)}
 </style>
 
+<div class="ghl-break">
 <!-- TOP BAR -->
 <div class="topbar-wrap">
   <div class="topbar">
@@ -2302,3 +2305,4 @@ html,body{overflow:visible !important;height:auto !important}
 (function(){var els=document.querySelectorAll('.fi');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});els.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('v');else obs.observe(el)})})();
 (function(){var registered=false,cooldown=false,ov=document.getElementById('overlay');window._exitRegistered=function(){registered=true};function exitIntent(e){if(registered||cooldown)return;if(e.clientY>0)return;if(ov.classList.contains('active'))return;ov.classList.add('active');cooldown=true;setTimeout(function(){cooldown=false},5000)}setTimeout(function(){document.documentElement.addEventListener('mouseleave',exitIntent)},8000)})();
 </script>
+</div><!-- end .ghl-break -->
