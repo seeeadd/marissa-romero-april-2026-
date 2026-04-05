@@ -951,9 +951,7 @@ section li{font-size:16px;line-height:1.6}
 .fi-d1{transition-delay:.14s}.fi-d2{transition-delay:.28s}.fi-d3{transition-delay:.42s}
 /* GHL fixes */
 .fi{opacity:1 !important;transform:none !important}
-html,body{overflow-x:hidden !important;overflow-y:visible !important;height:auto !important}
-/* Break out of GHL container — one wrapper, viewport width */
-.ghl-break{width:100vw;position:relative;left:50%;transform:translateX(-50%)}
+html,body{overflow-x:hidden !important}
 /* Fix: kill white gap between hero and ticker */
 .hero{margin-bottom:0 !important;padding-bottom:0 !important}
 .ticker-wrap{margin-top:0 !important}
@@ -961,7 +959,6 @@ html,body{overflow-x:hidden !important;overflow-y:visible !important;height:auto
 .breakdown{max-width:1300px !important;padding-left:2% !important;padding-right:2% !important}
 </style>
 
-<div class="ghl-break">
 <!-- TOP BAR -->
 <div class="topbar-wrap">
   <div class="topbar">
@@ -2266,8 +2263,6 @@ html,body{overflow-x:hidden !important;overflow-y:visible !important;height:auto
   <div class="footer"><span class="wordmark">MARISSA<span class="wm-bar">|</span><span class="wm-r">ROMERO</span></span><span>&copy; 2026 Marissa Romero. All Rights Reserved.</span></div>
 </section>
 
-<!-- POPUP moved outside .ghl-break (transform breaks position:fixed) -->
-
 <script>
 (function(){var target=new Date("2026-05-05T15:00:00-05:00").getTime();function upd(){var d=target-Date.now();if(d<0)d=0;var dd=Math.floor(d/864e5),hh=Math.floor(d%864e5/36e5),mm=Math.floor(d%36e5/6e4),ss=Math.floor(d%6e4/1e3),p=function(n){return String(n).padStart(2,'0')};document.getElementById('cd-d').textContent=p(dd);document.getElementById('cd-h').textContent=p(hh);document.getElementById('cd-m').textContent=p(mm);document.getElementById('cd-s').textContent=p(ss);document.getElementById('tb-d').textContent=p(dd);document.getElementById('tb-h').textContent=p(hh);document.getElementById('tb-m').textContent=p(mm);document.getElementById('tb-s').textContent=p(ss);document.querySelectorAll('.cd-x-d').forEach(function(e){e.textContent=p(dd)});document.querySelectorAll('.cd-x-h').forEach(function(e){e.textContent=p(hh)});document.querySelectorAll('.cd-x-m').forEach(function(e){e.textContent=p(mm)});document.querySelectorAll('.cd-x-s').forEach(function(e){e.textContent=p(ss)})}upd();setInterval(upd,1000)})();
 (function(){var ov=document.getElementById('overlay');document.getElementById('openPopup').addEventListener('click',function(){ov.classList.add('active')});document.querySelectorAll('.openPopup').forEach(function(b){b.addEventListener('click',function(){ov.classList.add('active')})});document.getElementById('popupClose').addEventListener('click',function(){ov.classList.remove('active')});ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('active')});document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('active')})})();
@@ -2279,9 +2274,7 @@ html,body{overflow-x:hidden !important;overflow-y:visible !important;height:auto
 (function(){var els=document.querySelectorAll('.fi');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});els.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('v');else obs.observe(el)})})();
 (function(){var registered=false,cooldown=false,ov=document.getElementById('overlay');window._exitRegistered=function(){registered=true};function exitIntent(e){if(registered||cooldown)return;if(e.clientY>0)return;if(ov.classList.contains('active'))return;ov.classList.add('active');cooldown=true;setTimeout(function(){cooldown=false},5000)}setTimeout(function(){document.documentElement.addEventListener('mouseleave',exitIntent)},8000)})();
 </script>
-</div><!-- end .ghl-break -->
 
-<!-- POPUP (outside .ghl-break so position:fixed works) -->
 <div class="overlay" id="overlay"><div class="popup">
   <button class="popup-close" id="popupClose">&times;</button>
   <div class="popup-header">
