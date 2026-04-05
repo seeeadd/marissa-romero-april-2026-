@@ -953,6 +953,10 @@ section li{font-size:16px;line-height:1.6}
 .fi{opacity:1 !important;transform:none !important}
 /* Clip horizontal overflow on our wrapper only */
 .ghl-break{overflow-x:hidden}
+/* Scroll perf: kill fixed grain/dot overlays that cause full-page repaints */
+body::before,body::after{display:none !important}
+/* GPU-accelerate topbar so backdrop-filter doesnt jank scroll */
+.topbar-wrap{will-change:transform;transform:translateZ(0)}
 /* Fix: kill white gap between hero and ticker */
 .hero{margin-bottom:0 !important;padding-bottom:0 !important}
 .ticker-wrap{margin-top:0 !important}
