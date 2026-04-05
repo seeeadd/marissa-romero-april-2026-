@@ -957,9 +957,10 @@ section li{font-size:16px;line-height:1.6}
 body::before,body::after{display:none !important}
 /* GPU-accelerate topbar so backdrop-filter doesnt jank scroll */
 .topbar-wrap{will-change:transform;transform:translateZ(0)}
-/* Fix: kill white gap between hero and ticker */
+/* Fix: kill white gap between hero and ticker + smooth transition */
 .hero{margin-bottom:0 !important;padding-bottom:0 !important}
 .ticker-wrap{margin-top:0 !important}
+.hero-to-ticker{height:40px;background:linear-gradient(to bottom,var(--warmbg),var(--ablack));margin:0;padding:0;line-height:0}
 /* Fix: make day cards wider */
 .breakdown{max-width:1300px !important;padding-left:2% !important;padding-right:2% !important}
 </style>
@@ -1092,7 +1093,8 @@ body::before,body::after{display:none !important}
 </section>
 
 <!-- TICKER -->
-<div class="ticker-wrap" style="margin-top:48px"><div class="ticker" id="ticker"></div></div>
+<div class="hero-to-ticker"></div>
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
 
 <!-- QUALIFY -->
 <section class="qualify">
@@ -2333,7 +2335,20 @@ pop.innerHTML='<div style="background:#1a1a1a;padding:28px 30px 20px;text-align:
 +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><div><div style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#141414">Your Ticket Includes</div><div style="font-size:12px;color:#8e8d8d;line-height:1.6">3 live trainings + AI templates + launch system</div></div><div style="text-align:right"><div style="font-size:12px;color:#8e8d8d;text-decoration:line-through">$297 VALUE</div><div style="font-size:28px;font-weight:900;color:#ff4f49;line-height:1">FREE</div><div style="font-size:11px;color:#0097a7;font-weight:600">This week only</div></div></div>'
 +'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:13px;color:#434343"><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><rect x="3" y="4" width="18" height="18" stroke="currentColor" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>May 5-7</div><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>3pm EST</div><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Live</div></div>'
 +'<input type="text" id="_mrName" placeholder="Your first name" autocomplete="given-name" required style="width:100%;padding:14px 16px;margin-bottom:10px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none">'
-+'<input type="email" id="_mrEmail" placeholder="Best email address" autocomplete="email" required style="width:100%;padding:14px 16px;margin-bottom:14px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none">'
++'<input type="email" id="_mrEmail" placeholder="Best email address" autocomplete="email" required style="width:100%;padding:14px 16px;margin-bottom:10px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none">'
++'<div style="display:flex;gap:0;margin-bottom:14px"><select id="_mrCC" style="width:90px;padding:14px 4px 14px 8px;border:2px solid #e8e5e0;border-right:none;font-size:14px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none;background:#fff;color:#434343;cursor:pointer;-webkit-appearance:none;appearance:none">'
++'<option value="+1">🇺🇸 +1</option><option value="+1CA">🇨🇦 +1</option><option value="+44">🇬🇧 +44</option><option value="+61">🇦🇺 +61</option><option value="+64">🇳🇿 +64</option><option value="+353">🇮🇪 +353</option>'
++'<option value="+91">🇮🇳 +91</option><option value="+63">🇵🇭 +63</option><option value="+65">🇸🇬 +65</option><option value="+60">🇲🇾 +60</option><option value="+971">🇦🇪 +971</option><option value="+966">🇸🇦 +966</option>'
++'<option value="+52">🇲🇽 +52</option><option value="+55">🇧🇷 +55</option><option value="+57">🇨🇴 +57</option><option value="+54">🇦🇷 +54</option><option value="+56">🇨🇱 +56</option><option value="+51">🇵🇪 +51</option>'
++'<option value="+49">🇩🇪 +49</option><option value="+33">🇫🇷 +33</option><option value="+34">🇪🇸 +34</option><option value="+39">🇮🇹 +39</option><option value="+31">🇳🇱 +31</option><option value="+32">🇧🇪 +32</option>'
++'<option value="+46">🇸🇪 +46</option><option value="+47">🇳🇴 +47</option><option value="+45">🇩🇰 +45</option><option value="+358">🇫🇮 +358</option><option value="+43">🇦🇹 +43</option><option value="+41">🇨🇭 +41</option>'
++'<option value="+351">🇵🇹 +351</option><option value="+48">🇵🇱 +48</option><option value="+420">🇨🇿 +420</option><option value="+36">🇭🇺 +36</option><option value="+40">🇷🇴 +40</option><option value="+30">🇬🇷 +30</option>'
++'<option value="+90">🇹🇷 +90</option><option value="+972">🇮🇱 +972</option><option value="+20">🇪🇬 +20</option><option value="+27">🇿🇦 +27</option><option value="+234">🇳🇬 +234</option><option value="+254">🇰🇪 +254</option>'
++'<option value="+81">🇯🇵 +81</option><option value="+82">🇰🇷 +82</option><option value="+86">🇨🇳 +86</option><option value="+66">🇹🇭 +66</option><option value="+84">🇻🇳 +84</option><option value="+62">🇮🇩 +62</option>'
++'<option value="+880">🇧🇩 +880</option><option value="+92">🇵🇰 +92</option><option value="+94">🇱🇰 +94</option><option value="+977">🇳🇵 +977</option><option value="+507">🇵🇦 +507</option><option value="+506">🇨🇷 +506</option>'
++'<option value="+502">🇬🇹 +502</option><option value="+593">🇪🇨 +593</option><option value="+598">🇺🇾 +598</option><option value="+1JM">🇯🇲 +1</option><option value="+1TT">🇹🇹 +1</option><option value="+1BS">🇧🇸 +1</option>'
++'</select>'
++'<input type="tel" id="_mrPhone" placeholder="Phone number" autocomplete="tel-national" style="flex:1;padding:14px 16px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none"></div>'
 +'<button id="_mrSubmit" type="button" style="width:100%;padding:18px;background:#ff4f49;color:#fff;font-size:16px;font-weight:800;font-family:inherit;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;box-shadow:0 4px 0 #e63e38"><span>CLAIM MY FREE TICKET &rarr;</span></button>'
 +'<div style="text-align:center;font-size:12px;color:#8e8d8d;margin-top:10px">Instant access + VIP upgrade option on next page</div>'
 +'<div id="_mrSpots2" style="text-align:center;font-size:12px;color:#ff4f49;margin-top:10px;font-weight:600"></div>'
@@ -2365,8 +2380,11 @@ var submitting=false;
 document.getElementById('_mrSubmit').addEventListener('click',function(){
 if(submitting)return;
 var n=document.getElementById('_mrName').value.trim(),em=document.getElementById('_mrEmail').value.trim();
+var cc=document.getElementById('_mrCC').value.replace(/[A-Z]+$/,''),ph=document.getElementById('_mrPhone').value.trim().replace(/\D/g,'');
 if(!n||n.length<2){document.getElementById('_mrName').focus();document.getElementById('_mrName').style.borderColor='#ff4f49';return}
 if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){document.getElementById('_mrEmail').focus();document.getElementById('_mrEmail').style.borderColor='#ff4f49';return}
+if(!ph||ph.length<7){document.getElementById('_mrPhone').focus();document.getElementById('_mrPhone').style.borderColor='#ff4f49';return}
+var fullPhone=cc+ph;
 submitting=true;
 var btn=document.getElementById('_mrSubmit'),sp=btn.querySelector('span');
 btn.disabled=true;
@@ -2374,13 +2392,13 @@ var phrases=['One sec. Big things happening.','Reserving your front-row seat...'
 var pi=0;sp.textContent=phrases[0];
 var wi=setInterval(function(){pi=(pi+1)%phrases.length;sp.textContent=phrases[pi]},1200);
 var params=new URLSearchParams();
-params.append('first_name',n);params.append('email',em);
+params.append('first_name',n);params.append('email',em);params.append('phone',fullPhone);
 params.append('tags','challenge-registered-may2026');params.append('source','digital-course-launch-sprint');
 fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/80f614e9-f8a9-4202-998d-1a646643c418',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()})
 .then(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){pop.innerHTML='<div style="text-align:center;padding:60px 24px"><div style="font-size:44px;margin-bottom:10px">\ud83c\udf89</div><h2 style="font-family:Helvetica,sans-serif;font-size:1.6rem;margin-bottom:10px;color:#141414">You\'re In!</h2><p style="font-size:1rem;color:#8e8d8d">Check your inbox for all the details.<br>See you May 5th!</p></div>'},1200)})
 .catch(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){pop.innerHTML='<div style="text-align:center;padding:60px 24px"><div style="font-size:44px;margin-bottom:10px">\ud83c\udf89</div><h2 style="font-family:Helvetica,sans-serif;font-size:1.6rem;margin-bottom:10px;color:#141414">You\'re In!</h2><p style="font-size:1rem;color:#8e8d8d">Check your inbox for all the details.<br>See you May 5th!</p></div>'},1200)});
 });
-['_mrName','_mrEmail'].forEach(function(id){document.getElementById(id).addEventListener('focus',function(){this.style.borderColor='#e8e5e0'})});
+['_mrName','_mrEmail','_mrPhone'].forEach(function(id){document.getElementById(id).addEventListener('focus',function(){this.style.borderColor='#e8e5e0'})});
 document.getElementById('_mrName').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('_mrEmail').focus()}});
 document.getElementById('_mrEmail').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('_mrSubmit').click()}});
 window._mrSpots2=document.getElementById('_mrSpots2');
