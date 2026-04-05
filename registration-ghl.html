@@ -960,31 +960,46 @@ section li{font-size:16px;line-height:1.6}
 .breakdown{max-width:1300px !important;padding-left:2% !important;padding-right:2% !important}
 </style>
 
-<!-- GHL container buster: expand parents to full width + kill double scroll -->
+<!-- GHL container buster: expand parents to full width + kill double scroll (iOS safe) -->
 <script>
 (function(){
   var me=document.currentScript;
   if(!me)return;
+  /* Collect all parent wrappers between us and body */
+  var parents=[];
   var p=me.parentElement;
   while(p&&p!==document.documentElement&&p!==document.body){
-    var cs=window.getComputedStyle(p);
-    /* width */
-    if(cs.maxWidth!=='none')p.style.maxWidth='none';
-    if(parseInt(cs.paddingLeft)>0)p.style.paddingLeft='0';
-    if(parseInt(cs.paddingRight)>0)p.style.paddingRight='0';
-    p.style.width='100%';
-    p.style.boxSizing='border-box';
-    /* kill double scroll: no intermediate container should scroll */
-    p.style.overflow='visible';
-    p.style.overflowX='visible';
-    p.style.overflowY='visible';
-    /* remove fixed heights that create scroll contexts */
+    parents.push(p);
+    p=p.parentElement;
+  }
+  /* Fix ALL parents for width */
+  for(var i=0;i<parents.length;i++){
+    var el=parents[i],cs=window.getComputedStyle(el);
+    if(cs.maxWidth!=='none')el.style.maxWidth='none';
+    if(parseInt(cs.paddingLeft)>0)el.style.paddingLeft='0';
+    if(parseInt(cs.paddingRight)>0)el.style.paddingRight='0';
+    el.style.width='100%';
+    el.style.boxSizing='border-box';
+  }
+  /* Kill double scroll: set overflow:visible on all EXCEPT outermost wrapper.
+     The outermost wrapper (closest to body) is GHL's main scroll container —
+     keep it so the page stays scrollable on iOS and everywhere else. */
+  for(var i=0;i<parents.length-1;i++){
+    var el=parents[i],cs=window.getComputedStyle(el);
+    el.style.overflow='visible';
+    el.style.overflowX='visible';
+    el.style.overflowY='visible';
+    /* remove fixed heights that create inner scroll contexts */
     if(cs.height!=='auto'&&cs.height!=='0px'){
       var h=parseInt(cs.height);
-      if(h>0&&h<window.innerHeight*2)p.style.height='auto';
+      if(h>0&&h<window.innerHeight*2)el.style.height='auto';
     }
-    if(cs.maxHeight!=='none')p.style.maxHeight='none';
-    p=p.parentElement;
+    if(cs.maxHeight!=='none')el.style.maxHeight='none';
+  }
+  /* Ensure outermost GHL wrapper scrolls smoothly on iOS */
+  if(parents.length>0){
+    var outer=parents[parents.length-1];
+    outer.style.webkitOverflowScrolling='touch';
   }
 })();
 </script>
@@ -2305,7 +2320,7 @@ function _initAll(){
 (function(){
 var ov=document.createElement('div');
 ov.id='_mrOverlay';
-ov.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:999999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)';
+ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);z-index:999999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-x:hidden;overflow-y:auto';
 var pop=document.createElement('div');
 pop.style.cssText='background:#fff;max-width:520px;width:92%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.25)';
 pop.innerHTML='<div style="background:#1a1a1a;padding:28px 30px 20px;text-align:center"><div style="font-size:11px;font-weight:800;letter-spacing:.15em;color:#0dc5cf;margin-bottom:8px">ADMIT ONE</div><div style="font-family:Helvetica,Arial,sans-serif;font-size:clamp(20px,4vw,28px);font-weight:700;color:#fff;margin-bottom:6px">Digital Course Launch Sprint</div><div style="font-family:\'Nanum Pen Script\',cursive;font-size:clamp(16px,3vw,22px);color:#0dc5cf">3-Day FREE Challenge with Marissa Romero</div></div>'
