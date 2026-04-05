@@ -7,7 +7,7 @@
    with a winding path, not boring stacked cards. */
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{overflow-x:hidden}
+/* html overflow removed — .ghl-break handles clip, GHL owns scroll */
 :root{
   --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
   --cherry:#ff4f49;--cherry-dk:#e63e38;
@@ -28,7 +28,7 @@ html{overflow-x:hidden}
   --grain:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--char);line-height:1.6;background:var(--warmbg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:var(--warmbg);-webkit-font-smoothing:antialiased}
 
 /* ══ GLOBAL DECORATIVE FLOATING ICONS ══ */
 .deco-float{position:absolute;pointer-events:none;z-index:0}
@@ -951,6 +951,8 @@ section li{font-size:16px;line-height:1.6}
 .fi-d1{transition-delay:.14s}.fi-d2{transition-delay:.28s}.fi-d3{transition-delay:.42s}
 /* GHL fixes */
 .fi{opacity:1 !important;transform:none !important}
+/* Clip horizontal overflow on our wrapper only */
+.ghl-break{overflow-x:hidden}
 /* Fix: kill white gap between hero and ticker */
 .hero{margin-bottom:0 !important;padding-bottom:0 !important}
 .ticker-wrap{margin-top:0 !important}
@@ -958,7 +960,7 @@ section li{font-size:16px;line-height:1.6}
 .breakdown{max-width:1300px !important;padding-left:2% !important;padding-right:2% !important}
 </style>
 
-<!-- GHL container buster: expand all parent wrappers to full viewport width -->
+<!-- GHL container buster: expand parents to full width + kill double scroll -->
 <script>
 (function(){
   var me=document.currentScript;
@@ -966,12 +968,22 @@ section li{font-size:16px;line-height:1.6}
   var p=me.parentElement;
   while(p&&p!==document.documentElement&&p!==document.body){
     var cs=window.getComputedStyle(p);
+    /* width */
     if(cs.maxWidth!=='none')p.style.maxWidth='none';
     if(parseInt(cs.paddingLeft)>0)p.style.paddingLeft='0';
     if(parseInt(cs.paddingRight)>0)p.style.paddingRight='0';
     p.style.width='100%';
     p.style.boxSizing='border-box';
-    if(cs.overflow==='hidden'||cs.overflowX==='hidden')p.style.overflow='visible';
+    /* kill double scroll: no intermediate container should scroll */
+    p.style.overflow='visible';
+    p.style.overflowX='visible';
+    p.style.overflowY='visible';
+    /* remove fixed heights that create scroll contexts */
+    if(cs.height!=='auto'&&cs.height!=='0px'){
+      var h=parseInt(cs.height);
+      if(h>0&&h<window.innerHeight*2)p.style.height='auto';
+    }
+    if(cs.maxHeight!=='none')p.style.maxHeight='none';
     p=p.parentElement;
   }
 })();
