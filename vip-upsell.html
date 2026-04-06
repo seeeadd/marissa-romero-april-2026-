@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
 <style>
 /* VIP UPSELL &mdash; "THE GOLDEN ENVELOPE"
@@ -36,18 +37,61 @@ a{text-decoration:none;color:inherit}
 
 /* ══ 3-LAYER DEPTH SYSTEM ══ */
 .deco-leaf{position:absolute;pointer-events:none;z-index:2}
-.deco-leaf svg{width:100%;height:100%}
-.deco-leaf-bg{z-index:0;filter:blur(8px) saturate(1.4);opacity:.22!important}
-.deco-leaf-mid{z-index:1;filter:blur(3px) saturate(1.2);opacity:.14!important}
-.deco-leaf-fg{z-index:3;filter:drop-shadow(4px 8px 16px rgba(0,40,30,.1)) drop-shadow(2px 4px 8px rgba(0,40,30,.06))}
-.deco-leaf-bob{animation:leafBob 5s ease-in-out infinite}
-.deco-leaf-bob-2{animation:leafBob 6s 1.5s ease-in-out infinite}
-.deco-leaf-bob-3{animation:leafBob 7s 2.8s ease-in-out infinite}
-.deco-leaf-bob-slow{animation:leafBob 8s .5s ease-in-out infinite}
-@keyframes leafBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}
-@keyframes leafSway{0%,100%{transform:rotate(0) scale(1)}33%{transform:rotate(1.5deg) scale(1.01)}66%{transform:rotate(-1deg) scale(.99)}}
-.deco-leaf-sway{animation:leafSway 10s ease-in-out infinite}
+.deco-leaf svg,.deco-leaf img{width:100%;height:100%;object-fit:contain}
+.deco-leaf-bg{z-index:0;filter:blur(2px) saturate(1.3);opacity:.3!important}
+.deco-leaf-mid{z-index:1;filter:blur(1px) saturate(1.15);opacity:.22!important}
+.deco-leaf-fg{z-index:3;filter:drop-shadow(4px 8px 16px rgba(0,40,30,.15)) drop-shadow(2px 4px 8px rgba(0,40,30,.08));opacity:.2!important}
+.deco-leaf-bob{animation:leafDrift 6s ease-in-out infinite}
+.deco-leaf-bob-2{animation:leafFloat 8s 1.2s ease-in-out infinite}
+.deco-leaf-bob-3{animation:leafFlutter 5s 2s ease-in-out infinite}
+.deco-leaf-bob-slow{animation:leafBreeze 12s .5s ease-in-out infinite}
+.deco-leaf-sway{animation:leafWindSway 14s ease-in-out infinite}
+@keyframes leafDrift{0%,100%{transform:translateY(0) translateX(0) rotate(0)}25%{transform:translateY(-12px) translateX(5px) rotate(3deg)}50%{transform:translateY(-6px) translateX(-3px) rotate(-1.5deg)}75%{transform:translateY(-14px) translateX(2px) rotate(2deg)}}
+@keyframes leafFloat{0%,100%{transform:translateY(0) translateX(0) rotate(0) scale(1)}20%{transform:translateY(-8px) translateX(6px) rotate(2.5deg) scale(1.02)}45%{transform:translateY(-16px) translateX(-2px) rotate(-1deg) scale(.99)}70%{transform:translateY(-4px) translateX(4px) rotate(1.5deg) scale(1.01)}90%{transform:translateY(-10px) translateX(-4px) rotate(-2deg) scale(1)}}
+@keyframes leafFlutter{0%,100%{transform:translateY(0) translateX(0) rotate(0)}15%{transform:translateY(-6px) translateX(3px) rotate(4deg)}35%{transform:translateY(-10px) translateX(-4px) rotate(-3deg)}55%{transform:translateY(-3px) translateX(5px) rotate(2deg)}75%{transform:translateY(-8px) translateX(-2px) rotate(-2.5deg)}}
+@keyframes leafBreeze{0%,100%{transform:translateY(0) translateX(0) rotate(0) scale(1)}15%{transform:translateY(-6px) translateX(3px) rotate(1.5deg) scale(1.01)}30%{transform:translateY(-10px) translateX(-2px) rotate(-1deg) scale(.99)}50%{transform:translateY(-4px) translateX(5px) rotate(2deg) scale(1.02)}70%{transform:translateY(-12px) translateX(-3px) rotate(-1.5deg) scale(1)}85%{transform:translateY(-5px) translateX(2px) rotate(.5deg) scale(1.01)}}
+@keyframes leafWindSway{0%,100%{transform:rotate(0) scale(1) translateX(0)}12%{transform:rotate(2deg) scale(1.01) translateX(4px)}28%{transform:rotate(-1.5deg) scale(.99) translateX(-3px)}45%{transform:rotate(1deg) scale(1.02) translateX(6px)}62%{transform:rotate(-2deg) scale(1) translateX(-5px)}78%{transform:rotate(1.5deg) scale(1.01) translateX(3px)}90%{transform:rotate(-.5deg) scale(.99) translateX(-2px)}}
 .deco-circle{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+
+/* ══ GIFT OPENING SCENE — MARISSA STYLE ══ */
+.gift-scene{position:relative;width:240px;height:300px;margin:0 auto 16px;overflow:visible;cursor:pointer}
+.gift-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:240px;height:200px}
+/* Lid */
+.gift-lid{position:absolute;top:0;left:0;width:100%;z-index:5;transition:none}
+/* Inner glow (visible after lid opens) */
+.gift-inner-glow{position:absolute;top:10px;left:50%;transform:translateX(-50%) scale(0);width:160px;height:40px;background:radial-gradient(ellipse,rgba(10,209,217,.5),rgba(22,208,156,.2),transparent);filter:blur(12px);opacity:0;z-index:3}
+/* Diamond rising */
+.gift-diamond-rise{position:absolute;top:30px;left:50%;transform:translateX(-50%) translateY(0) scale(.3);opacity:0;z-index:6;transition:none}
+/* Glow burst */
+.gift-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%) scale(0);opacity:0;z-index:2;pointer-events:none}
+/* Leaf particles */
+.gift-leaves{position:absolute;inset:0;z-index:7;pointer-events:none}
+.gift-leaves span{position:absolute;top:30%;left:50%;opacity:0}
+/* Reveal text */
+.gift-reveal-msg{opacity:0;transform:translateY(20px) scale(.9);transition:none;text-align:center}
+/* Animated states */
+.gift-scene.animate .gift-wrap{animation:boxWiggle .5s ease-in-out .15s}
+.gift-scene.animate .gift-lid{animation:lidLift .8s cubic-bezier(.2,.9,.3,1) .4s forwards}
+.gift-scene.animate .gift-inner-glow{animation:innerGlow .6s ease-out .9s forwards}
+.gift-scene.animate .gift-diamond-rise{animation:diamondRise 1.2s cubic-bezier(.22,1,.36,1) .9s forwards}
+.gift-scene.animate .gift-glow{animation:glowBurst 1.2s ease-out 1.1s forwards}
+.gift-scene.animate .gift-leaves span{animation:leafScatter 1.8s ease-out forwards}
+.gift-scene.animate .gift-leaves span:nth-child(1){animation-delay:1.1s;--tx:-100px;--ty:-110px;--r:-50deg}
+.gift-scene.animate .gift-leaves span:nth-child(2){animation-delay:1.15s;--tx:95px;--ty:-90px;--r:35deg}
+.gift-scene.animate .gift-leaves span:nth-child(3){animation-delay:1.2s;--tx:-55px;--ty:-140px;--r:65deg}
+.gift-scene.animate .gift-leaves span:nth-child(4){animation-delay:1.25s;--tx:75px;--ty:-120px;--r:-30deg}
+.gift-scene.animate .gift-leaves span:nth-child(5){animation-delay:1.3s;--tx:-35px;--ty:-155px;--r:55deg}
+.gift-scene.animate .gift-leaves span:nth-child(6){animation-delay:1.35s;--tx:45px;--ty:-100px;--r:-65deg}
+.gift-scene.animate~.gift-reveal-msg{animation:revealText .8s ease-out 2.4s forwards}
+@keyframes boxWiggle{0%,100%{transform:translateX(-50%) rotate(0)}15%{transform:translateX(-50%) rotate(-3deg)}35%{transform:translateX(-50%) rotate(3.5deg)}55%{transform:translateX(-50%) rotate(-2deg)}75%{transform:translateX(-50%) rotate(1.5deg)}}
+@keyframes lidLift{0%{transform:translateY(0) rotate(0);opacity:1}60%{opacity:1}100%{transform:translateY(-120px) rotate(-18deg);opacity:0}}
+@keyframes innerGlow{0%{transform:translateX(-50%) scale(0);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
+@keyframes diamondRise{0%{transform:translateX(-50%) translateY(0) scale(.3);opacity:0}20%{opacity:1;transform:translateX(-50%) translateY(-10px) scale(.5)}100%{transform:translateX(-50%) translateY(-50px) scale(1);opacity:1;filter:drop-shadow(0 0 24px rgba(10,209,217,.6)) drop-shadow(0 0 50px rgba(10,209,217,.25))}}
+@keyframes glowBurst{0%{transform:translateX(-50%) scale(0);opacity:0}35%{transform:translateX(-50%) scale(1.2);opacity:.8}100%{transform:translateX(-50%) scale(3);opacity:0}}
+@keyframes leafScatter{0%{transform:translate(0,0) rotate(0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) rotate(var(--r)) scale(0);opacity:0}}
+@keyframes revealText{0%{transform:translateY(20px) scale(.9);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes arrowBounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+@keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
 /* ══ DIAMOND ANIMATION ══ */
 @keyframes diamondFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(3deg)}}
@@ -71,12 +115,15 @@ a{text-decoration:none;color:inherit}
 @keyframes stepPulse{0%,100%{box-shadow:0 0 0 0 rgba(241,194,50,.4)}50%{box-shadow:0 0 0 6px rgba(241,194,50,0)}}
 
 /* ══ CONFIRM BANNER ══ */
-.confirm-banner{background:linear-gradient(135deg,rgba(10,209,217,.06),rgba(22,208,156,.04));border-bottom:1px solid rgba(10,209,217,.1);padding:20px 24px;text-align:center}
-.confirm-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.confirm-check{width:32px;height:32px;border-radius:50%;background:var(--tg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.confirm-check svg{width:18px;height:18px;stroke:#fff;stroke-width:3;fill:none}
-.confirm-text{font-size:15px;color:var(--char)}
-.confirm-text strong{color:var(--ablack);font-weight:700}
+.confirm-banner{background:linear-gradient(135deg,#ff4f49,#e63e38,#d42a24);border-bottom:4px solid #b81c18;border-top:4px solid #b81c18;padding:20px 24px;text-align:center;position:relative;overflow:hidden;animation:bannerPulse 1.8s ease-in-out infinite;box-shadow:0 4px 20px rgba(255,79,73,.35),inset 0 0 60px rgba(0,0,0,.1)}
+.confirm-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 18px,rgba(255,255,255,.08) 18px,rgba(255,255,255,.08) 19px);pointer-events:none}
+@keyframes bannerPulse{0%,100%{background:linear-gradient(135deg,#ff4f49,#e63e38,#d42a24);box-shadow:0 4px 20px rgba(255,79,73,.35),inset 0 0 60px rgba(0,0,0,.1)}50%{background:linear-gradient(135deg,#e63e38,#cc2020,#b81c18);box-shadow:0 4px 30px rgba(255,79,73,.5),inset 0 0 80px rgba(0,0,0,.15)}}
+.confirm-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.confirm-warn{flex-shrink:0;animation:warnFlash 1.2s ease-in-out infinite}
+.confirm-warn svg{width:32px;height:32px}
+@keyframes warnFlash{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.15)}}
+.confirm-text{font-family:var(--display);font-size:clamp(20px,3vw,28px);font-weight:900;color:#fff;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.confirm-text strong{color:var(--ablack);font-weight:900}
 
 /* ══════════════════════════════════════════════
    HERO — CENTERED EDITORIAL MAGAZINE COVER
@@ -100,13 +147,13 @@ a{text-decoration:none;color:inherit}
 .device-dot{width:10px;height:10px;border-radius:50%}
 .device-url{flex:1;height:22px;background:rgba(255,255,255,.04);border-radius:12px;display:flex;align-items:center;padding:0 12px;margin-left:8px}
 .device-url span{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.02em}
-.hero-vsl{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;background:linear-gradient(135deg,rgba(26,26,46,.95),rgba(10,38,40,.9))}
+.hero-vsl{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;background:linear-gradient(135deg,rgba(26,26,46,.95),rgba(10,38,40,.9))}
 .hero-vsl::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.3),transparent);pointer-events:none}
 .vsl-play{width:76px;height:76px;background:var(--cherry);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);display:flex;align-items:center;justify-content:center;transition:transform .3s;position:relative;z-index:2;filter:drop-shadow(0 4px 12px rgba(255,79,73,.4)) drop-shadow(0 8px 28px rgba(255,79,73,.2))}
 .hero-vsl:hover .vsl-play{transform:scale(1.15) rotate(15deg)}
 .vsl-play svg{margin-left:4px}
 /* Challenge panel &mdash; glass card below device */
-.challenge-panel{max-width:960px;width:100%;margin:8px auto 0;background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(238,249,248,.5),rgba(255,255,255,.5));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:16px 24px;display:flex;align-items:center;gap:20px;border:1px solid rgba(255,255,255,.7);border-top:3px solid;border-image:var(--tg) 1;box-shadow:var(--sh-lg),inset 0 1px 0 rgba(255,255,255,.8),0 0 60px rgba(10,209,217,.06);position:relative;overflow:hidden;z-index:5}
+.challenge-panel{max-width:960px;width:100%;margin:24px auto 0;background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(238,249,248,.5),rgba(255,255,255,.5));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:16px 24px;display:flex;align-items:center;gap:20px;border:1px solid rgba(255,255,255,.7);border-top:3px solid;border-image:var(--tg) 1;box-shadow:var(--sh-lg),inset 0 1px 0 rgba(255,255,255,.8),0 0 60px rgba(10,209,217,.06);position:relative;overflow:hidden;z-index:5}
 .challenge-panel::before{content:'';position:absolute;inset:0;opacity:.03;background-image:var(--grain);pointer-events:none}
 .cp-icon{flex-shrink:0;width:56px;height:56px;display:flex;align-items:center;justify-content:center}
 .cp-text{flex:1;position:relative;z-index:2}
@@ -114,11 +161,11 @@ a{text-decoration:none;color:inherit}
 .cp-text h3 span{color:var(--cherry)}
 .cp-text p{font-size:13px;line-height:1.55;color:var(--char);margin:0}
 /* Value pills &mdash; centered row */
-.hero-pills{max-width:720px;width:100%;margin:8px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.hero-pills{max-width:720px;width:100%;margin:24px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .hero-pill{display:flex;align-items:center;gap:7px;padding:8px 16px;background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(238,249,248,.5));backdrop-filter:blur(16px);border:1px solid rgba(10,209,217,.15);font-size:13px;font-weight:700;color:var(--char);box-shadow:0 2px 8px rgba(0,0,0,.03),inset 0 1px 0 rgba(255,255,255,.8)}
 .hero-pill svg{width:16px;height:16px;flex-shrink:0}
 /* CTA centered */
-.cta-center{max-width:540px;width:100%;margin:10px auto 0;display:flex;flex-direction:column;align-items:center;gap:12px}
+.cta-center{max-width:540px;width:100%;margin:28px auto 0;display:flex;flex-direction:column;align-items:center;gap:16px}
 
 /* ══ SHARED CTA STYLES ══ */
 .cta-main{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:22px 40px;font-family:var(--body);font-size:clamp(16px,1.8vw,20px);font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cherry),#ff6b5e);border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;overflow:hidden;transition:all .2s;box-shadow:0 5px 0 var(--cherry-dk),0 7px 0 rgba(0,0,0,.1),0 10px 40px rgba(255,79,73,.3);text-align:center;line-height:1.3;text-decoration:none}
@@ -132,12 +179,13 @@ a{text-decoration:none;color:inherit}
 .cta-urgency{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:var(--cherry)}
 .cta-urgency-dot{width:7px;height:7px;border-radius:50%;background:var(--cherry);animation:urgencyPulse 1.5s ease-in-out infinite}
 @keyframes urgencyPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-@keyframes scaryShake{0%,100%{transform:translateX(0)}8%{transform:translateX(-5px) rotate(-.5deg)}16%{transform:translateX(5px) rotate(.5deg)}24%{transform:translateX(-4px) rotate(-.3deg)}32%{transform:translateX(4px) rotate(.3deg)}40%{transform:translateX(-3px)}48%{transform:translateX(3px)}56%{transform:translateX(-2px)}64%{transform:translateX(1px)}72%,100%{transform:translateX(0)}}
+@keyframes scaryShake{0%,100%{transform:translateX(0)}10%{transform:translateX(-6px) rotate(-1deg)}20%{transform:translateX(6px) rotate(1deg)}30%{transform:translateX(-5px) rotate(-.8deg)}40%{transform:translateX(5px) rotate(.8deg)}50%{transform:translateX(-3px)}60%{transform:translateX(3px)}70%{transform:translateX(-2px)}80%{transform:translateX(1px)}90%,100%{transform:translateX(0)}}
+@keyframes scaryFlash{0%{background:rgba(255,79,73,.08)}25%{background:rgba(255,79,73,.18)}50%{background:rgba(255,79,73,.08)}75%{background:rgba(255,79,73,.22)}100%{background:rgba(255,79,73,.12)}}
 @keyframes confirmBtnPulse{0%,100%{box-shadow:0 4px 0 var(--cherry-dk),var(--sh-sm),0 0 0 0 rgba(255,79,73,.5);transform:scale(1)}50%{box-shadow:0 4px 0 var(--cherry-dk),var(--sh-md),0 0 0 14px rgba(255,79,73,0),0 0 50px rgba(255,79,73,.15);transform:scale(1.03)}}
-.cta-decline{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--slate);background:none;border:1px solid rgba(0,0,0,.08);cursor:pointer;transition:all .2s;font-family:var(--body);text-decoration:none}
-.cta-decline:hover{color:var(--cherry);border-color:rgba(255,79,73,.3);background:rgba(255,79,73,.06);animation:scaryShake .5s ease-in-out;box-shadow:0 0 20px rgba(255,79,73,.08)}
-.cta-decline-dark{color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.06)}
-.cta-decline-dark:hover{color:var(--cherry);border-color:rgba(255,79,73,.3);background:rgba(255,79,73,.06);animation:scaryShake .5s ease-in-out;box-shadow:0 0 20px rgba(255,79,73,.1)}
+.cta-decline{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--slate);background:none;border:1px solid rgba(0,0,0,.1);cursor:pointer;transition:all .15s;font-family:var(--body);text-decoration:none}
+.cta-decline:hover{color:#fff;font-weight:700;border-color:var(--cherry);background:linear-gradient(135deg,rgba(139,0,0,.8),rgba(255,79,73,.65));animation:scaryShake .4s ease-in-out,scaryFlash .3s ease-in-out 2;box-shadow:inset 0 0 30px rgba(139,0,0,.2),0 0 25px rgba(255,79,73,.2),0 0 50px rgba(255,79,73,.08);text-shadow:0 0 8px rgba(255,255,255,.3),0 2px 4px rgba(0,0,0,.2)}
+.cta-decline-dark{color:var(--t1);border:1px solid rgba(10,209,217,.25);background:rgba(10,209,217,.06);text-decoration:none;font-size:13px;letter-spacing:.02em}
+.cta-decline-dark:hover{color:#fff;font-weight:700;border-color:var(--cherry);background:linear-gradient(135deg,rgba(139,0,0,.85),rgba(255,79,73,.7));animation:scaryShake .4s ease-in-out,scaryFlash .3s ease-in-out 2;box-shadow:inset 0 0 30px rgba(139,0,0,.3),0 0 25px rgba(255,79,73,.25),0 0 60px rgba(255,79,73,.1);text-shadow:0 0 8px rgba(255,255,255,.4),0 2px 4px rgba(0,0,0,.3)}
 
 /* ══ TICKER BAR ══ */
 .ticker-wrap{overflow:hidden;background:var(--ablack);padding:14px 0;position:relative;box-shadow:inset 0 2px 8px rgba(0,0,0,.3)}
@@ -167,7 +215,8 @@ a{text-decoration:none;color:inherit}
 .qualify-title{font-family:var(--display);font-size:clamp(30px,4.5vw,48px);font-weight:700;color:var(--ablack);line-height:1.08;letter-spacing:-.02em;margin-bottom:10px}
 .qualify-scr{font-family:var(--script);font-size:clamp(22px,2.8vw,28px);color:var(--cherry);transform:rotate(-1.5deg)}
 .checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.checks li{display:flex;align-items:flex-start;gap:14px;font-size:clamp(14px,1.3vw,15.5px);line-height:1.7;padding:30px 26px 30px 22px;background:linear-gradient(175deg,#fff 0%,#faf8f5 100%);position:relative;transition:transform .3s ease,box-shadow .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.08),0 8px 28px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.03)}
+.checks li{display:flex;align-items:flex-start;gap:14px;font-size:clamp(14px,1.3vw,15.5px);line-height:1.7;padding:30px 26px 30px 22px;background:linear-gradient(175deg,#fff 0%,#faf8f5 100%);position:relative;transition:transform .3s ease,box-shadow .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.08),0 8px 28px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.03),0 0 40px rgba(10,209,217,.02);border:1px solid rgba(0,0,0,.03);overflow:hidden}
+.checks li>svg+span::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(10,209,217,.04) 0%,transparent 60%);pointer-events:none}
 .checks li::before{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--cherry);box-shadow:0 1px 4px rgba(255,79,73,.3),inset 0 -1px 1px rgba(0,0,0,.15);z-index:2}
 .checks li::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tg)}
 .checks li:nth-child(1){transform:rotate(-.8deg)}
@@ -204,7 +253,7 @@ a{text-decoration:none;color:inherit}
 .gift-num{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);font-family:var(--display);font-size:15px;font-weight:900;color:#fff;flex-shrink:0}
 .gift-ribbon-name{font-family:var(--display);font-size:clamp(13px,1.5vw,16px);font-weight:800;color:#fff;letter-spacing:.08em;text-transform:uppercase}
 .gift-bow-wrap{position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:5;filter:drop-shadow(0 2px 6px rgba(255,79,73,.25))}
-.gift-box-body{background:linear-gradient(175deg,rgba(20,55,58,.85),rgba(10,38,40,.97));border:1px solid rgba(10,209,217,.12);border-top:none;position:relative;overflow:hidden;box-shadow:inset 0 2px 16px rgba(0,0,0,.15),inset 0 -1px 0 rgba(10,209,217,.04)}
+.gift-box-body{background:linear-gradient(175deg,rgba(20,55,58,.85),rgba(10,38,40,.97));border:1px solid rgba(10,209,217,.12);border-top:none;position:relative;overflow:hidden;box-shadow:inset 0 2px 16px rgba(0,0,0,.15),inset 0 -1px 0 rgba(10,209,217,.04),inset 0 0 60px rgba(10,209,217,.03)}
 .gift-box-body::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;pointer-events:none;opacity:.2;mix-blend-mode:soft-light}
 .gift-illo{display:flex;align-items:center;justify-content:center;padding:44px 20px 28px;position:relative}
 .gift-illo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(10,209,217,.05),transparent 65%);pointer-events:none}
@@ -235,8 +284,8 @@ a{text-decoration:none;color:inherit}
 .gift-cta-buy{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:18px 32px;font-family:var(--body);font-size:clamp(15px,1.6vw,18px);font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cherry),#ff6b5e);border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 4px 0 var(--cherry-dk),0 6px 24px rgba(255,79,73,.2);transition:all .2s;position:relative;overflow:hidden;text-decoration:none}
 .gift-cta-buy:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--cherry-dk),0 10px 32px rgba(255,79,73,.3)}
 .gift-cta-buy::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:ctaShimmer 3.5s ease-in-out infinite}
-.gift-cta-no{font-family:var(--body);font-size:11px;font-weight:400;color:rgba(255,255,255,.2);background:none;border:none;cursor:pointer;transition:all .3s;line-height:1.5;text-align:center;padding:8px 16px;max-width:400px}
-.gift-cta-no:hover{color:var(--cherry);text-decoration:underline;animation:scaryShake .5s ease-in-out;text-shadow:0 0 12px rgba(255,79,73,.3)}
+.gift-cta-no{font-family:var(--body);font-size:11px;font-weight:400;color:var(--t1);background:rgba(10,209,217,.04);border:1px solid rgba(10,209,217,.15);cursor:pointer;transition:all .15s;line-height:1.5;text-align:center;padding:8px 16px;max-width:400px;opacity:.7}
+.gift-cta-no:hover{color:#fff;font-weight:600;border-color:var(--cherry);background:linear-gradient(135deg,rgba(139,0,0,.8),rgba(255,79,73,.6));animation:scaryShake .4s ease-in-out,scaryFlash .3s ease-in-out 2;box-shadow:inset 0 0 24px rgba(139,0,0,.25),0 0 20px rgba(255,79,73,.2);text-shadow:0 0 8px rgba(255,255,255,.35),0 2px 4px rgba(0,0,0,.3);text-decoration:none}
 .gift-bridge{max-width:860px;margin:0 auto;text-align:center;padding:4px 0;position:relative}
 .gift-bridge-stem{width:2px;height:40px;margin:0 auto;background:linear-gradient(180deg,rgba(10,209,217,.25),rgba(10,209,217,.05))}
 .gift-bridge-text{font-family:var(--display);font-size:clamp(15px,2vw,19px);font-weight:700;color:rgba(255,255,255,.6);line-height:1.4;padding:10px 0}
@@ -251,7 +300,7 @@ a{text-decoration:none;color:inherit}
    COMPARISON &mdash; DRAMATIC SCALE CONTRAST
    Free = tiny pathetic receipt. VIP = premium card.
    ══════════════════════════════════════════════ */
-.compare-sec{position:relative;background:var(--warm);padding:96px 3% 88px;overflow:hidden}
+.compare-sec{position:relative;background:var(--ablack);padding:96px 3% 88px;overflow:hidden}
 .compare-sec::before{content:'';position:absolute;top:30%;right:-100px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(10,209,217,.05) 0%,transparent 55%);filter:blur(30px);pointer-events:none;z-index:0}
 .compare-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:180px;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.5}
 .compare-inner{max-width:960px;margin:0 auto;position:relative;z-index:2}
@@ -260,22 +309,22 @@ a{text-decoration:none;color:inherit}
 .compare-sub{text-align:center;font-family:var(--script);font-size:clamp(20px,2.8vw,28px);color:var(--cherry);margin-bottom:56px;transform:rotate(-1deg)}
 .compare-grid{display:grid;grid-template-columns:.45fr 1fr;gap:32px;align-items:start;position:relative}
 /* Free &mdash; pathetic receipt */
-.compare-free{padding:22px 18px;background:rgba(0,0,0,.015);border:1px dashed rgba(0,0,0,.08);opacity:.45;transition:opacity .3s;transform:scale(.97);transform-origin:top right}
-.compare-free:hover{opacity:.6}
-.compare-free-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed rgba(0,0,0,.06)}
+.compare-free{padding:22px 18px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.1);opacity:.55;transition:opacity .3s;transform:scale(.97);transform-origin:top right}
+.compare-free:hover{opacity:.7}
+.compare-free-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed rgba(255,255,255,.08)}
 /* VIP &mdash; premium glassmorphism */
-.compare-vip{padding:40px 36px;position:relative;overflow:hidden;transform:scale(1.02);background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(238,249,248,.55),rgba(255,255,255,.6));backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,.8);border-top:3px solid;border-image:var(--tg) 1;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.9),0 0 80px rgba(10,209,217,.08),0 24px 64px rgba(0,0,0,.06)}
+.compare-vip{padding:40px 36px;position:relative;overflow:hidden;transform:scale(1.02);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(10,209,217,.06),rgba(255,255,255,.05));backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(10,209,217,.2);border-top:3px solid;border-image:var(--tg) 1;box-shadow:0 0 80px rgba(10,209,217,.08),0 24px 64px rgba(0,0,0,.2),0 0 120px rgba(10,209,217,.04)}
 .compare-vip::after{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,transparent 65%);pointer-events:none}
 .compare-vip-badge{position:absolute;top:16px;right:16px;padding:6px 16px;background:var(--tg);font-size:10px;font-weight:800;color:#fff;letter-spacing:.1em;text-transform:uppercase;z-index:4;box-shadow:0 2px 10px rgba(10,209,217,.25)}
 .compare-vip-label{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pacific);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(10,209,217,.12)}
-.compare-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:14px;color:var(--slate)}
+.compare-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px;color:rgba(255,255,255,.6)}
 .compare-row:last-child{border-bottom:none}
 .chk{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .chk-y{background:rgba(10,209,217,.12)}
 .chk-y svg{width:12px;height:12px;stroke:var(--t1);fill:none;stroke-width:3}
-.chk-n{background:rgba(0,0,0,.03)}
-.chk-n svg{width:10px;height:10px;stroke:rgba(0,0,0,.15);fill:none;stroke-width:2.5}
-.compare-vip .compare-row{color:var(--char);border-bottom-color:rgba(10,209,217,.08);font-weight:600;font-size:15px}
+.chk-n{background:rgba(255,79,73,.08)}
+.chk-n svg{width:10px;height:10px;stroke:rgba(255,79,73,.4);fill:none;stroke-width:2.5}
+.compare-vip .compare-row{color:#fff;border-bottom-color:rgba(10,209,217,.1);font-weight:600;font-size:15px}
 .compare-vip .chk-y{background:rgba(10,209,217,.15);box-shadow:0 0 12px rgba(10,209,217,.08)}
 .compare-vs{display:none}
 .compare-cta-wrap{max-width:540px;margin:56px auto 0}
@@ -292,7 +341,8 @@ a{text-decoration:none;color:inherit}
 .price-title{font-family:var(--display);font-size:clamp(26px,4.5vw,42px);font-weight:700;color:#fff;line-height:1.12;margin-bottom:12px;letter-spacing:-.015em}
 .price-scr{font-family:var(--script);font-size:clamp(20px,2.4vw,26px);color:var(--cherry);transform:rotate(-2deg);margin-bottom:36px}
 /* THE VIP PASS */
-.vip-pass{background:linear-gradient(180deg,#fff,#faf8f5);overflow:hidden;box-shadow:var(--sh-xl),0 0 80px rgba(10,209,217,.08),0 24px 80px rgba(0,0,0,.08);position:relative;margin-bottom:32px;border:1px solid rgba(0,0,0,.03)}
+.vip-pass{background:linear-gradient(180deg,#fff,#faf8f5);overflow:hidden;box-shadow:var(--sh-xl),0 0 80px rgba(10,209,217,.1),0 24px 80px rgba(0,0,0,.1),0 0 120px rgba(10,209,217,.05);position:relative;margin-bottom:32px;border:1px solid rgba(0,0,0,.03)}
+.vip-pass::after{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:300px;height:200px;background:radial-gradient(ellipse,rgba(10,209,217,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
 .vip-pass-top{background:var(--tg);padding:20px 28px;text-align:center;position:relative}
 .vip-pass-top::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.03) 30px,rgba(0,0,0,.03) 31px);pointer-events:none}
 .vip-pass-type{font-family:var(--display);font-size:10px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px}
@@ -358,15 +408,19 @@ a{text-decoration:none;color:inherit}
 .exit-desc-text:last-of-type{margin-bottom:8px}
 .exit-warning{background:rgba(255,79,73,.04);border:1px solid rgba(255,79,73,.1);padding:10px 14px;margin-bottom:10px}
 .exit-warn-title{display:flex;align-items:center;gap:6px;font-family:var(--display);font-size:9px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:6px}
-.exit-lose-item{display:flex;align-items:center;gap:8px;padding:4px 10px;margin-bottom:2px;background:rgba(255,79,73,.02);border:1px solid rgba(255,79,73,.05);font-size:13px;font-weight:600;color:rgba(255,255,255,.5);transition:background .2s}
-.exit-lose-item:last-child{margin-bottom:0;color:var(--cherry);font-weight:700;border-color:rgba(255,79,73,.12);background:rgba(255,79,73,.04)}
 .exit-lose-item svg{width:13px;height:13px;stroke:var(--cherry);fill:none;stroke-width:2.5;flex-shrink:0}
+.exit-lose-item:last-child{margin-bottom:0;color:var(--cherry);font-weight:700;border-color:rgba(255,79,73,.12);background:rgba(255,79,73,.04)}
 .exit-cta-main{width:100%;padding:14px;font-family:var(--body);font-size:clamp(15px,1.6vw,18px);font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cherry),#ff6b5e);border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 5px 0 var(--cherry-dk),0 7px 24px rgba(255,79,73,.25);transition:all .2s;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px}
 .exit-cta-main:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--cherry-dk),0 10px 32px rgba(255,79,73,.35)}
 .exit-cta-main::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:exitShimmer 3s ease-in-out infinite}
 @keyframes exitShimmer{0%{left:-100%}40%,100%{left:100%}}
-.exit-no-btn{width:100%;padding:8px 14px;margin-top:6px;font-family:var(--body);font-size:11px;font-weight:400;color:rgba(255,255,255,.2);background:none;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:all .3s;line-height:1.65;text-align:center}
-.exit-no-btn:hover{color:var(--cherry);border-color:rgba(255,79,73,.3);background:rgba(255,79,73,.06);animation:scaryShake .5s ease-in-out;box-shadow:inset 0 0 24px rgba(255,79,73,.06),0 0 16px rgba(255,79,73,.08);text-shadow:0 0 10px rgba(255,79,73,.2)}
+@keyframes iphoneWobble{0%{transform:rotate(0deg)}25%{transform:rotate(2deg)}50%{transform:rotate(0deg)}75%{transform:rotate(-2deg)}100%{transform:rotate(0deg)}}
+@keyframes overlayRedFlash{0%{background:rgba(0,0,0,.9)}30%{background:rgba(139,0,0,.85)}60%{background:rgba(0,0,0,.9)}80%{background:rgba(139,0,0,.7)}100%{background:rgba(139,0,0,.6)}}
+.exit-no-btn{width:100%;padding:10px 14px;margin-top:6px;font-family:var(--body);font-size:12px;font-weight:500;color:rgba(255,255,255,.55);background:none;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .15s;line-height:1.65;text-align:center}
+.exit-no-btn:hover{color:#fff;font-weight:700;border-color:var(--cherry);background:linear-gradient(135deg,rgba(139,0,0,.85),rgba(255,79,73,.7));animation:scaryShake .4s ease-in-out;box-shadow:inset 0 0 30px rgba(139,0,0,.3),0 0 25px rgba(255,79,73,.25),0 0 60px rgba(255,79,73,.1);text-shadow:0 0 8px rgba(255,255,255,.4),0 2px 4px rgba(0,0,0,.3)}
+.exit-no-btn:hover~.exit-overlay-bg{background:red}
+.exit-lose-item{display:flex;align-items:center;gap:8px;padding:4px 10px;margin-bottom:2px;background:rgba(255,79,73,.02);border:1px solid rgba(255,79,73,.05);font-size:13px;font-weight:600;color:rgba(255,255,255,.5);transition:all .3s;text-decoration:none;position:relative}
+.exit-lose-item.wobble{animation:iphoneWobble .25s ease-in-out infinite;text-decoration:line-through;text-decoration-color:var(--cherry);text-decoration-thickness:2px;color:rgba(255,255,255,.3);background:rgba(255,79,73,.08);border-color:rgba(255,79,73,.2)}
 
 /* ══ CONFIRM POPUP ══ */
 .exit-confirm{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;visibility:hidden;transition:opacity .3s,visibility .3s}
@@ -378,8 +432,8 @@ a{text-decoration:none;color:inherit}
 .confirm-stay-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:20px;font-size:16px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cherry),#ff6b5e);border:none;cursor:pointer;box-shadow:0 4px 0 var(--cherry-dk),var(--sh-sm);margin-bottom:10px;transition:all .2s;font-family:var(--body);text-transform:uppercase;letter-spacing:.04em;animation:confirmBtnPulse 1.8s ease-in-out infinite;position:relative;overflow:hidden}
 .confirm-stay-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);animation:exitShimmer 2.5s ease-in-out infinite}
 .confirm-stay-btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--cherry-dk),var(--sh-md)}
-.confirm-go-btn{width:100%;padding:12px;font-size:12px;font-weight:400;color:rgba(255,255,255,.25);background:none;border:none;cursor:pointer;transition:color .2s;font-family:var(--body)}
-.confirm-go-btn:hover{color:var(--cherry);background:rgba(255,79,73,.08);border:1px solid rgba(255,79,73,.25);text-decoration:underline;animation:scaryShake .5s ease-in-out;box-shadow:inset 0 0 30px rgba(255,79,73,.06),0 0 20px rgba(255,79,73,.1);text-shadow:0 0 12px rgba(255,79,73,.3)}
+.confirm-go-btn{width:100%;padding:12px;font-size:12px;font-weight:400;color:rgba(255,255,255,.45);background:none;border:1px solid transparent;cursor:pointer;transition:all .15s;font-family:var(--body)}
+.confirm-go-btn:hover{color:#fff;font-weight:700;border-color:var(--cherry);background:linear-gradient(135deg,rgba(139,0,0,.85),rgba(255,79,73,.7));animation:scaryShake .4s ease-in-out,scaryFlash .3s ease-in-out 2;box-shadow:inset 0 0 30px rgba(139,0,0,.3),0 0 25px rgba(255,79,73,.25),0 0 60px rgba(255,79,73,.1);text-shadow:0 0 8px rgba(255,255,255,.4),0 2px 4px rgba(0,0,0,.3);text-decoration:none}
 
 /* ══ GHL ══ */
 .fi{opacity:1!important;transform:none!important}
@@ -389,20 +443,24 @@ body::before,body::after{display:none!important}
 /* ══ RESPONSIVE ══ */
 @media(min-width:701px){
 .compare-vs{display:flex;align-items:center;justify-content:center;position:absolute;left:calc(22.5% + 16px);top:50%;transform:translate(-50%,-50%);z-index:5}
-.compare-vs-badge{width:48px;height:48px;background:var(--warm);border:2px solid rgba(10,209,217,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:800;color:var(--pacific);letter-spacing:.04em;box-shadow:var(--sh-md)}}
+.compare-vs-badge{width:48px;height:48px;background:#0a2628;border:2px solid rgba(10,209,217,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:800;color:var(--t1);letter-spacing:.04em;box-shadow:0 4px 16px rgba(0,0,0,.3)}}
+/* ── TABLET (768px) ── */
 @media(max-width:768px){
 .hero-vip{padding:12px 4% 16px}
 .hero-watermark{font-size:clamp(120px,25vw,200px)}
 .deco-leaf-fg,.deco-leaf-mid{display:none}
-.deco-leaf-bg{opacity:.1!important}
+.deco-leaf-bg{opacity:.12!important;filter:blur(3px) saturate(1.2)!important}
 .checks{grid-template-columns:1fr}
 .gift-duo{grid-template-columns:1fr}
 .gift-content{padding:0 24px 32px}
+.gift-illo{padding:32px 16px 20px}
 .compare-grid{grid-template-columns:1fr;gap:20px}
 .compare-vip{transform:scale(1);padding:32px 28px}
 .compare-free{transform:scale(1);opacity:.5}
 .qualify-sec{padding:60px 4% 56px}
+.qualify-hdr{margin-bottom:36px}
 .gifts-sec{padding:60px 4% 56px}
+.gifts-hdr{margin-bottom:44px}
 .compare-sec{padding:60px 4% 56px}
 .price-sec{padding:60px 4% 56px}
 .vip-pass-body{padding:28px 24px}
@@ -410,15 +468,233 @@ body::before,body::after{display:none!important}
 .hero-pills{gap:8px}
 .hero-pill{padding:6px 12px;font-size:12px}
 .challenge-panel{flex-direction:column;text-align:center;gap:12px;padding:20px}
+.gift-bridge-stem{height:28px}
+.trust-bar{flex-direction:column;gap:12px}
+.steps-pill{padding:6px 14px;gap:8px}
+.steps-label{font-size:12px}
+.ticker-wrap{padding:10px 0}
+.tick-item{font-size:12px}
 }
+/* ── LARGE PHONE (480px) ── */
 @media(max-width:480px){
-.hero-vip h1{font-size:clamp(30px,8vw,40px)}
-.cta-main{padding:20px 24px;font-size:15px}
+.hero-vip{padding:10px 3% 12px}
+.hero-vip h1{font-size:clamp(26px,7.5vw,36px)}
+.hero-sub{font-size:14px;margin-bottom:8px}
+.hero-wrap{padding:0 2%}
+.hero-device{margin-top:8px}
+.cta-main{padding:18px 20px;font-size:14px;letter-spacing:.04em}
+.cta-decline{padding:10px 16px;font-size:12px}
 .price-now{font-size:56px}
-.gift-content{padding:0 20px 28px}
+.price-orig{font-size:18px}
+.gift-content{padding:0 16px 24px}
+.gift-content h3{font-size:clamp(20px,5vw,26px)}
+.gift-txt{font-size:14px;line-height:1.75}
+.gift-ribbon-inner{padding:12px 18px;gap:12px}
+.gift-num{width:32px;height:32px;font-size:13px}
+.gift-cta-wrap{margin-top:16px}
+.gift-cta-buy{padding:16px 20px;font-size:14px}
+.gift-callout{padding:12px 14px}
+.gift-pq{padding:14px 16px}
+.gift-day{padding-left:12px}
+.gift-bridge-text{font-size:14px}
+.gift-bridge-stem{height:20px}
+.gift-duo .gift-content{padding:0 16px 24px}
+.gift-duo .gift-illo{padding:24px 12px 16px}
+.checks li{padding:22px 18px 22px 16px;font-size:14px}
+.qualify-hdr{margin-bottom:28px}
+.qualify-eye{font-size:10px}
+.compare-vip{padding:28px 20px}
+.compare-free{padding:18px 14px}
+.compare-row{font-size:13px;gap:10px;padding:9px 0}
+.compare-vip .compare-row{font-size:14px}
 .exit-body{padding:16px}
 .exit-headline{font-size:28px}
-.gift-cta-wrap{margin-top:20px}
+.exit-lose-item{padding:8px 14px;font-size:13px}
+.vip-pass-body{padding:24px 18px}
+.vip-pass-cta{padding:0 18px 24px}
+.vip-pass-top{padding:20px 18px}
+.vip-pass-admit{font-size:clamp(22px,6vw,30px)}
+.price-label{font-size:13px}
+.trust-item{font-size:12px}
+.confirm-inner{gap:10px}
+.confirm-warn svg{width:22px;height:22px}
+.confirm-text{font-size:14px;letter-spacing:.03em}
+.confirm-banner{padding:14px 16px;border-width:3px}
+.social-inner{padding:0 16px}
+.social-count{font-size:14px}
+.social-sub{font-size:12px}
+.footer-vip{padding:20px 16px}
+.footer-disclaimer{font-size:10px!important;padding:0 8px}
+.cp-text h3{font-size:16px}
+.cp-text p{font-size:12px}
+.cp-icon{width:40px;height:40px}
+.steps-pill{padding:5px 12px;gap:6px}
+.steps-num{width:20px;height:20px;font-size:10px}
+.steps-line{width:20px}
+.steps-label{font-size:11px}
+.device-bar{padding:8px 12px}
+.device-dot{width:8px;height:8px}
+.device-url{height:18px}
+.device-url span{font-size:9px}
+.sp-toast{max-width:280px;font-size:12px}
+}
+/* ── SMALL PHONE (360px) — iPhone SE, budget Android ── */
+@media(max-width:360px){
+.hero-vip h1{font-size:clamp(22px,6.5vw,30px)}
+.hero-sub{font-size:13px}
+.hero-pre{font-size:9px;letter-spacing:.15em}
+.hl-script{font-size:1.05em}
+.cta-main{padding:16px 16px;font-size:13px;gap:6px;letter-spacing:.03em}
+.cta-decline{padding:8px 12px;font-size:11px}
+.hero-pills{gap:6px}
+.hero-pill{padding:5px 10px;font-size:11px}
+.hero-pill svg{width:13px;height:13px}
+.challenge-panel{padding:14px 12px;gap:8px}
+.cp-text h3{font-size:14px}
+.cp-icon{width:32px;height:32px}
+.cp-icon svg{width:28px;height:28px}
+.gift-content{padding:0 12px 20px}
+.gift-content h3{font-size:clamp(18px,5vw,22px)}
+.gift-txt{font-size:13px}
+.gift-ribbon-inner{padding:10px 14px;gap:10px}
+.gift-num{width:28px;height:28px;font-size:11px}
+.gift-ribbon-name{font-size:11px}
+.gift-cta-buy{padding:14px 16px;font-size:13px}
+.gift-cta-no{font-size:10px;padding:6px 12px}
+.gift-pq p{font-size:18px}
+.checks li{padding:18px 14px 18px 12px;font-size:13px;line-height:1.6}
+.checks li>svg{width:20px;height:20px}
+.compare-vip{padding:22px 16px}
+.compare-free{padding:16px 12px}
+.compare-row{font-size:12px;gap:8px;padding:8px 0}
+.compare-vip .compare-row{font-size:13px}
+.compare-vip-label{font-size:10px;gap:8px;padding-bottom:12px;margin-bottom:16px}
+.compare-vip-badge{font-size:9px;padding:4px 10px;top:12px;right:10px}
+.compare-free-label{font-size:10px}
+.chk{width:18px;height:18px}
+.chk-y svg{width:10px;height:10px}
+.chk-n svg{width:8px;height:8px}
+.vip-pass-body{padding:20px 14px}
+.vip-pass-cta{padding:0 14px 20px}
+.vip-pass-top{padding:16px 14px}
+.vip-pass-type{font-size:10px}
+.vip-pass-admit{font-size:clamp(20px,5.5vw,26px)}
+.vip-pass-save{font-size:11px;padding:4px 14px}
+.price-now{font-size:48px}
+.price-orig{font-size:16px}
+.price-label{font-size:12px}
+.trust-item{font-size:11px;gap:6px}
+.trust-item svg{width:16px;height:16px}
+.exit-body{padding:12px}
+.exit-headline{font-size:24px}
+.exit-lose-item{padding:6px 10px;font-size:12px}
+.exit-red-bar{padding:10px 14px;gap:6px}
+.exit-timer-label{font-size:11px}
+.exit-timer{font-size:20px}
+.social-av{width:28px;height:28px;font-size:11px}
+.confirm-check{width:26px;height:26px}
+.confirm-check svg{width:14px;height:14px}
+.confirm-warn svg{width:18px;height:18px}
+.confirm-text{font-size:12px;letter-spacing:.02em}
+.confirm-banner{padding:10px 12px;border-width:2px}
+.footer-text{font-size:11px}
+.footer-disclaimer{font-size:9px!important;line-height:1.5!important}
+.steps-bar{padding:10px 12px}
+.steps-pill{padding:4px 10px;gap:4px}
+.steps-num{width:18px;height:18px;font-size:9px}
+.steps-line{width:16px}
+.steps-label{font-size:10px;letter-spacing:.01em}
+.ticker-wrap{padding:8px 0}
+.tick-item{font-size:11px;gap:4px}
+.tick-item svg{width:12px;height:12px}
+.device-bar{padding:6px 10px;gap:4px}
+.device-dot{width:7px;height:7px}
+.sp-toast{max-width:240px}
+}
+/* ── TINY PHONE (320px) — iPhone 5/SE1, Nokia small ── */
+@media(max-width:320px){
+.hero-vip h1{font-size:22px;letter-spacing:-.01em}
+.hero-sub{font-size:12px}
+.hero-pre{font-size:8px;gap:6px}
+.hero-diamond-wrap svg{width:32px;height:32px}
+.cta-main{padding:14px 12px;font-size:12px;letter-spacing:.02em}
+.cta-decline{padding:7px 10px;font-size:10px}
+.cta-urgency{font-size:11px}
+.hero-pills{gap:4px}
+.hero-pill{padding:4px 8px;font-size:10px}
+.challenge-panel{padding:12px 10px;gap:6px}
+.cp-text h3{font-size:13px}
+.cp-text p{font-size:11px}
+.gift-content{padding:0 10px 18px}
+.gift-content h3{font-size:18px}
+.gift-txt{font-size:12px;line-height:1.65}
+.gift-ribbon-inner{padding:8px 12px;gap:8px}
+.gift-num{width:24px;height:24px;font-size:10px}
+.gift-ribbon-name{font-size:10px;letter-spacing:.05em}
+.gift-illo{padding:24px 10px 16px}
+.gift-illo svg{transform:scale(.8)}
+.gift-cta-buy{padding:12px 12px;font-size:12px}
+.gift-cta-no{font-size:9px;padding:5px 10px}
+.gift-callout{padding:10px 12px;font-size:12px}
+.gift-pq{padding:12px 14px}
+.gift-pq p{font-size:16px}
+.gift-day p{font-size:12px}
+.gift-day-tag{font-size:9px;padding:2px 8px}
+.gift-bullets p{font-size:11px}
+.gift-bridge-text{font-size:13px}
+.checks li{padding:16px 12px;font-size:12px;line-height:1.55}
+.checks li>svg{width:18px;height:18px;margin-top:2px}
+.qualify-sec,.gifts-sec,.compare-sec,.price-sec{padding:48px 3% 44px}
+.qualify-hdr{margin-bottom:24px}
+.gifts-hdr{margin-bottom:32px}
+.compare-vip{padding:18px 12px}
+.compare-free{padding:14px 10px}
+.compare-row{font-size:11px;gap:6px;padding:7px 0}
+.compare-vip .compare-row{font-size:12px}
+.compare-vip-badge{font-size:8px;padding:3px 8px}
+.compare-vip-label{font-size:9px}
+.compare-free-label{font-size:9px}
+.vip-pass-body{padding:16px 12px}
+.vip-pass-cta{padding:0 12px 16px}
+.vip-pass-top{padding:14px 12px}
+.vip-pass-type{font-size:9px;letter-spacing:.08em}
+.vip-pass-admit{font-size:20px}
+.vip-pass-save{font-size:10px;padding:3px 12px}
+.price-now{font-size:42px}
+.price-orig{font-size:14px}
+.price-label{font-size:11px}
+.trust-item{font-size:10px;gap:4px}
+.trust-item svg{width:14px;height:14px}
+.exit-modal{margin:8px;max-height:calc(100vh - 16px)}
+.exit-body{padding:10px}
+.exit-headline{font-size:20px}
+.exit-lose-item{padding:5px 8px;font-size:11px;gap:6px}
+.exit-lose-item svg{width:14px;height:14px}
+.exit-red-bar{padding:8px 10px;gap:4px}
+.exit-timer-label{font-size:10px}
+.exit-timer{font-size:18px}
+.social-av{width:24px;height:24px;font-size:10px}
+.social-count{font-size:12px}
+.social-sub{font-size:11px}
+.steps-bar{padding:8px 8px}
+.steps-pill{padding:3px 8px;gap:3px;border-radius:30px}
+.steps-num{width:16px;height:16px;font-size:8px}
+.steps-line{width:12px}
+.steps-label{font-size:9px}
+.wave-div svg{height:30px!important}
+.device-bar{padding:5px 8px;gap:3px}
+.device-dot{width:6px;height:6px}
+.device-url{height:16px;margin-left:4px}
+.device-url span{font-size:8px}
+.vsl-play{width:56px;height:56px}
+.vsl-play svg{width:18px;height:18px}
+.footer-vip{padding:16px 10px}
+.footer-text{font-size:10px}
+.footer-disclaimer{font-size:8px!important;line-height:1.4!important;padding:0 4px}
+.sp-toast{max-width:200px;font-size:11px;bottom:8px;left:8px}
+.confirm-warn svg{width:16px;height:16px}
+.confirm-text{font-size:11px}
+.confirm-banner{padding:8px 8px;border-width:2px}
 }
 </style>
 
@@ -428,8 +704,6 @@ body::before,body::after{display:none!important}
 
 <div class="ghl-break">
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs>
-<linearGradient id="leafG1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#16d09c"/><stop offset="50%" stop-color="#0dc5cf"/><stop offset="100%" stop-color="#7ccb61"/></linearGradient>
-<linearGradient id="leafHL" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="#fff" stop-opacity=".12"/><stop offset="100%" stop-color="#000" stop-opacity=".05"/></linearGradient>
 <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ad1d9"/><stop offset="50%" stop-color="#16d09c"/><stop offset="100%" stop-color="#7ccb61"/></linearGradient>
 </defs></svg>
 
@@ -437,23 +711,25 @@ body::before,body::after{display:none!important}
 <div class="steps-bar"><div class="steps-pill"><span class="steps-num done">1</span><span class="steps-line done"></span><span class="steps-num current">2</span><span class="steps-label">Complete Your VIP Upgrade</span></div></div>
 
 <!-- Confirm banner -->
-<div class="confirm-banner fi"><div class="confirm-inner"><div class="confirm-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p class="confirm-text"><strong>You're registered!</strong> One more thing before we get started...</p></div></div>
+<div class="confirm-banner fi"><div class="confirm-inner"><div class="confirm-warn"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L1 21h22L12 2z" fill="#FFD700" stroke="#e6c200" stroke-width=".8"/><path d="M12 9v5" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#1a1a2e"/></svg></div><p class="confirm-text">WAIT. BEFORE YOU HEAD TO DAY 1.</p><div class="confirm-warn"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L1 21h22L12 2z" fill="#FFD700" stroke="#e6c200" stroke-width=".8"/><path d="M12 9v5" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#1a1a2e"/></svg></div></div></div>
 
 <!-- ══ HERO — CENTERED EDITORIAL ══ -->
 <section class="hero-vip">
-<!-- BG monstera leaf -->
-<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-80px;right:-100px;width:520px;height:580px;opacity:.28;transform:rotate(30deg)"><svg viewBox="0 0 380 420" fill="none"><path d="M190 270C190 270 85 250 50 175C15 100 35 42 92 18C122 6 155 12 190 42C225 12 258 6 288 18C345 42 365 100 330 175C295 250 190 270 190 270Z" fill="url(#leafG1)" opacity=".35"/><path d="M190 270C190 270 85 250 50 175C15 100 35 42 92 18C122 6 155 12 190 42C225 12 258 6 288 18C345 42 365 100 330 175C295 250 190 270 190 270Z" fill="url(#leafHL)"/><ellipse cx="130" cy="90" rx="18" ry="25" fill="var(--warmbg)" transform="rotate(-15 130 90)"/><ellipse cx="250" cy="90" rx="18" ry="25" fill="var(--warmbg)" transform="rotate(15 250 90)"/><ellipse cx="110" cy="160" rx="15" ry="22" fill="var(--warmbg)" transform="rotate(-10 110 160)"/><ellipse cx="270" cy="160" rx="15" ry="22" fill="var(--warmbg)" transform="rotate(10 270 160)"/><path d="M190 45V260" stroke="rgba(255,255,255,.06)" stroke-width="2.5" fill="none"/><path d="M190 90L115 55" stroke="rgba(255,255,255,.04)" stroke-width="1.5" fill="none"/><path d="M190 90L265 55" stroke="rgba(255,255,255,.04)" stroke-width="1.5" fill="none"/><path d="M190 140L85 115" stroke="rgba(255,255,255,.04)" stroke-width="1.5" fill="none"/><path d="M190 140L295 115" stroke="rgba(255,255,255,.04)" stroke-width="1.5" fill="none"/><path d="M58 140C80 137 96 123 100 108" stroke="var(--warmbg)" stroke-width="4" fill="none"/><path d="M322 140C300 137 284 123 280 108" stroke="var(--warmbg)" stroke-width="4" fill="none"/></svg></div>
-<!-- BG palm frond -->
-<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="bottom:-100px;left:-120px;width:480px;height:540px;opacity:.25;transform:scaleX(-1) rotate(8deg)"><svg viewBox="0 0 300 380" fill="none"><path d="M150 370C150 370 145 280 150 180C155 80 160 20 160 20" stroke="url(#leafG1)" stroke-width="4" opacity=".25" fill="none"/><path d="M150 60C150 60 100 40 60 55C20 70 10 95 40 100C70 105 120 80 150 60Z" fill="url(#leafG1)" opacity=".3"/><path d="M155 60C155 60 200 35 240 45C280 55 295 80 265 90C235 100 185 80 155 60Z" fill="url(#leafG1)" opacity=".28"/><path d="M148 110C148 110 90 95 45 115C0 135 -5 165 30 165C65 165 115 135 148 110Z" fill="url(#leafG1)" opacity=".3"/><path d="M152 110C152 110 210 95 255 115C300 135 305 165 270 165C235 165 185 135 152 110Z" fill="url(#leafG1)" opacity=".28"/><path d="M148 165C148 165 80 160 35 185C-10 210 -10 240 30 235C70 230 120 200 148 165Z" fill="url(#leafG1)" opacity=".25"/></svg></div>
-<!-- FG monstera leaf -->
-<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="top:30%;left:-30px;width:160px;height:180px;opacity:.12;transform:rotate(-18deg)"><svg viewBox="0 0 160 180" fill="none"><path d="M80 170C80 170 80 140 80 120" stroke="#16d09c" stroke-width="3" opacity=".5" fill="none"/><path d="M80 120C80 120 25 110 10 65C-5 20 20 0 55 5C70 8 78 20 80 35C82 20 90 8 105 5C140 0 165 20 150 65C135 110 80 120 80 120Z" fill="url(#leafG1)" opacity=".35"/><path d="M80 35C78 20 70 8 55 5C35 1 18 8 12 22C35 12 65 18 80 35Z" fill="rgba(255,255,255,.08)"/><ellipse cx="50" cy="55" rx="10" ry="16" fill="var(--warmbg)" transform="rotate(-12 50 55)"/><ellipse cx="110" cy="55" rx="10" ry="16" fill="var(--warmbg)" transform="rotate(12 110 55)"/></svg></div>
-<!-- Mid-layer palm frond -->
-<div class="deco-leaf deco-leaf-mid deco-leaf-bob-2" style="top:10%;right:-20px;width:200px;height:220px;opacity:.14;transform:rotate(35deg)"><svg viewBox="0 0 200 240" fill="none"><path d="M100 230C100 230 95 160 100 100C105 40 108 10 108 10" stroke="url(#leafG1)" stroke-width="3" opacity=".3" fill="none"/><path d="M100 40C100 40 60 25 30 38C0 51 -5 72 25 75C55 78 85 58 100 40Z" fill="url(#leafG1)" opacity=".25"/><path d="M105 40C105 40 140 22 168 30C196 38 205 60 178 65C151 70 125 55 105 40Z" fill="url(#leafG1)" opacity=".22"/><path d="M98 80C98 80 55 70 25 85C-5 100 -8 125 22 122C52 119 80 98 98 80Z" fill="url(#leafG1)" opacity=".2"/></svg></div>
+<!-- Mid-layer palm frond — realistic -->
 <!-- Teal circle accents -->
 <div class="deco-circle" style="bottom:60px;left:3%;width:280px;height:280px;background:radial-gradient(circle,rgba(10,209,217,.12) 0%,transparent 65%);filter:blur(20px)"></div>
 <div class="deco-circle" style="top:20px;right:5%;width:220px;height:220px;background:radial-gradient(circle,rgba(22,208,156,.1) 0%,transparent 60%);filter:blur(15px)"></div>
 <div class="deco-circle" style="top:50%;left:40%;width:350px;height:350px;background:radial-gradient(circle,rgba(10,209,217,.04) 0%,transparent 55%);filter:blur(35px)"></div>
 
+
+
+<!-- TROPICAL DEPTH -->
+<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-80px;right:-120px;width:550px;height:550px;opacity:.28"><img src="img/leaf_branch.png" alt="" style="transform:rotate(25deg)"></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="bottom:-60px;left:-140px;width:480px;height:480px;opacity:.22"><img src="img/leaf_branch.png" alt="" style="transform:scaleX(-1) rotate(-15deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="top:6%;left:-35px;width:100px;height:115px;opacity:.18"><img src="img/leaf_single.png" alt="" style="transform:rotate(-20deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-3" style="bottom:12%;right:-20px;width:85px;height:95px;opacity:.15"><img src="img/leaf_small.png" alt="" style="transform:rotate(40deg) scaleX(-1)"></div>
+<div class="deco-leaf deco-leaf-mid deco-leaf-bob-2" style="bottom:20%;right:-15px;width:110px;height:125px;opacity:.15"><img src="img/leaf_single.png" alt="" style="transform:rotate(60deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-slow" style="bottom:5%;left:-12px;width:70px;height:80px;opacity:.14"><img src="img/leaf_small.png" alt="" style="transform:rotate(-45deg)"></div>
 <div class="hero-watermark" aria-hidden="true">VIP</div>
 
 <div class="hero-wrap">
@@ -513,14 +789,16 @@ One-Time VIP Offer
 <div class="wave-div"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:45px"><path d="M0 0L1440 0L1440 20C1200 55 960 5 720 35C480 65 240 10 0 45Z" fill="var(--ablack)"/><path d="M0 45C240 10 480 65 720 35C960 5 1200 55 1440 20L1440 60L0 60Z" fill="#f7f4f0"/></svg></div>
 
 <!-- ══ QUALIFY &mdash; SCRAPBOOK PINBOARD ══ -->
-<section class="qualify-sec"><div class="deco-leaf deco-leaf-fg deco-leaf-bob-2" style="top:15%;right:-15px;width:140px;height:160px;opacity:.1;transform:rotate(25deg)"><svg viewBox="0 0 140 160" fill="none"><path d="M70 150C70 150 70 125 70 105" stroke="#16d09c" stroke-width="2.5" opacity=".5" fill="none"/><path d="M70 105C70 105 20 95 8 55C-4 15 18 0 48 4C62 6 68 18 70 30C72 18 78 6 92 4C122 0 144 15 132 55C120 95 70 105 70 105Z" fill="url(#leafG1)" opacity=".3"/><path d="M70 30C68 18 62 6 48 4C30 0 16 7 10 19C30 10 58 16 70 30Z" fill="rgba(255,255,255,.06)"/><ellipse cx="42" cy="48" rx="9" ry="14" fill="var(--warm)" transform="rotate(-10 42 48)"/><ellipse cx="98" cy="48" rx="9" ry="14" fill="var(--warm)" transform="rotate(10 98 48)"/><path d="M70 30V100" stroke="rgba(255,255,255,.04)" stroke-width="2" fill="none"/><path d="M70 55L30 35" stroke="rgba(255,255,255,.03)" stroke-width="1.2" fill="none"/><path d="M70 55L110 35" stroke="rgba(255,255,255,.03)" stroke-width="1.2" fill="none"/><path d="M70 75L25 60" stroke="rgba(255,255,255,.03)" stroke-width="1.2" fill="none"/><path d="M70 75L115 60" stroke="rgba(255,255,255,.03)" stroke-width="1.2" fill="none"/></svg></div>
+<section class="qualify-sec">
+<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="bottom:-70px;left:-120px;width:460px;height:460px;opacity:.22"><img src="img/leaf_branch.png" alt="" style="transform:scaleX(-1) rotate(10deg)"></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="top:-60px;right:-100px;width:400px;height:400px;opacity:.18"><img src="img/leaf_branch.png" alt="" style="transform:rotate(35deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-2" style="top:4%;right:-22px;width:90px;height:100px;opacity:.16"><img src="img/leaf_single.png" alt="" style="transform:rotate(30deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="bottom:8%;right:-18px;width:70px;height:80px;opacity:.13"><img src="img/leaf_small.png" alt="" style="transform:rotate(-20deg) scaleX(-1)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-3" style="top:50%;left:-20px;width:75px;height:85px;opacity:.14"><img src="img/leaf_small.png" alt="" style="transform:rotate(50deg)"></div>
 
-<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="bottom:-60px;left:-80px;width:400px;height:440px;opacity:.18;transform:scaleX(-1) rotate(10deg)"><svg viewBox="0 0 300 340" fill="none"><path d="M150 240C150 240 65 225 38 155C11 85 32 30 85 15C112 7 138 15 150 35C162 15 188 7 215 15C268 30 289 85 262 155C235 225 150 240 150 240Z" fill="url(#leafG1)" opacity=".3"/><ellipse cx="100" cy="80" rx="16" ry="23" fill="var(--warm)" transform="rotate(-12 100 80)"/><ellipse cx="200" cy="80" rx="16" ry="23" fill="var(--warm)" transform="rotate(12 200 80)"/></svg></div>
 <div class="deco-circle" style="top:40px;right:5%;width:260px;height:260px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,transparent 60%);filter:blur(18px)"></div>
 <div class="deco-circle" style="bottom:80px;left:15%;width:320px;height:320px;background:radial-gradient(circle,rgba(22,208,156,.05) 0%,transparent 55%);filter:blur(28px)"></div>
 <!-- Mid-layer small palm -->
-<div class="deco-leaf deco-leaf-mid deco-leaf-bob-3" style="bottom:20%;left:-25px;width:180px;height:200px;opacity:.1;transform:scaleX(-1) rotate(20deg)"><svg viewBox="0 0 180 200" fill="none"><path d="M90 190C90 190 85 130 90 80C95 30 98 5 98 5" stroke="url(#leafG1)" stroke-width="2.5" opacity=".25" fill="none"/><path d="M90 30C90 30 55 18 30 28C5 38 0 55 25 58C50 61 75 45 90 30Z" fill="url(#leafG1)" opacity=".22"/><path d="M95 30C95 30 125 15 148 22C171 29 178 48 155 52C132 56 110 42 95 30Z" fill="url(#leafG1)" opacity=".2"/></svg></div>
-
 <div class="qualify-inner">
 <div class="qualify-hdr fi">
 <div class="qualify-eye">Why VIP?</div>
@@ -542,17 +820,112 @@ One-Time VIP Offer
 
 <!-- ══ GIFTS &mdash; TROPICAL GIFT BOX STACK ══ -->
 <section class="gifts-sec">
-<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-60px;right:-80px;width:420px;height:460px;opacity:.2;transform:rotate(22deg)"><svg viewBox="0 0 260 300" fill="none"><path d="M130 190C130 190 55 175 30 115C5 55 25 10 75 2C100 -2 120 8 130 28C140 8 160 -2 185 2C235 10 255 55 230 115C205 175 130 190 130 190Z" fill="rgba(10,209,217,.2)"/><ellipse cx="85" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(-12 85 65)"/><ellipse cx="175" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(12 175 65)"/></svg></div>
-<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="bottom:-80px;left:-60px;width:360px;height:400px;opacity:.16;transform:scaleX(-1) rotate(12deg)"><svg viewBox="0 0 260 300" fill="none"><path d="M130 190C130 190 55 175 30 115C5 55 25 10 75 2C100 -2 120 8 130 28C140 8 160 -2 185 2C235 10 255 55 230 115C205 175 130 190 130 190Z" fill="rgba(22,208,156,.18)"/><ellipse cx="85" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(-12 85 65)"/><ellipse cx="175" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(12 175 65)"/></svg></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="top:-70px;right:-110px;width:520px;height:520px;opacity:.25"><img src="img/leaf_branch.png" alt="" style="transform:rotate(20deg)"></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="bottom:-80px;left:-130px;width:480px;height:480px;opacity:.2"><img src="img/leaf_branch.png" alt="" style="transform:scaleX(-1) rotate(-8deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-3" style="top:3%;left:-25px;width:95px;height:110px;opacity:.16"><img src="img/leaf_single.png" alt="" style="transform:rotate(-35deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="bottom:6%;right:-18px;width:80px;height:95px;opacity:.13"><img src="img/leaf_small.png" alt="" style="transform:rotate(45deg) scaleX(-1)"></div>
+<div class="deco-leaf deco-leaf-mid deco-leaf-bob-2" style="bottom:25%;left:1%;width:80px;height:90px;opacity:.12"><img src="img/leaf_small.png" alt="" style="transform:rotate(-60deg)"></div>
+
 <div class="deco-circle" style="top:30%;left:2%;width:300px;height:300px;background:radial-gradient(circle,rgba(10,209,217,.06) 0%,transparent 55%);filter:blur(25px)"></div>
 <div class="deco-circle" style="top:55%;right:4%;width:250px;height:250px;background:radial-gradient(circle,rgba(22,208,156,.06) 0%,transparent 55%);filter:blur(20px)"></div>
 <div class="deco-circle" style="top:75%;left:10%;width:280px;height:280px;background:radial-gradient(circle,rgba(124,203,97,.04) 0%,transparent 55%);filter:blur(22px)"></div>
-<!-- FG monstera leaf -->
-<div class="deco-leaf deco-leaf-fg deco-leaf-bob-3" style="top:12%;right:-18px;width:130px;height:150px;opacity:.1;transform:rotate(30deg)"><svg viewBox="0 0 130 150" fill="none"><path d="M65 140C65 140 65 115 65 100" stroke="#16d09c" stroke-width="2.5" opacity=".4" fill="none"/><path d="M65 100C65 100 18 92 5 52C-8 12 15 -3 45 2C58 4 63 14 65 25C67 14 72 4 85 2C115 -3 138 12 125 52C112 92 65 100 65 100Z" fill="url(#leafG1)" opacity=".3"/><ellipse cx="38" cy="42" rx="8" ry="13" fill="#0a2628" transform="rotate(-12 38 42)"/><ellipse cx="92" cy="42" rx="8" ry="13" fill="#0a2628" transform="rotate(12 92 42)"/></svg></div>
 <!-- Mid palm frond between gifts -->
-<div class="deco-leaf deco-leaf-mid deco-leaf-bob-slow" style="top:45%;left:-40px;width:220px;height:240px;opacity:.08;transform:rotate(-15deg)"><svg viewBox="0 0 200 240" fill="none"><path d="M100 230C100 230 95 160 100 100C105 40 108 10 108 10" stroke="rgba(10,209,217,.3)" stroke-width="2.5" fill="none"/><path d="M100 50C100 50 55 35 25 48C-5 61 -8 82 22 85C52 88 82 68 100 50Z" fill="rgba(10,209,217,.15)"/><path d="M105 80C105 80 55 70 22 88C-11 106 -8 130 25 125C58 120 88 98 105 80Z" fill="rgba(10,209,217,.12)"/></svg></div>
-
 <div class="gifts-inner">
+
+<!-- Gift Opening Animation — Marissa Style -->
+<div class="gift-scene" id="giftScene">
+<!-- Teal glow burst behind diamond -->
+<div class="gift-glow">
+<svg width="260" height="260" viewBox="0 0 260 260" fill="none">
+<radialGradient id="tBurst"><stop offset="0%" stop-color="#0ad1d9" stop-opacity=".65"/><stop offset="25%" stop-color="#16d09c" stop-opacity=".3"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<circle cx="130" cy="130" r="130" fill="url(#tBurst)"/>
+</svg>
+</div>
+<!-- Leaf + diamond particles -->
+<div class="gift-leaves">
+<span style="--tx:-100px;--ty:-110px;--r:-50deg"><svg viewBox="0 0 20 20" width="14" height="14"><path d="M10 2C6 5 3 10 5 16C8 12 14 8 18 6C15 3 12 1 10 2Z" fill="#7ccb61"/></svg></span>
+<span style="--tx:95px;--ty:-90px;--r:35deg"><svg viewBox="0 0 20 20" width="12" height="12"><path d="M10 2C6 5 3 10 5 16C8 12 14 8 18 6C15 3 12 1 10 2Z" fill="#16d09c"/></svg></span>
+<span style="--tx:-55px;--ty:-140px;--r:65deg"><svg viewBox="0 0 16 20" width="10" height="12"><path d="M8 1L14 7L8 19L2 7Z" fill="#0ad1d9" opacity=".8"/></svg></span>
+<span style="--tx:75px;--ty:-120px;--r:-30deg"><svg viewBox="0 0 20 20" width="11" height="11"><path d="M10 2C6 5 3 10 5 16C8 12 14 8 18 6C15 3 12 1 10 2Z" fill="#0dc5cf"/></svg></span>
+<span style="--tx:-35px;--ty:-155px;--r:55deg"><svg viewBox="0 0 16 20" width="9" height="11"><path d="M8 1L14 7L8 19L2 7Z" fill="#7ccb61" opacity=".7"/></svg></span>
+<span style="--tx:45px;--ty:-100px;--r:-65deg"><svg viewBox="0 0 20 20" width="13" height="13"><path d="M10 2C6 5 3 10 5 16C8 12 14 8 18 6C15 3 12 1 10 2Z" fill="#16d09c"/></svg></span>
+</div>
+<!-- Gift box wrapper -->
+<div class="gift-wrap">
+<!-- Box body SVG (3D-ish with front face + side + bottom shadow) -->
+<svg viewBox="0 0 240 200" width="240" height="200" fill="none" style="position:absolute;top:0;left:0;z-index:4">
+<defs>
+<linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0dc5cf"/><stop offset="100%" stop-color="#099da5"/></linearGradient>
+<linearGradient id="gSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#088a91"/><stop offset="100%" stop-color="#077d84"/></linearGradient>
+<linearGradient id="gRib" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8bd540"/><stop offset="100%" stop-color="#6ab535"/></linearGradient>
+</defs>
+<!-- Floor shadow -->
+<ellipse cx="110" cy="194" rx="95" ry="8" fill="rgba(0,0,0,.18)"/>
+<!-- Side face (right) -->
+<path d="M200 60L230 45L230 178L200 192Z" fill="url(#gSide)"/>
+<!-- Front face -->
+<rect x="20" y="60" width="180" height="132" rx="3" fill="url(#gFront)"/>
+<!-- Ribbon vertical -->
+<rect x="100" y="60" width="22" height="132" fill="url(#gRib)"/>
+<!-- Side ribbon -->
+<path d="M200 60L230 45L230 178L200 192Z" fill="none"/>
+<path d="M200 125L230 112L230 145L200 158Z" fill="url(#gRib)" opacity=".6"/>
+<!-- Front highlight -->
+<rect x="28" y="68" width="62" height="5" rx="2.5" fill="rgba(255,255,255,.18)"/>
+<!-- Dashed decorative inset -->
+<rect x="32" y="85" width="158" height="95" rx="2" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1" stroke-dasharray="7 5"/>
+<!-- Diamond watermark -->
+<g transform="translate(110,135)" opacity=".08"><path d="M0-28L22-10L0 28L-22-10Z" fill="#fff"/></g>
+</svg>
+<!-- Inner glow (shows after lid opens) -->
+<div class="gift-inner-glow"></div>
+<!-- Lid (flies off) -->
+<div class="gift-lid">
+<svg viewBox="0 0 250 70" width="240" height="67" fill="none">
+<defs><linearGradient id="gLidF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#14dbb0"/><stop offset="100%" stop-color="#0dc5cf"/></linearGradient></defs>
+<!-- Lid top -->
+<path d="M15 35L235 35L250 22L30 22Z" fill="rgba(255,255,255,.06)"/>
+<!-- Lid front -->
+<rect x="15" y="35" width="220" height="30" rx="3" fill="url(#gLidF)"/>
+<!-- Lid top face -->
+<path d="M15 35L30 22L250 22L235 35Z" fill="#16d09c"/>
+<!-- Ribbon on lid -->
+<rect x="105" y="35" width="22" height="30" fill="url(#gRib)" opacity=".9"/>
+<path d="M105 35L115 22L137 22L127 35Z" fill="url(#gRib)" opacity=".7"/>
+<!-- Lid highlight -->
+<rect x="24" y="40" width="70" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
+<!-- Tropical leaf bow -->
+<g transform="translate(120,18)">
+<path d="M-6 2C-20-6-28-20-22-28C-14-22-6-10 0-2" fill="#7ccb61"/>
+<path d="M6 2C20-6 28-20 22-28C14-22 6-10 0-2" fill="#5aaa3e"/>
+<path d="M-5 1C-16-5-20-14-16-20C-10-14-4-7 0-2" fill="rgba(255,255,255,.1)"/>
+<circle cx="0" cy="1" r="5.5" fill="#7ccb61" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+<!-- Mini diamond in bow center -->
+<path d="M0-4L3.5-1L0 4L-3.5-1Z" fill="rgba(255,255,255,.35)"/>
+</g>
+</svg>
+</div>
+</div>
+<!-- Diamond that rises out -->
+<div class="gift-diamond-rise">
+<svg width="68" height="82" viewBox="0 0 80 96" fill="none">
+<defs><linearGradient id="dRise" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ad1d9"/><stop offset="40%" stop-color="#16d09c"/><stop offset="100%" stop-color="#7ccb61"/></linearGradient></defs>
+<path d="M40 6L72 30L40 90L8 30Z" fill="url(#dRise)"/>
+<path d="M40 6L56 30H24Z" fill="rgba(255,255,255,.2)"/>
+<path d="M24 30L40 90L8 30Z" fill="rgba(0,0,0,.06)"/>
+<path d="M56 30L40 90L72 30Z" fill="rgba(255,255,255,.1)"/>
+<path d="M16 30H64" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+<circle cx="30" cy="22" r="3" fill="#fff" opacity=".7"><animate attributeName="opacity" values=".3;.9;.3" dur="2s" repeatCount="indefinite"/></circle>
+<circle cx="52" cy="26" r="2" fill="#fff" opacity=".5"><animate attributeName="opacity" values=".5;1;.5" dur="2.5s" repeatCount="indefinite"/></circle>
+</svg>
+</div>
+</div>
+<!-- Reveal message -->
+<div class="gift-reveal-msg" id="giftReveal" style="margin-bottom:24px">
+<p style="font-family:var(--script);font-size:30px;color:var(--t1);font-weight:700;margin-bottom:8px;animation:gentleFloat 3s ease-in-out infinite">Your VIP Kit is inside!</p>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="animation:arrowBounceDown 1.5s ease-in-out infinite"><path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="var(--t1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
 <div class="gifts-hdr fi">
 <div class="gifts-eye">What You Get With VIP</div>
 <h2 class="gifts-title fi fi-d1">Everything in Free, Plus</h2>
@@ -658,17 +1031,30 @@ One-Time VIP Offer
 </section>
 
 <!-- WAVE: gifts to compare -->
-<div class="wave-div"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:45px"><path d="M0 0L1440 0L1440 25C1200 60 900 5 600 35C300 65 100 10 0 48Z" fill="#0a2628"/><path d="M0 48C100 10 300 65 600 35C900 5 1200 60 1440 25L1440 60L0 60Z" fill="#f7f4f0"/></svg></div>
+<div class="wave-div"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:45px"><path d="M0 0L1440 0L1440 25C1200 60 900 5 600 35C300 65 100 10 0 48Z" fill="#0a2628"/><path d="M0 48C100 10 300 65 600 35C900 5 1200 60 1440 25L1440 60L0 60Z" fill="#0a2628"/></svg></div>
 
 <!-- ══ COMPARISON &mdash; DRAMATIC SCALE CONTRAST ══ -->
-<section class="compare-sec"><div class="deco-leaf deco-leaf-mid deco-leaf-bob-3" style="bottom:-40px;left:-50px;width:280px;height:300px;opacity:.12;transform:scaleX(-1) rotate(15deg)"><svg viewBox="0 0 220 260" fill="none"><path d="M110 180C110 180 45 165 22 105C-1 45 18 5 65 0C88 -3 106 8 110 25C114 8 132 -3 155 0C202 5 221 45 198 105C175 165 110 180 110 180Z" fill="url(#leafG1)" opacity=".25"/><ellipse cx="72" cy="58" rx="12" ry="18" fill="var(--warm)" transform="rotate(-12 72 58)"/><ellipse cx="148" cy="58" rx="12" ry="18" fill="var(--warm)" transform="rotate(12 148 58)"/></svg></div>
+<section class="compare-sec">
+<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="bottom:-70px;left:-130px;width:480px;height:480px;opacity:.22"><img src="img/leaf_branch.png" alt="" style="transform:scaleX(-1) rotate(5deg)"></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-50px;right:-100px;width:420px;height:420px;opacity:.18"><img src="img/leaf_branch.png" alt="" style="transform:rotate(30deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="top:4%;right:-20px;width:85px;height:95px;opacity:.14"><img src="img/leaf_small.png" alt="" style="transform:rotate(25deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-3" style="bottom:6%;left:-18px;width:80px;height:90px;opacity:.13"><img src="img/leaf_single.png" alt="" style="transform:rotate(-30deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-2" style="top:55%;left:-22px;width:70px;height:80px;opacity:.11"><img src="img/leaf_small.png" alt="" style="transform:rotate(60deg) scaleX(-1)"></div>
 
-<div class="deco-circle" style="top:60px;right:8%;width:240px;height:240px;background:radial-gradient(circle,rgba(10,209,217,.05) 0%,transparent 60%);filter:blur(15px)"></div>
+<div class="deco-circle" style="top:60px;right:8%;width:240px;height:240px;background:radial-gradient(circle,rgba(10,209,217,.07) 0%,transparent 60%);filter:blur(15px)"></div>
+<div class="deco-circle" style="bottom:100px;left:5%;width:280px;height:280px;background:radial-gradient(circle,rgba(22,208,156,.04) 0%,transparent 55%);filter:blur(22px)"></div>
 <div class="compare-inner">
-<div class="compare-eye fi">See The Difference</div>
-<h2 class="compare-title fi fi-d1">Free vs. VIP</h2>
-<div class="compare-sub fi fi-d2">which experience do you want? <svg width="28" height="18" viewBox="0 0 28 18" fill="none" style="vertical-align:middle;margin-left:4px"><path d="M2 9C6 4 14 2 22 5" stroke="var(--cherry)" stroke-width="1.5" fill="none" opacity=".5"/><path d="M18 2L22 5L17 7" stroke="var(--cherry)" stroke-width="1.5" fill="none" opacity=".5"/></svg></div>
-<div style="position:relative" class="fi fi-d3"><div class="compare-grid">
+<div style="text-align:center;max-width:780px;margin:0 auto 56px" class="fi">
+<div style="font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);display:inline-block;padding:6px 18px;border-radius:3px;margin-bottom:18px">HONESTLY?</div>
+<h2 class="compare-title" style="color:#fff">Why VIP? <span style="font-family:var(--script);color:var(--cherry);font-weight:400;font-size:1.1em">Honestly?</span></h2>
+</div>
+<div style="max-width:780px;margin:0 auto 64px;text-align:left" class="fi fi-d1">
+<p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:rgba(255,255,255,.75);margin-bottom:28px">I have run challenges before. Here is what I have learned:</p>
+<p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:rgba(255,255,255,.75);margin-bottom:28px">The people who show up with <strong style="color:#fff;font-weight:700">a plan, a workbook, and a decision framework</strong> get <strong style="color:#fff;font-weight:700">so much more</strong> out of the experience than the people who just watch passively.</p>
+<p style="font-size:clamp(18px,1.8vw,22px);font-weight:700;color:var(--cherry);line-height:1.6;margin-bottom:28px">It is the same information. Same challenge. Same 3 days.</p>
+<p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:rgba(255,255,255,.75)">The difference is whether you are just watching... or actually <strong style="color:#fff;font-weight:700">working through it alongside me.</strong></p>
+</div>
+<div style="position:relative" class="fi fi-d2"><div class="compare-grid">
 <div class="compare-free"><div class="compare-free-label">Free Access</div>
 <div class="compare-row"><div class="chk chk-y"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Live access to all 3 days</div>
 <div class="compare-row"><div class="chk chk-y"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>GHL community access</div>
@@ -687,35 +1073,42 @@ One-Time VIP Offer
 <div class="compare-row"><div class="chk chk-y"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>7-day private WhatsApp group</div>
 </div>
 </div><div class="compare-vs"><div class="compare-vs-badge">VS</div></div></div>
-<div class="compare-cta-wrap fi fi-d4"><div class="cta-stack">
+<div class="compare-cta-wrap fi fi-d3"><div class="cta-stack">
 <a href="#" class="cta-main cta-pulse vip-buy" onclick="handleVIPClick(event)"><span class="cta-shimmer"></span><span>Yes, Upgrade Me to VIP - $47</span></a>
 <div class="cta-urgency"><span class="cta-urgency-dot"></span> VIP pricing ends when the event starts</div>
-<a href="#" class="cta-decline decline">No thanks, take me to my confirmation</a>
+<a href="#" class="cta-decline cta-decline-dark decline">No thanks, take me to my confirmation</a>
 </div></div>
 </div>
 </section>
 
 <!-- WAVE: compare to price -->
-<div class="wave-div"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:45px"><path d="M0 0L1440 0L1440 25C1100 55 800 8 500 38C200 68 100 12 0 48Z" fill="#f7f4f0"/><path d="M0 48C100 12 200 68 500 38C800 8 1100 55 1440 25L1440 60L0 60Z" fill="#0a2628"/></svg></div>
+<div class="wave-div"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:45px"><path d="M0 0L1440 0L1440 25C1100 55 800 8 500 38C200 68 100 12 0 48Z" fill="#0a2628"/><path d="M0 48C100 12 200 68 500 38C800 8 1100 55 1440 25L1440 60L0 60Z" fill="#0a2628"/></svg></div>
 
 <!-- ══ PRICE &mdash; VIP PASS CARD ══ -->
 <section class="price-sec">
-<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-40px;right:-60px;width:380px;height:420px;opacity:.18;transform:rotate(20deg)"><svg viewBox="0 0 260 300" fill="none"><path d="M130 190C130 190 55 175 30 115C5 55 25 10 75 2C100 -2 120 8 130 28C140 8 160 -2 185 2C235 10 255 55 230 115C205 175 130 190 130 190Z" fill="rgba(10,209,217,.18)"/><ellipse cx="85" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(-12 85 65)"/><ellipse cx="175" cy="65" rx="14" ry="20" fill="#0a2628" transform="rotate(12 175 65)"/></svg></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-70px;right:-120px;width:520px;height:520px;opacity:.25"><img src="img/leaf_branch.png" alt="" style="transform:rotate(22deg)"></div>
+<div class="deco-leaf deco-leaf-bg deco-leaf-bob-slow" style="bottom:-60px;left:-120px;width:440px;height:440px;opacity:.2"><img src="img/leaf_branch.png" alt="" style="transform:scaleX(-1) rotate(-5deg)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob-2" style="top:5%;left:-25px;width:90px;height:105px;opacity:.15"><img src="img/leaf_single.png" alt="" style="transform:rotate(-15deg) scaleX(-1)"></div>
+<div class="deco-leaf deco-leaf-fg deco-leaf-bob" style="bottom:8%;right:-20px;width:75px;height:85px;opacity:.13"><img src="img/leaf_small.png" alt="" style="transform:rotate(35deg)"></div>
+
 <div class="deco-circle" style="top:30%;left:8%;width:300px;height:300px;background:radial-gradient(circle,rgba(10,209,217,.06) 0%,transparent 55%);filter:blur(25px)"></div>
 
-<div class="deco-circle" style="bottom:20%;right:10%;width:280px;height:280px;background:radial-gradient(circle,rgba(22,208,156,.05) 0%,transparent 55%);filter:blur(22px)"></div>
+<div class="deco-circle" style="bottom:20%;right:10%;width:280px;height:280px;background:radial-gradient(circle,rgba(22,208,156,.06) 0%,transparent 55%);filter:blur(22px)"></div>
+<div class="deco-circle" style="top:50%;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(ellipse,rgba(10,209,217,.04) 0%,transparent 50%);filter:blur(40px)"></div>
 <div class="price-inner">
-<div class="price-eye fi">Limited Time Pricing</div>
-<h2 class="price-title fi fi-d1">Lock in your VIP access before the event starts.</h2>
-<div class="price-scr fi fi-d1">this is genuinely the best deal ever <svg width="16" height="20" viewBox="0 0 16 20" fill="none" style="vertical-align:middle;margin-left:2px"><path d="M8 2C8 2 2 8 2 13C2 16 5 18 8 18C11 18 14 16 14 13C14 8 8 2 8 2Z" fill="none" stroke="var(--cherry)" stroke-width="1.5" opacity=".5"/></svg></div>
+<h2 class="price-title fi" style="font-size:clamp(32px,5vw,56px);margin-bottom:32px">One more thing before you go.</h2>
+<div class="fi fi-d1" style="margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto">
+<p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:rgba(255,255,255,.7);margin-bottom:24px">When the challenge starts, you can either have notes scattered across your phone... or a workbook with your track chosen, your week mapped out, and an AI coaching session built around YOUR life.</p>
+<p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:rgba(255,255,255,.7)">The challenge teaches you everything either way. The kit just makes sure you actually do something with it.</p>
+</div>
 
 <!-- THE VIP PASS -->
 <div class="vip-pass fi fi-d2">
 <div class="vip-pass-top"><div class="vip-pass-type">Digital Course Launch Lab</div><div class="vip-pass-admit">VIP ACCESS PASS</div></div>
 <hr class="vip-perf">
 <div class="vip-pass-body">
-<div class="vip-pass-save">SAVE $150</div>
-<span class="price-orig">$197</span>
+<div class="vip-pass-save">SAVE $20</div>
+<span class="price-orig">$67</span>
 <span class="price-now">$47</span>
 <p class="price-label">One-time payment. Lifetime access.</p>
 </div>
@@ -749,7 +1142,7 @@ One-Time VIP Offer
 <p class="social-count">Join <span id="socialCount">400</span>+ creators already registered</p>
 <p class="social-sub">The event starts soon. VIP spots are limited.</p>
 </div></section>
-<footer class="footer-vip"><p class="footer-text">Digital Course Launch Lab by Marissa Romero</p></footer>
+<footer class="footer-vip"><p class="footer-text">Digital Course Launch Lab by Marissa Romero</p><p class="footer-disclaimer" style="font-size:11px;line-height:1.7;color:rgba(255,255,255,.35);max-width:700px;margin:16px auto 0;text-align:center">This site is not a part of the YouTube, Instagram, Etsy, or Google platforms, nor is it endorsed by any of them. All trademarks belong to their respective owners. This is an educational challenge sharing strategies and skills, not a promise of specific outcomes. Results are not typical. Individual results vary based on effort, market conditions, and implementation. No income guarantees.</p></footer>
 </div>
 
 <!-- Social proof toast -->
@@ -806,6 +1199,9 @@ window.handleVIPClick=function(e){if(e)e.preventDefault();var btn=e?e.currentTar
 /* Exit popup */
 (function(){var ov=document.getElementById('exitOverlay'),cl=document.getElementById('exitClose'),gb=document.getElementById('exitGoBack'),lv=document.getElementById('exitLeave');if(!ov)return;function show(){ov.classList.add('active');document.body.style.overflow='hidden'}function hide(){ov.classList.remove('active');document.body.style.overflow=''}document.querySelectorAll('.decline').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();show()})});cl.addEventListener('click',hide);ov.addEventListener('click',function(e){if(e.target===ov)hide()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))hide()});gb.addEventListener('click',function(){hide();handleVIPClick({preventDefault:function(){},currentTarget:document.querySelector('.cta-main')})});lv.addEventListener('click',function(){var c=document.getElementById('exitConfirm');if(c){c.classList.add('active')}});var cs=document.getElementById('confirmStay'),cg=document.getElementById('confirmGo'),co=document.getElementById('exitConfirm');if(cs)cs.addEventListener('click',function(){co.classList.remove('active');hide()});if(cg)cg.addEventListener('click',function(){co.classList.remove('active');hide();window.location.href='#confirmation-page-url'})})();
 
+/* Exit no-btn hover: red overlay + iPhone wobble on loss items */
+(function(){var nb=document.getElementById('exitLeave'),ov=document.getElementById('exitOverlay');if(!nb||!ov)return;var items=document.querySelectorAll('.exit-lose-item');nb.addEventListener('mouseenter',function(){ov.style.animation='overlayRedFlash .8s ease-in-out forwards';items.forEach(function(it){it.classList.add('wobble')})});nb.addEventListener('mouseleave',function(){ov.style.animation='';ov.style.background='';items.forEach(function(it){it.classList.remove('wobble')})})})();
+
 /* Exit countdown timer */
 (function(){var te=document.getElementById('exitTimer');if(!te)return;var secs=299;var started=false;function tick(){var m=Math.floor(secs/60),s=secs%60;te.textContent=m+':'+(s<10?'0':'')+s;if(secs>0)secs--;else{te.textContent='0:00';te.style.color='var(--cherry)';te.style.animation='stepPulse 1s ease-in-out infinite'}}var mo=new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.classList&&m.target.classList.contains('active')&&!started){started=true;tick();setInterval(tick,1000)}})});var ov=document.getElementById('exitOverlay');if(ov)mo.observe(ov,{attributes:true,attributeFilter:['class']})})();
 
@@ -817,6 +1213,9 @@ if(window.Worker){var ms=["\u23F3 Your VIP Spot is Waiting...","\uD83D\uDC8E VIP
 
 /* Toast */
 (function(){var t=document.getElementById('spToast'),ta=document.getElementById('spToastAv'),tt=document.getElementById('spToastText'),tm=document.getElementById('spToastTime'),ts=document.getElementById('spToastSrc');if(!t)return;var names=[{n:'Kenji S.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Lucas Z.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Joseph J.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Clara V.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Wei R.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Blake F.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Ella N.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Kaitlyn B.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Hadley A.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Malika J.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Padma M.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Emily P.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Andre D.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Preston H.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Lakshmi T.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Jasmine B.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Cassandra K.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Aditya K.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Alexis T.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Jordan K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Chidi D.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Owen D.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Ava M.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Jade C.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Naomi A.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Allison T.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Nolan H.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Ximena H.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Dahlia M.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Oliver T.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Haruka V.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Lila L.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Itzel W.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Harlow Z.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Amara L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Adriana D.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Indira R.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Carlos G.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Skylar C.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Tao J.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Vivian D.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Sunita C.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Daisy W.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Richard W.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Jace Z.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Nori N.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Jack J.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Stephanie Q.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Athena P.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Aurora R.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Hazel S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Tristan N.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Everly J.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Ellie F.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Madeline B.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Jaxon S.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Andrew P.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Dylan H.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Marisol R.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Tyler V.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Milagros K.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Isabella G.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Isaac V.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Min-Ho M.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Piper S.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Robert T.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Idris A.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Diana W.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Adeline P.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Heather F.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Mei L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Ivy Z.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Liam F.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Travis P.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Kyle C.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Renata K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Leah Q.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Aisha J.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Emilia H.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Colton D.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Kaia H.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Brielle H.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Nora J.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Paloma C.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Miranda V.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Serenity D.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Mackenzie S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Morgan W.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Rocio L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Willow F.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Diego R.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Adaeze D.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Shruti C.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Elise J.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Kavya S.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Lillian H.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Isla F.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Yumi Q.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Suki S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Nia K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Wren H.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Ling T.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Sadie Q.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Adam T.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Lindsay P.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Abigail K.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Eva L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Eric M.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Leela Z.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Reina S.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Brianna N.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Ruby J.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Selene P.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Reed T.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Charlotte W.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Katelyn S.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Rafael J.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Logan A.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Declan A.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Hailey H.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Melanie Z.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Quinn A.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Amelia J.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Colette P.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Zoe Z.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Fiona W.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Jamie Z.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Shelby V.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Brynn M.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Sebastian W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Emeka L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Raj P.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Aubree M.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Chandra S.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Adalynn T.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Spencer J.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Samira F.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Thomas L.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Carson T.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Sydney D.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Camila G.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Priya K.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Miles L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Jia M.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Brady F.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Pablo K.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Alejandra V.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Vivek F.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Rosie A.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Zuri B.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Samantha Z.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Riley Q.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Blair K.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Jessica M.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Lucia T.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Mason V.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Vera T.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Knox V.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Rashid P.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Levi F.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Nell L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Rohan L.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Daiki W.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Camila L.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Deepa W.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Natalia L.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Paola P.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Penelope W.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Uma Q.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Sage F.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Jamal B.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Jonah K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Maria K.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Thandiwe J.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Peyton N.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Mateo S.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Jason Q.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Bonnie J.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Patrick L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Nova K.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Raelynn D.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Nikhil J.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Madelyn C.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Ayo N.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Jenna N.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Brittany B.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Tariq F.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Grayson N.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Takeshi M.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Hyun-Ae W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Xiomara M.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Farah V.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Benjamin M.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Gabriella R.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Danielle A.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Natasha Z.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Arianna L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Harper L.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Esmeralda T.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Riya P.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Jelani Q.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Luke P.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Sawyer S.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Victoria Z.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Jun W.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Scott J.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Pooja M.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Ryan N.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Tiffany L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Kwame J.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Gavin Z.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Kaylee K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Julian Z.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Tara W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Arjun S.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Lucy P.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Vanessa S.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Kelsey Z.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Seo-Jun R.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Reagan Q.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Anthony T.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Mabel Q.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Isabelle J.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Marco D.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Fatima A.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Micah D.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Sanjay W.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Grant M.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Rowan J.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Adrian W.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Kevin Z.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Carter K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Summer R.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Yara Z.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Henry C.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Autumn K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Claire M.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Naveen B.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Sara J.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Callie V.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Natsuki A.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Brian R.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Jimena F.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Brooks C.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Eli J.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Chloe A.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Nisha T.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Brooke K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Catalina M.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Lily T.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Aria S.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Ayumi Z.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Chelsea H.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Mina Q.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Alice M.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Brooklyn K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Rachel L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Josie C.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Noah N.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Matthew K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Evelyn D.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Dulce J.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Gemma B.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Emma S.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Julia W.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Mariana S.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Silas Q.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Tunde P.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'James R.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Bailey Q.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Kinsley V.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Devi V.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Rylee F.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Kalani B.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Omar N.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Olivia T.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Tucker W.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Josephine M.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Hana A.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Hayes M.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Pranav V.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Andres C.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Chase A.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Archer D.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Sarah S.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Mia C.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Christopher B.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Amber N.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Nadia L.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Keiko F.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Daniela W.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Fernanda L.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Addison B.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Emilio W.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Fernando L.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Lydia T.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Aaliyah Z.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Zoey C.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Anna L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Esperanza D.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Jaya A.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Gianna B.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Leo R.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Obinna K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Meera D.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Derek D.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Laila N.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Steven K.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Christina S.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'David C.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Sekou H.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Melissa H.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Marcel K.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Ravi M.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Eliana V.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Ngozi K.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Valeria N.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Inara H.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Graham R.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Cole B.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Nathan S.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Ashley B.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Aubrey N.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Shannon M.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Ananya R.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Margot D.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Darius S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Nicole R.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Savannah D.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Thea N.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Yuto C.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Brandon F.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Dev A.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Rebecca C.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Beau L.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Chiamaka H.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Dominic R.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Kamal H.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Michael S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Sophie P.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Brody C.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Elijah R.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Natalie A.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Connor M.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Holly R.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Cooper V.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Lauren H.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Anika S.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Valentina R.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Delilah J.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Leilani P.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Gabriel A.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Chioma L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Santiago M.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Kiran D.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Kennedy B.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Hassan V.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Finley W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Kristen F.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Jocelyn T.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Ian P.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Layla M.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Stella V.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Wesley N.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Liliana R.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Aaron W.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Sakura H.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Alexander L.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Wyatt B.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Molly A.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Joshua H.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Violet T.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Sofia B.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Cora W.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'William M.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Oluwaseun P.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Bennett L.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Hannah R.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Courtney T.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Aiden S.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Maeve C.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Yuki T.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Genesis P.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Gabriela C.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Kofi Z.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Chen L.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'June S.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Andrea F.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Alexa R.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Hiroshi T.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Pearl R.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Ji-Hoon T.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Shane P.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Emery C.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Alejandro T.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Sophia R.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Erica D.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Caleb H.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Soo-Jin C.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Taylor A.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Zara D.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Wei C.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Marcus B.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Cameron C.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Emmett S.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Katherine W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Justin A.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Avery B.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Jackson Q.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Sana F.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Paige C.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Claire V.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Caroline D.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Scarlett F.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Grace V.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Imani P.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Ethan B.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Paisley W.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Daniel D.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'},{n:'Suresh N.',c:'linear-gradient(135deg,#0ad1d9,#0097a7)'},{n:'Parker Q.',c:'linear-gradient(135deg,#0ad1d9,#16d09c)'},{n:'Maya N.',c:'linear-gradient(135deg,#ff4f49,#ff6b5e)'},{n:'Vikram T.',c:'linear-gradient(135deg,#f1c232,#fb4708)'},{n:'Valentina N.',c:'linear-gradient(135deg,#0097a7,#23b8a5)'},{n:'Alyssa Q.',c:'linear-gradient(135deg,#8bc540,#7ccb61)'},{n:'Megan P.',c:'linear-gradient(135deg,#16d09c,#0ad1d9)'},{n:'Amy J.',c:'linear-gradient(135deg,#0097a7,#0ad1d9)'},{n:'Amit C.',c:'linear-gradient(135deg,#ff6b5e,#f1c232)'},{n:'Elizabeth H.',c:'linear-gradient(135deg,#23b8a5,#7ccb61)'},{n:'Elena Q.',c:'linear-gradient(135deg,#0dc5cf,#98e435)'},{n:'Lincoln Q.',c:'linear-gradient(135deg,#ff4f49,#f1c232)'}];var acts=['just upgraded to VIP','just grabbed VIP access','just went VIP','just secured VIP','just locked in VIP'];var idx=Math.floor(Math.random()*names.length);function show(){var p=names[idx%names.length];var a=acts[Math.floor(Math.random()*acts.length)];ta.style.background=p.c;ta.textContent=p.n.charAt(0);tt.innerHTML='<strong>'+p.n+'</strong> '+a;var mins=Math.floor(Math.random()*12+1);tm.textContent=mins+(mins===1?' min':' mins')+' ago';if(ts)ts.textContent='Verified by ThriveCart';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},5500);idx=Math.floor(Math.random()*names.length)}setTimeout(show,12000);setInterval(show,25000+Math.random()*20000)})();
+
+/* Gift opening animation — scroll trigger + click to replay */
+(function(){var scene=document.getElementById('giftScene'),reveal=document.getElementById('giftReveal');if(!scene)return;function play(){scene.classList.remove('animate');if(reveal){reveal.style.opacity='0';reveal.style.transform='translateY(20px) scale(.9)';reveal.style.transition='none'}void scene.offsetWidth;scene.classList.add('animate');if(reveal)setTimeout(function(){reveal.style.opacity='1';reveal.style.transform='translateY(0) scale(1)';reveal.style.transition='opacity .8s ease-out, transform .8s ease-out'},2200)}var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){play();io.unobserve(e.target)}})},{threshold:.3});io.observe(scene);scene.addEventListener('click',function(){play()})})();
 
 /* Ticker */
 (function(){var tk=document.getElementById('ticker');if(!tk)return;var items=['Lifetime replay access','Day 1-3 worksheets','VIP Q&A with Marissa','Private WhatsApp group','Launch your course in 2026','$47 one-time payment','Join 400+ creators','Permanent access forever'];var html='';for(var r=0;r<3;r++){items.forEach(function(it){html+='<div class="tick-item"><svg viewBox="0 0 24 24"><path d="M12 2L20 10L12 22L4 10Z"/><path d="M4 10H20"/></svg>'+it+'</div><div class="tick-div">\u25C6</div>'})}tk.innerHTML=html})();
