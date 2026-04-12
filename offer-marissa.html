@@ -1,0 +1,936 @@
+<meta charset="UTF-8">
+<style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
+<style>
+/* OFFER PAGE: "THE OPEN INVITATION"
+   Bailey's startwithbailey structure → Marissa's tropical brand DNA.
+   Hero VSL is the CENTERPIECE — massive, cinematic, unmissable.
+   Sections mirror Bailey exactly: Hero→Offer→Checkout→ProofStrip→GiftBanner→Gifts→Social→About→WhatHappens→ProofGallery→FAQ→FinalCTA */
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  --pacific:#0097a7;--carib:#23b8a5;--lime:#98e435;
+  --snow:#f3f3f3;--slate:#8e8d8d;--char:#434343;--ablack:#1a1a2e;
+  --leafy:#8bc540;--sun:#f1c232;--tang:#fb4708;
+  --warm:#f7f4f0;--warmdk:#ede8e2;--warmbg:#faf8f5;
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --sh-sm:0 1px 2px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.04);
+  --sh-md:0 2px 4px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.04);
+  --sh-lg:0 4px 8px rgba(0,0,0,.08),0 16px 40px rgba(0,0,0,.08),0 32px 80px rgba(0,0,0,.06);
+  --sh-xl:0 8px 16px rgba(0,0,0,.1),0 24px 56px rgba(0,0,0,.1),0 48px 96px rgba(0,0,0,.08);
+  --glass:rgba(255,255,255,.45);
+  --glass-border:rgba(255,255,255,.6);
+  --grain:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:var(--warmbg);-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;background-image:var(--grain)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.012;background-image:radial-gradient(circle,#000 .4px,transparent .4px);background-size:20px 20px}
+
+/* ═══ LEAF DEPTH ═══ */
+.dl{position:absolute;pointer-events:none}
+.dl svg{width:100%;height:100%}
+.dl-bg{z-index:0;filter:blur(8px) saturate(1.4);opacity:.22}
+.dl-mid{z-index:1;filter:blur(3px) saturate(1.2);opacity:.15}
+.dl-fg{z-index:3;filter:drop-shadow(4px 8px 16px rgba(0,40,30,.1));opacity:.11}
+.dl-bob{animation:lBob 5s ease-in-out infinite}
+.dl-bob2{animation:lBob 6s 1.5s ease-in-out infinite}
+.dl-bob3{animation:lBob 7s 2.8s ease-in-out infinite}
+@keyframes lBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}
+.dc{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+
+/* ═══ SCROLL REVEAL ═══ */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.fi.v{opacity:1;transform:none}
+.fi-d1{transition-delay:.1s}.fi-d2{transition-delay:.18s}.fi-d3{transition-delay:.26s}
+.fi-d4{transition-delay:.34s}.fi-d5{transition-delay:.42s}.fi-d6{transition-delay:.5s}
+
+/* ══════════════════════════════════════
+   SECTION 1: HERO — VSL IS THE STAR
+   Big headline, massive VSL, CTA below
+   ══════════════════════════════════════ */
+.hero{position:relative;padding:56px 3% 72px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 35%,var(--warmbg) 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(10,209,217,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(255,79,73,.04) 0%,transparent 40%);pointer-events:none;z-index:1}
+.hero::after{content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,rgba(22,208,156,.04) 40%,transparent 70%);pointer-events:none;z-index:0;filter:blur(40px)}
+.hero-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:5}
+.hero h1{font-family:var(--display);font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.06;color:var(--ablack);margin-bottom:16px;letter-spacing:-.02em;text-wrap:balance}
+.hero h1 em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(15px,1.5vw,18px);color:#666;line-height:1.7;margin-bottom:28px;max-width:620px;margin-left:auto;margin-right:auto}
+
+/* VSL — MASSIVE, CINEMATIC */
+.vsl-card{position:relative;max-width:840px;margin:0 auto 28px;background:var(--ablack);box-shadow:var(--sh-xl),0 0 100px rgba(10,209,217,.08);overflow:hidden}
+.vsl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:36px;background:linear-gradient(180deg,rgba(0,0,0,.5),transparent);z-index:5}
+.vsl-eyebrow{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;padding:10px 14px;gap:5px}
+.vsl-eyebrow span{width:10px;height:10px;border-radius:50%}
+.vsl-eyebrow span:nth-child(1){background:#ff5f57}.vsl-eyebrow span:nth-child(2){background:#ffbd2e}.vsl-eyebrow span:nth-child(3){background:#28ca42}
+.vsl-aspect{position:relative;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0a2628,#0d3133)}
+.vsl-poster{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2}
+.vsl-poster::after{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(10,209,217,.12),transparent 60%)}
+.vsl-play{width:88px;height:88px;background:var(--cherry);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);display:flex;align-items:center;justify-content:center;position:relative;z-index:3;filter:drop-shadow(0 6px 20px rgba(255,79,73,.5));transition:transform .3s}
+.vsl-poster:hover .vsl-play{transform:scale(1.15) rotate(15deg)}
+.vsl-sub{text-align:center;margin-top:12px;font-family:var(--script);font-size:clamp(17px,1.8vw,23px);color:var(--pacific);opacity:.7;transform:rotate(-1deg)}
+
+/* Hero CTA row */
+.hero-cta-row{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:24px}
+.cta-main{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:22px 48px;font-family:var(--body);font-size:clamp(15px,1.7vw,19px);font-weight:800;color:#fff;background:linear-gradient(135deg,var(--cherry),#ff6b5e);border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;overflow:hidden;transition:all .2s;text-align:center;line-height:1.3;box-shadow:0 5px 0 var(--cherry-dk),0 7px 0 rgba(0,0,0,.1),0 10px 40px rgba(255,79,73,.3);text-decoration:none}
+.cta-main:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--cherry-dk),0 10px 0 rgba(0,0,0,.1),0 16px 48px rgba(255,79,73,.4)}
+.cta-main:active{transform:translateY(2px);box-shadow:0 1px 0 var(--cherry-dk),0 2px 0 rgba(0,0,0,.08)}
+.cta-shim{position:absolute;top:0;left:-35%;width:35%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:skewX(-15deg);animation:ctaShim 3.5s ease-in-out infinite;pointer-events:none}
+@keyframes ctaShim{0%{left:-35%}40%,100%{left:135%}}
+.hero-annot{font-family:var(--script);font-size:clamp(17px,1.8vw,22px);color:var(--cherry);transform:rotate(-2deg);display:inline-block;opacity:.85}
+.cta-trust{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px;font-size:12px;font-weight:600;color:var(--slate);flex-wrap:wrap}
+.cta-trust svg{width:14px;height:14px;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   OFFER SUMMARY — MAGAZINE EDITORIAL
+   ══════════════════════════════════════ */
+.mag-sec{padding:80px 3% 88px;background:var(--warm);position:relative;overflow:hidden}
+.mag-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.mag-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.mag-header{text-align:center;margin-bottom:56px}
+.mag-header h2{font-family:var(--display);font-size:clamp(30px,5vw,50px);font-weight:700;line-height:1.08;color:var(--ablack);letter-spacing:-.025em;margin-bottom:12px}
+.mag-header h2 em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mag-header p{font-size:17px;color:#666;max-width:580px;margin:0 auto}
+.mag-row{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-bottom:56px;padding-bottom:56px;border-bottom:1px dashed rgba(0,0,0,.08)}
+.mag-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.mag-row:nth-child(even){direction:rtl}
+.mag-row:nth-child(even)>*{direction:ltr}
+.mag-num{font-family:var(--display);font-size:clamp(80px,12vw,140px);font-weight:900;line-height:.85;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.08;position:absolute;top:-20px;left:-10px;pointer-events:none;letter-spacing:-.04em}
+.mag-vis{position:relative}
+.mag-mock{width:100%;background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(238,249,248,.5),rgba(255,255,255,.5));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.7);border-top:3px solid;border-image:var(--tg) 1;box-shadow:var(--sh-lg),inset 0 1px 0 rgba(255,255,255,.8),0 0 60px rgba(10,209,217,.06);padding:28px;position:relative}
+.mag-bar{display:flex;gap:5px;margin-bottom:14px}
+.mag-bar span{width:8px;height:8px;border-radius:50%}
+.mag-bar span:nth-child(1){background:#ff5f57}.mag-bar span:nth-child(2){background:#ffbd2e}.mag-bar span:nth-child(3){background:#28ca42}
+.mag-screen{background:var(--warmbg);padding:24px;min-height:180px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--slate);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.mag-txt h3{font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:700;color:var(--ablack);margin-bottom:12px;line-height:1.2}
+.mag-txt h3 em{font-style:normal;color:var(--pacific)}
+.mag-txt p{font-size:16px;color:#555;line-height:1.75;margin-bottom:16px}
+.mag-txt ul{list-style:none;padding:0}
+.mag-txt li{position:relative;padding-left:24px;font-size:15px;color:#555;line-height:1.7;margin-bottom:8px}
+.mag-txt li::before{content:'';position:absolute;left:0;top:8px;width:12px;height:12px;background:var(--tg);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+
+/* Bonus bundle under offer summary */
+.mag-bonus{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;padding-top:40px;border-top:1px dashed rgba(0,0,0,.08)}
+.mag-bonus-card{background:rgba(10,209,217,.03);border:1px solid rgba(10,209,217,.1);padding:20px;text-align:center}
+.mag-bonus-card h4{font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin-bottom:4px}
+.mag-bonus-card p{font-size:13px;color:#777;line-height:1.5}
+.mag-bonus-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--pacific);margin-bottom:6px}
+
+/* ══════════════════════════════════════
+   CHECKOUT — 2-COL LANDSCAPE (like Bailey's)
+   Left: offer details  |  Right: payment embed
+   ══════════════════════════════════════ */
+.ck-sec{padding:80px 3% 88px;background:linear-gradient(175deg,#eef9f8 0%,var(--warm) 50%,var(--warmbg) 100%);position:relative;overflow:hidden}
+.ck-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.ck-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.ck-ey{text-align:center;font-family:var(--script);font-size:clamp(20px,2.2vw,26px);color:var(--cherry);transform:rotate(-1deg);margin-bottom:8px;opacity:.85}
+.ck-h{text-align:center;font-family:var(--display);font-size:clamp(30px,4.5vw,46px);font-weight:700;color:var(--ablack);margin-bottom:40px;letter-spacing:-.02em}
+.ck-h em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* 2-column grid wrapper */
+.oc{display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(238,249,248,.55),rgba(255,255,255,.6));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.7);border-top:4px solid;border-image:var(--tg) 1;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.8),0 0 80px rgba(10,209,217,.06);position:relative;overflow:hidden}
+.oc::before{content:'';position:absolute;inset:14px;border:2px dashed rgba(10,209,217,.12);pointer-events:none;z-index:1}
+/* LEFT column — offer details */
+.oc-left{display:flex;flex-direction:column}
+.oc-head{padding:36px 36px 24px;text-align:left;border-bottom:1px solid rgba(0,0,0,.06)}
+.oc-head h2{font-family:var(--display);font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--ablack);margin-bottom:6px}
+.oc-head h2 em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.oc-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(10,209,217,.08);border:1px solid rgba(10,209,217,.15);padding:6px 16px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--pacific);margin-top:10px}
+.oc-obj{margin:16px 0 0;text-align:left}
+.oc-obj p{font-size:14px;color:#555;line-height:1.7;margin-bottom:6px}
+.oc-obj ul{list-style:none;padding:0;margin:10px 0}
+.oc-obj li{position:relative;padding-left:20px;font-size:13px;color:#555;line-height:1.6;margin-bottom:3px}
+.oc-obj li::before{content:'—';position:absolute;left:0;color:var(--pacific)}
+.oc-obj .em{font-weight:700;font-style:italic}
+.oc-inc{padding:20px 36px;display:flex;flex-direction:column;gap:6px;flex:1}
+.oc-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--char);line-height:1.5;padding:4px 0}
+.oc-item strong{font-weight:700}
+.oc-price{padding:24px 36px;text-align:left;border-top:1px solid rgba(0,0,0,.06);background:rgba(250,248,245,.5)}
+.pr-was{font-size:20px;color:var(--slate);text-decoration:line-through;font-weight:600}
+.pr-now{font-family:var(--display);font-size:clamp(48px,7vw,68px);font-weight:900;color:var(--cherry);line-height:1;margin:6px 0;text-shadow:0 2px 20px rgba(255,79,73,.12)}
+.pr-note{font-size:13px;color:#777;margin-bottom:12px}
+.pr-save{display:inline-block;background:var(--cherry);color:#fff;padding:5px 14px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transform:rotate(2deg);animation:bounce 2.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:rotate(2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-3px)}}
+/* RIGHT column — payment embed */
+.oc-right{border-left:1px solid rgba(0,0,0,.06);display:flex;flex-direction:column;background:rgba(255,255,255,.4)}
+.oc-embed{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.oc-embed-label{text-align:center;font-family:var(--script);font-size:22px;color:var(--cherry);margin-bottom:14px;transform:rotate(-1deg)}
+.oc-embed-box{background:#fff;border:2px solid rgba(10,209,217,.15);padding:0;flex:1;min-height:480px;position:relative;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.oc-embed-box .embed-placeholder{padding:40px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:480px;gap:16px}
+.embed-placeholder .ep-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(10,209,217,.1),rgba(124,203,97,.1));display:flex;align-items:center;justify-content:center}
+.embed-placeholder .ep-icon svg{width:24px;height:24px}
+.embed-placeholder h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin:0}
+.embed-placeholder p{font-size:13px;color:var(--slate);max-width:320px;line-height:1.6;margin:0}
+.embed-placeholder code{background:rgba(10,209,217,.08);border:1px solid rgba(10,209,217,.12);padding:8px 14px;font-size:11px;color:var(--pacific);font-family:'SF Mono',Monaco,Consolas,monospace;display:block;max-width:320px;word-break:break-all;line-height:1.5}
+.oc-embed-trust{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;flex-wrap:wrap}
+.oc-embed-trust span{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.06em}
+.oc-cta{padding:0 28px 24px}
+.oc-cta .cta-main{width:100%;max-width:100%}
+
+/* ══════════════════════════════════════
+   PROOF STRIP
+   ══════════════════════════════════════ */
+.ps{background:linear-gradient(135deg,#0a2628,#0d3133);padding:32px 3%;position:relative;overflow:hidden}
+.ps::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(10,209,217,.15) 0%,transparent 50%);pointer-events:none}
+.ps::after{content:'';position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.ps-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.ps-i{text-align:center}
+.ps-n{font-family:var(--display);font-size:clamp(28px,3.5vw,42px);font-weight:800;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;letter-spacing:-.02em}
+.ps-l{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* ══════════════════════════════════════
+   GIFT BANNER — JUMP LINKS
+   ══════════════════════════════════════ */
+.gb{padding:40px 3%;background:var(--warmbg);text-align:center;position:relative;overflow:hidden}
+.gb::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.gb-in{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.gb h2{font-family:var(--display);font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--ablack);margin-bottom:8px;letter-spacing:-.02em}
+.gb p{font-size:15px;color:#777;margin-bottom:20px}
+.gb-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.gb-links a{padding:8px 18px;font-size:13px;font-weight:700;color:var(--char);background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.06);text-decoration:none;transition:all .2s;backdrop-filter:blur(8px)}
+.gb-links a:hover{background:rgba(10,209,217,.08);border-color:var(--t1);color:var(--pacific)}
+.gb-links .jl-cta{background:var(--cherry);color:#fff;border-color:var(--cherry);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.gb-links .jl-cta:hover{background:var(--cherry-dk)}
+
+/* ══════════════════════════════════════
+   GIFT CARDS — DETAILED BONUSES
+   ══════════════════════════════════════ */
+.gf-sec{padding:80px 3% 88px;background:var(--warm);position:relative;overflow:hidden}
+.gf-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.gf-in{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+/* Hero gift card — spans full width */
+.gf-hero{display:grid;grid-template-columns:.45fr .55fr;gap:36px;align-items:center;margin-bottom:48px;background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(238,249,248,.5));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.7);border-top:4px solid;border-image:var(--tg) 1;box-shadow:var(--sh-lg);padding:36px}
+.gf-hero-img{background:linear-gradient(135deg,#0a2628,#0d3133);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.1em;position:relative;overflow:hidden}
+.gf-hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(10,209,217,.08),transparent 60%)}
+.gf-hero-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--pacific);margin-bottom:8px}
+.gf-hero h3{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:700;color:var(--ablack);margin-bottom:12px;line-height:1.2}
+.gf-hero p{font-size:15px;color:#555;line-height:1.7;margin-bottom:10px}
+.gf-hero .gf-take{font-size:14px;font-weight:600;color:var(--pacific);font-style:italic;padding:12px 16px;background:rgba(10,209,217,.04);border-left:3px solid var(--t1);margin-top:12px}
+.gf-hero .cta-main{margin-top:16px;padding:16px 32px;font-size:14px}
+
+/* Gift card grid */
+.gf-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.gf-card{background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6);border-top:3px solid;border-image:var(--tg) 1;padding:28px;position:relative;transition:transform .3s,box-shadow .3s;box-shadow:var(--sh-sm)}
+.gf-card::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--cherry);box-shadow:0 1px 4px rgba(255,79,73,.3),inset 0 -1px 1px rgba(0,0,0,.15);z-index:2}
+.gf-card:nth-child(odd){transform:rotate(-.4deg)}
+.gf-card:nth-child(even){transform:rotate(.3deg)}
+.gf-card:hover{transform:rotate(0) translateY(-4px) scale(1.01);box-shadow:var(--sh-lg)}
+.gf-card-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--pacific);margin-bottom:8px;margin-top:8px}
+.gf-card h3{font-family:var(--display);font-size:clamp(17px,1.8vw,21px);font-weight:700;color:var(--ablack);margin-bottom:6px;line-height:1.25}
+.gf-card p{font-size:14px;color:#666;line-height:1.65}
+
+/* ══════════════════════════════════════
+   SOCIAL PROOF — TICKER
+   ══════════════════════════════════════ */
+.sp-sec{padding:56px 0;background:linear-gradient(135deg,#0a2628,#0d3133);position:relative;overflow:hidden}
+.sp-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(10,209,217,.12) 0%,transparent 50%);pointer-events:none}
+.sp-sec::after{content:'';position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.sp-header{text-align:center;margin-bottom:32px;position:relative;z-index:2;padding:0 3%}
+.sp-header h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+.sp-header p{font-size:15px;color:rgba(255,255,255,.45)}
+.tk-wrap{overflow:hidden;position:relative;z-index:2}
+.tk-track{display:flex;gap:20px;animation:tkScroll 45s linear infinite;width:max-content}
+.tk-track:hover{animation-play-state:paused}
+@keyframes tkScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tk-card{min-width:320px;max-width:340px;padding:24px;background:rgba(255,255,255,.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tk-card:nth-child(6n+1){border-top:3px solid var(--t1)}
+.tk-card:nth-child(6n+2){border-top:3px solid var(--cherry)}
+.tk-card:nth-child(6n+3){border-top:3px solid var(--t3)}
+.tk-card:nth-child(6n+4){border-top:3px solid var(--sun)}
+.tk-card:nth-child(6n+5){border-top:3px solid var(--pacific)}
+.tk-card:nth-child(6n+6){border-top:3px solid var(--tang)}
+.tk-hl{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--t1);margin-bottom:8px}
+.tk-card blockquote{font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;font-style:italic;margin:0}
+.tk-card cite{display:block;margin-top:10px;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);font-style:normal}
+
+/* ══════════════════════════════════════
+   ABOUT MARISSA
+   ══════════════════════════════════════ */
+.ab-sec{padding:80px 3% 88px;background:var(--warm);position:relative;overflow:hidden}
+.ab-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.ab-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;position:relative;z-index:2}
+.ab-photo{position:relative}
+.ab-frame{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#0a2628,#0d3133);position:relative;overflow:hidden;box-shadow:var(--sh-xl)}
+.ab-frame::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(10,38,40,.6),transparent);pointer-events:none}
+.ab-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.ab-stats{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.ab-stat{background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(238,249,248,.6));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:10px 16px;text-align:center;box-shadow:var(--sh-md)}
+.ab-sn{font-family:var(--display);font-size:20px;font-weight:800;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.ab-sl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--slate)}
+.ab-txt h2{font-family:var(--display);font-size:clamp(28px,4vw,38px);font-weight:700;color:var(--ablack);margin-bottom:18px;line-height:1.15}
+.ab-txt p{font-size:16px;color:#555;line-height:1.8;margin-bottom:14px}
+.ab-txt p:first-of-type::first-letter{font-family:var(--display);font-size:3.2em;float:left;line-height:.85;margin:4px 10px 0 0;color:var(--cherry);font-weight:800}
+.ab-call{position:relative;padding:20px 24px;margin:20px 0;background:rgba(10,209,217,.04);border-left:3px solid var(--t1);font-size:15px;color:#444;line-height:1.7;font-style:italic}
+.ab-sig{font-family:var(--script);font-size:clamp(22px,2.4vw,28px);color:var(--cherry);transform:rotate(-1deg);display:inline-block;margin-top:8px}
+.ab-cta{margin-top:20px}
+.ab-cta .cta-main{padding:18px 36px;font-size:15px}
+.ab-cta-sub{font-family:var(--script);font-size:clamp(15px,1.6vw,19px);color:var(--pacific);opacity:.7;transform:rotate(-1deg);display:block;margin-top:6px;text-align:center}
+
+/* ══════════════════════════════════════
+   WHAT HAPPENS — HORIZONTAL SCROLL CARDS
+   ══════════════════════════════════════ */
+.wh-sec{padding:80px 3% 48px;background:linear-gradient(135deg,#0a2628,#0d3133);position:relative;overflow:hidden}
+.wh-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(10,209,217,.12) 0%,transparent 50%);pointer-events:none}
+.wh-sec::after{content:'';position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.wh-in{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.wh-header{text-align:center;margin-bottom:36px}
+.wh-header h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:700;color:#fff;margin-bottom:8px}
+.wh-header p{font-size:15px;color:rgba(255,255,255,.45)}
+.wh-scroll{display:flex;gap:20px;overflow-x:auto;padding:0 0 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.wh-scroll::-webkit-scrollbar{display:none}
+.wh-card{flex:0 0 300px;scroll-snap-align:start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:0;overflow:hidden;transition:transform .3s}
+.wh-card:hover{transform:translateY(-4px)}
+.wh-card-img{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,rgba(10,209,217,.06),rgba(22,208,156,.04));display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.wh-card-body{padding:20px}
+.wh-card-time{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--t1);margin-bottom:6px}
+.wh-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.25}
+.wh-card p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65}
+.wh-nav{display:flex;justify-content:center;gap:12px;margin-top:16px;padding-bottom:24px}
+.wh-nav button{width:40px;height:40px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.wh-nav button:hover{background:rgba(10,209,217,.15);border-color:var(--t1);color:#fff}
+
+/* ══════════════════════════════════════
+   PROOF GALLERY — EMOTIONAL CLIMAX
+   ══════════════════════════════════════ */
+.pg-sec{padding:80px 3% 88px;background:var(--warmbg);position:relative;overflow:hidden}
+.pg-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.pg-in{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.pg-header{text-align:center;margin-bottom:48px}
+.pg-stars{display:flex;justify-content:center;gap:4px;margin-bottom:12px}
+.pg-stars svg{width:28px;height:28px}
+.pg-header h2{font-family:var(--display);font-size:clamp(26px,3.5vw,36px);font-weight:700;color:var(--ablack);margin-bottom:8px}
+.pg-header p{font-size:15px;color:#777}
+/* Scattered polaroids */
+.pg-wall{position:relative;min-height:520px}
+.pg-shot{position:absolute;background:#fff;padding:10px 10px 36px;box-shadow:var(--sh-lg);transition:transform .3s,box-shadow .3s}
+.pg-shot:hover{z-index:10;box-shadow:var(--sh-xl)}
+.pg-shot img{width:100%;display:block}
+.pg-shot-ph{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#eee,#f5f5f5);display:flex;align-items:center;justify-content:center;font-size:11px;color:#bbb;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.pg-cap{position:absolute;bottom:10px;left:10px;right:10px;font-size:11px;font-weight:600;color:var(--char);text-align:center}
+.pg-s1{top:20px;left:3%;width:320px;transform:rotate(-5deg)}
+.pg-s2{top:10px;left:36%;width:280px;transform:rotate(3deg);z-index:2}
+.pg-s3{top:30px;right:3%;width:300px;transform:rotate(-2deg)}
+.pg-s4{top:280px;left:8%;width:260px;transform:rotate(4deg);z-index:3}
+.pg-s5{top:260px;left:42%;width:320px;transform:rotate(-3deg)}
+.pg-s6{top:290px;right:5%;width:280px;transform:rotate(2deg)}
+.pg-shot:nth-child(1):hover{transform:rotate(-5deg) scale(1.06)}
+.pg-shot:nth-child(2):hover{transform:rotate(3deg) scale(1.06)}
+.pg-shot:nth-child(3):hover{transform:rotate(-2deg) scale(1.06)}
+.pg-shot:nth-child(4):hover{transform:rotate(4deg) scale(1.06)}
+.pg-shot:nth-child(5):hover{transform:rotate(-3deg) scale(1.06)}
+.pg-shot:nth-child(6):hover{transform:rotate(2deg) scale(1.06)}
+
+/* ══════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════ */
+.fq-sec{padding:80px 3% 88px;background:var(--warm);position:relative;overflow:hidden}
+.fq-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.6}
+.fq-in{max-width:760px;margin:0 auto;position:relative;z-index:2}
+.fq-header{text-align:center;margin-bottom:40px}
+.fq-header h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--ablack);letter-spacing:-.02em}
+.fq-i{border-bottom:1px solid rgba(0,0,0,.06);overflow:hidden}
+.fq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;cursor:pointer;font-family:var(--display);font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--ablack);transition:color .2s;user-select:none}
+.fq-q:hover{color:var(--pacific)}
+.fq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .3s;color:var(--pacific)}
+.fq-i.open .fq-q svg{transform:rotate(45deg)}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.fq-i.open .fq-a{max-height:600px}
+.fq-a-in{padding:0 0 20px;font-size:15px;color:#555;line-height:1.75}
+/* Guarantee box */
+.fq-guar{margin-top:40px;padding:32px;background:rgba(10,209,217,.03);border:1px solid rgba(10,209,217,.1);text-align:center}
+.fq-guar h3{font-family:var(--display);font-size:clamp(18px,2vw,22px);font-weight:700;color:var(--ablack);margin-bottom:12px}
+.fq-guar ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:left;max-width:500px;margin:0 auto}
+.fq-guar li{position:relative;padding-left:22px;font-size:14px;color:#555;line-height:1.6}
+.fq-guar li::before{content:'✓';position:absolute;left:0;color:var(--t1);font-weight:800}
+
+/* ══════════════════════════════════════
+   FINAL CTA
+   ══════════════════════════════════════ */
+.fc-sec{padding:80px 3% 88px;background:linear-gradient(170deg,#0a2628 0%,#0d3133 50%,#0a2628 100%);position:relative;overflow:hidden;text-align:center}
+.fc-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(10,209,217,.1) 0%,transparent 50%);pointer-events:none}
+.fc-sec::after{content:'';position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.fc-in{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.fc-sec h2{font-family:var(--display);font-size:clamp(30px,5vw,48px);font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:-.025em}
+.fc-sec h2 em{font-style:normal;color:var(--t1)}
+.fc-quote{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:28px 32px;margin:24px 0 28px;font-size:16px;color:rgba(255,255,255,.7);line-height:1.75;font-style:italic;position:relative}
+.fc-quote::before{content:'\201C';position:absolute;top:-8px;left:16px;font-family:Georgia,serif;font-size:56px;color:var(--t1);opacity:.3;line-height:1}
+.fc-quote cite{display:block;margin-top:12px;font-size:13px;font-weight:700;color:var(--t1);font-style:normal;letter-spacing:.06em}
+/* Value stack */
+.fc-val{text-align:left;margin:0 auto 28px;max-width:420px}
+.fc-val-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px}
+.fc-val-name{color:rgba(255,255,255,.6)}
+.fc-val-price{color:rgba(255,255,255,.3);text-decoration:line-through}
+.fc-val-total{border-bottom:none;border-top:2px solid var(--t1);margin-top:8px;padding-top:12px;font-weight:800}
+.fc-val-total .fc-val-name{color:#fff;font-size:16px}
+.fc-val-total .fc-val-price{color:var(--cherry);text-decoration:none;font-size:20px;font-weight:900}
+.fc-sec .cta-main{margin:0 auto;max-width:480px}
+.fc-trust{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap}
+.fc-trust span{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:rgba(255,255,255,.4)}
+.fc-contact{margin-top:24px;font-size:14px;color:rgba(255,255,255,.35)}
+.fc-contact a{color:var(--t1);text-decoration:none}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:28px 3%;background:#071d1f;text-align:center}
+.footer p{font-size:12px;color:rgba(255,255,255,.25);line-height:1.6}
+
+/* ═══ WAVES ═══ */
+.wv{position:relative;z-index:6;line-height:0;margin-top:-1px}
+.wv svg{display:block;width:100%}
+
+/* ═══ GHL ═══ */
+.ghl-break .fi{opacity:1!important;transform:none!important}
+.ghl-break{overflow-x:hidden}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  .hero{padding:40px 4% 48px}
+  .hero h1{font-size:clamp(28px,7vw,40px)}
+  .vsl-card{margin-bottom:20px}
+  .mag-row{grid-template-columns:1fr;gap:28px}
+  .mag-row:nth-child(even){direction:ltr}
+  .mag-bonus{grid-template-columns:1fr}
+  .ps-in{grid-template-columns:repeat(2,1fr);gap:16px}
+  .gb-links{gap:8px}
+  .gf-hero{grid-template-columns:1fr}
+  .gf-grid{grid-template-columns:1fr}
+  .ab-in{grid-template-columns:1fr;gap:32px}
+  .ab-frame{max-width:320px;margin:0 auto}
+  .oc{grid-template-columns:1fr}
+  .oc-right{border-left:none;border-top:1px solid rgba(0,0,0,.06)}
+  .oc-inc{flex-direction:column}
+  .oc-head,.oc-price,.oc-embed,.oc-cta{padding-left:24px;padding-right:24px}
+  .oc-head{text-align:center}
+  .oc-price{text-align:center}
+  .pg-wall{min-height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pg-shot{position:static;transform:none!important;width:100%}
+  .pg-shot:hover{transform:scale(1.02)!important}
+  .wh-card{flex:0 0 260px}
+  .fq-guar ul{grid-template-columns:1fr}
+  .dl-fg,.dl-mid{display:none}
+  .dl-bg{opacity:.1!important}
+}
+@media(max-width:480px){
+  .hero{padding:28px 5% 36px}
+  .hero h1{font-size:clamp(26px,8vw,36px)}
+  .ps-in{gap:12px}
+  .ps-n{font-size:clamp(22px,6vw,30px)}
+  .mag-sec,.ck-sec,.gf-sec,.sp-sec,.ab-sec,.wh-sec,.pg-sec,.fq-sec,.fc-sec{padding:56px 5% 64px}
+  .oc::before{inset:8px}
+  .pr-now{font-size:56px}
+  .pg-wall{grid-template-columns:1fr}
+  .fc-val{max-width:100%}
+  .wh-card{flex:0 0 85vw}
+}
+</style>
+
+<!-- GHL CONTAINER BUSTER -->
+<script>
+(function(){
+  var me=document.currentScript;if(!me)return;
+  var p=me.parentElement;
+  while(p&&p!==document.documentElement&&p!==document.body){
+    var cs=window.getComputedStyle(p);
+    if(cs.maxWidth!=='none')p.style.maxWidth='none';
+    if(parseInt(cs.paddingLeft)>0)p.style.paddingLeft='0';
+    if(parseInt(cs.paddingRight)>0)p.style.paddingRight='0';
+    p.style.width='100%';p.style.boxSizing='border-box';
+    if(p.parentElement&&p.parentElement!==document.documentElement&&p.parentElement!==document.body){
+      p.style.overflow='visible';p.style.overflowX='visible';p.style.overflowY='visible';
+      if(cs.height!=='auto'&&cs.height!=='0px'){var h=parseInt(cs.height);if(h>0&&h<window.innerHeight*2)p.style.height='auto'}
+      if(cs.maxHeight!=='none')p.style.maxHeight='none';
+    }else{p.style.webkitOverflowScrolling='touch'}
+    p=p.parentElement;
+  }
+})();
+</script>
+
+<div class="ghl-break">
+
+<!-- SVG DEFS -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+<defs>
+  <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ad1d9"/><stop offset="33%" stop-color="#0dc5cf"/><stop offset="66%" stop-color="#16d09c"/><stop offset="100%" stop-color="#7ccb61"/></linearGradient>
+  <linearGradient id="leafHL" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="#fff" stop-opacity=".12"/><stop offset="100%" stop-color="#000" stop-opacity=".05"/></linearGradient>
+</defs>
+</svg>
+
+<!-- ═══════════════════════════════════════
+     1. HERO — VSL CENTERED & MASSIVE
+     ═══════════════════════════════════════ -->
+<section class="hero">
+  <!-- 3-layer leaves -->
+  <div class="dl dl-bg dl-bob" style="top:-80px;left:-120px;width:500px"><svg viewBox="0 0 200 260" fill="none"><path d="M100 10 C30 50 5 130 40 200 C60 240 100 250 100 250 C100 250 140 240 160 200 C195 130 170 50 100 10Z" fill="url(#lg1)" opacity=".3"/><path d="M100 30 L100 230" stroke="#0a2628" stroke-width="2.5" opacity=".15"/><ellipse cx="70" cy="100" rx="18" ry="12" fill="#0a2628" opacity=".06"/><ellipse cx="125" cy="140" rx="20" ry="14" fill="#0a2628" opacity=".06"/><ellipse cx="80" cy="180" rx="14" ry="10" fill="#0a2628" opacity=".06"/></svg></div>
+  <div class="dl dl-bg dl-bob2" style="bottom:-60px;right:-100px;width:440px;transform:scaleX(-1)"><svg viewBox="0 0 200 300" fill="none"><path d="M100 5 C140 20 180 80 175 160 C170 220 130 280 100 295 C70 280 30 220 25 160 C20 80 60 20 100 5Z" fill="url(#lg1)" opacity=".28"/><path d="M100 20 L100 280" stroke="#0a2628" stroke-width="2" opacity=".12"/></svg></div>
+  <div class="dl dl-fg dl-bob3" style="top:60px;right:-20px;width:160px"><svg viewBox="0 0 120 180" fill="none"><path d="M60 5 C25 30 10 80 20 130 C28 165 55 175 60 175 C65 175 92 165 100 130 C110 80 95 30 60 5Z" fill="url(#lg1)" opacity=".12"/><path d="M60 15 L60 165" stroke="#0dc5cf" stroke-width="2" opacity=".2"/><ellipse cx="42" cy="70" rx="10" ry="7" fill="#0a2628" opacity=".04"/><ellipse cx="75" cy="110" rx="12" ry="8" fill="#0a2628" opacity=".04"/></svg></div>
+  <div class="dc" style="top:20%;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(10,209,217,.07),transparent 70%);filter:blur(25px)"></div>
+
+  <div class="hero-inner fi">
+    <h1>Build &amp; Launch Your First Digital Course in 21 Days — <em>Using AI</em></h1>
+    <p class="hero-sub">The exact system behind $600K+ in digital product sales. Pick your idea, build your course, launch your funnel — and have your first sales before the month is over.</p>
+
+    <!-- MASSIVE VSL -->
+    <div class="vsl-card">
+      <div class="vsl-eyebrow"><span></span><span></span><span></span></div>
+      <div class="vsl-aspect">
+        <div class="vsl-poster" id="vslPoster">
+          <div class="vsl-play"><svg width="28" height="32" viewBox="0 0 24 28" fill="none"><path d="M3 2l19 12L3 26V2z" fill="#fff"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div class="vsl-sub">watch this — it's only 4 min ↑</div>
+
+    <div class="hero-cta-row">
+      <span class="hero-annot">this changed everything for me
+        <svg width="40" height="28" viewBox="0 0 40 28" style="vertical-align:middle"><path d="M5 8 Q15 25 30 18" stroke="#ff4f49" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M25 22 L30 18 L26 14" stroke="#ff4f49" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <a href="#checkout" class="cta-main" onclick="event.preventDefault();document.getElementById('checkout').scrollIntoView({behavior:'smooth'})">
+        <span class="cta-shim"></span>
+        Unlock the Launch Lab
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="cta-trust">
+        <span><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="8" width="14" height="10" rx="1" stroke="#8e8d8d" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Secure checkout</span>
+        <span><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#8e8d8d" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Instant access</span>
+        <span><svg viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L10 14l-4.8 2.6.9-5.3L2.3 7.6l5.3-.8z" stroke="#8e8d8d" stroke-width="1.5" fill="none"/></svg> Lifetime access</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → warm -->
+<div class="wv" style="background:var(--warmbg)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,48 C240,16 480,72 720,32 C960,-8 1200,56 1440,28 L1440,80 L0,80Z" fill="#f7f4f0"/></svg></div>
+
+<!-- ═══════════════════════════════════════
+     2. OFFER SUMMARY — MAGAZINE ROWS
+     ═══════════════════════════════════════ -->
+<section class="mag-sec">
+  <div class="dl dl-bg dl-bob" style="top:100px;right:-80px;width:460px;transform:rotate(20deg)"><svg viewBox="0 0 200 260" fill="none"><path d="M100 10 C30 50 5 130 40 200 C60 240 100 250 100 250 C100 250 140 240 160 200 C195 130 170 50 100 10Z" fill="url(#lg1)" opacity=".25"/><path d="M100 30 L100 230" stroke="#0a2628" stroke-width="2.5" opacity=".12"/><ellipse cx="68" cy="100" rx="18" ry="12" fill="#0a2628" opacity=".05"/><ellipse cx="130" cy="150" rx="20" ry="14" fill="#0a2628" opacity=".05"/></svg></div>
+  <div class="dc" style="top:40%;left:2%;width:280px;height:280px;background:radial-gradient(circle,rgba(10,209,217,.06),transparent 70%);filter:blur(20px)"></div>
+
+  <div class="mag-inner">
+    <div class="mag-header fi">
+      <h2>Everything Inside <em>The Launch Lab</em></h2>
+      <p>The full system. Not theory. Not "motivation." The actual tools, templates, and AI prompts that built a $600K+ digital product business.</p>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="mag-row fi">
+      <div class="mag-vis"><div class="mag-mock"><div class="mag-bar"><span></span><span></span><span></span></div><div class="mag-screen">[Live Training Preview]</div></div></div>
+      <div class="mag-txt">
+        <h3>3-Day Live <em>Challenge Training</em></h3>
+        <p>Three 90-minute sessions where we build together in real time. You'll validate your idea, build your funnel, and map your launch.</p>
+        <ul><li>Day 1: Validate your course idea + build your outline with AI</li><li>Day 2: AI-powered sales page + complete funnel setup</li><li>Day 3: Your 21-day launch roadmap, step by step</li></ul>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="mag-row fi">
+      <div class="mag-vis"><div class="mag-mock"><div class="mag-bar"><span></span><span></span><span></span></div><div class="mag-screen">[AI Prompt Library Preview]</div></div></div>
+      <div class="mag-txt">
+        <h3>The Complete <em>AI Prompt Library</em></h3>
+        <p>Copy-paste prompts for every step of your course build. Idea validation, outline creation, sales copy, email sequences — all done for you.</p>
+        <ul><li>50+ tested prompts organized by launch phase</li><li>Works with ChatGPT, Claude, or any AI tool</li><li>Updated quarterly with new prompts</li></ul>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="mag-row fi">
+      <div class="mag-vis"><div class="mag-mock"><div class="mag-bar"><span></span><span></span><span></span></div><div class="mag-screen">[Funnel Template Preview]</div></div></div>
+      <div class="mag-txt">
+        <h3>Sales Funnel <em>Blueprint + Templates</em></h3>
+        <p>The exact funnel structure that converts cold traffic into buyers on autopilot. Landing pages, email sequences, checkout pages — plug in your content and launch.</p>
+        <ul><li>Proven landing page template (converted at 8%+)</li><li>7-email launch sequence — AI-written, human-reviewed</li><li>Evergreen setup so it sells while you sleep</li></ul>
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="mag-row fi">
+      <div class="mag-vis"><div class="mag-mock"><div class="mag-bar"><span></span><span></span><span></span></div><div class="mag-screen">[Community Preview]</div></div></div>
+      <div class="mag-txt">
+        <h3>Private Community + <em>Group Coaching</em></h3>
+        <p>You're not doing this alone. Monthly live coaching calls, a private community, and direct access to Marissa for feedback on your actual work.</p>
+        <ul><li>Monthly group coaching calls (bring your questions)</li><li>Private community — post anytime, get answers fast</li><li>Monthly design/copy feedback days</li></ul>
+      </div>
+    </div>
+
+    <!-- Bonus bundle -->
+    <div class="mag-bonus fi">
+      <div class="mag-bonus-card"><div class="mag-bonus-label">Bonus</div><h4>Challenge Workbook</h4><p>Fill-in-the-blank worksheets for all 3 days</p></div>
+      <div class="mag-bonus-card"><div class="mag-bonus-label">Bonus</div><h4>Progress Tracker</h4><p>21-day launch tracker to stay accountable</p></div>
+      <div class="mag-bonus-card"><div class="mag-bonus-label">Bonus</div><h4>Permanent Replays</h4><p>Every session recorded — watch at your pace</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → light -->
+<div class="wv" style="background:var(--warm)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,48 C180,16 360,72 540,36 C720,0 900,56 1080,28 C1260,0 1380,44 1440,32 L1440,80 L0,80Z" fill="#eef9f8"/></svg></div>
+
+<!-- ═══════════════════════════════════════
+     3. CHECKOUT
+     ═══════════════════════════════════════ -->
+<section class="ck-sec" id="checkout">
+  <div class="dc" style="top:10%;right:5%;width:350px;height:350px;background:radial-gradient(circle,rgba(10,209,217,.06),transparent 70%);filter:blur(25px)"></div>
+  <div class="ck-inner fi">
+    <div class="ck-ey">~ ready to start building? ~</div>
+    <h2 class="ck-h">Lock In Your Spot <em>Today</em></h2>
+    <div class="oc">
+      <!-- ══ LEFT COLUMN: Offer Details ══ -->
+      <div class="oc-left">
+        <div class="oc-head">
+          <h2>Join <em>Digital Course Launch Lab</em></h2>
+          <div class="oc-badge"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M3 10 C3 5 10 2 10 2 C10 2 17 5 17 10 C17 15 10 18 10 18 C10 18 3 15 3 10Z" fill="url(#lg1)"/></svg> Lifetime Access</div>
+          <div class="oc-obj">
+            <p>This is the full system.</p>
+            <ul>
+              <li>Not the stuff I put on YouTube</li>
+              <li>Not a highlights reel</li>
+              <li>The actual prompts I use</li>
+              <li>The funnel templates I built my business on</li>
+              <li>The coaching calls</li>
+              <li>The community</li>
+              <li>The AI tools that do 80% of the work</li>
+            </ul>
+            <p><strong>All of it.</strong> If you watched the challenge this week, you saw the free version. <span class="em">This is the version I actually run my business on.</span></p>
+          </div>
+        </div>
+        <div class="oc-inc">
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>3-Day Live Training</strong> + Replays</span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>AI Prompt Library</strong> (50+)</span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Sales Funnel Blueprint</strong></span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>21-Day Launch Calendar</strong></span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Private Community</strong></span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Monthly Coaching Calls</strong></span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Email Sequence Templates</strong></span></div>
+          <div class="oc-item"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 10l3 3 7-7" stroke="#0ad1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Lifetime Updates</strong></span></div>
+        </div>
+        <div class="oc-price">
+          <div class="pr-was">$997</div>
+          <div class="pr-now">$497</div>
+          <div class="pr-note">One-time payment · Lifetime access · No subscriptions</div>
+          <div class="pr-save">Save $500 Today</div>
+        </div>
+      </div>
+      <!-- ══ RIGHT COLUMN: Payment Embed ══ -->
+      <div class="oc-right">
+        <div class="oc-embed">
+          <div class="oc-embed-label">↓ complete your order below ↓</div>
+          <div class="oc-embed-box">
+            <!-- ═══════════════════════════════════════
+                 PAYMENT EMBED — Replace the placeholder div below with your embed code:
+
+                 THRIVECART:
+                 <div data-thrivecart-account="marissaromero" data-thrivecart-tpl="v2" data-thrivecart-product="XX" class="thrivecart-embeddable"></div>
+                 <script async src="//tinder.thrivecart.com/embeddable/script.js"></script>
+
+                 STRIPE:
+                 <stripe-buy-button buy-button-id="..." publishable-key="..."></stripe-buy-button>
+
+                 GHL:
+                 Paste your GoHighLevel order form iframe/embed here
+                 ═══════════════════════════════════════ -->
+            <div class="embed-placeholder">
+              <div class="ep-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="15" rx="2" stroke="url(#epg)" stroke-width="1.8"/><path d="M2 10h20" stroke="url(#epg)" stroke-width="1.8"/><rect x="5" y="13" width="6" height="3" rx=".5" fill="rgba(10,209,217,.2)"/><defs><linearGradient id="epg" x1="2" y1="5" x2="22" y2="20" gradientUnits="userSpaceOnUse"><stop stop-color="#0ad1d9"/><stop offset="1" stop-color="#7ccb61"/></linearGradient></defs></svg></div>
+              <h4>Payment Form Loads Here</h4>
+              <p>Replace this placeholder with your ThriveCart, Stripe, or GHL payment embed code.</p>
+              <code>&lt;div data-thrivecart-account="marissaromero" data-thrivecart-product="XX"&gt;&lt;/div&gt;</code>
+            </div>
+          </div>
+          <div class="oc-embed-trust">
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="8" width="14" height="10" rx="1" stroke="#bbb" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg> 256-bit SSL</span>
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M3 10 C3 5 10 2 10 2 C10 2 17 5 17 10 C17 15 10 18 10 18 C10 18 3 15 3 10Z" fill="none" stroke="#bbb" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Secure Checkout</span>
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M13 2L3 14h6l-1 6 10-12h-6l1-6z" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg> Instant Access</span>
+          </div>
+        </div>
+        <div class="oc-cta">
+          <a href="#" class="cta-main" style="text-decoration:none"><span class="cta-shim"></span>Get Instant Access — $497<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="cta-trust" style="margin-top:12px">
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="8" width="14" height="10" rx="1" stroke="#8e8d8d" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Secure</span>
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M13 2L3 14h6l-1 6 10-12h-6l1-6z" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Instant access</span>
+            <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><circle cx="10" cy="10" r="7" stroke="#8e8d8d" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> SSL encrypted</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PROOF STRIP -->
+<section class="ps">
+  <div class="ps-in">
+    <div class="ps-i fi"><div class="ps-n">$600K+</div><div class="ps-l">In Digital Sales</div></div>
+    <div class="ps-i fi fi-d1"><div class="ps-n">2,847</div><div class="ps-l">Students</div></div>
+    <div class="ps-i fi fi-d2"><div class="ps-n">21</div><div class="ps-l">Day System</div></div>
+    <div class="ps-i fi fi-d3"><div class="ps-n">∞</div><div class="ps-l">Lifetime</div></div>
+  </div>
+</section>
+
+<!-- WAVE: dark → warm -->
+<div class="wv" style="background:linear-gradient(135deg,#0a2628,#0d3133)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,24 C240,68 480,0 720,40 C960,80 1200,16 1440,48 L1440,80 L0,80Z" fill="#faf8f5"/></svg></div>
+
+<!-- 5. GIFT BANNER — JUMP LINKS -->
+<section class="gb" id="everything">
+  <div class="gb-in fi">
+    <h2>Everything Inside the Launch Lab</h2>
+    <p>The full system. Not the highlights reel. Not the free version. Everything.</p>
+    <div class="gb-links">
+      <a href="#gf-training">Training</a>
+      <a href="#gf-prompts">AI Prompts</a>
+      <a href="#gf-funnels">Funnels</a>
+      <a href="#gf-coaching">Coaching</a>
+      <a href="#faq">Questions</a>
+      <a href="#checkout" class="jl-cta" onclick="event.preventDefault();document.getElementById('checkout').scrollIntoView({behavior:'smooth'})">Place My Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → warm -->
+<div class="wv" style="background:var(--warmbg)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,56 C320,24 640,72 960,32 C1120,12 1320,52 1440,40 L1440,80 L0,80Z" fill="#f7f4f0"/></svg></div>
+
+<!-- 6. GIFT CARDS — DETAILED -->
+<section class="gf-sec" id="gf-training">
+  <div class="gf-in">
+    <!-- Hero gift -->
+    <div class="gf-hero fi">
+      <div class="gf-hero-img">[AI Prompt Library Preview]</div>
+      <div>
+        <div class="gf-hero-label">★ Core System</div>
+        <h3>The AI Course Builder — Your Complete Toolkit</h3>
+        <p>Here's the reality of building a course on the side. Your best ideas hit when nobody is awake to help you. The AI Prompt Library handles 80% of the work — outline, copy, emails, sales page — so you can build in stolen hours and still launch on time.</p>
+        <p>It's not "generic AI prompts." These are the exact prompts I tested across $600K+ in launches. They know what converts.</p>
+        <div class="gf-take">So you can build a complete course and funnel even if you only have 5 hours a week — and launch with confidence.</div>
+        <a href="#checkout" class="cta-main" onclick="event.preventDefault();document.getElementById('checkout').scrollIntoView({behavior:'smooth'})" style="text-decoration:none"><span class="cta-shim"></span>Unlock the full system →</a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="gf-grid">
+      <div class="gf-card fi fi-d1" id="gf-prompts"><div class="gf-card-label">Included</div><h3>AI Prompt Library (50+)</h3><p>Copy-paste prompts for every phase: idea validation, outline, sales copy, emails, social posts. Works with any AI tool.</p></div>
+      <div class="gf-card fi fi-d2" id="gf-funnels"><div class="gf-card-label">Included</div><h3>Sales Funnel Blueprint</h3><p>Proven landing page template, 7-email launch sequence, checkout setup. Plug in your content and go live.</p></div>
+      <div class="gf-card fi fi-d3" id="gf-coaching"><div class="gf-card-label">Included</div><h3>Monthly Group Coaching</h3><p>Live calls where you bring your questions. Design feedback days where Marissa reviews your actual work.</p></div>
+      <div class="gf-card fi fi-d4"><div class="gf-card-label">Included</div><h3>Private Community</h3><p>Post anytime, get answers fast. A room full of course creators building alongside you — not a ghost town.</p></div>
+      <div class="gf-card fi fi-d5"><div class="gf-card-label">Included</div><h3>21-Day Launch Calendar</h3><p>Every task, every day, no guesswork. Know exactly what to do from "I have an idea" to "my course is selling."</p></div>
+      <div class="gf-card fi fi-d6"><div class="gf-card-label">Included</div><h3>Lifetime Updates + New Content</h3><p>AI moves fast. Your toolkit stays current. New prompts, new templates, new strategies — forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → dark -->
+<div class="wv" style="background:var(--warm)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,32 C360,72 720,8 1080,48 C1260,68 1380,24 1440,36 L1440,80 L0,80Z" fill="#0a2628"/></svg></div>
+
+<!-- 7. SOCIAL PROOF TICKER -->
+<section class="sp-sec">
+  <div class="sp-header fi">
+    <h2>What Students Are Saying</h2>
+    <p>Real results from real people inside the program</p>
+  </div>
+  <div class="tk-wrap">
+    <div class="tk-track">
+      <div class="tk-card"><span class="tk-hl">$2,400 in 48 hours</span><blockquote>"I followed Marissa's Day 2 funnel blueprint exactly. Launched on a Tuesday, woke up Wednesday to $2,400 in sales. I literally screamed."</blockquote><cite>— Jessica R., Health Coach</cite></div>
+      <div class="tk-card"><span class="tk-hl">launched in 2 weeks</span><blockquote>"I'd been 'planning' my course for 8 months. Did more in 2 weeks with Marissa's system than I did in all that time overthinking."</blockquote><cite>— Adam W., Business Consultant</cite></div>
+      <div class="tk-card"><span class="tk-hl">$8K first month</span><blockquote>"The AI prompts alone were worth it. I had my entire sales page written in 30 minutes. Hit $8K my first month with a list of 400 people."</blockquote><cite>— Priya M., Life Coach</cite></div>
+      <div class="tk-card"><span class="tk-hl">idea to sales in 21 days</span><blockquote>"I went from 'I think I want to make a course' to actual paying students in exactly 21 days. Marissa's system just works."</blockquote><cite>— Sarah P., Yoga Instructor</cite></div>
+      <div class="tk-card"><span class="tk-hl">first $5K month</span><blockquote>"The 21-day calendar was everything. I didn't have to think about what to do next — I just followed the steps. Hit $5K in month one."</blockquote><cite>— Marcus T., Content Creator</cite></div>
+      <div class="tk-card"><span class="tk-hl">$1,800 from 200 subs</span><blockquote>"Everyone said I needed a bigger audience first. Marissa showed me exactly how to launch with 200 subscribers. Made $1,800 opening weekend."</blockquote><cite>— Camila D., Lifestyle Coach</cite></div>
+      <!-- repeat for seamless loop -->
+      <div class="tk-card"><span class="tk-hl">$2,400 in 48 hours</span><blockquote>"I followed Marissa's Day 2 funnel blueprint exactly. Launched on a Tuesday, woke up Wednesday to $2,400 in sales. I literally screamed."</blockquote><cite>— Jessica R., Health Coach</cite></div>
+      <div class="tk-card"><span class="tk-hl">launched in 2 weeks</span><blockquote>"I'd been 'planning' my course for 8 months. Did more in 2 weeks with Marissa's system than I did in all that time overthinking."</blockquote><cite>— Adam W., Business Consultant</cite></div>
+      <div class="tk-card"><span class="tk-hl">$8K first month</span><blockquote>"The AI prompts alone were worth it. I had my entire sales page written in 30 minutes. Hit $8K my first month with a list of 400 people."</blockquote><cite>— Priya M., Life Coach</cite></div>
+      <div class="tk-card"><span class="tk-hl">idea to sales in 21 days</span><blockquote>"I went from 'I think I want to make a course' to actual paying students in exactly 21 days. Marissa's system just works."</blockquote><cite>— Sarah P., Yoga Instructor</cite></div>
+      <div class="tk-card"><span class="tk-hl">first $5K month</span><blockquote>"The 21-day calendar was everything. I didn't have to think about what to do next — I just followed the steps. Hit $5K in month one."</blockquote><cite>— Marcus T., Content Creator</cite></div>
+      <div class="tk-card"><span class="tk-hl">$1,800 from 200 subs</span><blockquote>"Everyone said I needed a bigger audience first. Marissa showed me exactly how to launch with 200 subscribers. Made $1,800 opening weekend."</blockquote><cite>— Camila D., Lifestyle Coach</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: dark → warm -->
+<div class="wv" style="background:linear-gradient(135deg,#0a2628,#0d3133)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,56 C180,24 420,72 660,32 C900,-8 1140,56 1440,28 L1440,80 L0,80Z" fill="#f7f4f0"/></svg></div>
+
+<!-- 8. ABOUT MARISSA -->
+<section class="ab-sec">
+  <div class="dl dl-bg dl-bob3" style="bottom:-40px;right:-60px;width:380px;transform:rotate(30deg) scaleX(-1)"><svg viewBox="0 0 200 260" fill="none"><path d="M100 10 C30 50 5 130 40 200 C60 240 100 250 100 250 C100 250 140 240 160 200 C195 130 170 50 100 10Z" fill="url(#lg1)" opacity=".25"/><path d="M100 30 L100 230" stroke="#0a2628" stroke-width="2.5" opacity=".12"/></svg></div>
+  <div class="ab-in">
+    <div class="ab-photo fi">
+      <div class="ab-frame"><div class="ab-ph">[Marissa Photo]</div></div>
+      <div class="ab-stats">
+        <div class="ab-stat"><div class="ab-sn">$600K+</div><div class="ab-sl">Revenue</div></div>
+        <div class="ab-stat"><div class="ab-sn">2,847</div><div class="ab-sl">Students</div></div>
+        <div class="ab-stat"><div class="ab-sn">67K</div><div class="ab-sl">YouTube</div></div>
+      </div>
+    </div>
+    <div class="ab-txt fi fi-d2">
+      <h2>From Hard Hat to $600K in Course Sales</h2>
+      <p>I wasn't born knowing how to create digital courses. I was a civil engineer — hard hat, blueprints, the whole thing. But on the side, I had this little YouTube channel where I talked about productivity and personal development. I didn't have a big audience. I didn't have a business plan. I just had this restless feeling that there had to be more.</p>
+      <p>So I did what most people do — I tried everything. I posted more content, hoping the algorithm would finally notice me. I bought expensive courses that promised six-figure secrets. Nothing moved the needle.</p>
+      <div class="ab-call">$40K from a video with just 730 views. $35K from a single launch weekend. $30-40K per month while on maternity leave — the system kept running even when I stepped away.</div>
+      <p>That system changed everything for me. And now I'm handing you the exact same system. No fluff. No theory. Just the step-by-step playbook that actually works.</p>
+      <div class="ab-sig">— Marissa ♡</div>
+      <div class="ab-cta">
+        <a href="#checkout" class="cta-main" onclick="event.preventDefault();document.getElementById('checkout').scrollIntoView({behavior:'smooth'})" style="text-decoration:none"><span class="cta-shim"></span>I'll do it the right way this time</a>
+        <span class="ab-cta-sub">your zero is the best place to begin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → dark -->
+<div class="wv" style="background:var(--warm)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,24 C240,64 480,4 720,44 C960,84 1200,12 1440,48 L1440,80 L0,80Z" fill="#0a2628"/></svg></div>
+
+<!-- 9. WHAT HAPPENS — HORIZONTAL SCROLL CARDS -->
+<section class="wh-sec">
+  <div class="wh-in">
+    <div class="wh-header fi"><h2>So What Actually Happens After You Join?</h2><p>scroll to follow your journey →</p></div>
+    <div class="wh-scroll" id="whScroll">
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Immediately</div><h3>Welcome + Full Access</h3><p>Welcome email, login, community invite, and your AI Prompt Library. Everything is unlocked.</p></div></div>
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Day 1-3</div><h3>Live Challenge Training</h3><p>Three 90-minute live sessions. Validate, build, map. We create together in real time.</p></div></div>
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Week 1</div><h3>Your Course Takes Shape</h3><p>Follow the 21-day calendar. Outline done, sales page live, emails loaded. Stuck? Post in community.</p></div></div>
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Week 2-3</div><h3>Build + Refine</h3><p>Record content, set up checkout, test funnel. Monthly coaching call — bring questions. Feedback day opens.</p></div></div>
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Day 21</div><h3>Launch Day</h3><p>Hit publish. Send emails. Share the link. Your course is live. Then — evergreen setup so it keeps selling.</p></div></div>
+      <div class="wh-card"><div class="wh-card-img">[Screenshot]</div><div class="wh-card-body"><div class="wh-card-time">Month 3+</div><h3>You Have a Rhythm</h3><p>Create, launch, optimize. Disappear for a month? Everything is here when you come back.</p></div></div>
+    </div>
+    <div class="wh-nav">
+      <button onclick="document.getElementById('whScroll').scrollBy({left:-320,behavior:'smooth'})" aria-label="Previous"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button onclick="document.getElementById('whScroll').scrollBy({left:320,behavior:'smooth'})" aria-label="Next"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: dark → warm -->
+<div class="wv" style="background:linear-gradient(135deg,#0a2628,#0d3133)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,48 C360,8 720,72 1080,28 C1260,8 1380,52 1440,40 L1440,80 L0,80Z" fill="#faf8f5"/></svg></div>
+
+<!-- 10. PROOF GALLERY — EMOTIONAL CLIMAX -->
+<section class="pg-sec">
+  <div class="pg-in">
+    <div class="pg-header fi">
+      <div class="pg-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8l-6.2 3.2 1.2-6.8-5-4.9 6.9-1z" fill="#f1c232" stroke="#f1c232" stroke-width="1"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8l-6.2 3.2 1.2-6.8-5-4.9 6.9-1z" fill="#f1c232" stroke="#f1c232" stroke-width="1"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8l-6.2 3.2 1.2-6.8-5-4.9 6.9-1z" fill="#f1c232" stroke="#f1c232" stroke-width="1"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8l-6.2 3.2 1.2-6.8-5-4.9 6.9-1z" fill="#f1c232" stroke="#f1c232" stroke-width="1"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8l-6.2 3.2 1.2-6.8-5-4.9 6.9-1z" fill="#f1c232" stroke="#f1c232" stroke-width="1"/></svg>
+      </div>
+      <h2>2,847 Real Students. Real Screenshots. Real Wins.</h2>
+      <p>"I never expected someone to give this much and share exactly what to do."</p>
+    </div>
+    <div class="pg-wall fi">
+      <div class="pg-shot pg-s1"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">$2,400 first launch</span></div>
+      <div class="pg-shot pg-s2"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">Course sold out in 48hrs</span></div>
+      <div class="pg-shot pg-s3"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">$8K first month</span></div>
+      <div class="pg-shot pg-s4"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">Launched in 2 weeks flat</span></div>
+      <div class="pg-shot pg-s5"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">$5K from 200 subscribers</span></div>
+      <div class="pg-shot pg-s6"><div class="pg-shot-ph">[Student Screenshot]</div><span class="pg-cap">First sale ever — zero experience</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → warm -->
+<div class="wv" style="background:var(--warmbg)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,40 C320,72 640,8 960,44 C1120,60 1320,20 1440,36 L1440,80 L0,80Z" fill="#f7f4f0"/></svg></div>
+
+<!-- 11. FAQ -->
+<section class="fq-sec" id="faq">
+  <div class="fq-in">
+    <div class="fq-header fi"><h2>Got Questions?</h2></div>
+
+    <div class="fq-i fi"><div class="fq-q" onclick="tFaq(this.parentElement)">I've never created a course before. Is this too advanced?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">Not at all. Every step inside assumes you are starting from zero — no course creation experience, no tech skills, no existing audience. The AI prompts and templates do the heavy lifting. Most people in the program had never created a digital product when they started.</div></div></div>
+
+    <div class="fq-i fi fi-d1"><div class="fq-q" onclick="tFaq(this.parentElement)">How is this different from free YouTube content?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">YouTube gives you information. The Launch Lab gives you implementation. Inside, you get the specific prompts, the done-for-you templates, the monthly coaching calls, the private community, and a 21-day calendar that tells you exactly what to do each day. YouTube can teach you what to do. This helps you actually do it.</div></div></div>
+
+    <div class="fq-i fi fi-d2"><div class="fq-q" onclick="tFaq(this.parentElement)">I don't have much time. Can I still make this work?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">Most people inside are doing this around full-time jobs, kids, and busy lives. The 21-day calendar is designed for focused sessions — not 8-hour days. And because you have lifetime access, there's no deadline. Life happens — the program will still be here.</div></div></div>
+
+    <div class="fq-i fi fi-d3"><div class="fq-q" onclick="tFaq(this.parentElement)">What if I don't know what to teach?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">Day 1 is built exactly for this. You'll use the AI-powered Course Idea Validator to find your best-fit topic based on your expertise, market demand, and revenue potential. Most people come in with 3-4 vague ideas and leave Day 1 with one clear, validated course concept.</div></div></div>
+
+    <div class="fq-i fi fi-d4"><div class="fq-q" onclick="tFaq(this.parentElement)">Do I need special tools or software?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">All you need is a computer and internet access. The AI tools we use (like ChatGPT) have free versions that work perfectly. There are no required paid tools to get started. The funnel templates work with free platforms.</div></div></div>
+
+    <div class="fq-i fi fi-d5"><div class="fq-q" onclick="tFaq(this.parentElement)">What happens after I purchase?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">Immediately after you place your order, you'll receive a welcome email with your login details, access to the private community, and the full AI Prompt Library. Within 24 hours you'll have access to everything — your templates, your 21-day calendar, and your first coaching call date.</div></div></div>
+
+    <div class="fq-i fi fi-d6"><div class="fq-q" onclick="tFaq(this.parentElement)">What if I need help and it's not a coaching call day?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">Between coaching calls, you have two support options: the private community (where other members and I respond daily) and the AI Prompt Library (which solves 80% of "how do I…" questions instantly). You're never waiting alone with a question.</div></div></div>
+
+    <div class="fq-i fi"><div class="fq-q" onclick="tFaq(this.parentElement)">Is there a refund policy?<svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="fq-a"><div class="fq-a-in">All sales are final. This is clearly stated here, at checkout, and in the terms of service. The program includes lifetime access to coaching, community, and ongoing updates — and I want members who are committed to showing up. If you're not sure yet, that's okay. Take your time with the decision. Email hello@marissaromero.com with questions.</div></div></div>
+
+    <!-- Guarantee alternative -->
+    <div class="fq-guar fi">
+      <h3>Here's what you get instead of a refund policy:</h3>
+      <ul>
+        <li>Lifetime access to all training + updates</li>
+        <li>Monthly coaching calls — forever</li>
+        <li>Private community that actually responds</li>
+        <li>AI Prompt Library — updated quarterly</li>
+        <li>Monthly design/copy feedback days</li>
+        <li>Every future template and tool added free</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → dark -->
+<div class="wv" style="background:var(--warm)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,36 C240,72 480,8 720,48 C960,88 1200,16 1440,44 L1440,80 L0,80Z" fill="#0a2628"/></svg></div>
+
+<!-- 12. FINAL CTA -->
+<section class="fc-sec">
+  <div class="dl dl-bg" style="top:-60px;left:-80px;width:400px;opacity:.12;transform:rotate(-10deg)"><svg viewBox="0 0 200 260" fill="none"><path d="M100 10 C30 50 5 130 40 200 C60 240 100 250 100 250 C100 250 140 240 160 200 C195 130 170 50 100 10Z" fill="url(#lg1)" opacity=".3"/></svg></div>
+
+  <div class="fc-in">
+    <h2 class="fi">Join Digital Course <em>Launch Lab</em></h2>
+
+    <div class="fc-quote fi fi-d1">
+      "The thing I hear most from students is that this was the first time they actually stopped collecting free PDFs and random YouTube advice — and had a clear thing to do every single day."
+      <cite>— Marissa</cite>
+    </div>
+
+    <!-- Value stack -->
+    <div class="fc-val fi fi-d2">
+      <div class="fc-val-row"><span class="fc-val-name">Private coaching</span><span class="fc-val-price">$300-500/hr</span></div>
+      <div class="fc-val-row"><span class="fc-val-name">Community + coaching</span><span class="fc-val-price">$197-497/mo</span></div>
+      <div class="fc-val-row"><span class="fc-val-name">Funnel consultant</span><span class="fc-val-price">$200+/session</span></div>
+      <div class="fc-val-row"><span class="fc-val-name">AI prompt packs</span><span class="fc-val-price">$97-297</span></div>
+      <div class="fc-val-row fc-val-total"><span class="fc-val-name">Digital Course Launch Lab</span><span class="fc-val-price">$497</span></div>
+    </div>
+
+    <a href="#checkout" class="cta-main fi fi-d3" onclick="event.preventDefault();document.getElementById('checkout').scrollIntoView({behavior:'smooth'})" style="text-decoration:none">
+      <span class="cta-shim"></span>
+      Place My Order — $497
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <div class="fc-trust fi fi-d4">
+      <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="8" width="14" height="10" rx="1" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/></svg> Secure checkout</span>
+      <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M13 2L3 14h6l-1 6 10-12h-6l1-6z" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/></svg> Instant access</span>
+      <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><circle cx="10" cy="10" r="7" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/></svg> Lifetime updates</span>
+    </div>
+
+    <div class="fc-contact fi fi-d5">
+      Questions before you decide? Email <a href="mailto:hello@marissaromero.com">hello@marissaromero.com</a>. I'd rather you feel confident going in than anxious.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Marissa Romero. All rights reserved. Results not typical. Individual results vary based on effort, market conditions, and implementation. No income guarantees. This is an educational program sharing strategies and skills, not a promise of specific outcomes.</p>
+</footer>
+
+</div><!-- /ghl-break -->
+
+<script>
+/* Scroll reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fi').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('v');else io.observe(el)});
+
+/* FAQ toggle */
+function tFaq(item){
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.fq-i.open').forEach(function(i){i.classList.remove('open');i.querySelector('.fq-a').style.maxHeight='0'});
+  if(!wasOpen){item.classList.add('open');var a=item.querySelector('.fq-a');a.style.maxHeight=a.scrollHeight+'px'}
+}
+
+/* Tab title */
+if(window.Worker){
+  var b=new Blob(['var i=0,m=["\uD83D\uDD25 Don\'t miss this...","⏰ Limited spots","🎯 Come back!","💎 $497 — lifetime access"];setInterval(function(){postMessage(m[i%m.length]);i++},2500)'],{type:'text/javascript'});
+  var w=new Worker(URL.createObjectURL(b));
+  var ot=document.title;
+  w.onmessage=function(e){if(document.hidden)document.title=e.data};
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)document.title=ot});
+}
+</script>
