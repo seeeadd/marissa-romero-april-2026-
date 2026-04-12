@@ -407,64 +407,6 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
   <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ad1d9"/><stop offset="33%" stop-color="#0dc5cf"/><stop offset="66%" stop-color="#16d09c"/><stop offset="100%" stop-color="#7ccb61"/></linearGradient>
 </defs></svg>
 
-<!-- ═══ LEAF REVEAL INTRO ═══ -->
-<div id="introOverlay" class="intro-overlay">
-  <div class="intro-particles" id="introParticles"></div>
-  <!-- Teal glow -->
-  <div class="intro-glow"></div>
-  <!-- LEFT leaf curtain -->
-  <div class="intro-leaf intro-leaf-L" style="--out:-110%">
-    <svg viewBox="0 0 600 1000" fill="none" preserveAspectRatio="xMinYMid slice">
-      <g opacity=".85">
-        <!-- Large palm frond -->
-        <path d="M600 0C580 80 520 200 400 320C280 440 200 500 160 580C120 660 140 760 180 900C200 960 220 1000 220 1000L600 1000Z" fill="#0d3133"/>
-        <path d="M600 0C560 100 480 240 350 360C220 480 160 560 130 660C100 760 120 840 160 960L220 1000L600 1000Z" fill="#0a2628"/>
-        <!-- Leaf veins -->
-        <path d="M600 50C540 180 420 340 300 450C200 540 150 640 140 780" stroke="rgba(10,209,217,.15)" stroke-width="2" fill="none"/>
-        <path d="M600 200C520 300 400 400 320 500C260 580 220 680 210 820" stroke="rgba(10,209,217,.1)" stroke-width="1.5" fill="none"/>
-        <path d="M600 400C500 460 380 540 300 640C240 720 220 800 230 920" stroke="rgba(10,209,217,.08)" stroke-width="1" fill="none"/>
-        <!-- Monstera fenestration holes -->
-        <ellipse cx="420" cy="280" rx="30" ry="50" fill="#071d1f" opacity=".4" transform="rotate(-20,420,280)"/>
-        <ellipse cx="340" cy="450" rx="25" ry="40" fill="#071d1f" opacity=".3" transform="rotate(-35,340,450)"/>
-        <ellipse cx="280" cy="620" rx="20" ry="35" fill="#071d1f" opacity=".25" transform="rotate(-15,280,620)"/>
-      </g>
-    </svg>
-  </div>
-  <!-- RIGHT leaf curtain -->
-  <div class="intro-leaf intro-leaf-R" style="--out:110%">
-    <svg viewBox="0 0 600 1000" fill="none" preserveAspectRatio="xMaxYMid slice">
-      <g opacity=".85">
-        <path d="M0 0C20 80 80 200 200 320C320 440 400 500 440 580C480 660 460 760 420 900C400 960 380 1000 380 1000L0 1000Z" fill="#0d3133"/>
-        <path d="M0 0C40 100 120 240 250 360C380 480 440 560 470 660C500 760 480 840 440 960L380 1000L0 1000Z" fill="#0a2628"/>
-        <path d="M0 50C60 180 180 340 300 450C400 540 450 640 460 780" stroke="rgba(10,209,217,.15)" stroke-width="2" fill="none"/>
-        <path d="M0 200C80 300 200 400 280 500C340 580 380 680 390 820" stroke="rgba(10,209,217,.1)" stroke-width="1.5" fill="none"/>
-        <path d="M0 400C100 460 220 540 300 640C360 720 380 800 370 920" stroke="rgba(10,209,217,.08)" stroke-width="1" fill="none"/>
-        <ellipse cx="180" cy="280" rx="30" ry="50" fill="#071d1f" opacity=".4" transform="rotate(20,180,280)"/>
-        <ellipse cx="260" cy="450" rx="25" ry="40" fill="#071d1f" opacity=".3" transform="rotate(35,260,450)"/>
-        <ellipse cx="320" cy="620" rx="20" ry="35" fill="#071d1f" opacity=".25" transform="rotate(15,320,620)"/>
-      </g>
-    </svg>
-  </div>
-  <!-- Diamond -->
-  <div class="intro-diamond">
-    <svg width="60" height="70" viewBox="0 0 60 70" fill="none">
-      <path d="M30 2L55 22L30 68L5 22Z" fill="url(#dg1)" opacity=".9"/>
-      <path d="M30 2L55 22L30 32L5 22Z" fill="rgba(255,255,255,.2)"/>
-      <path d="M20 22L30 2L40 22L30 32Z" fill="rgba(255,255,255,.15)"/>
-    </svg>
-  </div>
-  <!-- Center text -->
-  <div class="intro-center" id="introCenter">
-    <div class="intro-headline">You're <span>In!</span></div>
-    <div class="intro-sub">Welcome to the Digital Course Launch Lab</div>
-  </div>
-  <!-- Wash -->
-  <div class="intro-wash"></div>
-</div>
-
-<!-- ═══ CONFETTI CANVAS ═══ -->
-<canvas id="confetti-canvas"></canvas>
-
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <!-- Background leaves: ONLY at far corners, clipped by overflow -->
@@ -1028,67 +970,7 @@ document.addEventListener('keydown',function(e){
 
 (function(){
 
-/* ═══ LEAF REVEAL INTRO ═══ */
-(function(){
-  var ov=document.getElementById('introOverlay');if(!ov)return;
-  // Particles
-  var pc=document.getElementById('introParticles');
-  for(var i=0;i<20;i++){
-    var d=document.createElement('div');d.className='intro-dot';
-    var sz=2+Math.random()*4;
-    var cols=['#0ad1d9','#16d09c','#7ccb61','#f1c232','#0dc5cf'];
-    d.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;background:radial-gradient(circle,'+cols[Math.floor(Math.random()*cols.length)]+',transparent);--dx:'+(Math.random()*60-30)+'px;--dy:'+(Math.random()*60-30)+'px;animation:introDot '+(4+Math.random()*3)+'s '+(Math.random()*1.5)+'s ease-out infinite';
-    pc.appendChild(d);
-  }
-  // Leaf particles burst at 2.4s
-  setTimeout(function(){
-    var lColors=['#0ad1d9','#16d09c','#7ccb61','#0dc5cf','#23b8a5'];
-    for(var j=0;j<12;j++){
-      var lp=document.createElement('div');lp.className='intro-leaf-particle';
-      var angle=j*(360/12)+Math.random()*20;var rad=angle*Math.PI/180;
-      var dist=80+Math.random()*80;
-      lp.style.cssText='width:8px;height:12px;background:'+lColors[j%lColors.length]+';border-radius:0 50% 50% 0;--lx:'+(Math.cos(rad)*dist)+'px;--ly:'+(Math.sin(rad)*dist)+'px;--lr:'+(Math.random()*360-180)+'deg;animation:introLeafBurst 1.2s ease-out forwards';
-      ov.appendChild(lp);
-    }
-  },2400);
-  // Text out at 2.6s
-  setTimeout(function(){
-    var c=document.getElementById('introCenter');
-    if(c)c.style.cssText='animation:introTextOut .4s ease-in forwards';
-  },2600);
-  // Fade out at 3.8s
-  setTimeout(function(){ov.classList.add('done');setTimeout(function(){ov.style.display='none'},500)},3800);
-})();
-
-/* ═══ CONFETTI ═══ */
-(function(){
-  var cv=document.getElementById('confetti-canvas');if(!cv)return;
-  var ctx=cv.getContext('2d');
-  var W,H;function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
-  resize();window.addEventListener('resize',resize);
-  var colors=['#0ad1d9','#16d09c','#7ccb61','#ff4f49','#f1c232','#faf8f5','#0dc5cf','#e63e38'];
-  var pieces=[];
-  setTimeout(function(){
-    cv.classList.add('show');
-    for(var i=0;i<100;i++){
-      pieces.push({x:W/2+Math.random()*200-100,y:H*.3,vx:(Math.random()-.5)*12,vy:Math.random()*-14-4,w:4+Math.random()*6,h:8+Math.random()*10,c:colors[Math.floor(Math.random()*colors.length)],r:Math.random()*6.28,rv:(Math.random()-.5)*.15,g:.35,d:.98,t:Math.random()<.3});
-    }
-    function draw(){
-      ctx.clearRect(0,0,W,H);var alive=0;
-      for(var i=0;i<pieces.length;i++){
-        var p=pieces[i];p.vy+=p.g;p.vx*=p.d;p.vy*=p.d;p.x+=p.vx;p.y+=p.vy;p.r+=p.rv;
-        var fade=p.y>H*.75?1-(p.y-H*.75)/(H*.25):1;
-        if(fade<=0)continue;alive++;
-        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.globalAlpha=fade*.9;ctx.fillStyle=p.c;
-        if(p.t)ctx.beginPath(),ctx.arc(0,0,p.w/2,0,6.28),ctx.fill();
-        else ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
-        ctx.restore();
-      }
-      if(alive>0)requestAnimationFrame(draw);else{cv.classList.remove('show');cv.style.display='none'}
-    }
-    draw();
-  },4000);
-})();
+/* Intro + confetti removed */
 
 /* ═══ COUNTDOWN ═══ */
 (function(){
