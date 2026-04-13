@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progress Tracker — Digital Course Launch Lab VIP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:letter;margin:0.6in 0.7in}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  --gold:#D4A853;--gold-dk:#B8923E;--gold-lt:#E8C97A;
+  --pacific:#0097a7;--carib:#23b8a5;
+  --warm:#f7f4f0;--warmdk:#ede8e2;--warmbg:#faf8f5;
+  --char:#434343;--ablack:#1a1a2e;--slate:#8e8d8d;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --gg:linear-gradient(135deg,var(--gold),var(--gold-lt),#f0d68a,var(--gold));
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:#fff}
+
+/* ═══ COVER ═══ */
+.cover{min-height:100vh;background:linear-gradient(160deg,#071e18 0%,#0c3224 20%,#0a2a1e 55%,#061a14 100%);border-top:6px solid var(--t4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;page-break-after:always}
+.cover::before{content:'';position:absolute;top:-10%;left:10%;width:800px;height:800px;background:radial-gradient(circle,rgba(124,203,97,.22),rgba(22,208,156,.06),transparent 55%);filter:blur(60px)}
+.cover::after{content:'';position:absolute;bottom:-5%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(22,208,156,.15),transparent 55%);filter:blur(40px)}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,168,83,.15),rgba(212,168,83,.05));border:1px solid rgba(212,168,83,.3);padding:8px 20px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:24px;position:relative;z-index:1}
+.cover-badge svg{width:14px;height:14px}
+.cover-tag{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--t1);margin-bottom:12px;position:relative;z-index:1}
+.cover-divider{width:80px;height:2px;background:var(--gg);margin:0 auto 32px;position:relative;z-index:1}
+.cover h1{font-family:var(--display);font-size:clamp(44px,7vw,64px);font-weight:700;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover h1 .teal{background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover-sub{font-size:18px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.7;margin-bottom:40px;position:relative;z-index:1}
+.cover-meta{display:flex;align-items:center;gap:24px;position:relative;z-index:1}
+.cover-meta span{font-size:14px;color:rgba(255,255,255,.4);font-weight:600;display:flex;align-items:center;gap:6px}
+.cover-leaf{position:absolute;z-index:0;opacity:.08}
+
+/* Progress bar */
+.progress-visual{display:flex;align-items:center;gap:0;margin:32px auto 0;max-width:360px;position:relative;z-index:1}
+.progress-dot{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:18px;font-weight:800;color:#fff;flex-shrink:0;position:relative}
+.progress-dot.d1{background:linear-gradient(135deg,var(--t1),var(--t3))}
+.progress-dot.d2{background:linear-gradient(135deg,var(--cherry),#ff8a85)}
+.progress-dot.d3{background:var(--gg)}
+.progress-line{flex:1;height:3px;background:rgba(255,255,255,.15)}
+.progress-dot-label{position:absolute;bottom:-22px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap}
+
+/* ═══ PAGES ═══ */
+.page{max-width:750px;margin:0 auto;padding:48px 40px;page-break-after:always}
+.page:last-child{page-break-after:auto}
+
+/* Day headers */
+.day-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid transparent}
+.day-header.d1{border-bottom-color:var(--t1)}
+.day-header.d2{border-bottom-color:var(--cherry)}
+.day-header.d3{border-bottom-color:var(--gold)}
+.day-header.post{border-bottom-color:var(--t4)}
+.day-num{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:22px;font-weight:800;color:#fff;flex-shrink:0}
+.day-num.d1{background:linear-gradient(135deg,var(--t1),var(--t3))}
+.day-num.d2{background:linear-gradient(135deg,var(--cherry),#ff8a85)}
+.day-num.d3{background:var(--gg);color:#fff}
+.day-num.post{background:linear-gradient(135deg,var(--t3),var(--t4))}
+.day-info h2{font-family:var(--display);font-size:26px;font-weight:700;color:var(--ablack);line-height:1.15;letter-spacing:-.01em}
+.day-info h2 em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.day-info h2 .cherry-em{background:linear-gradient(135deg,var(--cherry),#ff8a85);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.day-info h2 .gold-em{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.day-info p{font-size:15px;color:var(--slate);margin-top:2px}
+
+/* Section dividers within days */
+.task-section{margin-bottom:20px}
+.task-section-label{font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pacific);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.task-section-label::after{content:'';flex:1;height:1px;background:#e0dcd6}
+.task-section-label.gold{color:var(--gold-dk)}
+.task-section-label.cherry{color:var(--cherry)}
+
+/* Checklist items */
+.task{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.task:last-child{border-bottom:none}
+.task-check{width:22px;height:22px;border:2px solid #ccc;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.task-check.teal{border-color:var(--t1)}
+.task-check.cherry{border-color:var(--cherry)}
+.task-check.gold{border-color:var(--gold)}
+.task-check.green{border-color:var(--t4)}
+.task-body{flex:1}
+.task-title{font-size:16px;font-weight:700;color:var(--ablack);line-height:1.3;margin-bottom:2px}
+.task-desc{font-size:14px;color:#888;line-height:1.5}
+.task-badge{display:inline-flex;padding:2px 8px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-left:6px;vertical-align:middle}
+.task-badge.workbook{background:rgba(10,209,217,.1);color:var(--pacific)}
+.task-badge.prompt{background:rgba(212,168,83,.12);color:var(--gold-dk)}
+.task-badge.vip{background:rgba(212,168,83,.15);border:1px solid rgba(212,168,83,.25);color:var(--gold)}
+.task-badge.action{background:rgba(255,79,73,.08);color:var(--cherry)}
+
+/* Milestone bar */
+.milestone{background:linear-gradient(135deg,var(--warmbg),var(--warm));border:1px solid #e0dcd6;padding:16px 20px;margin:24px 0;display:flex;align-items:center;gap:14px}
+.milestone-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.milestone-icon.teal{background:var(--tg)}
+.milestone-icon.cherry{background:linear-gradient(135deg,var(--cherry),#ff8a85)}
+.milestone-icon.gold{background:var(--gg)}
+.milestone-icon.green{background:linear-gradient(135deg,var(--t3),var(--t4))}
+.milestone-icon svg{width:18px;height:18px}
+.milestone-text{font-size:15px;color:var(--ablack);line-height:1.4}
+.milestone-text strong{font-weight:700}
+
+/* Notes area */
+.notes-box{border:2px solid #e0dcd6;width:100%;min-height:70px;display:block;margin:12px 0 0;padding:10px;background:rgba(250,248,245,.5)}
+.notes-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--slate);margin-top:16px}
+
+/* Completion tracker */
+.completion{display:flex;gap:8px;margin:16px 0}
+.completion-box{flex:1;height:10px;border:1.5px solid #e0dcd6;background:var(--warmbg)}
+
+/* Gold box */
+.gold-box{background:linear-gradient(145deg,rgba(212,168,83,.06),rgba(212,168,83,.02));border:1px solid rgba(212,168,83,.15);border-left:4px solid var(--gold);padding:20px 24px;margin-bottom:24px}
+.gold-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.gold-box p{font-size:15px;color:#666;line-height:1.7}
+
+/* Teach box */
+.teach-box{background:linear-gradient(145deg,rgba(10,209,217,.04),rgba(10,209,217,.02));border:1px solid rgba(10,209,217,.12);border-left:4px solid var(--t1);padding:20px 24px;margin-bottom:24px}
+.teach-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.teach-box p{font-size:15px;color:#666;line-height:1.7}
+
+/* Footer */
+.pg-foot{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid #e0dcd6;margin-top:40px;font-size:11px;color:var(--slate)}
+.pg-foot-logo{font-family:var(--display);font-weight:800;color:var(--ablack);font-size:12px;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hand{font-family:var(--script);color:var(--cherry);transform:rotate(-1.5deg);display:inline-block}
+
+/* Interactive States */
+.task-check{cursor:pointer;transition:all .2s}
+.task-check:hover{transform:scale(1.1);box-shadow:0 0 0 3px rgba(10,209,217,.15)}
+.task-check.checked.teal{background:var(--t1);border-color:var(--t1)}
+.task-check.checked.cherry{background:var(--cherry);border-color:var(--cherry)}
+.task-check.checked.gold{background:var(--gold);border-color:var(--gold)}
+.task-check.checked.green{background:var(--t4);border-color:var(--t4)}
+.task.completed .task-title{text-decoration:line-through;opacity:.45}
+.task.completed .task-desc{opacity:.35}
+.task.completed .task-badge{opacity:.35}
+.live-bar{background:var(--warmbg);border:1px solid #e0dcd6;padding:12px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.live-bar-track{flex:1;height:10px;background:#e8e4de;border-radius:1px;overflow:hidden}
+.live-bar-fill{height:100%;background:var(--tg);transition:width .4s ease;width:0}
+.live-bar-text{font-family:var(--display);font-size:12px;font-weight:700;color:var(--ablack);white-space:nowrap}
+.notes-box[contenteditable]{cursor:text;outline:none}
+.notes-box[contenteditable]:focus{border-color:var(--t1)}
+.notes-box[contenteditable]:empty::before{content:'Type your notes here...';color:#ccc;font-style:italic;font-size:13px}
+
+@media print{
+  .cover{min-height:auto;height:100vh}
+  .page{padding:0}
+  .task-check:hover{transform:none;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     COVER PAGE
+     ═══════════════════════════════════════ -->
+<div class="cover">
+  <!-- Tropical leaf accents -->
+  <svg class="cover-leaf" style="top:-6%;left:-4%;width:280px" viewBox="0 0 200 300" fill="none"><path d="M100 0C60 60 10 100 10 180c0 60 40 110 90 120V0z" fill="rgba(10,209,217,.3)"/><path d="M100 0c40 60 90 100 90 180 0 60-40 110-90 120V0z" fill="rgba(22,208,156,.2)"/><path d="M100 30v240M80 80l20-50 20 50M70 140l30-60 30 60" stroke="rgba(255,255,255,.08)" stroke-width="1"/></svg>
+  <svg class="cover-leaf" style="bottom:-10%;right:-5%;width:240px;transform:rotate(140deg)" viewBox="0 0 200 300" fill="none"><path d="M100 0C60 60 10 100 10 180c0 60 40 110 90 120V0z" fill="rgba(124,203,97,.15)"/><path d="M100 0c40 60 90 100 90 180 0 60-40 110-90 120V0z" fill="rgba(22,208,156,.12)"/></svg>
+
+  <div class="cover-badge">
+    <svg viewBox="0 0 14 14" fill="none"><path d="M7 1l1.8 3.6L13 5.2l-3 2.9.7 4.1L7 10.2 3.3 12.2l.7-4.1-3-2.9L5.2 4.6 7 1z" fill="var(--gold-lt)"/></svg>
+    VIP EXCLUSIVE RESOURCE
+  </div>
+
+  <div class="cover-tag">3-DAY CHALLENGE</div>
+  <div class="cover-divider"></div>
+
+  <h1><span class="teal">Progress</span><br><em>Tracker</em></h1>
+
+  <div class="cover-sub">Your complete checklist for the Digital Course Launch Lab challenge. Track every task, every milestone, every win across all 3 days.</div>
+
+  <div class="progress-visual">
+    <div class="progress-dot d1">1<div class="progress-dot-label">Validate</div></div>
+    <div class="progress-line"></div>
+    <div class="progress-dot d2">2<div class="progress-dot-label">Build</div></div>
+    <div class="progress-line"></div>
+    <div class="progress-dot d3">3<div class="progress-dot-label">Launch</div></div>
+  </div>
+
+  <div class="cover-meta" style="margin-top:48px">
+    <span>
+      <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      28 Tasks
+    </span>
+    <span>
+      <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M8 1v6l4 2" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/></svg>
+      3 Days
+    </span>
+    <span>Marissa Romero</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DAY 1: VALIDATE & MESSAGE
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="day-header d1">
+    <div class="day-num d1">D1</div>
+    <div class="day-info">
+      <h2>Validate &amp; <em>Message</em></h2>
+      <p>Pick your niche, craft your messaging formula, run your first AI prompts</p>
+    </div>
+  </div>
+
+  <!-- Pre-Challenge -->
+  <div class="task-section">
+    <div class="task-section-label">BEFORE YOU WATCH</div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Download your Day 1 Workbook <span class="task-badge workbook">WORKBOOK</span></div>
+        <div class="task-desc">Print it or open it on a tablet. Have it ready before the live session.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Write down 3 possible niches</div>
+        <div class="task-desc">Think: what do people already ask you for help with? What's your zone of genius?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- During Challenge -->
+  <div class="task-section">
+    <div class="task-section-label">DURING / AFTER DAY 1 SESSION</div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Rate your niche ideas using the Tier List <span class="task-badge workbook">WORKBOOK SEC. 1-2</span></div>
+        <div class="task-desc">S-tier = evergreen demand + you have expertise + people already pay for solutions.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Write 3 versions of your Messaging Formula <span class="task-badge workbook">WORKBOOK SEC. 3</span></div>
+        <div class="task-desc">"The [blueprint/system/framework] to [micro result] without [outdated advice]"</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Run AI Prompt #1: Niche Validation <span class="task-badge prompt">AI PROMPT</span></div>
+        <div class="task-desc">If your viability score is below 7, ask the AI how to pivot your angle higher.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Run AI Prompt #2: Messaging Tester <span class="task-badge prompt">AI PROMPT</span></div>
+        <div class="task-desc">Test all 3 formula versions. Pick the strongest one.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check teal"></div>
+      <div class="task-body">
+        <div class="task-title">Complete the Objections section <span class="task-badge workbook">WORKBOOK SEC. 6</span></div>
+        <div class="task-desc">Write down your #1 hesitation. Read Marissa's reframes. Move past it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIP Tasks -->
+  <div class="task-section">
+    <div class="task-section-label gold">VIP-ONLY TASKS</div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: Audience Deep-Dive <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Get voice-of-customer quotes you can use directly in your sales page copy.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Post your chosen messaging formula in VIP Telegram</div>
+        <div class="task-desc">Marissa personally reviews your messaging in a private thread.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone -->
+  <div class="milestone">
+    <div class="milestone-icon teal">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3 3 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="milestone-text"><strong>Day 1 Milestone:</strong> You have a validated niche and a scroll-stopping messaging formula. You know exactly WHO you're selling to and WHAT to say.</div>
+  </div>
+
+  <div class="notes-label">Day 1 Notes / Wins:</div>
+  <div class="notes-box"></div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero &mdash; <em>Digital Course Launch Lab</em></div>
+    <div>Progress Tracker | VIP Exclusive | Page 1</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DAY 2: BUILD & PACKAGE
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="day-header d2">
+    <div class="day-num d2">D2</div>
+    <div class="day-info">
+      <h2>Build &amp; <span class="cherry-em">Package</span></h2>
+      <p>Choose your product type, build your offer, map your upsell funnel, write your sales page</p>
+    </div>
+  </div>
+
+  <!-- Pre-Session -->
+  <div class="task-section">
+    <div class="task-section-label cherry">BEFORE YOU WATCH</div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Download your Day 2 Workbook <span class="task-badge workbook">WORKBOOK</span></div>
+        <div class="task-desc">Have your Day 1 messaging formula in front of you — you'll need it.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Review the 4 product types (before the session)</div>
+        <div class="task-desc">Mini course, template pack, workbook/guide, quiz/assessment. Come with a top pick.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- During Session -->
+  <div class="task-section">
+    <div class="task-section-label cherry">DURING / AFTER DAY 2 SESSION</div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Choose your product type <span class="task-badge workbook">WORKBOOK SEC. 1</span></div>
+        <div class="task-desc">Check the box in your workbook. Commit to ONE type. Don't overthink this.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Complete the Offer Builder <span class="task-badge workbook">WORKBOOK SEC. 2</span></div>
+        <div class="task-desc">Name, price, core promise, 3 modules, 3 deliverables, 3 bonuses. Every field.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Map your Upsell Funnel <span class="task-badge workbook">WORKBOOK SEC. 3</span></div>
+        <div class="task-desc">At minimum: front end → Upsell 1. Stretch goal: full funnel with downsells.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Fill in the Sales Page Blueprint <span class="task-badge workbook">WORKBOOK SEC. 4</span></div>
+        <div class="task-desc">Headline, subhead, pain points, benefits, modules, bonuses, CTA — everything.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check cherry"></div>
+      <div class="task-body">
+        <div class="task-title">Run the AI Sales Page Generator <span class="task-badge prompt">AI PROMPT</span></div>
+        <div class="task-desc">Paste your blueprint + the prompt into ChatGPT/Claude. Generate your first draft.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIP Tasks -->
+  <div class="task-section">
+    <div class="task-section-label gold">VIP-ONLY TASKS</div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: AI Pricing Calculator <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Get your recommended price + revenue math + upsell recommendations.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: Product Blueprint Generator <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Turn your offer into a fully structured product outline ready for building.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Post your offer stack in VIP Telegram for Marissa's feedback</div>
+        <div class="task-desc">Get her eyes on your product name, price, and bonuses before Day 3.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone -->
+  <div class="milestone">
+    <div class="milestone-icon cherry">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3 3 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="milestone-text"><strong>Day 2 Milestone:</strong> You have a named product, a priced offer with bonuses, a funnel map, and AI-generated sales page copy. You went from "idea" to "offer" today.</div>
+  </div>
+
+  <div class="notes-label">Day 2 Notes / Wins:</div>
+  <div class="notes-box"></div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero &mdash; <em>Digital Course Launch Lab</em></div>
+    <div>Progress Tracker | VIP Exclusive | Page 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DAY 3: LAUNCH & SELL
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="day-header d3">
+    <div class="day-num d3">D3</div>
+    <div class="day-info">
+      <h2>Launch &amp; <span class="gold-em">Sell</span></h2>
+      <p>Set your revenue goal, plan your 21-day launch, write emails, go live</p>
+    </div>
+  </div>
+
+  <!-- Pre-Session -->
+  <div class="task-section">
+    <div class="task-section-label gold">BEFORE YOU WATCH</div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Download your Day 3 Workbook <span class="task-badge workbook">WORKBOOK</span></div>
+        <div class="task-desc">Have your product name + price from Day 2 ready. This is launch day.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Pick a launch date (21 days from today)</div>
+        <div class="task-desc">Put it in your calendar. Tell someone. Make it real.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- During Session -->
+  <div class="task-section">
+    <div class="task-section-label gold">DURING / AFTER DAY 3 SESSION</div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Complete the Revenue Goal Calculator <span class="task-badge workbook">WORKBOOK SEC. 1</span></div>
+        <div class="task-desc">Set your target. Work backward to daily sales needed. Know your numbers.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Fill in the 21-Day Launch Calendar <span class="task-badge workbook">WORKBOOK SEC. 2</span></div>
+        <div class="task-desc">Map every task to a real date. 7 days setup + 7 days pre-launch + 6 days launch + 1 post-launch.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Complete the Pre-Launch Checklist <span class="task-badge workbook">WORKBOOK SEC. 3</span></div>
+        <div class="task-desc">Product, funnel, emails, traffic — all 4 categories checked off.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run the AI Launch Email Generator <span class="task-badge prompt">AI PROMPT</span></div>
+        <div class="task-desc">Generate all 5 launch emails. Announcement → Social proof → Objection → Deadline → Last chance.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Start building your funnel in GHL <span class="task-badge action">ACTION</span></div>
+        <div class="task-desc">Sales page first, then checkout. Use the AI funnel builder if available.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIP Tasks -->
+  <div class="task-section">
+    <div class="task-section-label gold">VIP-ONLY TASKS</div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: Upsell Page Copy Writer <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Generate copy for your upsell page + downsell version.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: Social Media Launch Content <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Get 21 days of launch content mapped to your 3-phase calendar.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Run VIP Prompt: Course Outline &amp; Module Builder <span class="task-badge vip">★ VIP</span></div>
+        <div class="task-desc">Turn your product blueprint into a complete course with lessons and scripts.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check gold"></div>
+      <div class="task-body">
+        <div class="task-title">Share your launch date in VIP Telegram</div>
+        <div class="task-desc">Accountability = results. Marissa checks in on every VIP who commits.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone -->
+  <div class="milestone">
+    <div class="milestone-icon gold">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3 3 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="milestone-text"><strong>Day 3 Milestone:</strong> You have a launch date, a revenue target, a 21-day calendar, 5 launch emails, and a funnel in progress. You are LAUNCHING.</div>
+  </div>
+
+  <div class="notes-label">Day 3 Notes / Wins:</div>
+  <div class="notes-box"></div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero &mdash; <em>Digital Course Launch Lab</em></div>
+    <div>Progress Tracker | VIP Exclusive | Page 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     POST-CHALLENGE: WHAT'S NEXT
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="day-header post">
+    <div class="day-num post">
+      <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div class="day-info">
+      <h2>Post-Challenge <em>Next Steps</em></h2>
+      <p>The challenge is done. Your launch journey is just beginning.</p>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <div class="task-section-label">WEEK 1 AFTER CHALLENGE</div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Finish building your product content</div>
+        <div class="task-desc">Record videos, finalize templates, or complete your workbook. The product doesn't need to be perfect — it needs to be DONE.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Set up your GHL funnel completely</div>
+        <div class="task-desc">Sales page → Checkout → Upsell 1 → Thank you page. Test every step. Buy your own product.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Load your email sequence into your email platform</div>
+        <div class="task-desc">GHL, ConvertKit, or whatever you use. Schedule them for launch week.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Create your social media launch content</div>
+        <div class="task-desc">Use the 21-day content calendar. Batch-create and schedule everything.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <div class="task-section-label">LAUNCH WEEK</div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Send Email 1: Announcement</div>
+        <div class="task-desc">Cart is OPEN. This is it. Hit send.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Post daily on social media (Days 15-21 content)</div>
+        <div class="task-desc">Show up. Be visible. Talk about your product like you believe in it — because you do.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Send remaining 4 launch emails on schedule</div>
+        <div class="task-desc">Social proof → Objection crusher → Deadline + bonus → Last chance.</div>
+      </div>
+    </div>
+    <div class="task">
+      <div class="task-check green"></div>
+      <div class="task-body">
+        <div class="task-title">Close cart &amp; celebrate your first sales</div>
+        <div class="task-desc">Screenshot your first sale. Post it. You are now a digital product seller.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final milestone -->
+  <div class="milestone">
+    <div class="milestone-icon green">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L10 13.8 5.2 16.6l.9-5.3L2.3 7.6l5.3-.8L10 2z" stroke="#fff" stroke-width="1.5" fill="rgba(255,255,255,.3)"/></svg>
+    </div>
+    <div class="milestone-text"><strong>Final Milestone:</strong> You launched a digital product. You made sales. You built a funnel that works while you sleep. This is just the beginning.</div>
+  </div>
+
+  <div class="gold-box" style="margin-top:20px">
+    <h4>The 3 Options (One Last Time)</h4>
+    <p><strong>Option 1: Do Nothing.</strong> Close this PDF. Go back to scrolling. Nothing changes.<br><br><strong>Option 2: Do It Yourself.</strong> You have all the workbooks, all the prompts, all the frameworks. Go make it happen.<br><br><strong>Option 3: Let Marissa Help.</strong> Join the full program. Weekly workshops. Loom feedback. GHL templates. AI prompts. The fastest path from idea to income.</p>
+  </div>
+
+  <div style="background:#0a2628;padding:24px 28px;margin-top:20px;text-align:center">
+    <div style="font-family:var(--display);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:8px">YOUR COMPLETION</div>
+    <div id="final-track" style="max-width:400px;margin:0 auto 8px;height:14px;background:rgba(10,209,217,.12);border-radius:1px;overflow:hidden">
+      <div id="final-fill" style="height:100%;width:0;background:linear-gradient(135deg,#0ad1d9,#0dc5cf,#16d09c,#7ccb61);transition:width .5s ease;border-radius:1px"></div>
+    </div>
+    <div id="final-count" style="font-size:14px;color:rgba(255,255,255,.5)">0 / 28 tasks completed</div>
+    <div style="font-family:var(--display);font-size:20px;font-weight:700;color:#fff;margin-top:16px">Every business needs a low-ticket digital product.<br>Including yours. <span style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Now go build it.</span></div>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero &mdash; <em>Digital Course Launch Lab</em></div>
+    <div>Progress Tracker | VIP Exclusive | Page 4</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='dcll-progress';
+  var data=JSON.parse(localStorage.getItem(KEY)||'{"tasks":{},"notes":{}}');
+  var allTasks=document.querySelectorAll('.task');
+  var total=allTasks.length;
+  var checkSvg='<svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // Insert live progress bars after each day-header
+  document.querySelectorAll('.day-header').forEach(function(hdr){
+    var dayClass=hdr.classList.contains('d1')?'d1':hdr.classList.contains('d2')?'d2':hdr.classList.contains('d3')?'d3':'post';
+    var bar=document.createElement('div');
+    bar.className='live-bar';
+    bar.dataset.day=dayClass;
+    bar.innerHTML='<div class="live-bar-track"><div class="live-bar-fill"></div></div><div class="live-bar-text">0/0</div>';
+    hdr.parentNode.insertBefore(bar,hdr.nextSibling);
+  });
+
+  // Init tasks
+  allTasks.forEach(function(task,i){
+    var id='t'+i;
+    task.dataset.id=id;
+    var check=task.querySelector('.task-check');
+    if(data.tasks[id]){
+      check.classList.add('checked');
+      check.innerHTML=checkSvg;
+      task.classList.add('completed');
+    }
+    check.addEventListener('click',function(){
+      var on=check.classList.toggle('checked');
+      task.classList.toggle('completed',on);
+      check.innerHTML=on?checkSvg:'';
+      data.tasks[id]=on||undefined;
+      if(!on) delete data.tasks[id];
+      localStorage.setItem(KEY,JSON.stringify(data));
+      updateAll();
+    });
+  });
+
+  // Notes
+  document.querySelectorAll('.notes-box').forEach(function(box,i){
+    var nid='n'+i;
+    box.setAttribute('contenteditable','true');
+    if(data.notes[nid]) box.textContent=data.notes[nid];
+    box.addEventListener('input',function(){
+      data.notes[nid]=box.textContent;
+      localStorage.setItem(KEY,JSON.stringify(data));
+    });
+  });
+
+  function updateAll(){
+    var checked=document.querySelectorAll('.task-check.checked').length;
+    var pct=Math.round((checked/total)*100);
+    // Final bar
+    var ff=document.getElementById('final-fill');
+    var fc=document.getElementById('final-count');
+    if(ff) ff.style.width=pct+'%';
+    if(fc) fc.textContent=checked+' / '+total+' tasks completed'+(pct===100?' 🎉':'');
+    // Per-day bars
+    document.querySelectorAll('.live-bar').forEach(function(bar){
+      var page=bar.closest('.page');
+      if(!page) return;
+      var dayTasks=page.querySelectorAll('.task');
+      var dayChecked=page.querySelectorAll('.task-check.checked').length;
+      var dayTotal=dayTasks.length;
+      var dayPct=dayTotal?Math.round((dayChecked/dayTotal)*100):0;
+      bar.querySelector('.live-bar-fill').style.width=dayPct+'%';
+      bar.querySelector('.live-bar-text').textContent=dayChecked+'/'+dayTotal+' done'+(dayPct===100?' ✓':'');
+    });
+  }
+
+  updateAll();
+})();
+</script>
+</body>
+</html>
