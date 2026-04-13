@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%20%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%3Cstop%20offset=%220%25%22%20stop-color=%22%230ad1d9%22/%3E%3Cstop%20offset=%22100%25%22%20stop-color=%22%2316d09c%22/%3E%3C/linearGradient%3E%3C/defs%3E%20%3Ccircle%20cx=%2216%22%20cy=%2216%22%20r=%2215%22%20fill=%22url(%23g)%22/%3E%20%3Cpath%20d=%22M16%204C16%204%2010%208%2010%2016C10%2020%2012%2024%2016%2028C14%2024%2013%2020%2014%2016C15%2012%2016%2010%2019%208C17%207%2016%204%2016%204Z%22%20fill=%22rgba(255,255,255,0.95)%22/%3E%20%3Cpath%20d=%22M16%206C18%209%2022%2012%2022%2018C22%2022%2020%2026%2016%2028C19%2024%2020%2020%2019%2016C18%2012%2016%209%2016%206Z%22%20fill=%22rgba(255,255,255,0.7)%22/%3E%20%3Cellipse%20cx=%2213%22%20cy=%2214%22%20rx=%221.5%22%20ry=%222.5%22%20fill=%22url(%23g)%22%20opacity=%220.6%22%20transform=%22rotate(-15%2013%2014)%22/%3E%20%3Cellipse%20cx=%2218%22%20cy=%2212%22%20rx=%221.2%22%20ry=%222%22%20fill=%22url(%23g)%22%20opacity=%220.5%22%20transform=%22rotate(10%2018%2012)%22/%3E%20%3Cpath%20d=%22M16%208C16%208%2014%2011%2014%2015%22%20stroke=%22rgba(255,255,255,0.4)%22%20stroke-width=%220.5%22%20fill=%22none%22/%3E%20%3Cpath%20d=%22M16%208C16%208%2018%2011%2018%2014%22%20stroke=%22rgba(255,255,255,0.3)%22%20stroke-width=%220.5%22%20fill=%22none%22/%3E%20%3C/svg%3E">
 <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
 <style>
 /* V10: "SOUL & SUBSTANCE" — Marissa's rich tactile depth meets 2026 glassmorphism
@@ -67,10 +69,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero{position:relative;padding:64px 3% 56px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 35%,var(--warmbg) 100%)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(10,209,217,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(255,79,73,.04) 0%,transparent 40%);pointer-events:none;z-index:1}
 .hero::after{content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,rgba(22,208,156,.04) 40%,transparent 70%);pointer-events:none;z-index:0;filter:blur(40px)}
-.hero-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;position:relative;z-index:5}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:32px;align-items:center;position:relative;z-index:5}
 .hero-left{position:relative}
-/* 4:3 VSL */
-.hero-vsl{width:100%;aspect-ratio:4/3;background:var(--ablack);margin-top:60px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden;border:1px solid rgba(255,255,255,.05)}
+/* 16:9 VSL — large */
+.hero-vsl{width:100%;aspect-ratio:16/9;background:var(--ablack);margin-top:20px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden;border:1px solid rgba(255,255,255,.05)}
 .hero-vsl::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 40%,transparent 60%,rgba(255,255,255,.02) 100%);pointer-events:none;z-index:1}
 .hero-vsl::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.3),transparent);pointer-events:none}
 .vsl-play{width:76px;height:76px;background:var(--cherry);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);display:flex;align-items:center;justify-content:center;transition:transform .3s;position:relative;z-index:2;filter:drop-shadow(0 4px 12px rgba(255,79,73,.4)) drop-shadow(0 8px 28px rgba(255,79,73,.2))}
@@ -78,7 +80,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .vsl-play svg{margin-left:4px}
 .hero-annot{display:inline-block;margin:8px 0 2px;font-family:var(--script);font-size:clamp(18px,2vw,24px);color:var(--cherry);transform:rotate(-2deg);white-space:nowrap;z-index:6;opacity:.85}
 .hero-annot svg{width:40px;height:28px;vertical-align:middle;margin-left:-2px}
-.hero-right{position:relative;z-index:5;align-self:center;background:radial-gradient(ellipse 120% 110% at 30% 50%,rgba(245,241,236,.95) 30%,rgba(245,241,236,.7) 60%,transparent 100%);padding:20px 16px 20px 0;border-radius:16px;margin-top:40px}
+.hero-right{position:relative;z-index:5;align-self:center;background:none;padding:0;border-radius:0;text-align:center}
 .hero-pre{font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--pacific);margin-bottom:16px;letter-spacing:-.01em;text-transform:uppercase}
 .hero h1{font-family:var(--display);font-size:clamp(36px,4.4vw,60px);font-weight:700;line-height:1.08;color:var(--ablack);margin-bottom:22px;letter-spacing:-.01em;text-wrap:balance}
 .hl-box{display:inline;background:var(--tg);color:#fff;-webkit-text-fill-color:#fff;padding:6px 16px;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:4px;text-shadow:0 1px 2px rgba(0,0,0,.15),0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
@@ -92,7 +94,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .cd-lbl{font-size:9px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.14em;margin-top:3px;font-weight:600}
 .cd-sep{color:var(--cherry);font-size:22px;font-weight:900;animation:blink 1s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.cta-wrap{display:flex;flex-direction:column;gap:12px}
+.cta-wrap{display:flex;flex-direction:column;gap:12px;align-items:center}
 .cta{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:20px 44px;font-family:var(--body);font-size:clamp(15px,1.6vw,19px);font-weight:800;border:none;cursor:pointer;transition:all .2s;z-index:1;overflow:hidden;text-align:center;line-height:1.2;text-decoration:none;text-transform:uppercase;letter-spacing:.04em}
 .cta-cherry{background:var(--cherry);color:#fff;box-shadow:0 4px 0 var(--cherry-dk),0 6px 0 rgba(0,0,0,.12),var(--sh-md)}
 .cta-cherry:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--cherry-dk),0 8px 0 rgba(0,0,0,.12),var(--sh-lg)}
@@ -290,46 +292,25 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .test-annot{font-family:var(--script);font-size:clamp(16px,1.6vw,20px);color:var(--cherry);text-align:center;margin-bottom:0;opacity:.7}
 
 /* ══ HALF-GEAR CAROUSEL — screenshots sit ON the gear ══ */
-.test-arc{position:relative;max-width:1200px;margin:0 auto;height:780px;overflow:hidden}
+.test-arc{position:relative;max-width:1200px;margin:0 auto;height:760px;overflow:visible}
 
 /* Gear wrapper — centers the gear */
-.test-gear-wrap{position:absolute;bottom:-580px;left:50%;margin-left:-560px;width:1120px;height:1120px;z-index:1}
+.test-gear-wrap{position:absolute;bottom:-440px;left:50%;margin-left:-560px;width:1120px;height:1120px;z-index:1}
 .test-gear{width:100%;height:100%;animation:gearSpin 90s linear infinite;filter:drop-shadow(0 -6px 20px rgba(0,0,0,.08))}
 @keyframes gearSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .test-gear svg{width:100%;height:100%}
 
-/* Each screenshot — big, sharp corners, readable */
-.test-ss{position:absolute;width:200px;height:260px;overflow:visible;box-shadow:0 14px 45px rgba(0,0,0,.16),0 4px 14px rgba(0,0,0,.06);transition:all .4s cubic-bezier(.34,1.56,.64,1);cursor:pointer;z-index:5}
+/* Each screenshot — auto-height so full text is readable */
+.test-ss{position:absolute;width:240px;overflow:hidden;box-shadow:0 14px 45px rgba(0,0,0,.16),0 4px 14px rgba(0,0,0,.06);transition:all .4s cubic-bezier(.34,1.56,.64,1);cursor:pointer;z-index:5;background:#fff;border-radius:4px}
 .test-ss:hover{z-index:20!important;box-shadow:0 20px 60px rgba(0,0,0,.22),0 8px 20px rgba(0,0,0,.1);transform:scale(1.06)!important}
-.test-ss img{width:100%;height:100%;object-fit:cover;display:block}
-.test-ss-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#fff;text-align:center;padding:16px;line-height:1.4}
+.test-ss img{width:100%;height:auto;display:block}
 
-/* Result pill */
-.test-pill{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--cherry);color:#fff;font-size:11px;font-weight:800;padding:6px 18px;white-space:nowrap;z-index:6;box-shadow:0 4px 14px rgba(255,79,73,.35);letter-spacing:.02em}
-/* Name tag */
-.test-ss-name{position:absolute;bottom:-52px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:13px;font-weight:700;color:var(--ablack);text-align:center;z-index:7}
-.test-ss-role{font-weight:400;color:var(--slate);font-size:10px;display:block;margin-top:2px}
-
-/* ── 5 screenshots on the gear's top arc ── */
-
-/* 5 screenshots in a clean arc */
-.test-ss:nth-child(1){left:40px;top:280px;transform:rotate(-5deg);z-index:5}
-.test-ss:nth-child(1) .test-ss-ph{background:linear-gradient(135deg,#0ad1d9,#16d09c)}
-
-.test-ss:nth-child(2){left:220px;top:60px;transform:rotate(-2deg);z-index:7}
-.test-ss:nth-child(2) .test-ss-ph{background:linear-gradient(135deg,#23b8a5,#7ccb61)}
-
-.test-ss:nth-child(3){left:calc(50% - 100px);top:0;transform:rotate(0deg);z-index:10}
-.test-ss:nth-child(3) .test-ss-ph{background:linear-gradient(135deg,var(--cherry),#fb4708)}
-
-.test-ss:nth-child(4){right:220px;top:60px;transform:rotate(2deg);z-index:7}
-.test-ss:nth-child(4) .test-ss-ph{background:linear-gradient(135deg,#16d09c,#98e435)}
-
-.test-ss:nth-child(5){right:40px;top:280px;transform:rotate(5deg);z-index:5}
-.test-ss:nth-child(5) .test-ss-ph{background:linear-gradient(135deg,#7ccb61,#0ad1d9)}
-
-.test-ss:nth-child(6){display:none}
-.test-ss:nth-child(7){display:none}
+/* ── 5 screenshots in a tight arc above the gear ── */
+.test-ss:nth-child(1){left:60px;top:220px;transform:rotate(-3deg);z-index:5}
+.test-ss:nth-child(2){left:18%;top:20px;transform:rotate(-1.5deg);z-index:7}
+.test-ss:nth-child(3){left:calc(50% - 120px);top:0;transform:rotate(0deg);z-index:10}
+.test-ss:nth-child(4){right:18%;top:20px;transform:rotate(1.5deg);z-index:7}
+.test-ss:nth-child(5){right:60px;top:220px;transform:rotate(3deg);z-index:5}
 
 /* ══ DAY BREAKDOWN — CREATIVE JOURNEY MAP ══ */
 /* CREATIVE CONCEPT: Each day is a full-width immersive card with a slide preview
@@ -697,10 +678,7 @@ section,.breakdown,.imagine,.transform,.final,.vsl-cta{overflow:hidden}
 .test-sub,.test-annot{padding:0 5%}
 .test-arc{height:auto!important;overflow-x:auto!important;overflow-y:hidden!important;display:flex!important;gap:16px;padding:0 5% 20px!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .test-arc::-webkit-scrollbar{display:none}
-.test-ss{position:relative!important;flex:0 0 200px!important;width:200px!important;height:260px!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;margin:0!important;display:block!important;scroll-snap-align:start;border-radius:8px;overflow:visible!important}
-.test-ss:nth-child(6),.test-ss:nth-child(7){display:block!important}
-.test-ss-name{position:relative!important;bottom:auto!important;left:auto!important;transform:none!important;margin-top:8px;display:block;text-align:center;white-space:nowrap}
-.test-ss-ph{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.test-ss{position:relative!important;flex:0 0 260px!important;width:260px!important;height:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;margin:0!important;display:block!important;scroll-snap-align:start;border-radius:4px;overflow:hidden!important}
 .test-gear-wrap{display:none}
 /* PROOF */
 .proof-card{padding:60px 28px}
@@ -1039,7 +1017,7 @@ body::before,body::after{display:none !important}
 
   <div class="hero-inner">
     <div class="hero-left fi">
-      <div class="hero-vsl" id="hero-vsl" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/9mTDVDWj2NI?autoplay=1&rel=0\' frameborder=\'0\' allow=\'autoplay;encrypted-media\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>';this.style.cursor='default'" style="background:url('https://img.youtube.com/vi/9mTDVDWj2NI/maxresdefault.jpg') center/cover no-repeat, var(--ablack)">
+      <div class="hero-vsl" id="hero-vsl" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/uduKWHHc8A0?autoplay=1&rel=0\' frameborder=\'0\' allow=\'autoplay;encrypted-media\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>';this.style.cursor='default'" style="background:url('https://img.youtube.com/vi/uduKWHHc8A0/maxresdefault.jpg') center/cover no-repeat, var(--ablack)">
         <div class="vsl-play"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fff"/></svg></div>
       </div>
 
@@ -1069,24 +1047,30 @@ body::before,body::after{display:none !important}
             </svg>
           </div>
           <div class="cb-text">
-            <h3>Join The 3-Day <span>Digital Course Launch Sprint</span> for Free Now!</h3>
-            <p style="font-size:15px;color:var(--slate);line-height:1.6;margin-bottom:4px">For just 90 minutes a day, over the next 3 days, join the creator behind <strong style="color:var(--char)">$600K+ in digital product sales</strong> to map your offer, build your funnel with AI, and follow a proven launch system that helps coaches and creators go from idea to first sales in 21 days.</p>
+            <h3>Join The 3-Day <span>Digital Course Launch Lab</span> for Free Now!</h3>
+            <p style="font-size:15px;color:var(--slate);line-height:1.6;margin-bottom:4px">For just 90 minutes a day, over the next 3 days, join the creator behind <strong style="color:var(--char)">$600K+ in digital product sales</strong> to map your offer, build your funnel with AI, and follow a proven launch system that helps coaches and creators go from idea to sales in 21 days.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="hero-right">
-      <p class="hero-pre fi">Give Me Just 3 Days & I'll Show You...</p>
-      <h1 class="fi fi-d1">How to Create and Launch Your First <span class="hl-box">AI-POWERED</span> <span class="hl-big">Digital Course</span></h1>
-      <p class="hero-rest fi fi-d1">So You Can Build a Revenue Machine That Sells While You Sleep. Without a Big Audience, Tech Skills, or Months of Planning</p>
+      <p class="hero-pre fi">DIGITAL COURSE LAUNCH LAB - FREE 3-DAY LIVE CHALLENGE</p>
+      <h1 class="fi fi-d1">The Low-Ticket Course System That Turned 200 Subscribers Into <span class="hl-big">$40,000</span> <span class="hl-box">Built in 21 Days With AI</span></h1>
+      <p class="hero-rest fi fi-d1">For coaches, consultants, and service providers who already have the expertise - and want to stop leaving money on the table by turning it into a digital product that sells.</p>
+      <ul class="hero-bullets fi fi-d1" style="list-style:none;padding:0;margin:0 auto 24px;display:flex;flex-direction:column;gap:10px;font-size:clamp(14px,1.4vw,16px);color:var(--char);line-height:1.5;max-width:680px;text-align:left">
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Map exactly what YOUR low-ticket product should be - and validate it before you build anything</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use AI to write your sales page, outline your course, and nail your messaging (I'll give you the prompts)</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>See the full ecosystem model - how a $47 product becomes $440+ per customer through the backend</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Walk out with a 21-day launch plan that works even if your audience is small</li>
+      </ul>
       <div class="cd-row fi fi-d2">
         <div class="cd-label"><span class="pulse-dot" style="background:var(--cherry)"></span> WE START IN</div>
         <div class="cd"><div class="cd-block"><div class="cd-num" id="cd-d">00</div><div class="cd-lbl">Days</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Hrs</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Min</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Sec</div></div></div>
       </div>
       <div class="cta-wrap fi fi-d3" style="position:relative">
-        <button class="cta cta-cherry" id="openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>CLICK RIGHT HERE TO SAVE YOUR FREE SPOT</span></button>
+        <button class="cta cta-cherry" id="openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>GET YOUR FREE TICKET &rarr;</span></button>
         <span class="hero-annot">this is gonna be good... <svg viewBox="0 0 30 50" fill="none" style="width:22px;height:36px;vertical-align:middle;margin-left:2px"><path d="M8 45 Q5 20 15 5" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M9 12L15 3L20 13" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
-        <p class="cta-note"><strong>By entering your details on the next step,</strong> you confirm your consent to receiving SMS from me during the challenge.</p>
+        <p class="cta-note">May 5-7, 2026 | 3pm EST | Live on Zoom with Marissa Romero | 100% free</p>
       </div>
     </div>
   </div>
@@ -1121,11 +1105,11 @@ body::before,body::after{display:none !important}
       <div class="q-img">
         <!-- Hand-drawn doodle ring -->
         <svg class="q-doodle" viewBox="0 0 230 230" fill="none"><circle cx="115" cy="115" r="108" stroke="var(--t1)" stroke-width="2" stroke-dasharray="8 6" opacity=".3"/><circle cx="115" cy="115" r="102" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="4 12" opacity=".2"/></svg>
-        <div class="q-img-box">[ MARISSA - casual / approachable photo ]</div>
+        <div class="q-img-box"><img src="https://i.imgur.com/dwd0tr5.jpeg" alt="Marissa Romero" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block"></div>
         <span class="q-annot">That's me!! <svg viewBox="0 0 20 24" fill="none"><path d="M10 2 Q8 12 10 20" stroke="var(--cherry)" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M5 16L10 22L15 16" stroke="var(--cherry)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
       </div>
       <div class="q-header">
-        <h2>Is The 3-Day "Digital Course Launch Sprint" Perfect For You?</h2>
+        <h2>Is The 3-Day "Digital Course Launch Lab" Perfect For You?</h2>
         <p class="q-sub">YES! This challenge is especially for you if...</p>
       </div>
     </div>
@@ -1139,7 +1123,7 @@ body::before,body::after{display:none !important}
     </ul>
 
     <!-- Dashed closing card -->
-    <p class="q-close fi fi-d2">If you nodded or said "yes" to any of the above, then <strong>YES, this FREE 3-Day Digital Course Launch Sprint is 100% for you.</strong></p>
+    <p class="q-close fi fi-d2">If you nodded or said "yes" to any of the above, then <strong>YES, this FREE 3-Day Digital Course Launch Lab is 100% for you.</strong></p>
   </div>
 </section>
 
@@ -1161,7 +1145,7 @@ body::before,body::after{display:none !important}
   <div class="cta-sec-inner">
     <h2 class="fi">Your Free Spot Is Waiting</h2>
     <p class="cs-sub fi fi-d1">In just 3 days, you'll have your course mapped, your funnel built with AI, and a <strong>21-day launch plan</strong> in your hands. This is the exact system behind <strong>$600K+ in digital product sales</strong>.</p>
-    <div class="fi fi-d2" style="display:flex;flex-direction:column;align-items:center;gap:14px"><button class="cta cta-cherry openPopup" style="font-size:clamp(16px,1.8vw,20px);padding:22px 52px"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>CLICK HERE TO JOIN FREE</button><span style="font-size:13px;color:#fff;font-weight:600;position:relative;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.25)">🔒 100% free. No credit card required.</span></div>
+    <div class="fi fi-d2" style="display:flex;flex-direction:column;align-items:center;gap:14px"><button class="cta cta-cherry openPopup" style="font-size:clamp(16px,1.8vw,20px);padding:22px 52px"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GET YOUR FREE TICKET</button><span style="font-size:13px;color:#fff;font-weight:600;position:relative;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.25)">🔒 100% free. No credit card required.</span></div>
     <div class="cd-row fi fi-d3"><div class="cd-label"><span class="pulse-dot"></span> WE START IN</div><div class="cd" style="justify-content:center"><div class="cd-block"><div class="cd-num cd-x-d">00</div><div class="cd-lbl">Days</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-h">00</div><div class="cd-lbl">Hrs</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-m">00</div><div class="cd-lbl">Min</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-s">00</div><div class="cd-lbl">Sec</div></div></div></div>
   </div>
   <div class="sec-wave-bot"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,8 C180,0 360,40 540,32 C720,24 900,0 1080,8 C1260,16 1380,32 1440,24 L1440,40 L0,40 Z" fill="var(--warmbg)"/></svg></div>
@@ -1197,7 +1181,7 @@ body::before,body::after{display:none !important}
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
             <div class="tl-mini-year">2016</div>
             <div class="tl-mini-sub">the beginning</div>
-            <div class="tl-mini-photo">[ MARISSA - civil engineering days ]</div>
+            <div class="tl-mini-photo"><img src="https://i.imgur.com/DfxxAeO.jpeg" alt="Marissa as a civil engineer" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
             <div class="tl-mini-annot">↳ civil engineer + YouTube dreamer</div>
           </div>
           <!-- hand-drawn arrow -->
@@ -1207,7 +1191,7 @@ body::before,body::after{display:none !important}
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
             <div class="tl-mini-year">2018</div>
             <div class="tl-mini-sub">the struggle</div>
-            <div class="tl-mini-photo">[ MARISSA - filming, content creation ]</div>
+            <div class="tl-mini-photo"><img src="https://i.imgur.com/o00tUtY.jpeg" alt="Marissa creating content" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
             <div class="tl-mini-annot">↳ "what am I doing wrong??"</div>
           </div>
           <svg class="tl-mini-arrow" width="30" height="20" viewBox="0 0 30 20" fill="none"><path d="M4,4 C10,10 16,12 24,10" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/><path d="M20,7 L25,10 L20,14" stroke="var(--cherry)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
@@ -1216,7 +1200,7 @@ body::before,body::after{display:none !important}
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
             <div class="tl-mini-year">2020</div>
             <div class="tl-mini-sub">the breakthrough</div>
-            <div class="tl-mini-photo">[ MARISSA - lightbulb moment, laptop ]</div>
+            <div class="tl-mini-photo"><img src="https://i.imgur.com/BXoCV0S.jpeg" alt="Marissa's $40K breakthrough" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
             <div class="tl-mini-annot">↳ $40K from 730 views!!</div>
           </div>
           <svg class="tl-mini-arrow" width="30" height="20" viewBox="0 0 30 20" fill="none"><path d="M4,4 C10,10 16,12 24,10" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/><path d="M20,7 L25,10 L20,14" stroke="var(--cherry)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
@@ -1225,7 +1209,7 @@ body::before,body::after{display:none !important}
             <div class="tl-mini-dot" style="border-color:var(--t1)"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--t1)" stroke-width="2.5"/><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z" fill="var(--t1)" transform="scale(.45) translate(13,13)"/></svg></div>
             <div class="tl-mini-year" style="color:var(--t1)">2023</div>
             <div class="tl-mini-sub">$600K+ milestone</div>
-            <div class="tl-mini-photo">[ MARISSA - maternity leave / freedom lifestyle ]</div>
+            <div class="tl-mini-photo" style="display:flex;gap:6px;background:none;box-shadow:none"><img src="https://i.imgur.com/5aZO2Wk.jpeg" alt="Marissa on maternity leave" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"><img src="https://i.imgur.com/52bpcOn.jpeg" alt="Marissa freedom lifestyle" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div>
             <div class="tl-mini-annot">↳ $30-40K/mo on maternity leave!</div>
           </div>
         </div>
@@ -1262,94 +1246,30 @@ body::before,body::after{display:none !important}
   <div class="deco-circle deco-bob-2" style="bottom:15%;left:8%;width:18px;height:18px;background:linear-gradient(135deg,#0ad1d9,#16d09c);opacity:.2"></div>
   <div class="deco-circle deco-bob" style="bottom:20%;right:10%;width:12px;height:12px;background:#ff4f49;opacity:.18"></div>
   <div class="proof-card fi">
-    <div class="proof-from">FROM CIVIL ENGINEER TO</div>
+    <div class="proof-from">WHAT THIS SYSTEM HAS DONE</div>
     <div class="proof-big">$600,000+</div>
     <div class="proof-sub">in digital product sales</div>
     <div class="proof-desc">Not because I'm special. Because I followed a system that works whether you have 200 subscribers or 200,000.</div>
-    <div class="proof-stats">
-      <span class="proof-stat"><strong>$40K</strong> from 730 YouTube views</span>
-      <span class="proof-stat"><strong>$35K</strong> from ONE launch</span>
-      <span class="proof-stat"><strong>$30-40K/mo</strong> on maternity leave</span>
-    </div>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <!-- Decorative accents -->
-  <div class="deco-leaf" style="top:20px;right:-55px;width:200px;height:200px;opacity:.35;--lr:5deg;animation-delay:-2s"><img src="https://assets.cdn.filesafe.space/iYLlGEcg2QLnxXloNvS3/media/69d0f5a8fcf3f9acd7896deb.png" alt="" loading="lazy" style="transform:scaleX(-1) rotate(-5deg)"></div>
-  <!-- Play button icon -->
-  <div class="deco-float deco-bob" style="top:6%;left:5%;width:30px;height:30px;opacity:.32">
-    <svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13" stroke="#ff4f49" stroke-width="2"/><path d="M12,9 L12,21 L22,15Z" fill="#ff4f49" opacity=".5"/></svg>
-  </div>
-  <!-- Gear -->
-  <div class="deco-float deco-spin-slow" style="bottom:8%;right:3%;width:32px;height:32px;opacity:.25">
-    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#16d09c" stroke-width="2"/><circle cx="20" cy="20" r="5" stroke="#16d09c" stroke-width="1.5"/><line x1="20" y1="5" x2="20" y2="10" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="30" x2="20" y2="35" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="20" x2="10" y2="20" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="20" x2="35" y2="20" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/></svg>
-  </div>
-  <!-- SVG Palm leaf -->
-  <!-- Sparkle -->
-  <div class="deco-float deco-bob-2" style="top:12%;right:15%;width:14px;height:14px;opacity:.3">
-    <svg viewBox="0 0 20 20" fill="none"><path d="M10,0 L11.5,7 L18,10 L11.5,13 L10,20 L8.5,13 L2,10 L8.5,7Z" fill="#febc2e"/></svg>
-  </div>
-  <div class="deco-circle deco-bob" style="bottom:12%;left:8%;width:14px;height:14px;background:linear-gradient(135deg,#0ad1d9,#16d09c);opacity:.28"></div>
-  <h2 class="fi">Real Results From Real People</h2>
-  <p class="test-sub fi fi-d1">Students who followed the system...</p>
-  <p class="test-annot fi fi-d1">real screenshots from real DMs</p>
-
-  <div class="test-arc fi fi-d2">
-
-    <!-- SS 1: square — far left, low on arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 1 ]</div>
-      <!-- Replace with: <img src="img/test-ss-1.png" alt="Testimonial screenshot"> -->
-      <div class="test-pill">$2,400 in 48hrs</div>
-      <div class="test-ss-name">Jessica R.<span class="test-ss-role">Health Coach</span></div>
+  <div class="proof-cards-row fi fi-d2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:32px auto 0;padding:0 24px">
+    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
+      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$40K</div>
+      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">from 200 subscribers</div>
+      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">52 buyers at $47. Three became $10K+ clients. The ecosystem did the rest.</p>
+      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves it works at small scale - you don't need a massive audience.</p>
     </div>
-
-    <!-- SS 2: landscape — left, mid arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 2 ]</div>
-      <div class="test-pill">Launched in 2 weeks</div>
-      <div class="test-ss-name">Adam W.<span class="test-ss-role">Business Consultant</span></div>
+    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
+      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$35K</div>
+      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">from ONE launch</div>
+      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">One offer. One launch weekend. One $700 product. That's what happens when the positioning is right.</p>
+      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves it's repeatable and fast - not a one-time fluke.</p>
     </div>
-
-    <!-- SS 3: portrait — left-center, high on arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 3 ]</div>
-      <div class="test-pill">$8K first month</div>
-      <div class="test-ss-name">Priya M.<span class="test-ss-role">Life Coach</span></div>
+    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
+      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$30-40K/mo</div>
+      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">on maternity leave</div>
+      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">90 days on bed rest. Business ran without me. That's not hustle - that's structure.</p>
+      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves the system runs without you - the dream outcome.</p>
     </div>
-
-    <!-- SS 4: square — dead center, top of arc (hero) -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 4 ]</div>
-      <div class="test-pill">Idea to sales in 21 days</div>
-      <div class="test-ss-name">Sarah P.<span class="test-ss-role">Yoga Instructor</span></div>
-    </div>
-
-    <!-- SS 5: portrait — right-center, high on arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 5 ]</div>
-      <div class="test-pill">First $5K month</div>
-      <div class="test-ss-name">Marcus T.<span class="test-ss-role">Content Creator</span></div>
-    </div>
-
-    <!-- SS 6: landscape — right, mid arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 6 ]</div>
-      <div class="test-pill">$1,800 from 200 subs</div>
-      <div class="test-ss-name">Camila D.<span class="test-ss-role">Lifestyle Coach</span></div>
-    </div>
-
-    <!-- SS 7: square — far right, low on arc -->
-    <div class="test-ss">
-      <div class="test-ss-ph">[ Screenshot 7 ]</div>
-      <div class="test-pill">Course sold out</div>
-      <div class="test-ss-name">Lena K.<span class="test-ss-role">Fitness Coach</span></div>
-    </div>
-
-    <!-- Giant gear — built by JS for perfect symmetry -->
-    <div class="test-gear-wrap"><div class="test-gear" id="gearSvg"></div></div>
   </div>
 </section>
 
@@ -1410,13 +1330,14 @@ body::before,body::after{display:none !important}
                 <circle cx="212" cy="25" r="3" fill="#fff" opacity=".8"/>
                 <text x="240" y="29" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="Helvetica">LIVE</text>
               </svg>
+              <img src="https://i.imgur.com/hYVmSio.gif" alt="Day 1 preview" loading="lazy" style="width:100%;display:block;margin-top:8px;border-radius:4px">
             </div>
           </div>
           <div class="day-body">
             <div class="day-date">Monday, May 5th at 3pm EST</div>
             <div class="day-title">Why Every Business Owner Needs a Low-Ticket Digital Course</div>
             <ul class="day-list">
-              <li><span class="day-num">01</span> The $697 sweet spot and why low-ticket courses outperform high-ticket for new creators</li>
+              <li><span class="day-num">01</span> The low-ticket pricing sweet spot and why low-ticket courses outperform high-ticket for new creators</li>
               <li><span class="day-num">02</span> How to validate your course idea in 24 hours (without building a single slide)</li>
               <li><span class="day-num">03</span> The "Offer Map" framework that turns your expertise into a sellable digital product</li>
               <li><span class="day-num">04</span> Why you don't need a big audience and the math that proves it</li>
@@ -1426,7 +1347,7 @@ body::before,body::after{display:none !important}
             </ul>
             <div class="day-highlight">You'll walk away from Day 1 with a validated course idea, a complete outline, and total clarity on your offer.</div>
             <div class="day-cta-row">
-              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Save My Spot for Day 1</button>
+              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 1</button>
               <span class="day-annot">let's gooo!</span>
             </div>
           </div>
@@ -1467,13 +1388,14 @@ body::before,body::after{display:none !important}
                 <circle cx="212" cy="25" r="3" fill="#fff" opacity=".8"/>
                 <text x="240" y="29" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="Helvetica">LIVE</text>
               </svg>
+              <img src="https://i.imgur.com/lo3B1LZ.gif" alt="Day 2 preview" loading="lazy" style="width:100%;display:block;margin-top:8px;border-radius:4px">
             </div>
           </div>
           <div class="day-body">
             <div class="day-date">Tuesday, May 6th at 3pm EST</div>
-            <div class="day-title">The Best First Offer for Your Business + Your AI Launch Plan</div>
+            <div class="day-title">The Best Offer for Your Business + Your AI Launch Plan</div>
             <ul class="day-list">
-              <li><span class="day-num">01</span> Your "First Offer Framework" with the exact pricing and packaging that converts</li>
+              <li><span class="day-num">01</span> Your "Offer Framework" with the exact pricing and packaging that converts</li>
               <li><span class="day-num">02</span> How to use AI to write your entire sales page in under 30 minutes</li>
               <li><span class="day-num">03</span> The funnel blueprint that turns cold traffic into buyers on autopilot</li>
               <li><span class="day-num">04</span> Email sequences, upsells, and automations built by AI, reviewed by you</li>
@@ -1483,7 +1405,7 @@ body::before,body::after{display:none !important}
             </ul>
             <div class="day-highlight">By the end of Day 2, you'll have a complete sales funnel with landing page, email sequences, and payment setup... all built with AI.</div>
             <div class="day-cta-row">
-              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Save My Spot for Day 2</button>
+              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 2</button>
               <span class="day-annot">AI magic happens here</span>
             </div>
           </div>
@@ -1532,6 +1454,7 @@ body::before,body::after{display:none !important}
                 <circle cx="212" cy="25" r="3" fill="#fff" opacity=".8"/>
                 <text x="240" y="29" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="Helvetica">LIVE</text>
               </svg>
+              <img src="https://i.imgur.com/H0xJoAb.gif" alt="Day 3 preview" loading="lazy" style="width:100%;display:block;margin-top:8px;border-radius:4px">
             </div>
           </div>
           <div class="day-body">
@@ -1539,16 +1462,16 @@ body::before,body::after{display:none !important}
             <div class="day-title">Your 21-Day Launch Roadmap (So You Actually Do It)</div>
             <ul class="day-list">
               <li><span class="day-num">01</span> The 21-day launch calendar with every task, every day, no guesswork</li>
-              <li><span class="day-num">02</span> How to launch to a small list and still hit your first $1K-$5K</li>
+              <li><span class="day-num">02</span> How to launch to a small list and generate consistent course revenue</li>
               <li><span class="day-num">03</span> The "social proof snowball" for getting testimonials before you even launch</li>
               <li><span class="day-num">04</span> What to do after launch day: scaling, evergreen, and your next $10K</li>
               <li><span class="day-num">05</span> Live Q&A: Get your specific questions answered + accountability plan</li>
               <li><span class="day-num">06</span> The exact post-launch email sequence that keeps revenue flowing for months</li>
-              <li><span class="day-num">07</span> How to turn your first launch into a repeatable evergreen money machine</li>
+              <li><span class="day-num">07</span> How to turn your launch into a repeatable evergreen system</li>
             </ul>
             <div class="day-highlight">After Day 3, you'll have a complete 21-day launch plan with every task mapped out, plus the confidence to actually execute it.</div>
             <div class="day-cta-row">
-              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Save My Spot for Day 3</button>
+              <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 3</button>
               <span class="day-annot">launch day prep!</span>
             </div>
           </div>
@@ -1570,16 +1493,42 @@ body::before,body::after{display:none !important}
     <h2>Hear It Straight from Marissa <span>↓</span></h2>
     <p class="vsl-cta-sub">She breaks down exactly what you'll build in 3 days and why this challenge is different from anything you've tried before.</p>
     <a href="#hero-vsl" class="vsl-preview" onclick="document.querySelector('.hero-vsl').scrollIntoView({behavior:'smooth',block:'center'});return false">
-      <div class="vsl-thumb">
+      <div class="vsl-thumb" style="background:url('https://i.imgur.com/QYszbAt.png') center/cover no-repeat">
         <div class="vsl-thumb-play"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></div>
         <div class="vsl-thumb-dur">3:42</div>
       </div>
       <div class="vsl-preview-text">
-        <h3>"From Zero to First Sales in 21 Days"</h3>
-        <p>Watch Marissa explain the exact 3-day sprint system behind $600K+ in digital course sales and how AI makes it 10x faster.</p>
+        <h3>"From Zero to Sales in 21 Days"</h3>
+        <p>Watch Marissa explain the exact 3-day system behind $600K+ in digital course sales and how AI makes it 10x faster.</p>
         <div class="vsl-watch-btn">Watch Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="deco-leaf" style="top:20px;right:-55px;width:200px;height:200px;opacity:.35;--lr:5deg;animation-delay:-2s"><img src="https://assets.cdn.filesafe.space/iYLlGEcg2QLnxXloNvS3/media/69d0f5a8fcf3f9acd7896deb.png" alt="" loading="lazy" style="transform:scaleX(-1) rotate(-5deg)"></div>
+  <div class="deco-float deco-bob" style="top:6%;left:5%;width:30px;height:30px;opacity:.32">
+    <svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13" stroke="#ff4f49" stroke-width="2"/><path d="M12,9 L12,21 L22,15Z" fill="#ff4f49" opacity=".5"/></svg>
+  </div>
+  <div class="deco-float deco-spin-slow" style="bottom:8%;right:3%;width:32px;height:32px;opacity:.25">
+    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#16d09c" stroke-width="2"/><circle cx="20" cy="20" r="5" stroke="#16d09c" stroke-width="1.5"/><line x1="20" y1="5" x2="20" y2="10" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="30" x2="20" y2="35" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="20" x2="10" y2="20" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="20" x2="35" y2="20" stroke="#16d09c" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+  <div class="deco-float deco-bob-2" style="top:12%;right:15%;width:14px;height:14px;opacity:.3">
+    <svg viewBox="0 0 20 20" fill="none"><path d="M10,0 L11.5,7 L18,10 L11.5,13 L10,20 L8.5,13 L2,10 L8.5,7Z" fill="#febc2e"/></svg>
+  </div>
+  <div class="deco-circle deco-bob" style="bottom:12%;left:8%;width:14px;height:14px;background:linear-gradient(135deg,#0ad1d9,#16d09c);opacity:.28"></div>
+  <h2 class="fi">Real Results From Real People</h2>
+  <p class="test-sub fi fi-d1">Students who followed the system...</p>
+  <p class="test-annot fi fi-d1">real screenshots from real DMs</p>
+  <div class="test-arc fi fi-d2">
+    <div class="test-ss"><img src="https://i.imgur.com/qBLD0Np.png" alt="Testimonial screenshot" loading="lazy"></div>
+    <div class="test-ss"><img src="https://i.imgur.com/omrFimi.png" alt="Testimonial screenshot" loading="lazy"></div>
+    <div class="test-ss"><img src="https://i.imgur.com/lnzGX2d.png" alt="Testimonial screenshot" loading="lazy"></div>
+    <div class="test-ss"><img src="https://i.imgur.com/rSjGocg.png" alt="Testimonial screenshot" loading="lazy"></div>
+    <div class="test-ss"><img src="https://i.imgur.com/Qugtv04.png" alt="Testimonial screenshot" loading="lazy"></div>
+    <div class="test-gear-wrap"><div class="test-gear" id="gearSvg"></div></div>
   </div>
 </section>
 
@@ -1602,7 +1551,7 @@ body::before,body::after{display:none !important}
     <h2 class="fi fi-d1">We're Filling Up Fast<em>don't miss your shot</em></h2>
     <p class="fi fi-d2">We're limited on virtual room bandwidth. Once spots fill, registration closes.</p>
     <div class="fi fi-d2"><div class="spots"><span class="pulse-dot"></span> <span id="spotsText">Loading...</span></div></div>
-    <div class="fi fi-d3" style="display:flex;justify-content:center;margin-top:8px"><button class="cta cta-white openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SAVE YOUR FREE SPOT NOW</button></div>
+    <div class="fi fi-d3" style="display:flex;justify-content:center;margin-top:8px"><button class="cta cta-white openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GET YOUR FREE TICKET</button></div>
   </div>
   <div class="sec-wave-bot"><svg viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,8 C180,0 360,40 540,32 C720,24 900,0 1080,8 C1260,16 1380,32 1440,24 L1440,40 L0,40 Z" fill="var(--warmbg)"/></svg></div>
 </section>
@@ -1959,10 +1908,10 @@ body::before,body::after{display:none !important}
         <div class="im-dream-label">Your new reality</div>
         <h3>Waking up 90 days from now as a creator who:</h3>
         <ul class="im-dream-list">
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Has a <strong>selling digital course</strong> generating income while you sleep</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Built an <strong>automated sales funnel</strong> that converts strangers into buyers</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Grew an <strong>email list of buyers</strong> who trust you and keep coming back</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Let <strong>AI do the heavy work</strong> so you focus on what you love</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Has a <strong>low-ticket digital course</strong> with a backend that turns $47 buyers into $440+ customers</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Built a <strong>sales system</strong> that runs whether you're working or on maternity leave</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Stopped trading every hour for dollars - your expertise sells while you teach, coach, or just live your life</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Uses <strong>AI to do the 80%</strong> that used to take months - so you launch in weeks, not quarters</li>
         </ul>
       </div>
       <div class="im-without">
@@ -2183,10 +2132,10 @@ body::before,body::after{display:none !important}
         <div class="im-without-label">All without needing</div>
         <h3>Zero of these required:</h3>
         <ul class="im-without-list">
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> A huge audience (200 subscribers is plenty)</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Any tech skills or coding knowledge</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Months of planning and perfectionism</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Expensive tools, agencies, or courses</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> A huge audience - 200 subscribers generated $40,000+ in total revenue</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Hours writing sales copy or designing funnels - AI handles that</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Months of planning before you can launch - 21 days, start to selling</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> A team, an agency, or a big ad budget - this is a one-person operation</li>
         </ul>
       </div>
     </div>
@@ -2212,7 +2161,7 @@ body::before,body::after{display:none !important}
   <p class="transform-sub fi fi-d1">The transformation is real...</p>
   <div class="tf-track fi fi-d2">
     <div class="tf-before">
-      <div class="tf-photo" style="width:100%;height:260px;background:#ede8e2;margin-bottom:24px;display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:13px;font-weight:600;letter-spacing:.05em;border:2px dashed rgba(0,0,0,.08)">[ BEFORE photo ]</div>
+      <div class="tf-photo" style="width:100%;margin-bottom:24px;overflow:hidden;border-radius:4px"><img src="https://i.imgur.com/W08de9f.jpeg" alt="Before the challenge" loading="lazy" style="width:100%;height:auto;display:block"></div>
       <h3>Before the Challenge</h3>
       <ul class="tf-list">
         <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Course idea stuck in your head (or notes app)</li>
@@ -2225,13 +2174,13 @@ body::before,body::after{display:none !important}
       <div class="tf-center-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
     <div class="tf-after">
-      <div class="tf-photo" style="width:100%;height:260px;background:linear-gradient(135deg,#e8faf5,#eefbfa);margin-bottom:24px;display:flex;align-items:center;justify-content:center;color:var(--pacific);font-size:13px;font-weight:600;letter-spacing:.05em;border:2px dashed rgba(10,209,217,.2)">[ AFTER photo ]</div>
+      <div class="tf-photo" style="width:100%;margin-bottom:24px;overflow:hidden;border-radius:4px"><img src="https://i.imgur.com/TgPRy0l.jpeg" alt="After 3 days with Marissa" loading="lazy" style="width:100%;height:auto;display:block"></div>
       <h3>After 3 Days with Marissa</h3>
       <ul class="tf-list">
         <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Course outlined and validated with AI</li>
         <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Sales page written and funnel mapped out</li>
         <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 21-day launch roadmap in your hands</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ready to make your first sales within weeks</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ready to make sales within weeks</li>
       </ul>
     </div>
   </div>
@@ -2302,7 +2251,7 @@ body::before,body::after{display:none !important}
       <div class="cd-mini-sep">:</div>
       <div class="cd-mini"><div class="cd-mini-num cd-x-s">00</div><div class="cd-mini-lbl">Sec</div></div>
     </div>
-    <div style="display:flex;justify-content:center"><button class="cta cta-cherry openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>YES! SAVE MY FREE SPOT NOW</button></div>
+    <div style="display:flex;justify-content:center"><button class="cta cta-cherry openPopup"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GET YOUR FREE TICKET &rarr;</button></div>
     <div class="final-cta-tagline">May 5-7, 2026 &middot; 3pm EST &middot; <strong>100% Free. Seriously.</strong></div>
   </div>
   <div class="final-guarantee">
@@ -2312,7 +2261,7 @@ body::before,body::after{display:none !important}
 
   <div class="signoff fi fi-d3">xoxo, Marissa</div>
   <div class="footer-bar"></div>
-  <div class="footer"><span class="wordmark">MARISSA<span class="wm-bar">|</span><span class="wm-r">ROMERO</span></span><span>&copy; 2026 Marissa Romero. All Rights Reserved.</span></div>
+  <div class="footer"><span class="wordmark">MARISSA<span class="wm-bar">|</span><span class="wm-r">ROMERO</span></span><span>Digital Course Launch Lab by Marissa Romero &middot; &copy; 2026 All Rights Reserved.</span></div>
 </section>
 
 </div><!-- end .ghl-break -->
@@ -2329,10 +2278,10 @@ ov.id='_mrOverlay';
 ov.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);z-index:999999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-x:hidden;overflow-y:auto';
 var pop=document.createElement('div');
 pop.style.cssText='background:#fff;max-width:520px;width:92%;max-height:90vh;overflow-x:hidden;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.25)';
-pop.innerHTML='<div style="background:#1a1a1a;padding:28px 30px 20px;text-align:center"><div style="font-size:11px;font-weight:800;letter-spacing:.15em;color:#0dc5cf;margin-bottom:8px">ADMIT ONE</div><div style="font-family:Helvetica,Arial,sans-serif;font-size:clamp(20px,4vw,28px);font-weight:700;color:#fff;margin-bottom:6px">Digital Course Launch Sprint</div><div style="font-family:\'Nanum Pen Script\',cursive;font-size:clamp(16px,3vw,22px);color:#0dc5cf">3-Day FREE Challenge with Marissa Romero</div></div>'
+pop.innerHTML='<div style="background:#1a1a1a;padding:28px 30px 20px;text-align:center"><div style="font-size:11px;font-weight:800;letter-spacing:.15em;color:#0dc5cf;margin-bottom:8px">ADMIT ONE</div><div style="font-family:Helvetica,Arial,sans-serif;font-size:clamp(20px,4vw,28px);font-weight:700;color:#fff;margin-bottom:6px">Digital Course Launch Lab</div><div style="font-family:\'Nanum Pen Script\',cursive;font-size:clamp(16px,3vw,22px);color:#0dc5cf">3-Day FREE Challenge with Marissa Romero</div></div>'
 +'<div style="display:flex;align-items:center;gap:0;background:#fff;padding:0 10px;overflow:hidden"><div style="width:18px;height:18px;background:#fff;border-radius:50%;flex-shrink:0;margin-left:-9px;box-shadow:0 0 0 4px rgba(0,0,0,.08)"></div><div style="flex:1;border-top:2px dashed #ddd;margin:0 4px"></div><div style="width:18px;height:18px;background:#fff;border-radius:50%;flex-shrink:0;margin-right:-9px;box-shadow:0 0 0 4px rgba(0,0,0,.08)"></div></div>'
 +'<div style="padding:24px 30px 28px">'
-+'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><div><div style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#141414">Your Ticket Includes</div><div style="font-size:12px;color:#8e8d8d;line-height:1.6">3 live trainings + AI templates + launch system</div></div><div style="text-align:right"><div style="font-size:12px;color:#8e8d8d;text-decoration:line-through">$297 VALUE</div><div style="font-size:28px;font-weight:900;color:#ff4f49;line-height:1">FREE</div><div style="font-size:11px;color:#0097a7;font-weight:600">This week only</div></div></div>'
++'<div style="margin-bottom:18px"><div style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#141414">Your Ticket Includes</div><div style="font-size:12px;color:#8e8d8d;line-height:1.6">3 live trainings + AI templates + launch system</div></div>'
 +'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:13px;color:#434343"><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><rect x="3" y="4" width="18" height="18" stroke="currentColor" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>May 5-7</div><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>3pm EST</div><div style="flex:1;display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f7f4f0;border-radius:6px"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Live</div></div>'
 +'<input type="text" id="_mrName" placeholder="Your first name" autocomplete="given-name" required style="width:100%;padding:14px 16px;margin-bottom:10px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none">'
 +'<input type="email" id="_mrEmail" placeholder="Best email address" autocomplete="email" required style="width:100%;padding:14px 16px;margin-bottom:10px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none">'
@@ -2347,7 +2296,7 @@ pop.innerHTML='<div style="background:#1a1a1a;padding:28px 30px 20px;text-align:
 +'<input type="tel" id="_mrPhone" placeholder="Phone number" autocomplete="tel-national" style="flex:1;padding:14px 16px;border:2px solid #e8e5e0;font-size:15px;font-family:inherit;box-sizing:border-box;border-radius:0;outline:none"></div>'
 +'<button id="_mrSubmit" type="button" style="width:100%;padding:18px;background:#ff4f49;color:#fff;font-size:16px;font-weight:800;font-family:inherit;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;box-shadow:0 4px 0 #e63e38"><span>CLAIM MY FREE TICKET &rarr;</span></button>'
 +'<div style="text-align:center;font-size:12px;color:#8e8d8d;margin-top:10px">Instant access + VIP upgrade option on next page</div>'
-+'<div id="_mrSpots2" style="text-align:center;font-size:12px;color:#ff4f49;margin-top:10px;font-weight:600"></div>'
++''
 +'</div>';
 var closeBtn=document.createElement('button');
 closeBtn.innerHTML='&times;';
@@ -2464,7 +2413,7 @@ var pi=0;sp.textContent=phrases[0];
 var wi=setInterval(function(){pi=(pi+1)%phrases.length;sp.textContent=phrases[pi]},1200);
 var params=new URLSearchParams();
 params.append('first_name',n);params.append('email',em);params.append('phone',fullPhone);
-params.append('tags','challenge-registered-may2026');params.append('source','digital-course-launch-sprint');
+params.append('tags','challenge-registered-may2026');params.append('source','digital-course-launch-lab');
 fetch('https://script.google.com/macros/s/AKfycbzpgySxBMHWuACrOzhbjnGP_agqXvr9L8GUavoVdAyr6jy6pXYG_gMcEcF6N2BGE6LE6w/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:n,email:em,phone:fullPhone,tags:'challenge-registered-may2026',source:'digital-course-launch-lab'})});
 fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/1a6e4b08-e889-472c-bc9d-bdb035728bef',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()})
 .then(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){window.location.href='https://offer.marissaromero.com/vip'},800)})
@@ -2473,12 +2422,12 @@ fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-t
 ['_mrName','_mrEmail','_mrPhone'].forEach(function(id){document.getElementById(id).addEventListener('focus',function(){this.style.borderColor='#e8e5e0'})});
 document.getElementById('_mrName').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('_mrEmail').focus()}});
 document.getElementById('_mrEmail').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('_mrSubmit').click()}});
-window._mrSpots2=document.getElementById('_mrSpots2');
+/* spots counter removed from popup */
 })();
 (function(){var c=100,or=88,ir=68,teeth=14,tw=18,el=document.getElementById('gearSvg');if(!el)return;var pts='';for(var i=0;i<teeth;i++){var a1=(i/teeth)*Math.PI*2-Math.PI/2,a2=((i+.35)/teeth)*Math.PI*2-Math.PI/2,a3=((i+.5)/teeth)*Math.PI*2-Math.PI/2,a4=((i+.85)/teeth)*Math.PI*2-Math.PI/2;pts+=(i?'L':'M')+(c+ir*Math.cos(a1)).toFixed(1)+','+(c+ir*Math.sin(a1)).toFixed(1);pts+='L'+(c+or*Math.cos(a2)).toFixed(1)+','+(c+or*Math.sin(a2)).toFixed(1);pts+='L'+(c+or*Math.cos(a3)).toFixed(1)+','+(c+or*Math.sin(a3)).toFixed(1);pts+='L'+(c+ir*Math.cos(a4)).toFixed(1)+','+(c+ir*Math.sin(a4)).toFixed(1)}pts+='Z';el.innerHTML='<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gf1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e0dcd4"/><stop offset="50%" stop-color="#c4c0b6"/><stop offset="100%" stop-color="#d2cec4"/></linearGradient><radialGradient id="gf2" cx=".45" cy=".42" r=".55"><stop offset="0%" stop-color="#d8d4cc"/><stop offset="60%" stop-color="#c0bcb2"/><stop offset="100%" stop-color="#a8a49a"/></radialGradient><filter id="gsh"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".18"/></filter></defs><g filter="url(#gsh)"><path d="'+pts+'" fill="url(#gf1)" stroke="#b0aca2" stroke-width=".8"/><circle cx="100" cy="100" r="58" fill="url(#gf2)" stroke="#b8b4aa" stroke-width="1.5"/><circle cx="100" cy="100" r="56" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/><circle cx="100" cy="100" r="22" fill="#c8c4ba" stroke="#a8a49a" stroke-width="2"/><circle cx="100" cy="100" r="20.5" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1"/><circle cx="100" cy="100" r="9" fill="#b4b0a6" stroke="#9a968c" stroke-width="1.5"/><circle cx="100" cy="100" r="4" fill="#a09c92"/><ellipse cx="78" cy="78" rx="28" ry="18" fill="rgba(255,255,255,.07)" transform="rotate(-35,78,78)"/></g></svg>'})();
 (function(){var launch=new Date("2026-04-01T00:00:00-07:00").getTime();var el1=document.getElementById("spotsText"),el2=document.getElementById("spotsText2");function base(){var ds=(Date.now()-launch)/864e5;if(ds<=0)return 127;var c=127;for(var d=0;d<Math.min(ds,50);d++){var r;if(d<3)r=45+d*15;else if(d<7)r=85+d*10;else if(d<14)r=150+d*8;else if(d<21)r=250+d*12;else if(d<28)r=200-(d-21)*15;else r=Math.max(30,90-(d-28)*5);c+=r}var hf=(Date.now()-launch-Math.floor(ds)*864e5)/864e5,df=Math.floor(ds),tr;if(df<3)tr=45+df*15;else if(df<7)tr=85+df*10;else if(df<14)tr=150+df*8;else if(df<21)tr=250+df*12;else if(df<28)tr=200-(df-21)*15;else tr=Math.max(30,90-(df-28)*5);return c+Math.floor(hf*tr)}var disp=base();function set(){var t=disp.toLocaleString()+" spots claimed";if(el1)el1.textContent=t;if(el2)el2.textContent=t;if(window._mrSpots2)window._mrSpots2.textContent=t}set();(function next(){setTimeout(function(){disp++;set();next()},45000+Math.random()*45000)})()})();
 (function(){var female=['Emma','Olivia','Ava','Sophia','Isabella','Mia','Charlotte','Amelia','Harper','Evelyn','Abigail','Emily','Elizabeth','Sofia','Avery','Ella','Scarlett','Grace','Chloe','Victoria','Riley','Aria','Lily','Aubrey','Zoey','Hannah','Layla','Nora','Camila','Penelope','Luna','Savannah','Brooklyn','Leah','Zoe','Stella','Hazel','Ellie','Paisley','Audrey','Claire','Bella','Lucy','Anna','Caroline','Genesis','Aaliyah','Kennedy','Allison','Maya','Sarah','Madelyn','Adeline','Naomi','Alice','Sadie','Hailey','Eva','Emilia','Autumn','Quinn','Piper','Ruby','Valentina','Willow','Andrea','Gabriella','Daniela','Catalina','Alejandra','Lucia','Carmen','Elena','Jimena','Valeria','Natalia','Fernanda','Adriana','Bianca','Renata','Priya','Ananya','Meera','Aisha','Fatima','Zara','Lena','Ingrid','Freya','Sienna','Tessa','Margot','Celeste','Iris','Jade','Lydia','Mila','Gemma','Isla','Thea','Kira','Nina','Vera','Ivy','Fiona','Nadia','Serena'];var male=['James','Liam','Noah','Ethan','Mason','Lucas','Oliver','Aiden','Elijah','Logan','Alexander','Sebastian','Daniel','Matthew','Henry','Jackson','David','Joseph','Carter','Owen','Jayden','Dylan','Luke','Gabriel','Anthony','Isaac','Nathan','Caleb','Ryan','Christian','Hunter','Andrew','Joshua','Adrian','Thomas','Marcus','Kevin','Brian','Carlos','Diego','Miguel','Javier','Rafael','Andre','Malik','Jamal','Darius','Ravi','Arjun','Omar','Kai','Leo','Miles','Cole','Blake','Finn','Theo','Max','Xavier','Mateo','Santiago','Emilio','Dante','Nico','Hassan','Idris','Tariq','Kenji','Hiroshi','Soren','Erik','Lars','Declan','Rowan','Asher','Beckett','Cruz','Zane'];var first=[];for(var i=0;i<65;i++)first.push(female[i%female.length]);for(var i=0;i<35;i++)first.push(male[i%male.length]);first.sort(function(){return Math.random()-.5}),last='ABCDEFGHJKLMNPRSTUVWYZ',acts=['just registered','saved their spot','signed up','just joined','grabbed a free spot','registered just now','claimed their spot'],times=[];for(var i=0;i<60;i++)times.push(Math.floor(Math.random()*55+1)+'m ago');function pick(a){return a[Math.floor(Math.random()*a.length)]}function gen(){return{n:pick(first)+' '+pick(last.split(''))+'.',a:pick(acts),t:pick(times)}}function build(el){var h='',pool=[];for(var i=0;i<40;i++)pool.push(gen());for(var r=0;r<3;r++)pool.forEach(function(p){h+='<div class="tick-item">'+p.n+' '+p.a+' <span class="tt">'+p.t+'</span></div><span class="tick-div">\u2022</span>'});el.innerHTML=h}build(document.getElementById('ticker'));document.querySelectorAll('.ticker2,.ticker3').forEach(function(e){build(e)})})();
-(function(){var t='\u23F3 Your Free Spot is Waiting... - Digital Course Launch Sprint    ';var b=new Blob(['setInterval(function(){postMessage(1)},120)'],{type:'text/javascript'});var w=new Worker(URL.createObjectURL(b)),i=0;w.onmessage=function(){document.title=t.substring(i)+t.substring(0,i);i=(i+1)%t.length}})();
+(function(){var t='\u23F3 Your Free Ticket is Waiting... - Digital Course Launch Lab    ';var b=new Blob(['setInterval(function(){postMessage(1)},120)'],{type:'text/javascript'});var w=new Worker(URL.createObjectURL(b)),i=0;w.onmessage=function(){document.title=t.substring(i)+t.substring(0,i);i=(i+1)%t.length}})();
 (function(){var els=document.querySelectorAll('.fi');var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});els.forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('v');else obs.observe(el)})})();
 (function(){var registered=false,cooldown=false,ov=document.getElementById('overlay');if(!ov)return;window._exitRegistered=function(){registered=true};function exitIntent(e){if(registered||cooldown)return;if(e.clientY>0)return;if(ov.classList.contains('active'))return;ov.classList.add('active');cooldown=true;setTimeout(function(){cooldown=false},5000)}setTimeout(function(){document.documentElement.addEventListener('mouseleave',exitIntent)},8000)})();
 }
