@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Prompt Library - Digital Course Launch Lab VIP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:letter;margin:0.5in 0.6in}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  --gold:#D4A853;--gold-dk:#B8923E;--gold-lt:#E8C97A;
+  --pacific:#0097a7;--carib:#23b8a5;
+  --warm:#f7f4f0;--warmdk:#ede8e2;--warmbg:#faf8f5;
+  --char:#434343;--ablack:#1a1a2e;--slate:#8e8d8d;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --gg:linear-gradient(135deg,var(--gold),var(--gold-lt),#f0d68a,var(--gold));
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:#fff}
+
+.cover{min-height:100vh;background:linear-gradient(160deg,#faf8f5 0%,#f0f6f6 25%,#f5f2ed 55%,#faf8f5 100%);border-top:6px solid;border-image:var(--tg) 1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;page-break-after:always}
+.cover::before{content:'';position:absolute;top:5%;right:5%;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08),rgba(22,208,156,.03),transparent 55%);filter:blur(60px)}
+.cover::after{content:'';position:absolute;bottom:0%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,83,.07),transparent 55%);filter:blur(50px)}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,168,83,.15),rgba(212,168,83,.05));border:1px solid rgba(212,168,83,.3);padding:12px 30px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:28px;position:relative;z-index:1}
+.cover-badge svg{width:16px;height:16px}
+.cover-tag{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--pacific);margin-bottom:14px;position:relative;z-index:1}
+.cover-divider{width:80px;height:2px;background:var(--gg);margin:0 auto 32px;position:relative;z-index:1}
+.cover h1{font-family:var(--display);font-size:clamp(44px,7vw,64px);font-weight:700;color:var(--ablack);line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover h1 .teal{background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover-sub{font-size:18px;color:#777;max-width:600px;line-height:1.7;margin-bottom:40px;position:relative;z-index:1}
+.cover-meta{display:flex;align-items:center;gap:30px;position:relative;z-index:1}
+.cover-meta span{font-size:14px;color:#aaa;font-weight:600;display:flex;align-items:center;gap:8px}
+.cover-leaf{position:absolute;z-index:0;opacity:.08}
+
+.page{max-width:780px;margin:0 auto;padding:50px 44px;page-break-after:always;position:relative;overflow:hidden}
+.page:last-child{page-break-after:auto}
+
+.sec-num{font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.sec-num::before{content:'';width:20px;height:2px;background:var(--tg)}
+.sec-num.gold{color:var(--gold)}.sec-num.gold::before{background:var(--gg)}
+.sec-title{font-family:var(--display);font-size:clamp(28px,4.5vw,36px);font-weight:700;color:var(--ablack);line-height:1.15;letter-spacing:-.02em;margin-bottom:6px}
+.sec-title em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-title .gold{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:24px;max-width:580px}
+
+.teach-box{background:linear-gradient(145deg,rgba(10,209,217,.04),rgba(10,209,217,.02));border:1px solid rgba(10,209,217,.12);border-left:4px solid var(--t1);padding:20px 24px;margin-bottom:24px}
+.teach-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.teach-box p,.teach-box li{font-size:15px;color:#666;line-height:1.7}
+.teach-box ol,.teach-box ul{padding-left:18px;margin-top:4px}
+.teach-box li{margin-bottom:3px}
+
+.gold-box{background:linear-gradient(145deg,rgba(212,168,83,.06),rgba(212,168,83,.02));border:1px solid rgba(212,168,83,.15);border-left:4px solid var(--gold);padding:20px 24px;margin-bottom:24px}
+.gold-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:6px}
+.gold-box p{font-size:15px;color:#666;line-height:1.7}
+
+.cherry-box{background:linear-gradient(145deg,rgba(255,79,73,.04),rgba(255,79,73,.02));border:1px solid rgba(255,79,73,.12);border-left:4px solid var(--cherry);padding:16px 20px;margin-bottom:20px}
+.cherry-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:6px}
+.cherry-box p{font-size:15px;color:#666;line-height:1.7}
+
+/* Prompt blocks */
+.prompt-block{background:#0a2628;padding:26px 30px;margin:20px 0;position:relative;overflow:hidden;font-family:'Courier New',monospace}
+.prompt-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gg)}
+.prompt-block::after{content:'';position:absolute;top:-30%;right:-5%;width:180px;height:180px;background:radial-gradient(circle,rgba(10,209,217,.06),transparent 65%);filter:blur(20px)}
+.prompt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.prompt-label{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,83,.15);border:1px solid rgba(212,168,83,.25);padding:6px 14px;font-family:var(--body);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lt)}
+.prompt-label svg{width:10px;height:10px}
+.copy-btn{background:rgba(10,209,217,.15);border:1px solid rgba(10,209,217,.3);padding:6px 16px;font-family:var(--body);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--t1);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.copy-btn:hover{background:rgba(10,209,217,.25)}
+.copy-btn.copied{background:rgba(124,203,97,.2);border-color:rgba(124,203,97,.4);color:var(--t4)}
+.copy-btn svg{width:12px;height:12px}
+.prompt-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.85;white-space:pre-wrap;position:relative;z-index:1}
+.prompt-text .var{color:var(--t1);font-weight:700}
+.prompt-text .data{color:var(--gold-lt);font-weight:600}
+.prompt-note{font-family:var(--body);font-size:13px;color:rgba(255,255,255,.4);margin-top:12px;font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:8px;position:relative;z-index:1}
+.prompt-vip{display:inline-flex;align-items:center;gap:4px;background:rgba(212,168,83,.2);border:1px solid rgba(212,168,83,.35);padding:2px 8px;font-family:var(--body);font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lt);margin-left:8px}
+
+/* Stat callout */
+.stat-row{display:flex;gap:14px;margin-bottom:24px}
+.stat-card{flex:1;background:#fff;border:1px solid #e8e4de;padding:20px 18px;box-shadow:0 2px 8px rgba(0,0,0,.03);text-align:center}
+.stat-num{font-family:var(--display);font-size:26px;font-weight:800;color:var(--ablack);line-height:1}
+.stat-num.teal{color:var(--pacific)}
+.stat-num.cherry{color:var(--cherry)}
+.stat-num.gold{color:var(--gold-dk)}
+.stat-label{font-size:13px;color:var(--slate);margin-top:4px;line-height:1.3}
+
+.cat-header{background:linear-gradient(135deg,#fff,var(--warmbg));border:1px solid #e0dcd6;padding:20px 24px;margin-bottom:22px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.cat-icon{width:44px;height:44px;background:var(--tg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-icon.gold{background:var(--gg)}
+.cat-icon.cherry{background:linear-gradient(135deg,var(--cherry),#ff8a85)}
+.cat-icon svg{width:22px;height:22px}
+.cat-text h3{font-family:var(--display);font-size:19px;font-weight:700;color:var(--ablack);margin-bottom:2px}
+.cat-text p{font-size:15px;color:var(--slate);line-height:1.4}
+
+.toc{margin-bottom:20px}
+.toc-item{display:flex;align-items:center;gap:16px;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.05);background:rgba(255,255,255,.5);margin-bottom:2px}
+.toc-num{width:32px;height:32px;border-radius:50%;background:var(--tg);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:10px;font-weight:800;color:#fff;flex-shrink:0}
+.toc-num.gold{background:var(--gg)}
+.toc-label{font-size:15px;font-weight:600;color:var(--ablack);flex:1}
+.toc-day{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);white-space:nowrap}
+.toc-vip{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+
+.pg-foot{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid #e0dcd6;margin-top:36px;font-size:11px;color:var(--slate)}
+.pg-foot-logo{font-family:var(--display);font-weight:800;color:var(--ablack);font-size:12px;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Search & Filter UI */
+.social-proof-row{display:flex;justify-content:space-between;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #e8e4de}
+.social-proof-item{font-size:11px;color:var(--slate);line-height:1.3}
+.social-proof-item strong{color:var(--char);font-weight:700;font-size:12px}
+.social-proof-item em{font-style:italic;color:var(--pacific);font-weight:600;font-size:11px}
+.search-wrap{margin-bottom:24px;background:var(--warmbg);border:1px solid #e8e4de;padding:20px 22px}
+.search-row{display:flex;gap:10px;align-items:stretch;margin-bottom:14px}
+.search-bar{flex:1;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #ddd8d2;padding:14px 20px;border-radius:2px}
+.search-bar svg{width:18px;height:18px;color:#aaa;flex-shrink:0}
+.search-bar span{font-size:14px;color:#bbb}
+.vip-prompt-badge{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--t1),var(--t3));padding:14px 24px;font-size:12px;font-weight:800;color:#fff;letter-spacing:.05em;white-space:nowrap;border-radius:2px}
+.filter-tabs{display:flex;flex-wrap:wrap;gap:7px}
+.filter-tab{display:inline-flex;align-items:center;padding:9px 20px;font-family:var(--body);font-size:12px;font-weight:600;border:1px solid #e0dcd6;background:#fff;color:var(--char);white-space:nowrap;border-radius:2px}
+.filter-tab.active{background:#1a1a2e;color:#fff;border-color:#1a1a2e}
+.filter-tab.vip-tab{background:linear-gradient(135deg,rgba(10,209,217,.1),rgba(22,208,156,.06));border-color:rgba(10,209,217,.25);color:var(--pacific);font-weight:700}
+
+/* AI Decorations */
+.ai-deco{position:absolute;z-index:0;pointer-events:none}
+.ai-dot-grid::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle,rgba(10,209,217,.045) 1.2px,transparent 1.2px);background-size:18px 18px;pointer-events:none;z-index:0}
+@keyframes pulse-glow{0%,100%{opacity:.15}50%{opacity:.3}}
+@keyframes cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+.ai-pulse{animation:pulse-glow 3s ease-in-out infinite}
+.prompt-block::after{content:'>';position:absolute;bottom:12px;right:16px;font-family:'Courier New',monospace;font-size:18px;color:rgba(10,209,217,.08);z-index:0}
+
+@media print{.cover{min-height:auto;height:100vh}.page{padding:0}.copy-btn{display:none}.ai-pulse{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <!-- AI Circuit Board - Top Right -->
+  <svg class="ai-deco" style="top:-2%;right:-2%;width:750px;height:750px;opacity:.14" viewBox="0 0 480 480" fill="none">
+    <line x1="80" y1="0" x2="80" y2="180" stroke="rgba(10,209,217,.6)" stroke-width="1.2" stroke-dasharray="4 4"/><line x1="80" y1="180" x2="240" y2="180" stroke="rgba(10,209,217,.6)" stroke-width="1.2"/><line x1="240" y1="180" x2="240" y2="340" stroke="rgba(22,208,156,.6)" stroke-width="1.2"/><line x1="240" y1="340" x2="420" y2="340" stroke="rgba(124,203,97,.5)" stroke-width="1.2"/><line x1="420" y1="180" x2="420" y2="460" stroke="rgba(10,209,217,.4)" stroke-width="1.2" stroke-dasharray="4 4"/><line x1="160" y1="80" x2="380" y2="80" stroke="rgba(22,208,156,.5)" stroke-width="1"/><line x1="380" y1="80" x2="380" y2="260" stroke="rgba(212,168,83,.4)" stroke-width="1"/><line x1="160" y1="260" x2="380" y2="260" stroke="rgba(10,209,217,.4)" stroke-width="1" stroke-dasharray="6 3"/><line x1="160" y1="80" x2="160" y2="400" stroke="rgba(22,208,156,.35)" stroke-width="1"/><line x1="160" y1="400" x2="320" y2="400" stroke="rgba(212,168,83,.35)" stroke-width="1"/><line x1="320" y1="260" x2="320" y2="440" stroke="rgba(124,203,97,.4)" stroke-width="1"/>
+    <circle cx="80" cy="180" r="7" fill="rgba(10,209,217,.08)" stroke="rgba(10,209,217,.7)" stroke-width="1.5"/><circle cx="80" cy="180" r="2.5" fill="rgba(10,209,217,.9)"/>
+    <circle cx="240" cy="180" r="5" fill="rgba(22,208,156,.08)" stroke="rgba(22,208,156,.6)" stroke-width="1.5"/><circle cx="240" cy="180" r="2" fill="rgba(22,208,156,.8)"/>
+    <circle cx="240" cy="340" r="7" fill="rgba(124,203,97,.08)" stroke="rgba(124,203,97,.7)" stroke-width="1.5"/><circle cx="240" cy="340" r="2.5" fill="rgba(124,203,97,.9)"/>
+    <circle cx="420" cy="340" r="5" fill="rgba(10,209,217,.08)" stroke="rgba(10,209,217,.6)" stroke-width="1.5"/><circle cx="420" cy="340" r="2" fill="rgba(10,209,217,.8)"/>
+    <circle cx="380" cy="80" r="6" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.6)" stroke-width="1.5"/><circle cx="380" cy="80" r="2" fill="rgba(212,168,83,.8)"/>
+    <circle cx="160" cy="80" r="5" fill="rgba(22,208,156,.08)" stroke="rgba(22,208,156,.5)" stroke-width="1.5"/><circle cx="160" cy="260" r="6" fill="rgba(10,209,217,.08)" stroke="rgba(10,209,217,.5)" stroke-width="1.5"/><circle cx="380" cy="260" r="5" fill="rgba(212,168,83,.08)" stroke="rgba(212,168,83,.5)" stroke-width="1.5"/><circle cx="320" cy="400" r="5" fill="rgba(124,203,97,.08)" stroke="rgba(124,203,97,.5)" stroke-width="1.5"/><circle cx="420" cy="180" r="4" fill="rgba(22,208,156,.06)" stroke="rgba(22,208,156,.4)" stroke-width="1"/>
+  </svg>
+
+  <!-- Terminal Window - Bottom Left -->
+  <svg class="ai-deco" style="bottom:2%;left:0%;width:440px;opacity:.16" viewBox="0 0 260 180" fill="none">
+    <rect x="1" y="1" width="258" height="178" rx="3" stroke="rgba(10,209,217,.5)" stroke-width="1" fill="rgba(10,209,217,.03)"/>
+    <rect x="1" y="1" width="258" height="26" rx="3" fill="rgba(10,209,217,.08)"/><line x1="1" y1="27" x2="259" y2="27" stroke="rgba(10,209,217,.3)" stroke-width="1"/>
+    <circle cx="14" cy="14" r="4" fill="rgba(255,79,73,.6)"/><circle cx="28" cy="14" r="4" fill="rgba(212,168,83,.6)"/><circle cx="42" cy="14" r="4" fill="rgba(124,203,97,.6)"/>
+    <text x="90" y="17" font-family="monospace" font-size="8" fill="rgba(255,255,255,.3)">ai-prompts.sh</text>
+    <text x="14" y="48" font-family="monospace" font-size="11" fill="rgba(10,209,217,.7)">$</text><rect x="26" y="38" width="130" height="12" rx="1" fill="rgba(10,209,217,.1)"/>
+    <text x="14" y="70" font-family="monospace" font-size="11" fill="rgba(124,203,97,.7)">></text><rect x="26" y="60" width="175" height="12" rx="1" fill="rgba(124,203,97,.06)"/>
+    <text x="14" y="92" font-family="monospace" font-size="11" fill="rgba(10,209,217,.7)">$</text><rect x="26" y="82" width="95" height="12" rx="1" fill="rgba(10,209,217,.08)"/>
+    <text x="14" y="114" font-family="monospace" font-size="11" fill="rgba(212,168,83,.7)">></text><rect x="26" y="104" width="190" height="12" rx="1" fill="rgba(212,168,83,.06)"/>
+    <text x="14" y="136" font-family="monospace" font-size="11" fill="rgba(10,209,217,.7)">$</text><rect x="26" y="128" width="9" height="13" fill="rgba(212,168,83,.5)"/>
+    <text x="14" y="158" font-family="monospace" font-size="11" fill="rgba(22,208,156,.6)">></text><rect x="26" y="148" width="145" height="12" rx="1" fill="rgba(22,208,156,.05)"/>
+  </svg>
+
+  <!-- Neural Network - Right Center -->
+  <svg class="ai-deco" style="top:18%;right:0%;width:360px;opacity:.1" viewBox="0 0 200 260" fill="none">
+    <circle cx="24" cy="40" r="12" stroke="rgba(10,209,217,.7)" stroke-width="1.5" fill="rgba(10,209,217,.08)"/><circle cx="24" cy="130" r="12" stroke="rgba(10,209,217,.7)" stroke-width="1.5" fill="rgba(10,209,217,.08)"/><circle cx="24" cy="220" r="12" stroke="rgba(10,209,217,.7)" stroke-width="1.5" fill="rgba(10,209,217,.08)"/>
+    <circle cx="100" cy="65" r="12" stroke="rgba(22,208,156,.7)" stroke-width="1.5" fill="rgba(22,208,156,.08)"/><circle cx="100" cy="130" r="12" stroke="rgba(22,208,156,.7)" stroke-width="1.5" fill="rgba(22,208,156,.08)"/><circle cx="100" cy="195" r="12" stroke="rgba(22,208,156,.7)" stroke-width="1.5" fill="rgba(22,208,156,.08)"/>
+    <circle cx="176" cy="130" r="14" stroke="rgba(212,168,83,.7)" stroke-width="1.5" fill="rgba(212,168,83,.1)"/>
+    <line x1="36" y1="40" x2="88" y2="65" stroke="rgba(10,209,217,.35)" stroke-width="1"/><line x1="36" y1="40" x2="88" y2="130" stroke="rgba(10,209,217,.2)" stroke-width="1"/><line x1="36" y1="40" x2="88" y2="195" stroke="rgba(10,209,217,.12)" stroke-width="1"/><line x1="36" y1="130" x2="88" y2="65" stroke="rgba(10,209,217,.2)" stroke-width="1"/><line x1="36" y1="130" x2="88" y2="130" stroke="rgba(10,209,217,.35)" stroke-width="1"/><line x1="36" y1="130" x2="88" y2="195" stroke="rgba(10,209,217,.2)" stroke-width="1"/><line x1="36" y1="220" x2="88" y2="65" stroke="rgba(10,209,217,.12)" stroke-width="1"/><line x1="36" y1="220" x2="88" y2="130" stroke="rgba(10,209,217,.2)" stroke-width="1"/><line x1="36" y1="220" x2="88" y2="195" stroke="rgba(10,209,217,.35)" stroke-width="1"/>
+    <line x1="112" y1="65" x2="162" y2="130" stroke="rgba(22,208,156,.35)" stroke-width="1"/><line x1="112" y1="130" x2="162" y2="130" stroke="rgba(22,208,156,.4)" stroke-width="1"/><line x1="112" y1="195" x2="162" y2="130" stroke="rgba(22,208,156,.35)" stroke-width="1"/>
+    <circle cx="24" cy="40" r="3.5" fill="rgba(10,209,217,.8)"/><circle cx="24" cy="130" r="3.5" fill="rgba(10,209,217,.8)"/><circle cx="24" cy="220" r="3.5" fill="rgba(10,209,217,.8)"/><circle cx="100" cy="65" r="3.5" fill="rgba(22,208,156,.8)"/><circle cx="100" cy="130" r="3.5" fill="rgba(22,208,156,.8)"/><circle cx="100" cy="195" r="3.5" fill="rgba(22,208,156,.8)"/><circle cx="176" cy="130" r="4.5" fill="rgba(212,168,83,.8)"/>
+  </svg>
+
+  <!-- Sparkle Stars -->
+  <svg class="ai-deco" style="top:8%;left:5%;width:70px;opacity:.25" viewBox="0 0 40 40" fill="none"><path d="M20 0L23.5 15L40 20L23.5 25L20 40L16.5 25L0 20L16.5 15Z" fill="rgba(212,168,83,.7)"/></svg>
+  <svg class="ai-deco" style="top:4%;right:24%;width:48px;opacity:.2" viewBox="0 0 40 40" fill="none"><path d="M20 0L23.5 15L40 20L23.5 25L20 40L16.5 25L0 20L16.5 15Z" fill="rgba(10,209,217,.7)"/></svg>
+  <svg class="ai-deco" style="bottom:10%;right:14%;width:56px;opacity:.22" viewBox="0 0 40 40" fill="none"><path d="M20 0L23.5 15L40 20L23.5 25L20 40L16.5 25L0 20L16.5 15Z" fill="rgba(22,208,156,.7)"/></svg>
+  <svg class="ai-deco" style="bottom:26%;left:3%;width:40px;opacity:.16" viewBox="0 0 40 40" fill="none"><path d="M20 0L23.5 15L40 20L23.5 25L20 40L16.5 25L0 20L16.5 15Z" fill="rgba(10,209,217,.6)"/></svg>
+
+  <!-- Code Brackets < / > -->
+  <svg class="ai-deco" style="bottom:14%;left:0%;width:145px;opacity:.14" viewBox="0 0 90 60" fill="none">
+    <path d="M28 5L6 30L28 55" stroke="rgba(10,209,217,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 5L84 30L62 55" stroke="rgba(22,208,156,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="8" x2="40" y2="52" stroke="rgba(212,168,83,.5)" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Chat Bubble -->
+  <svg class="ai-deco" style="top:12%;right:7%;width:110px;opacity:.15" viewBox="0 0 60 52" fill="none">
+    <path d="M4 4h52v30a2 2 0 01-2 2H22l-12 10V36H6a2 2 0 01-2-2V4z" stroke="rgba(212,168,83,.6)" stroke-width="1.5" fill="rgba(212,168,83,.05)" rx="2"/><circle cx="20" cy="19" r="2.5" fill="rgba(212,168,83,.5)"/><circle cx="30" cy="19" r="2.5" fill="rgba(212,168,83,.5)"/><circle cx="40" cy="19" r="2.5" fill="rgba(212,168,83,.5)"/>
+  </svg>
+
+  <!-- AI Chip/Processor - Center Background -->
+  <svg class="ai-deco" style="top:50%;left:50%;width:480px;transform:translate(-50%,-50%);opacity:.04" viewBox="0 0 200 200" fill="none">
+    <rect x="50" y="50" width="100" height="100" rx="4" stroke="rgba(10,209,217,1)" stroke-width="2"/><rect x="65" y="65" width="70" height="70" rx="2" stroke="rgba(22,208,156,.8)" stroke-width="1.5"/>
+    <line x1="75" y1="50" x2="75" y2="20" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="100" y1="50" x2="100" y2="20" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="125" y1="50" x2="125" y2="20" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/>
+    <line x1="75" y1="150" x2="75" y2="180" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="100" y1="150" x2="100" y2="180" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="125" y1="150" x2="125" y2="180" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/>
+    <line x1="50" y1="75" x2="20" y2="75" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="50" y1="100" x2="20" y2="100" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="50" y1="125" x2="20" y2="125" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/>
+    <line x1="150" y1="75" x2="180" y2="75" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="150" y1="100" x2="180" y2="100" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><line x1="150" y1="125" x2="180" y2="125" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/>
+    <circle cx="75" cy="20" r="3" fill="rgba(10,209,217,.6)"/><circle cx="100" cy="20" r="3" fill="rgba(22,208,156,.6)"/><circle cx="125" cy="20" r="3" fill="rgba(10,209,217,.6)"/>
+    <circle cx="75" cy="180" r="3" fill="rgba(10,209,217,.6)"/><circle cx="100" cy="180" r="3" fill="rgba(22,208,156,.6)"/><circle cx="125" cy="180" r="3" fill="rgba(10,209,217,.6)"/>
+    <circle cx="20" cy="75" r="3" fill="rgba(10,209,217,.6)"/><circle cx="20" cy="100" r="3" fill="rgba(212,168,83,.6)"/><circle cx="20" cy="125" r="3" fill="rgba(10,209,217,.6)"/>
+    <circle cx="180" cy="75" r="3" fill="rgba(10,209,217,.6)"/><circle cx="180" cy="100" r="3" fill="rgba(212,168,83,.6)"/><circle cx="180" cy="125" r="3" fill="rgba(10,209,217,.6)"/>
+    <text x="82" y="105" font-family="monospace" font-size="16" fill="rgba(212,168,83,.8)" font-weight="bold">AI</text>
+  </svg>
+
+  <div class="cover-badge">
+    <svg viewBox="0 0 14 14" fill="none"><path d="M7 1l1.8 3.6L13 5.2l-3 2.9.7 4.1L7 10.2 3.3 12.2l.7-4.1-3-2.9L5.2 4.6 7 1z" fill="var(--gold-lt)"/></svg>
+    VIP EXCLUSIVE RESOURCE
+  </div>
+  <div class="cover-tag">COMPLETE COLLECTION</div>
+  <div class="cover-divider"></div>
+  <h1><span class="teal">AI Prompt</span><br>Library</h1>
+  <div class="cover-sub">Every AI prompt from the Digital Course Launch Lab, loaded with Marissa's real data, conversion benchmarks, and frameworks. Copy, paste, customize, launch.</div>
+  <div class="cover-meta">
+    <span>10 Ready-to-Use Prompts</span>
+    <span>4 VIP-Only Prompts</span>
+    <span>Marissa Romero</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page ai-dot-grid">
+  <!-- Circuit cluster - top right -->
+  <svg class="ai-deco" style="top:10px;right:10px;width:260px;opacity:.12" viewBox="0 0 140 100" fill="none">
+    <line x1="10" y1="30" x2="60" y2="30" stroke="rgba(10,209,217,.7)" stroke-width="1"/><line x1="60" y1="30" x2="60" y2="80" stroke="rgba(10,209,217,.6)" stroke-width="1"/><line x1="60" y1="80" x2="120" y2="80" stroke="rgba(22,208,156,.5)" stroke-width="1"/><line x1="80" y1="10" x2="80" y2="50" stroke="rgba(212,168,83,.5)" stroke-width="1" stroke-dasharray="3 3"/><line x1="80" y1="50" x2="130" y2="50" stroke="rgba(212,168,83,.4)" stroke-width="1"/>
+    <circle cx="60" cy="30" r="4" fill="rgba(10,209,217,.15)" stroke="rgba(10,209,217,.6)" stroke-width="1"/><circle cx="60" cy="30" r="1.5" fill="rgba(10,209,217,.8)"/><circle cx="60" cy="80" r="4" fill="rgba(22,208,156,.15)" stroke="rgba(22,208,156,.6)" stroke-width="1"/><circle cx="60" cy="80" r="1.5" fill="rgba(22,208,156,.8)"/><circle cx="80" cy="50" r="3" fill="rgba(212,168,83,.15)" stroke="rgba(212,168,83,.5)" stroke-width="1"/><circle cx="80" cy="50" r="1.5" fill="rgba(212,168,83,.7)"/><circle cx="120" cy="80" r="3" fill="rgba(10,209,217,.1)" stroke="rgba(10,209,217,.4)" stroke-width="1"/>
+  </svg>
+  <!-- Sparkle - bottom left -->
+  <svg class="ai-deco" style="bottom:40px;left:8px;width:52px;opacity:.16" viewBox="0 0 40 40" fill="none"><path d="M20 0L23.5 15L40 20L23.5 25L20 40L16.5 25L0 20L16.5 15Z" fill="rgba(212,168,83,.8)"/></svg>
+  <div class="sec-num">YOUR PROMPT LIBRARY</div>
+  <h2 class="sec-title">What's <em>Inside</em></h2>
+  <p class="sec-sub">10 prompts loaded with Marissa's actual conversion benchmarks, funnel architecture, and the exact frameworks she used to generate $40K+ from 700 visitors.</p>
+
+  <div class="teach-box">
+    <h4>How to Use These Prompts</h4>
+    <p>Open ChatGPT or Claude. Click the <strong>COPY</strong> button on any prompt block. Paste it in. Replace anything in <span style="color:var(--t1);font-weight:700">[TEAL BRACKETS]</span> with your specifics. The <span style="color:var(--gold-lt);font-weight:600">gold text</span> is Marissa's real benchmark data baked into the prompt - the AI uses it as context to give you better outputs.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-num teal">7.1%</div><div class="stat-label">Front-end conversion rate</div></div>
+    <div class="stat-card"><div class="stat-num cherry">$3,978</div><div class="stat-label">Revenue from 56 buyers</div></div>
+    <div class="stat-card"><div class="stat-num gold">3 of 56</div><div class="stat-label">Became $10-20K clients</div></div>
+  </div>
+
+  <!-- Social Proof Row -->
+  <div class="social-proof-row">
+    <div class="social-proof-item"><strong>Priya K.</strong> <em>Used Niche Validation</em> · 50m ago</div>
+    <div class="social-proof-item"><strong>Charlotte D.</strong> <em>Used the Pricing Calculator</em> · 2hr ago</div>
+    <div class="social-proof-item"><strong>Alejandra M.</strong> <em>Used Launch Email Kit</em> · 3hr ago</div>
+    <div class="social-proof-item"><strong>James T.</strong> <em>Used the Course Builder</em> · 4hr ago</div>
+  </div>
+
+  <!-- Search Bar & Filter Tabs -->
+  <div class="search-wrap">
+    <div class="search-row">
+      <div class="search-bar">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.8"/><line x1="12.5" y1="12.5" x2="18" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="text" id="promptSearch" placeholder='Search prompts... (e.g. sales page, pricing, email sequence)' oninput="filterPrompts()" style="border:none;outline:none;background:transparent;font-family:inherit;font-size:inherit;color:var(--char);width:100%">
+      </div>
+      <div class="vip-prompt-badge">
+        <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M7 1l1.8 3.6L13 5.2l-3 2.9.7 4.1L7 10.2 3.3 12.2l.7-4.1-3-2.9L5.2 4.6 7 1z" fill="#fff"/></svg>
+        14 VIP Prompts
+      </div>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all" onclick="filterByTab(this)">All Prompts</button>
+      <button class="filter-tab" data-filter="1" onclick="filterByTab(this)">Day 1: Validate</button>
+      <button class="filter-tab" data-filter="2" onclick="filterByTab(this)">Day 2: Build</button>
+      <button class="filter-tab" data-filter="3" onclick="filterByTab(this)">Day 3: Launch &amp; Sell</button>
+      <button class="filter-tab" data-filter="bonus" onclick="filterByTab(this)">Bonus</button>
+      <button class="filter-tab vip-tab" data-filter="vip" onclick="filterByTab(this)">VIP Only</button>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div style="font-family:var(--display);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pacific);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--t1)">VALIDATION &amp; MESSAGING</div>
+    <div class="toc-item" data-day="1"><div class="toc-num">1</div><div class="toc-label">Niche Validation Analyzer</div><div class="toc-day">Day 1</div></div>
+    <div class="toc-item" data-day="1"><div class="toc-num">2</div><div class="toc-label">Messaging Formula Tester</div><div class="toc-day">Day 1</div></div>
+    <div class="toc-item" data-day="1" data-vip="true"><div class="toc-num gold">3</div><div class="toc-label">Audience Deep-Dive Researcher</div><div class="toc-vip">VIP ONLY</div></div>
+  </div>
+  <div class="toc">
+    <div style="font-family:var(--display);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--cherry);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--cherry)">PRODUCT &amp; OFFER</div>
+    <div class="toc-item" data-day="2"><div class="toc-num">4</div><div class="toc-label">Product Blueprint Generator</div><div class="toc-day">Day 2</div></div>
+    <div class="toc-item" data-day="2" data-vip="true"><div class="toc-num gold">5</div><div class="toc-label">AI Pricing Calculator</div><div class="toc-vip">VIP ONLY</div></div>
+    <div class="toc-item" data-day="2"><div class="toc-num">6</div><div class="toc-label">Sales Page Generator</div><div class="toc-day">Day 2</div></div>
+  </div>
+  <div class="toc">
+    <div style="font-family:var(--display);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--gold)">LAUNCH &amp; SCALE</div>
+    <div class="toc-item" data-day="3"><div class="toc-num">7</div><div class="toc-label">Launch Email Sequence Generator</div><div class="toc-day">Day 3</div></div>
+    <div class="toc-item" data-day="3" data-vip="true"><div class="toc-num gold">8</div><div class="toc-label">Upsell Funnel Copy Writer</div><div class="toc-vip">VIP ONLY</div></div>
+    <div class="toc-item" data-day="3"><div class="toc-num">9</div><div class="toc-label">Social Media Launch Content Creator</div><div class="toc-day">Day 3</div></div>
+    <div class="toc-item" data-day="3" data-vip="true"><div class="toc-num gold">10</div><div class="toc-label">Course Outline &amp; Module Builder</div><div class="toc-vip">VIP ONLY</div></div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 1</div></div>
+</div>
+
+<!-- ═══ PROMPT 01: NICHE VALIDATION ═══ -->
+<div class="page">
+  <!-- AI brain scan graphic -->
+  <svg class="ai-deco" style="top:6px;right:6px;width:230px;opacity:.1" viewBox="0 0 120 120" fill="none">
+    <ellipse cx="60" cy="55" rx="40" ry="45" stroke="rgba(10,209,217,.8)" stroke-width="1.5"/><path d="M60 10c-8 15-25 25-25 45s12 35 25 40" stroke="rgba(22,208,156,.6)" stroke-width="1"/><path d="M60 10c8 15 25 25 25 45s-12 35-25 40" stroke="rgba(10,209,217,.5)" stroke-width="1"/><line x1="20" y1="55" x2="100" y2="55" stroke="rgba(10,209,217,.3)" stroke-width=".8" stroke-dasharray="3 2"/><line x1="30" y1="35" x2="90" y2="35" stroke="rgba(22,208,156,.25)" stroke-width=".8" stroke-dasharray="3 2"/><line x1="30" y1="75" x2="90" y2="75" stroke="rgba(22,208,156,.25)" stroke-width=".8" stroke-dasharray="3 2"/>
+    <circle cx="45" cy="42" r="3" fill="rgba(10,209,217,.3)"/><circle cx="72" cy="50" r="2.5" fill="rgba(22,208,156,.3)"/><circle cx="55" cy="65" r="3" fill="rgba(212,168,83,.3)"/><circle cx="65" cy="35" r="2" fill="rgba(124,203,97,.3)"/>
+    <line x1="60" y1="100" x2="60" y2="115" stroke="rgba(10,209,217,.5)" stroke-width="1.5"/><line x1="52" y1="115" x2="68" y2="115" stroke="rgba(10,209,217,.5)" stroke-width="1.5"/>
+  </svg>
+  <div class="cat-header">
+    <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/></svg></div>
+    <div class="cat-text"><h3>Validation &amp; Messaging</h3><p>Prove your niche before you build. Nail your messaging before you sell.</p></div>
+  </div>
+
+  <div class="sec-num">PROMPT 01</div>
+  <h2 class="sec-title">Niche Validation <em>Analyzer</em></h2>
+  <p class="sec-sub">Use BEFORE you build anything. If the AI gives you below a 7, pivot your niche or angle.</p>
+
+  <div class="prompt-block" id="p1">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 01 - NICHE VALIDATION</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a digital product market researcher who specializes in low-ticket digital products ($27-$97). I want to validate a product idea before I build anything.
+
+MY NICHE: <span class="var">[TARGET NICHE - e.g., "busy moms who want to meal prep"]</span>
+MY EXPERTISE: <span class="var">[YOUR BACKGROUND - e.g., "certified nutritionist, 5 years coaching"]</span>
+MY IDEAL BUYER: <span class="var">[DESCRIBE THEM - age, income, what they struggle with]</span>
+
+Analyze this niche using the following framework:
+
+<span class="data">CONTEXT: This analysis is for a low-ticket digital product ($27-$97) sold primarily through organic traffic (YouTube, social media, email). The business model follows Marissa Romero's course funnel architecture where a $47 front-end product converts at ~7% and feeds into an upsell funnel that 2.5x the revenue. The goal is NOT mass market - it's micro-niche with high intent buyers.</span>
+
+(1) DEMAND SCORE (1-10): Is there active demand for PAID solutions? Look for existing courses, templates, paid communities in this space. If people only consume free content, score low.
+(2) MICRO-RESULT POTENTIAL: What specific, measurable results can I promise in days (not months)? Give me 5 "micro-result" options that would make someone screenshot the sales page.
+(3) COMPETITIVE LANDSCAPE: Top 5 competing products with prices. Where are the gaps?
+(4) "WITHOUT" ANGLE: What outdated advice or painful methods does this audience hate? Give me 5 "without [thing they've tried]" options.
+(5) BUYER READINESS: Has this audience already spent money on this problem? What's their buying history?
+(6) ECOSYSTEM POTENTIAL: Could a $47 buyer eventually become a $3K-$10K client? What would that ascension path look like?
+(7) OVERALL VIABILITY: Rate 1-10 with detailed reasoning.
+
+If viability is below 7, suggest 3 specific angle pivots that would increase it to 8+.</div>
+    <div class="prompt-note">Marissa's benchmark: She made $3,978 from just 700 visitors and 56 buyers on a small YouTube channel with ~150 subscribers. You don't need a huge audience - you need the right niche.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 2</div></div>
+</div>
+
+<!-- ═══ PROMPT 02: MESSAGING FORMULA ═══ -->
+<div class="page">
+  <div class="sec-num">PROMPT 02</div>
+  <h2 class="sec-title">Messaging Formula <em>Tester</em></h2>
+  <p class="sec-sub">Run this on ALL versions of your formula. The AI will tell you which one has the strongest hook.</p>
+
+  <div class="prompt-block" id="p2">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 02 - MESSAGING FORMULA TESTER</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a direct-response copywriting expert who specializes in low-ticket digital product messaging.
+
+I'm using Marissa Romero's messaging formula:
+"The [Blueprint/System/Framework] to [Micro Result] Without [Outdated Advice]"
+
+Here is my messaging formula:
+"<span class="var">[PASTE YOUR FORMULA HERE]</span>"
+
+My niche: <span class="var">[NICHE]</span>
+My product price: <span class="var">[PRICE]</span>
+My audience: <span class="var">[WHO THEY ARE + THEIR BIGGEST FRUSTRATION]</span>
+
+<span class="data">CONTEXT ON THE FORMULA:
+- The [Blueprint/System/Framework] part signals structure and proves it's not just "tips." It should feel proprietary, like something only YOU teach. It builds instant confidence.
+- The [Micro Result] must be SPECIFIC and achievable in days, not months. Bad: "grow your business." Good: "book 3 clients this week." The more measurable and time-bound, the more someone will screenshot it.
+- The [Without] creates instant trust because you UNDERSTAND their frustration. It should name what they've already tried that failed. Bad: "without stress." Good: "without posting every day."</span>
+
+Evaluate my formula on:
+(1) CLARITY (1-10): Would a stranger scrolling Instagram instantly understand what they get?
+(2) SPECIFICITY (1-10): Is the micro-result measurable? Can someone picture the outcome?
+(3) DIFFERENTIATION (1-10): Does the "without" feel fresh and personal, not generic?
+(4) SCREENSHOT TEST (1-10): Would someone screenshot this and send it to a friend saying "I need this"?
+(5) OVERALL SCORE with explanation
+
+Then give me 5 improved versions, ranked strongest to weakest. For each, explain what you changed and why it's stronger.
+
+Finally: which of my original + your 5 versions would you bet money on for a $47 product sold through a YouTube video description link?</div>
+    <div class="prompt-note">Example from Marissa: "The Nervous System Reset Framework to sleep through the night without waking at 1am - without having to meditate for an hour." Notice how specific the result and the "without" are.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 3</div></div>
+</div>
+
+<!-- ═══ PROMPT 03: AUDIENCE DEEP-DIVE (VIP) ═══ -->
+<div class="page">
+  <div class="sec-num gold">PROMPT 03 - VIP EXCLUSIVE</div>
+  <h2 class="sec-title">Audience Deep-Dive <span class="gold">Researcher</span></h2>
+  <p class="sec-sub">Reverse-engineer the exact language your buyers use so your sales page sounds like it's reading their mind.</p>
+
+  <div class="prompt-block" id="p3">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 03 - AUDIENCE DEEP-DIVE <span class="prompt-vip">VIP ONLY</span></div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a consumer psychologist and market researcher specializing in digital product buyers. I'm building a $<span class="var">[PRICE]</span> digital product for <span class="var">[TARGET AUDIENCE]</span> in the <span class="var">[NICHE]</span> space.
+
+<span class="data">CONTEXT: This product is sold via organic traffic (YouTube, Instagram, email list). The buyer sees a piece of content, clicks a link, lands on a sales page, and buys in one session. There's no sales call. The messaging has to do ALL the selling. That means I need to know EXACTLY how my buyer talks about their problem - not how I talk about it.</span>
+
+Create a comprehensive buyer profile:
+
+DEMOGRAPHICS &amp; HABITAT:
+- Age range, income level, life stage
+- Where they hang out online (specific subreddits, Facebook groups, hashtags, podcasts)
+- What YouTube channels/creators they already follow in this space
+- What free content have they already consumed on this topic?
+
+PSYCHOGRAPHICS (THE DEEP STUFF):
+- Their #1 frustration RIGHT NOW, written in their own words (not clinical language)
+- What have they already tried that didn't work? (at least 5 failed attempts)
+- What does "success" look like to them? Be hyper-specific (not "feel better" but "wake up without dreading the day")
+- Their secret fear about this topic that they wouldn't say out loud
+- The exact phrase they'd type into Google at 11pm when they can't sleep
+- What would they DM a friend about this problem?
+
+BUYING TRIGGERS &amp; OBJECTIONS:
+- What digital products have they already purchased? (price range, what worked, what didn't)
+- What would make them buy impulsively vs. "I'll think about it"?
+- Top 5 objections to buying another digital product about this topic
+- The trigger event that makes them ready to buy NOW (life change, frustration peak, deadline)
+
+VOICE OF CUSTOMER:
+Give me 10 "voice of customer" quotes - written EXACTLY how this person would talk to a friend, including slang, frustration, and emotion. These should be usable as:
+- Sales page headlines
+- Email subject lines
+- Social media hooks
+- Ad copy angles</div>
+    <div class="prompt-note">Marissa's secret to $40K from 200 email subscribers: she knew the exact words her audience used. Not what SHE thought they wanted - what THEY said. Use these quotes directly in your sales page.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 3</div></div>
+</div>
+
+<!-- ═══ PROMPT 04: PRODUCT BLUEPRINT ═══ -->
+<div class="page">
+  <!-- AI data flow graphic -->
+  <svg class="ai-deco" style="top:4px;right:4px;width:240px;opacity:.1" viewBox="0 0 130 110" fill="none">
+    <rect x="10" y="10" width="40" height="28" rx="2" stroke="rgba(255,79,73,.6)" stroke-width="1.2" fill="rgba(255,79,73,.04)"/><rect x="80" y="10" width="40" height="28" rx="2" stroke="rgba(255,79,73,.6)" stroke-width="1.2" fill="rgba(255,79,73,.04)"/>
+    <rect x="45" y="70" width="40" height="28" rx="2" stroke="rgba(212,168,83,.6)" stroke-width="1.2" fill="rgba(212,168,83,.04)"/>
+    <line x1="30" y1="38" x2="65" y2="70" stroke="rgba(255,79,73,.5)" stroke-width="1"/><line x1="100" y1="38" x2="65" y2="70" stroke="rgba(255,79,73,.5)" stroke-width="1"/>
+    <circle cx="30" cy="24" r="2" fill="rgba(255,79,73,.5)"/><circle cx="100" cy="24" r="2" fill="rgba(255,79,73,.5)"/><circle cx="65" cy="84" r="2.5" fill="rgba(212,168,83,.6)"/>
+    <text x="20" y="28" font-family="monospace" font-size="7" fill="rgba(255,79,73,.5)">IN</text><text x="90" y="28" font-family="monospace" font-size="7" fill="rgba(255,79,73,.5)">IN</text><text x="55" y="88" font-family="monospace" font-size="7" fill="rgba(212,168,83,.5)">OUT</text>
+  </svg>
+  <div class="cat-header">
+    <div class="cat-icon cherry"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="cat-text"><h3>Product &amp; Offer</h3><p>Build, price, and package your digital product using Marissa's exact architecture.</p></div>
+  </div>
+
+  <div class="sec-num">PROMPT 04</div>
+  <h2 class="sec-title">Product Blueprint <em>Generator</em></h2>
+  <p class="sec-sub">Turn your idea into a complete product outline with modules, deliverables, and bonuses.</p>
+
+  <div class="prompt-block" id="p4">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 04 - PRODUCT BLUEPRINT</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a digital product architect. I want to create a <span class="var">[PRODUCT TYPE: mini course / template pack / workbook / quiz]</span> priced at $<span class="var">[PRICE]</span>.
+
+My niche: <span class="var">[NICHE]</span>
+My messaging formula: "<span class="var">[YOUR FORMULA]</span>"
+My audience's #1 problem: <span class="var">[PROBLEM]</span>
+
+<span class="data">CONTEXT: This product follows Marissa Romero's course funnel architecture. Key principles:
+- The product delivers ONE micro-result, not a complete life transformation
+- Every module needs a TANGIBLE deliverable (template, script, checklist, tracker) - not just "access to a video"
+- The buyer should get a quick win in the first 15 minutes
+- Product completion time should be under 2 hours (shorter = higher completion = happier buyers = more referrals)
+- The product itself acts as a sales call for higher-ticket offers ($3K-$10K coaching/services)
+- 3 out of 56 buyers in Marissa's case study became $10K-$20K high-ticket clients
+- Product types that work: mini course (5-7 videos, 10-15 min each), template pack (done-for-you resources), workbook/guide (PDF with exercises), quiz/assessment (diagnostic + action plan)</span>
+
+Create a complete product blueprint:
+
+(1) PRODUCT NAME - give me 7 options using power words (blueprint, system, vault, toolkit, accelerator, playbook, formula). Each name should pass the "would I click this?" test.
+(2) QUICK WIN - what result do they get in the FIRST 15 minutes? This is critical for momentum.
+(3) MODULES/SECTIONS - outline 3-5 modules with:
+    - Benefit-driven title (not "Module 1: Introduction")
+    - What they learn (1-2 sentences)
+    - Tangible deliverable (template, checklist, script, worksheet)
+    - Time to complete
+(4) BONUSES (3) - each should have a name, description, and perceived value ($50-$200). These should cost me $0 to create but feel incredibly valuable.
+(5) "WHO THIS IS FOR" - 5 statements: "This is for you if..."
+(6) "WHO THIS IS NOT FOR" - 3 statements (builds trust through exclusion)
+(7) TRANSFORMATION STATEMENT: "You'll go from ___ to ___ in ___ days"
+(8) ECOSYSTEM PATH: How does this $<span class="var">[PRICE]</span> product naturally lead to a higher-ticket offer? What would the $97 upsell be? The $297 upsell?</div>
+    <div class="prompt-note">Marissa's rule: if your product has more than 5 modules, you're over-teaching. Shorter courses = higher completion = happier customers = more referrals and ascension.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 4</div></div>
+</div>
+
+<!-- ═══ PROMPT 05: PRICING CALCULATOR (VIP) ═══ -->
+<div class="page">
+  <div class="sec-num gold">PROMPT 05 - VIP EXCLUSIVE</div>
+  <h2 class="sec-title">AI Pricing <span class="gold">Calculator</span></h2>
+  <p class="sec-sub">The prompt Marissa mentioned during Day 3 - the one only available to people who showed up live.</p>
+
+  <div class="prompt-block" id="p5">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 05 - PRICING CALCULATOR <span class="prompt-vip">VIP ONLY</span></div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a pricing strategist for digital course creators. Help me price my product and build a complete revenue model.
+
+MY PRODUCT:
+- Name: <span class="var">[PRODUCT NAME]</span>
+- Type: <span class="var">[mini course / template pack / workbook / quiz]</span>
+- Niche: <span class="var">[NICHE]</span>
+- Micro-result it delivers: <span class="var">[WHAT THEY ACHIEVE]</span>
+
+MY AUDIENCE:
+- Income level: <span class="var">[LOW / MEDIUM / HIGH]</span>
+- Have they bought digital products before? <span class="var">[YES/NO]</span>
+- What they currently spend on this problem: <span class="var">[$ OR "NOTHING"]</span>
+
+MY GOALS:
+- Monthly revenue target: $<span class="var">[AMOUNT]</span>
+- Traffic source: <span class="var">[YOUTUBE / INSTAGRAM / EMAIL / PAID ADS / ORGANIC]</span>
+
+<span class="data">BENCHMARK DATA FROM MARISSA ROMERO'S CASE STUDY:
+- $47 front-end product, 730 page views, 52 sales = 7.1% conversion rate
+- Upsell 1 at $97: 7.7% conversion of buyers (with $77 downsell)
+- Upsell 2 at $297: 4% conversion of buyers (with $247 downsell)
+- Front-end only revenue: $1,566. With upsells: $3,978 (2.5x multiplier)
+- 3 of 56 total buyers became $10K-$20K high-ticket clients (5.3% ascension)
+- All traffic was organic YouTube from a channel with ~150 subscribers
+- She needed only 15 sales of her $47 product to pay for the cost of the program that taught her ($697)</span>
+
+Now calculate:
+(1) RECOMMENDED PRICE - with reasoning (factor in perceived value, competitor pricing, conversion psychology). Include the "sweet spots" for low-ticket: $27, $37, $47, $67, $97.
+(2) COMPLETE FUNNEL PRICING:
+    - Front end: $___
+    - Upsell 1: $___ (what to include, target 7-10% conversion)
+    - Downsell 1: $___ (what to remove, $20 off upsell 1)
+    - Upsell 2: $___ (what to include, target 3-6% conversion)
+    - Downsell 2: $___ (what to remove, $50 off upsell 2)
+(3) REVENUE PROJECTIONS: Show me monthly revenue at 20, 50, 100, and 200 sales using the funnel conversion rates above
+(4) TRAFFIC MATH: At a 5-7% conversion rate, how many visitors per month do I need for each target?
+(5) LAUNCH PRICING STRATEGY: Should I discount for launch? If so, what strategy? (coupon code, early bird, exit-intent $7 off like Marissa uses)
+(6) BREAK-EVEN ANALYSIS: How many sales to cover $<span class="var">[YOUR INVESTMENT/COSTS]</span>?
+
+Show all math. Be specific with numbers.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 5</div></div>
+</div>
+
+<!-- ═══ PROMPT 06: SALES PAGE ═══ -->
+<div class="page">
+  <div class="sec-num">PROMPT 06</div>
+  <h2 class="sec-title">Sales Page <em>Generator</em></h2>
+  <p class="sec-sub">Generate a complete sales page you can paste directly into GHL's AI Funnel Builder.</p>
+
+  <div class="prompt-block" id="p6">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 06 - SALES PAGE GENERATOR</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a direct-response copywriter who writes sales pages for low-ticket digital products. Build a complete, high-converting sales page.
+
+PRODUCT: "<span class="var">[PRODUCT NAME]</span>" - $<span class="var">[PRICE]</span>
+AUDIENCE: <span class="var">[WHO THEY ARE]</span>
+CORE PROMISE: <span class="var">[YOUR MESSAGING FORMULA]</span>
+PAIN POINTS: <span class="var">[3 SPECIFIC PAINS]</span>
+BENEFITS: <span class="var">[3 SPECIFIC RESULTS THEY GET]</span>
+CREDIBILITY: <span class="var">[WHY SHOULD THEY LISTEN TO YOU?]</span>
+
+<span class="data">CONTEXT: This sales page will be built in GoHighLevel's AI Funnel Builder. The copy needs to be organized into clear sections that can be pasted into a page builder. The buyer is coming from organic content (YouTube video, Instagram post, email) - they already have SOME trust but need the page to close the deal in one visit. No sales call. The page does all the work.
+
+Marissa's high-converting sales page structure (in order):
+1. Hero with bold headline + hook paragraph + CTA button
+2. "The problem" section - agitate the pain empathetically
+3. "What if..." bridge - introduce the solution
+4. "What you'll learn" - 5-7 outcome-driven bullet points
+5. "Who this is for" - 5 "this is for you if..." statements
+6. Product walkthrough - module by module with deliverables
+7. Offer stack - everything they get with perceived dollar values (total value should be 5-10x the price)
+8. Bonuses (3) - with names, descriptions, and values
+9. Testimonial spots (3) - with prompts for what type to use
+10. FAQ (6 questions) - reframe common objections as questions
+11. Final CTA with urgency
+12. "Who this is NOT for" - builds trust through exclusion</span>
+
+Write the COMPLETE copy for each section. Make it sound like a real person who genuinely wants to help - not a marketing robot. Short paragraphs. Conversational. The reader should feel like "this person gets me."
+
+For the headline, give me 5 options:
+- 2 benefit-driven
+- 2 curiosity-driven
+- 1 contrarian/myth-busting</div>
+    <div class="prompt-note">Pro tip from Marissa: After generating, paste the output back and say "Now act as a conversion rate optimizer. Find the 5 weakest lines and rewrite them to be 2x more specific." You'll get dramatically better copy.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 6</div></div>
+</div>
+
+<!-- ═══ PROMPT 07: LAUNCH EMAILS ═══ -->
+<div class="page">
+  <!-- AI rocket/launch graphic -->
+  <svg class="ai-deco" style="top:2px;right:4px;width:220px;opacity:.1" viewBox="0 0 110 120" fill="none">
+    <path d="M55 10L55 80" stroke="rgba(212,168,83,.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <path d="M40 80L55 50L70 80Z" stroke="rgba(212,168,83,.7)" stroke-width="1.2" fill="rgba(212,168,83,.06)"/>
+    <circle cx="55" cy="42" r="8" stroke="rgba(212,168,83,.6)" stroke-width="1.2" fill="rgba(212,168,83,.05)"/><circle cx="55" cy="42" r="3" fill="rgba(212,168,83,.4)"/>
+    <line x1="40" y1="80" x2="30" y2="95" stroke="rgba(22,208,156,.5)" stroke-width="1"/><line x1="70" y1="80" x2="80" y2="95" stroke="rgba(22,208,156,.5)" stroke-width="1"/><line x1="55" y1="80" x2="55" y2="100" stroke="rgba(10,209,217,.5)" stroke-width="1"/>
+    <circle cx="30" cy="95" r="2.5" fill="rgba(22,208,156,.4)"/><circle cx="80" cy="95" r="2.5" fill="rgba(22,208,156,.4)"/><circle cx="55" cy="100" r="2.5" fill="rgba(10,209,217,.4)"/>
+    <path d="M45 105Q55 115 65 105" stroke="rgba(212,168,83,.4)" stroke-width="1" fill="none"/>
+    <path d="M38 110Q55 122 72 110" stroke="rgba(10,209,217,.3)" stroke-width=".8" fill="none"/>
+  </svg>
+  <div class="cat-header">
+    <div class="cat-icon gold"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <div class="cat-text"><h3>Launch &amp; Scale</h3><p>Write emails, create upsell pages, build content - all with Marissa's benchmarks baked in.</p></div>
+  </div>
+
+  <div class="sec-num">PROMPT 07</div>
+  <h2 class="sec-title">Launch Email Sequence <em>Generator</em></h2>
+  <p class="sec-sub">5 emails that take your list from "I'm interested" to "I just bought."</p>
+
+  <div class="prompt-block" id="p7">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 07 - LAUNCH EMAIL SEQUENCE</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are an email copywriter for course creators. Write a 5-email launch sequence.
+
+PRODUCT: "<span class="var">[PRODUCT NAME]</span>" - $<span class="var">[PRICE]</span>
+AUDIENCE: <span class="var">[WHO THEY ARE]</span>
+CORE PROMISE: <span class="var">[MESSAGING FORMULA]</span>
+LAUNCH DATES: <span class="var">[CART OPEN DATE - CART CLOSE DATE]</span>
+MY STORY: <span class="var">[1-2 SENTENCES: why you created this, what personal experience drives it]</span>
+
+<span class="data">CONTEXT: These emails will be loaded into GoHighLevel as an automated workflow triggered when cart opens. The list is warm (they've consumed free content or attended a challenge). This is NOT cold email - these people already know who I am. Each email should be under 300 words, use short paragraphs (1-3 sentences max), and have ONE clear CTA.
+
+EMAIL FRAMEWORK (Marissa's 5-email launch structure):
+Email 1: ANNOUNCEMENT - "It's here." Excitement + exactly what they get. Link to sales page.
+Email 2: SOCIAL PROOF - "[X] people already grabbed this." Early buyer reactions, answer 2-3 FAQs.
+Email 3: OBJECTION CRUSHER - "But will this work for me?" Address the #1 hesitation head-on with empathy and evidence.
+Email 4: DEADLINE + BONUS - "This disappears in 24 hours." Add a time-limited bonus. Create urgency without being scammy.
+Email 5: LAST CHANCE - Use the "3 Options" framework: Option 1 (do nothing, nothing changes), Option 2 (figure it out yourself, takes longer), Option 3 (let me help you, fastest path). Honest, direct close.</span>
+
+For EACH email, give me:
+- Subject line + 2 alternatives
+- Preview text (the text that shows after the subject in inbox)
+- Full email body (under 300 words)
+- CTA button text
+- Best send time (morning/afternoon/evening) with reasoning
+
+Tone: Like a friend who happens to have the solution. Not salesy. Not corporate. Real.</div>
+    <div class="prompt-note">The "3 Options" framework in Email 5 is Marissa's most powerful closer. It works because it's honest - you're not pressuring, you're presenting reality.</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 7</div></div>
+</div>
+
+<!-- ═══ PROMPT 08: UPSELL FUNNEL (VIP) ═══ -->
+<div class="page">
+  <div class="sec-num gold">PROMPT 08 - VIP EXCLUSIVE</div>
+  <h2 class="sec-title">Upsell Funnel <span class="gold">Copy Writer</span></h2>
+  <p class="sec-sub">This is how Marissa turned $1,566 in front-end sales into $3,978 total. The upsell page has to convert in under 30 seconds.</p>
+
+  <div class="prompt-block" id="p8">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 08 - UPSELL FUNNEL <span class="prompt-vip">VIP ONLY</span></div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a funnel copywriter specializing in post-purchase upsell pages. Write copy for my COMPLETE upsell funnel (upsell 1 + downsell 1 + upsell 2 + downsell 2).
+
+FRONT-END PRODUCT: "<span class="var">[NAME]</span>" - $<span class="var">[PRICE]</span>
+MY NICHE: <span class="var">[NICHE]</span>
+WHAT THE FRONT END TEACHES: <span class="var">[CORE MICRO-RESULT]</span>
+
+UPSELL 1 IDEA: <span class="var">[WHAT IT INCLUDES - e.g., "advanced templates + video walkthroughs"]</span>
+UPSELL 1 PRICE: $<span class="var">[PRICE - typically $97]</span>
+
+UPSELL 2 IDEA: <span class="var">[WHAT IT INCLUDES - e.g., "community access + live calls + full program"]</span>
+UPSELL 2 PRICE: $<span class="var">[PRICE - typically $297]</span>
+
+<span class="data">MARISSA'S UPSELL FUNNEL BENCHMARKS:
+- Upsell 1 ($97): 7.7% conversion rate. Downsell 1: $20 off ($77). This is the "deep dive" - advanced version or implementation support.
+- Upsell 2 ($297): 4% conversion rate. Downsell 2: $50 off ($247). This is the "complete system" - community, live calls, or done-with-you element.
+- Front-end only made $1,566. Adding upsells made $3,978. That's an extra $2,400 from the SAME traffic.
+- The upsell page must be scannable in under 30 seconds. No navigation. Only yes or no buttons.
+- Key insight: these micro-courses and upsells act as "sales calls" - 60-70% of existing buyers buy something else. 3 of 56 buyers became $10-20K clients.</span>
+
+For EACH page (upsell 1, downsell 1, upsell 2, downsell 2), write:
+
+UPSELL PAGES:
+1. "WAIT!" headline (acknowledge their purchase, build momentum)
+2. Bridge: "You just got [front end]... here's what most people miss"
+3. What's included (bullet points with perceived values)
+4. Speed/completeness angle: "This takes you from ___ to ___ in half the time"
+5. Price anchor: "Valued at $[anchor], yours right now for just $[price]"
+6. YES button: "Yes! Add This To My Order"
+7. NO button: "No thanks, I'll do it the slow way"
+
+DOWNSELL PAGES:
+1. "Wait - before you go" headline
+2. Reduced offer (remove 1-2 components but keep core value)
+3. New lower price with explanation
+4. Same yes/no button structure</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 8</div></div>
+</div>
+
+<!-- ═══ PROMPT 09: SOCIAL CONTENT ═══ -->
+<div class="page">
+  <div class="sec-num">PROMPT 09</div>
+  <h2 class="sec-title">Social Media Launch <em>Content Creator</em></h2>
+  <p class="sec-sub">21 days of content mapped to Marissa's 3-phase launch calendar. Batch-create everything in one session.</p>
+
+  <div class="prompt-block" id="p9">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 09 - SOCIAL MEDIA LAUNCH CONTENT</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a social media strategist for course creators who sell through organic content.
+
+PRODUCT: "<span class="var">[PRODUCT NAME]</span>" - $<span class="var">[PRICE]</span>
+LAUNCH DATE: <span class="var">[DATE]</span>
+PLATFORM: <span class="var">[INSTAGRAM / YOUTUBE / TIKTOK / ALL]</span>
+AUDIENCE: <span class="var">[WHO THEY ARE]</span>
+CORE PROMISE: <span class="var">[MESSAGING FORMULA]</span>
+MY PERSONAL STORY: <span class="var">[1-2 SENTENCES about your journey with this topic]</span>
+
+<span class="data">CONTEXT: This follows Marissa Romero's 21-day launch calendar (7 days setup, 7 days pre-launch, 7 days launch). The entire business model runs on organic traffic - Marissa generated $40K+ from less than 8,000 YouTube views on a channel with ~150 subscribers. The content needs to be authentic, not "marketing template" energy. The goal is to build trust so when the product drops, people buy because they already feel connected to you.</span>
+
+Create a 21-day content calendar:
+
+PHASE 1 - SETUP (Days 1-7): Seed the problem, build authority
+- 7 posts that establish you as the expert without selling anything
+- Mix: 2 value posts, 2 personal story posts, 2 myth-busters, 1 "hot take"
+- Each post should make people think "I need to follow this person"
+
+PHASE 2 - PRE-LAUNCH (Days 8-14): Create anticipation
+- 7 posts that create demand before the cart opens
+- Mix: 2 behind-the-scenes, 2 social proof/results, 1 waitlist CTA, 1 teaser, 1 "problem agitation"
+- DM strategy: personal outreach to 20-50 warm contacts on Days 11-12
+
+PHASE 3 - LAUNCH (Days 15-21): Sell with confidence
+- 6 selling posts + 1 thank you / next steps
+- Mix: 1 announcement, 1 social proof, 1 objection crusher, 1 deadline/bonus, 1 last chance (3 Options framework), 1 celebration/recap
+
+For each of the 21 posts:
+- Content type (carousel, reel, story sequence, static, live, YouTube short)
+- Hook (first line or first 3 seconds)
+- Key message (2-3 sentences)
+- CTA
+- Best time to post</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 9</div></div>
+</div>
+
+<!-- ═══ PROMPT 10: COURSE OUTLINE (VIP) ═══ -->
+<div class="page">
+  <div class="sec-num gold">PROMPT 10 - VIP EXCLUSIVE</div>
+  <h2 class="sec-title">Course Outline &amp; <span class="gold">Module Builder</span></h2>
+  <p class="sec-sub">Turn your product blueprint into a complete course with lessons, deliverables, and recording scripts.</p>
+
+  <div class="prompt-block" id="p10">
+    <div class="prompt-header">
+      <div class="prompt-label"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg> PROMPT 10 - COURSE BUILDER <span class="prompt-vip">VIP ONLY</span></div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">You are a curriculum designer for online courses hosted on GoHighLevel. Build a complete course.
+
+PRODUCT: "<span class="var">[PRODUCT NAME]</span>" - $<span class="var">[PRICE]</span>
+TARGET STUDENT: <span class="var">[WHO + STARTING POINT]</span>
+END RESULT: <span class="var">[WHAT THEY CAN DO AFTER]</span>
+FORMAT: <span class="var">[VIDEO / WORKBOOK / TEMPLATES / HYBRID]</span>
+MAX COMPLETION TIME: <span class="var">[e.g., 2 hours / 5 days / 1 week]</span>
+
+<span class="data">CONTEXT: This course lives inside GoHighLevel's course/membership platform. Key design principles from Marissa:
+- Keep videos under 15 minutes. 5-10 is ideal.
+- Every lesson needs an ACTION STEP, not just information
+- The course should be completable in a weekend (for action-takers) or a week (at normal pace)
+- Include downloadable templates/checklists for every module (GHL supports file hosting)
+- The welcome module should set expectations AND deliver an immediate micro-win
+- Shorter courses = higher completion rates = happier customers = more referrals + ascension to high-ticket
+- This course acts as a "sales call" for your higher-ticket services. Students who complete it and get results are 10x more likely to buy coaching.</span>
+
+Create:
+
+WELCOME MODULE:
+- What to expect, how to navigate
+- "Your first win in 15 minutes" quick-start lesson
+- Deliverable: Quick-start checklist
+
+CORE MODULES (3-5):
+For each module:
+- Benefit-driven title
+- Learning objective (1 sentence)
+- 3-4 lessons with:
+  * Lesson title
+  * Key teaching points (3-5 bullets)
+  * Deliverable (worksheet, template, checklist)
+  * Video length recommendation
+  * Format: talking head / screen share / slides
+- Module milestone: "By the end of this module, you'll have ___"
+
+BONUS MODULE: Quick wins + Templates
+
+RECORDING GUIDE:
+- For each lesson, a 3-sentence script opener I can read to start recording
+- Camera/screen recommendations per lesson type
+
+COMPLETION PATH:
+- "Speed run" timeline for action-takers
+- Normal pace timeline
+- Suggested email sequence to nudge completion (3 emails)</div>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 10</div></div>
+</div>
+
+<!-- ═══ BONUS: FOLLOW-UP PROMPTS ═══ -->
+<div class="page ai-dot-grid">
+  <!-- AI sparkle cluster -->
+  <svg class="ai-deco" style="top:6px;right:6px;width:165px;opacity:.14" viewBox="0 0 80 80" fill="none">
+    <path d="M40 4L44 30L72 40L44 50L40 76L36 50L8 40L36 30Z" fill="rgba(212,168,83,.6)"/>
+    <path d="M18 14L20 24L30 26L20 28L18 38L16 28L6 26L16 24Z" fill="rgba(10,209,217,.5)"/>
+    <path d="M62 54L63.5 60L70 62L63.5 64L62 70L60.5 64L54 62L60.5 60Z" fill="rgba(22,208,156,.5)"/>
+  </svg>
+  <!-- Mini terminal -->
+  <svg class="ai-deco" style="bottom:30px;left:4px;width:175px;opacity:.09" viewBox="0 0 90 60" fill="none">
+    <rect x="1" y="1" width="88" height="58" rx="2" stroke="rgba(10,209,217,.7)" stroke-width="1"/><line x1="1" y1="14" x2="89" y2="14" stroke="rgba(10,209,217,.4)" stroke-width=".8"/>
+    <circle cx="8" cy="8" r="2.5" fill="rgba(255,79,73,.5)"/><circle cx="16" cy="8" r="2.5" fill="rgba(212,168,83,.5)"/><circle cx="24" cy="8" r="2.5" fill="rgba(124,203,97,.5)"/>
+    <text x="8" y="28" font-family="monospace" font-size="6" fill="rgba(10,209,217,.6)">$ _</text>
+    <rect x="8" y="34" width="50" height="5" rx="1" fill="rgba(10,209,217,.08)"/>
+    <rect x="8" y="44" width="35" height="5" rx="1" fill="rgba(22,208,156,.06)"/>
+  </svg>
+  <div class="sec-num gold">BONUS</div>
+  <h2 class="sec-title">Quick-Fire <span class="gold">Follow-Up Prompts</span></h2>
+  <p class="sec-sub">Paste any of these AFTER running a main prompt to level up the output.</p>
+
+  <div class="prompt-block" id="pf1" style="margin-bottom:10px">
+    <div class="prompt-header">
+      <div class="prompt-label">FOLLOW-UP - HEADLINE OPTIMIZER</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">Take the headline from your last response. Give me 10 variations:
+- 5 that lead with a specific, measurable benefit
+- 5 that lead with curiosity or a contrarian angle
+Rank them from strongest to weakest. For the top 3, explain why they'd stop someone from scrolling.</div>
+  </div>
+
+  <div class="prompt-block" id="pf2" style="margin-bottom:10px">
+    <div class="prompt-header">
+      <div class="prompt-label">FOLLOW-UP - OBJECTION DESTROYER</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">My audience has these objections about buying my product:
+1. <span class="var">[OBJECTION 1 - e.g., "I don't have a big enough audience"]</span>
+2. <span class="var">[OBJECTION 2 - e.g., "Low-ticket cheapens my brand"]</span>
+3. <span class="var">[OBJECTION 3 - e.g., "This won't work for my niche"]</span>
+4. <span class="var">[OBJECTION 4 - e.g., "I don't have time to build a course"]</span>
+5. <span class="var">[OBJECTION 5 - e.g., "I already tried selling something and it flopped"]</span>
+
+For each: (a) A one-sentence reframe that flips it into a reason TO buy, (b) A 2-3 line FAQ answer for my sales page, (c) An email subject line that addresses it, (d) A social media hook that crushes it.</div>
+  </div>
+
+  <div class="prompt-block" id="pf3" style="margin-bottom:10px">
+    <div class="prompt-header">
+      <div class="prompt-label">FOLLOW-UP - GHL AUTOMATION BUILDER</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">I'm building my course funnel on GoHighLevel. Map out the complete automation workflow I need:
+
+My funnel: Sales page -> Checkout -> Upsell 1 -> Downsell 1 -> Upsell 2 -> Downsell 2 -> Thank You
+
+For each step, tell me:
+- What GHL trigger to use
+- What tags to apply
+- What email/SMS to send
+- What workflow to add them to
+- Any conditional logic needed (if bought upsell vs. declined)
+
+Also include: welcome email sequence (3 emails over 7 days for course completion), re-engagement email for people who visited sales page but didn't buy (abandoned cart), and a testimonial request email (sent 7 days after purchase).</div>
+  </div>
+
+  <div class="prompt-block" id="pf4" style="margin-bottom:10px">
+    <div class="prompt-header">
+      <div class="prompt-label">FOLLOW-UP - BONUS IDEA GENERATOR</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY</button>
+    </div>
+    <div class="prompt-text">I'm selling "<span class="var">[PRODUCT NAME]</span>" for $<span class="var">[PRICE]</span>.
+
+Give me 10 bonus ideas that: cost me $0 to create (templates, checklists, PDFs, recorded trainings), have high perceived value ($50-$200 each), directly complement the main product, can be created in under 2 hours each.
+
+For each: a compelling name, one-line description, perceived dollar value, and estimated creation time. Also tell me which 3 would make the biggest difference in conversion rate and why.</div>
+  </div>
+
+  <div class="gold-box" style="margin-top:8px">
+    <h4>The Prompts Work. But Only If You Use Them.</h4>
+    <p>Open ChatGPT right now. Pick ONE prompt. Fill in the brackets. Hit enter. You'll have more done in 10 minutes than most people accomplish in a week of "planning." Every business needs a low-ticket digital product. Including yours. Now go build it.</p>
+  </div>
+
+  <div class="pg-foot"><div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div><div>AI Prompt Library | VIP Exclusive | Page 11</div></div>
+</div>
+
+<script>
+function copyPrompt(btn){
+  const block = btn.closest('.prompt-block');
+  const textEl = block.querySelector('.prompt-text');
+  let text = textEl.innerText || textEl.textContent;
+  // Clean up for clipboard
+  text = text.replace(/\n{3,}/g, '\n\n').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> COPIED!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg viewBox="0 0 16 16" fill="none" width="12" height="12"><rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> COPY';
+    }, 2000);
+  });
+}
+
+var dayMap={'01':'1','02':'1','03':'1','04':'2','05':'2','06':'2','07':'3','08':'3','09':'3','10':'3'};
+var vips=['03','05','08','10'];
+function getNum(page){var s=page.querySelector('.sec-num');if(!s)return null;var m=s.textContent.match(/PROMPT\s+(\d+)/);return m?m[1].padStart(2,'0'):null;}
+function hasPrompt(page){return !!page.querySelector('.prompt-block');}
+function isBonus(page){var s=page.querySelector('.sec-num');return s&&s.textContent.includes('BONUS');}
+
+function clearHighlights(){
+  document.querySelectorAll('mark.search-hl').forEach(function(m){
+    var parent=m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent),m);
+    parent.normalize();
+  });
+}
+function highlightText(el,q){
+  if(!q||!el) return;
+  var walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+  var nodes=[];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function(node){
+    var idx=node.textContent.toLowerCase().indexOf(q);
+    if(idx===-1) return;
+    var span=document.createElement('mark');
+    span.className='search-hl';
+    span.style.cssText='background:rgba(10,209,217,.3);color:inherit;padding:1px 2px;border-radius:2px;';
+    var after=node.splitText(idx);
+    var match=after.splitText(q.length);
+    var highlighted=span.cloneNode(true);
+    highlighted.textContent=after.textContent;
+    after.parentNode.replaceChild(highlighted,after);
+  });
+}
+function filterPrompts(){
+  var q=document.getElementById('promptSearch').value.toLowerCase();
+  clearHighlights();
+  document.querySelectorAll('.toc-item').forEach(function(item){
+    var label=item.querySelector('.toc-label').textContent.toLowerCase();
+    item.style.display=(!q||label.includes(q))?'':'none';
+    if(q&&label.includes(q)) highlightText(item.querySelector('.toc-label'),q);
+  });
+  document.querySelectorAll('.page').forEach(function(page){
+    if(!hasPrompt(page)&&!isBonus(page)) return;
+    if(!q){page.style.display='';return;}
+    var match=page.textContent.toLowerCase().includes(q);
+    page.style.display=match?'':'none';
+    if(match){
+      highlightText(page.querySelector('.sec-title'),q);
+      highlightText(page.querySelector('.prompt-text'),q);
+      highlightText(page.querySelector('.prompt-note'),q);
+      highlightText(page.querySelector('.sec-sub'),q);
+    }
+  });
+  document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelector('[data-filter="all"]').classList.add('active');
+}
+function filterByTab(btn){
+  document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active')});
+  btn.classList.add('active');
+  var f=btn.dataset.filter;
+  document.querySelectorAll('.toc-item').forEach(function(item){
+    if(f==='all'){item.style.display='';}
+    else if(f==='vip'){item.style.display=item.dataset.vip==='true'?'':'none';}
+    else if(f==='bonus'){item.style.display='none';}
+    else{item.style.display=item.dataset.day===f?'':'none';}
+  });
+  document.querySelectorAll('.page').forEach(function(page){
+    var num=getNum(page);var bon=isBonus(page);
+    if(!num&&!bon) return;
+    if(f==='all'){page.style.display='';}
+    else if(f==='vip'){page.style.display=(num&&vips.includes(num))?'':'none';}
+    else if(f==='bonus'){page.style.display=bon?'':'none';}
+    else{page.style.display=(num&&dayMap[num]===f)?'':'none';}
+  });
+  document.getElementById('promptSearch').value='';
+}
+</script>
+
+</body>
+</html>
