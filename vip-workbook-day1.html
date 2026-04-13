@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 1 Workbook - Digital Course Launch Lab VIP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:letter;margin:0.6in 0.7in}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  --gold:#D4A853;--gold-dk:#B8923E;--gold-lt:#E8C97A;
+  --pacific:#0097a7;--carib:#23b8a5;
+  --warm:#f7f4f0;--warmdk:#ede8e2;--warmbg:#faf8f5;
+  --char:#434343;--ablack:#1a1a2e;--slate:#8e8d8d;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --gg:linear-gradient(135deg,var(--gold),var(--gold-lt),#f0d68a,var(--gold));
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:#fff}
+
+/* ═══ COVER PAGE ═══ */
+.cover{min-height:100vh;background:linear-gradient(160deg,#04292f 0%,#084045 20%,#073338 55%,#0a2628 100%);border-top:6px solid var(--t1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;page-break-after:always}
+.cover::before{content:'';position:absolute;top:-10%;left:-5%;width:800px;height:800px;background:radial-gradient(circle,rgba(10,209,217,.25),rgba(13,197,207,.08),transparent 55%);filter:blur(60px)}
+.cover::after{content:'';position:absolute;bottom:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(22,208,156,.12),transparent 60%);filter:blur(40px)}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,168,83,.15),rgba(212,168,83,.05));border:1px solid rgba(212,168,83,.3);padding:8px 20px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:24px;position:relative;z-index:1}
+.cover-badge svg{width:14px;height:14px}
+.cover-day{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;position:relative;z-index:1}
+.cover h1{font-family:var(--display);font-size:clamp(44px,7vw,64px);font-weight:700;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover-sub{font-size:18px;color:rgba(255,255,255,.6);max-width:500px;line-height:1.7;margin-bottom:40px;position:relative;z-index:1}
+.cover-meta{display:flex;align-items:center;gap:24px;position:relative;z-index:1}
+.cover-meta span{font-size:14px;color:rgba(255,255,255,.4);font-weight:600;display:flex;align-items:center;gap:6px}
+.cover-leaf{position:absolute;z-index:0;opacity:.08}
+.cover-divider{width:80px;height:2px;background:var(--gg);margin:0 auto 32px;position:relative;z-index:1}
+
+/* ═══ PAGE STYLES ═══ */
+.page{max-width:750px;margin:0 auto;padding:48px 40px;page-break-after:always}
+.page:last-child{page-break-after:auto}
+
+/* Section headers */
+.sec-num{font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.sec-num::before{content:'';width:20px;height:2px;background:var(--gg)}
+.sec-title{font-family:var(--display);font-size:clamp(28px,4.5vw,36px);font-weight:700;color:var(--ablack);line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+.sec-title em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:28px;max-width:580px}
+
+/* Content blocks */
+.teach-box{background:linear-gradient(145deg,rgba(10,209,217,.04),rgba(10,209,217,.02));border:1px solid rgba(10,209,217,.12);border-left:4px solid var(--t1);padding:20px 24px;margin-bottom:24px}
+.teach-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.teach-box h4 svg{width:16px;height:16px;flex-shrink:0}
+.teach-box p{font-size:15px;color:#666;line-height:1.7}
+
+.gold-box{background:linear-gradient(145deg,rgba(212,168,83,.06),rgba(212,168,83,.02));border:1px solid rgba(212,168,83,.15);border-left:4px solid var(--gold);padding:20px 24px;margin-bottom:24px}
+.gold-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.gold-box p{font-size:15px;color:#666;line-height:1.7}
+
+.cherry-box{background:linear-gradient(145deg,rgba(255,79,73,.04),rgba(255,79,73,.02));border:1px solid rgba(255,79,73,.12);border-left:4px solid var(--cherry);padding:20px 24px;margin-bottom:24px}
+.cherry-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.cherry-box p{font-size:15px;color:#666;line-height:1.7}
+
+/* Formula box */
+.formula{background:#0a2628;padding:28px 32px;margin:24px 0;position:relative;overflow:hidden}
+.formula::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tg)}
+.formula::after{content:'';position:absolute;top:-30%;right:-5%;width:200px;height:200px;background:radial-gradient(circle,rgba(10,209,217,.1),transparent 65%);filter:blur(20px)}
+.formula-label{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--t1);margin-bottom:12px}
+.formula-text{font-family:var(--display);font-size:clamp(20px,3vw,26px);font-weight:700;color:#fff;line-height:1.3;position:relative;z-index:1}
+.formula-text .bracket{color:var(--gold-lt);font-weight:400}
+.formula-text .fill{color:var(--t1);border-bottom:2px dashed rgba(10,209,217,.4);padding-bottom:2px}
+.formula-note{font-size:12px;color:rgba(255,255,255,.45);margin-top:12px;font-style:italic}
+
+/* Write-in fields */
+.field{margin-bottom:20px}
+.field-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pacific);margin-bottom:6px}
+.field-line{border:none;border-bottom:2px solid #e0dcd6;width:100%;height:40px;display:block;margin-bottom:4px;font-family:var(--body);font-size:16px;color:var(--char);outline:none;background:transparent;padding:8px 4px;transition:border-color .2s}
+.field-line:focus{border-bottom-color:var(--t1)}
+.field-hint{font-size:13px;color:var(--slate);font-style:italic}
+.field-box{border:2px solid #e0dcd6;width:100%;min-height:80px;display:block;margin-bottom:4px;padding:10px;background:rgba(250,248,245,.5);font-family:var(--body);font-size:15px;color:var(--char);outline:none;resize:vertical;line-height:1.6;transition:border-color .2s}
+.field-box:focus{border-color:var(--t1);background:rgba(250,248,245,.8)}
+.field-tall{min-height:120px}
+
+/* Grid layouts */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px}
+
+/* Cards */
+.card{border:1px solid #e0dcd6;padding:20px;background:var(--warmbg)}
+.card h5{font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.card p{font-size:14px;color:#777;line-height:1.6}
+.card-teal{border-top:3px solid var(--t1)}
+.card-gold{border-top:3px solid var(--gold)}
+.card-cherry{border-top:3px solid var(--cherry)}
+.card-green{border-top:3px solid var(--t4)}
+
+/* Numbered items */
+.num-circle{width:28px;height:28px;border-radius:50%;background:var(--tg);display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:800;color:#fff;flex-shrink:0}
+.num-gold{background:var(--gg);color:#fff}
+
+/* Tier list */
+.tier{display:flex;align-items:stretch;margin-bottom:8px}
+.tier-badge{width:52px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:18px;font-weight:800;color:#fff;flex-shrink:0}
+.tier-s{background:linear-gradient(135deg,var(--t1),var(--t3))}
+.tier-a{background:linear-gradient(135deg,var(--gold),var(--gold-lt))}
+.tier-b{background:linear-gradient(135deg,#ff8a85,var(--cherry))}
+.tier-content{flex:1;padding:12px 16px;border:1px solid #e0dcd6;border-left:none;background:var(--warmbg)}
+.tier-content h5{font-family:var(--display);font-size:13px;font-weight:700;color:var(--ablack);margin-bottom:4px}
+.tier-content p{font-size:11px;color:#777;line-height:1.5}
+
+/* AI Prompt blocks */
+.prompt-block{background:#0a2628;padding:24px 28px;margin:20px 0;position:relative;overflow:hidden;font-family:'Courier New',monospace}
+.prompt-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gg)}
+.prompt-label{display:inline-flex;align-items:center;gap:6px;background:rgba(212,168,83,.15);border:1px solid rgba(212,168,83,.25);padding:4px 12px;font-family:var(--body);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:14px}
+.prompt-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.8;white-space:pre-wrap}
+.prompt-text .var{color:var(--t1);font-weight:700}
+.prompt-note{font-family:var(--body);font-size:13px;color:rgba(255,255,255,.4);margin-top:14px;font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:10px}
+
+/* Example blocks */
+.example{background:var(--warmbg);border:1px solid #e0dcd6;padding:20px 24px;margin-bottom:16px}
+.example-niche{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pacific);margin-bottom:6px}
+.example-formula{font-family:var(--display);font-size:16px;font-weight:700;color:var(--ablack);line-height:1.3;margin-bottom:8px}
+.example-product{font-size:12px;color:#777;line-height:1.6}
+
+/* Checkbox items */
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.check-item:last-child{border-bottom:none}
+.check-box{width:18px;height:18px;flex-shrink:0;margin-top:3px;cursor:pointer;accent-color:var(--t1)}
+.check-text{font-size:13px;color:var(--char);line-height:1.5}
+.check-text strong{color:var(--ablack)}
+
+/* Handwritten accent */
+.hand{font-family:var(--script);color:var(--cherry);transform:rotate(-1.5deg);display:inline-block}
+
+/* Page footer */
+.pg-foot{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid #e0dcd6;margin-top:40px;font-size:11px;color:var(--slate)}
+.pg-foot-logo{font-family:var(--display);font-weight:800;color:var(--ablack);font-size:12px;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Print */
+@media print{
+  body{background:#fff}
+  .cover{min-height:auto;height:100vh}
+  .page{padding:36px 20px}
+}
+@media(max-width:600px){
+  .page{padding:32px 20px}
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .formula{padding:20px 24px}
+  .prompt-block{padding:20px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     COVER PAGE
+     ═══════════════════════════════════════ -->
+<div class="cover">
+  <!-- Decorative leaf SVG -->
+  <svg class="cover-leaf" style="top:-40px;left:-60px;width:400px;height:400px;transform:rotate(20deg)" viewBox="0 0 400 400" fill="none"><path d="M200 380 C200 380 80 300 60 180 C40 60 160 20 200 20 C240 20 360 60 340 180 C320 300 200 380 200 380Z" fill="url(#clg1)" opacity=".35"/><ellipse cx="140" cy="140" rx="25" ry="35" fill="#0a2628" opacity=".2" transform="rotate(-15 140 140)"/><ellipse cx="260" cy="160" rx="20" ry="30" fill="#0a2628" opacity=".15" transform="rotate(10 260 160)"/><defs><linearGradient id="clg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#16d09c"/><stop offset="100%" stop-color="#0dc5cf"/></linearGradient></defs></svg>
+  <svg class="cover-leaf" style="bottom:-30px;right:-50px;width:300px;height:300px;transform:rotate(-150deg) scaleX(-1)" viewBox="0 0 400 400" fill="none"><path d="M200 380 C200 380 80 300 60 180 C40 60 160 20 200 20 C240 20 360 60 340 180 C320 300 200 380 200 380Z" fill="url(#clg2)" opacity=".2"/><defs><linearGradient id="clg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4A853"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs></svg>
+
+  <div class="cover-badge">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7L8 1z" fill="var(--gold-lt)"/></svg>
+    VIP EXCLUSIVE WORKBOOK
+  </div>
+  <div class="cover-day">DAY 1 OF 3</div>
+  <div class="cover-divider"></div>
+  <h1>Your Map:<br><em>Find Your Winning Idea</em></h1>
+  <p class="cover-sub">The Messaging Formula, Niche Validation Framework, and AI Prompts to go from "I have no idea what to sell" to a validated, profitable course topic.</p>
+  <div class="cover-meta">
+    <span>
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Digital Course Launch Lab
+    </span>
+    <span>
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2 4h12v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.5"/><path d="M2 4l6 4 6-4" stroke="currentColor" stroke-width="1.5"/></svg>
+      Marissa Romero
+    </span>
+    <span>
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7L8 1z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      VIP Challenger
+    </span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 1: THE MODEL
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 1</div>
+  <h2 class="sec-title">The Model: Why <em>Low-Ticket Wins</em></h2>
+  <p class="sec-sub">Before we find your idea, you need to understand WHY this model works. Every business on the planet needs a low-ticket digital product. Not some. Every.</p>
+
+  <div class="teach-box">
+    <h4>
+      <svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="var(--t1)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      Why Low-Ticket Digital Products Are S-Tier
+    </h4>
+    <p>You own it. It scales infinitely. One-person team. Fits inside any ecosystem. Creates PAID BUYERS, not freebie leads. 100% profit. No fulfillment headaches. Build it once. Sell it forever.</p>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--ablack);margin-bottom:16px">The Online Income Tier List</h3>
+
+  <div class="tier">
+    <div class="tier-badge tier-s">S</div>
+    <div class="tier-content">
+      <h5>Low-Ticket Digital Products ($27-$97)</h5>
+      <p>You own it. It scales. One-person team. Fits inside any ecosystem. Creates paid buyers that ascend into your higher-ticket offers.</p>
+    </div>
+  </div>
+  <div class="tier">
+    <div class="tier-badge tier-a">A</div>
+    <div class="tier-content">
+      <h5>Affiliate Marketing & Coaching</h5>
+      <p>Affiliate: great money, but you don't own the product. Coaching: incredible income, but less scalable. Hard to "sell while you sleep."</p>
+    </div>
+  </div>
+  <div class="tier">
+    <div class="tier-badge tier-b">B</div>
+    <div class="tier-content">
+      <h5>Services & Done-For-You</h5>
+      <p>Great money. Hard to scale. Heavy delivery. Heavy fulfillment. You're trading time for dollars.</p>
+    </div>
+  </div>
+
+  <div class="gold-box" style="margin-top:24px">
+    <h4>The Ecosystem Effect</h4>
+    <p>A $47 product doesn't just make $47. With upsells, your average order value doubles. Some $47 buyers become $10,000+ high-ticket clients. 3 out of 56 buyers in one launch became high-ticket clients at $10K-$20K each. The product IS the sales call.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Your reflection: What's your current income model? What tier is it in?</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div class="field">
+    <div class="field-label">What would change if you added a low-ticket digital product to your business?</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 1</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2: THE MESSAGING FORMULA
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 2</div>
+  <h2 class="sec-title">The <em>Messaging Formula</em></h2>
+  <p class="sec-sub">This works for any niche, any product, any audience. If messaging is OFF, everything is off. If messaging is ON, everything flows. This is the foundation of your entire business.</p>
+
+  <div class="formula">
+    <div class="formula-label">THE MESSAGING FORMULA</div>
+    <div class="formula-text">
+      "The <span class="bracket">[</span><span class="fill">Blueprint / System / Framework</span><span class="bracket">]</span> to <span class="bracket">[</span><span class="fill">Micro Result</span><span class="bracket">]</span> Without <span class="bracket">[</span><span class="fill">Outdated Advice</span><span class="bracket">]</span>"
+    </div>
+    <div class="formula-note">This is the difference between $47 that dies and $47 that creates a customer for life.</div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card card-teal">
+      <h5>[Blueprint / System / Framework]</h5>
+      <p>Signals structure. Not just "tips" - a SYSTEM. Your buyer knows they're getting something organized and actionable.</p>
+    </div>
+    <div class="card card-gold">
+      <h5>[Micro Result]</h5>
+      <p>Specific. Measurable. Achievable in days, not months. Think: "book 3 clients this week" not "grow your business."</p>
+    </div>
+    <div class="card card-cherry">
+      <h5>[Without Outdated Advice]</h5>
+      <p>What they've already tried. What didn't work. This creates instant trust because you UNDERSTAND their frustration.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--ablack);margin:24px 0 16px">Real Examples from Real Niches</h3>
+
+  <div class="example">
+    <div class="example-niche">Example 1: Business Coach</div>
+    <div class="example-formula">"The 7-Post Funnel to Book 3 Clients This Week Without Daily Posting"</div>
+    <div class="example-product">Product: $47 digital bundle - 7 post templates, scheduling guide, DM scripts, client follow-up sequence</div>
+  </div>
+
+  <div class="example">
+    <div class="example-niche">Example 2: Fitness Coach</div>
+    <div class="example-formula">"The 20-Minute Tone-Up to Shrink Your Waistline in 14 Days Without Calorie Counting"</div>
+    <div class="example-product">Product: $47 program - 7 video lessons, meal plan, workout tracker</div>
+  </div>
+
+  <div class="example">
+    <div class="example-niche">Example 3: Relationship Coach</div>
+    <div class="example-formula">"The Conversation Reset to Stop Tonight's Argument Without Forced Talks"</div>
+    <div class="example-product">Product: $47 course - conflict resolution scripts, communication templates, date night planner</div>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3: WRITE YOUR FORMULA
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 3</div>
+  <h2 class="sec-title">Write <em>Your Formula</em></h2>
+  <p class="sec-sub">Don't overthink this. Write 3 versions. You'll refine later. The goal is to get ink on paper, not perfection.</p>
+
+  <div class="cherry-box">
+    <h4>Before You Write - Quick Gut Check</h4>
+    <p>Your messaging should pass the "screenshot test." If someone saw it in a DM or on a sales page, would they stop scrolling? Would they think "that's exactly what I need"? If not, make the result more specific and the "without" more personal.</p>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin-bottom:16px">Version 1 <span class="hand" style="font-size:18px;margin-left:8px">your best guess!</span></h3>
+  <div class="field">
+    <div class="field-label">Your niche / audience</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">[Blueprint / System / Framework] - what structure word fits?</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">[Micro Result] - what specific outcome in days?</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">[Without Outdated Advice] - what have they already tried?</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="formula" style="background:var(--warmbg);padding:20px 24px;border:2px solid #e0dcd6">
+    <div class="formula-label" style="color:var(--pacific)">YOUR COMPLETE FORMULA V1</div>
+    <textarea class="field-box" style="min-height:50px;border-color:#ccc;background:#fff"></textarea>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin:28px 0 16px">Version 2 <span class="hand" style="font-size:18px;margin-left:8px">try a different angle</span></h3>
+  <div class="field">
+    <div class="field-label">Same niche, different angle - OR a different niche entirely</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="formula" style="background:var(--warmbg);padding:20px 24px;border:2px solid #e0dcd6">
+    <div class="formula-label" style="color:var(--pacific)">YOUR COMPLETE FORMULA V2</div>
+    <textarea class="field-box" style="min-height:50px;border-color:#ccc;background:#fff"></textarea>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin:28px 0 16px">Version 3 <span class="hand" style="font-size:18px;margin-left:8px">go wild on this one</span></h3>
+  <div class="formula" style="background:var(--warmbg);padding:20px 24px;border:2px solid #e0dcd6">
+    <div class="formula-label" style="color:var(--pacific)">YOUR COMPLETE FORMULA V3</div>
+    <textarea class="field-box" style="min-height:50px;border-color:#ccc;background:#fff"></textarea>
+  </div>
+
+  <div class="gold-box" style="margin-top:24px">
+    <h4>Which one feels the strongest? Circle it. That's your starting point for the AI validation.</h4>
+    <p>Remember: messaging is the difference between $47 that dies and $47 that creates a customer for life.</p>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4: NICHE PROOF EXAMPLES
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 4</div>
+  <h2 class="sec-title">The Proof: <em>$47 Products by Niche</em></h2>
+  <p class="sec-sub">What does a $47 product actually look like? Same formula, different niches. Every single one of these works because the SYSTEM works.</p>
+
+  <div class="grid-2">
+    <div class="card card-teal">
+      <h5 style="display:flex;align-items:center;gap:8px"><span class="num-circle" style="width:22px;height:22px;font-size:10px">1</span> Fitness Coach</h5>
+      <p style="font-weight:700;color:var(--ablack);margin-bottom:6px">$47 - "7-Day Belly Fat Reset"</p>
+      <p>7 video lessons &bull; Meal plan &bull; Workout tracker</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--pacific);font-size:11px">Build it once. Sell it every day. Zero fulfillment. Zero delivery calls.</p>
+    </div>
+    <div class="card card-gold">
+      <h5 style="display:flex;align-items:center;gap:8px"><span class="num-circle num-gold" style="width:22px;height:22px;font-size:10px">2</span> Real Estate Coach</h5>
+      <p style="font-weight:700;color:var(--ablack);margin-bottom:6px">$47 - "Open House Lead Kit"</p>
+      <p>Scripts &bull; Follow-up texts &bull; Email templates &bull; Flyers &bull; Lead tracker</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--pacific);font-size:11px">Everything an agent needs to convert open house visitors into listings.</p>
+    </div>
+    <div class="card card-cherry">
+      <h5 style="display:flex;align-items:center;gap:8px"><span class="num-circle" style="width:22px;height:22px;font-size:10px;background:linear-gradient(135deg,var(--cherry),#ff6b5e)">3</span> Baby Sleep Expert</h5>
+      <p style="font-weight:700;color:var(--ablack);margin-bottom:6px">$47 - "Sleep Through the Night System"</p>
+      <p>Sleep guides &bull; Wake windows chart &bull; Behavior charts &bull; Troubleshooting checklist</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--pacific);font-size:11px">Yes - this works for THAT niche too.</p>
+    </div>
+    <div class="card card-green">
+      <h5 style="display:flex;align-items:center;gap:8px"><span class="num-circle" style="width:22px;height:22px;font-size:10px;background:linear-gradient(135deg,var(--t3),var(--t4))">4</span> Any Coach (Quiz-Based)</h5>
+      <p style="font-weight:700;color:var(--ablack);margin-bottom:6px">$47 - "Your Custom Score + Action Plan"</p>
+      <p>15 questions &bull; Custom score &bull; Personalized action plan &bull; Identifies high-ticket leads</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--pacific);font-size:11px">A quiz product that qualifies your best prospects automatically.</p>
+    </div>
+  </div>
+
+  <div class="teach-box">
+    <h4>
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.6 3.2 3.5.5-2.5 2.5.6 3.5L8 9.5l-3.2 1.7.6-3.5-2.5-2.5 3.5-.5L8 1.5z" fill="var(--t1)"/></svg>
+      Notice the Pattern
+    </h4>
+    <p>Every product has 3-5 tangible deliverables. Not "access to a course." Specific things: templates, scripts, trackers, checklists. The buyer knows exactly what they're getting.</p>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--ablack);margin:24px 0 16px">Now Design YOUR $47 Product</h3>
+
+  <div class="field">
+    <div class="field-label">Your niche</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">Your product name (use the Messaging Formula!)</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">Your price point ($27 / $37 / $47 / $67)</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">List 3-5 specific deliverables your buyer gets</div>
+    <textarea class="field-box field-tall"></textarea>
+    <div class="field-hint">Think: templates, scripts, trackers, video lessons, checklists, swipe files, worksheets</div>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 4</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5: AI PROMPTS
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 5 - VIP EXCLUSIVE</div>
+  <h2 class="sec-title">Your <em>AI Prompt Library</em></h2>
+  <p class="sec-sub">These are the exact prompts from Day 1. Copy them into ChatGPT or Claude. Replace the bracketed sections with YOUR niche, YOUR audience, YOUR product.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-label">
+      <svg viewBox="0 0 12 12" fill="none" width="10" height="10"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg>
+      AI PROMPT #1 - NICHE VALIDATION
+    </div>
+    <div class="prompt-text">You are a digital product market researcher. I want to sell a low-ticket digital product ($27-97) to <span class="var">[TARGET NICHE]</span>.
+
+Analyze:
+(1) Is there active demand for paid solutions in this niche?
+(2) What specific micro-results do they pay for?
+(3) Top 3 competing products + their prices
+(4) What gaps exist that I could fill?
+(5) Rate viability 1-10 with explanation
+
+My expertise is in: <span class="var">[YOUR EXPERTISE]</span>
+My audience looks like: <span class="var">[DESCRIBE YOUR IDEAL BUYER]</span></div>
+    <div class="prompt-note">Use this BEFORE you build anything. If the AI gives you below a 7, pivot your niche or angle.</div>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">
+      <svg viewBox="0 0 12 12" fill="none" width="10" height="10"><path d="M6 1l1.5 3 3.3.5-2.4 2.3.6 3.3L6 8.5 3 10.1l.6-3.3L1.2 4.5l3.3-.5L6 1z" fill="var(--gold-lt)"/></svg>
+      AI PROMPT #2 - MESSAGING TESTER
+    </div>
+    <div class="prompt-text">You are a direct-response copywriting expert. I have a messaging formula for my low-ticket digital product:
+
+"<span class="var">[YOUR MESSAGING FORMULA FROM SECTION 3]</span>"
+
+My niche: <span class="var">[NICHE]</span>
+My product price: <span class="var">[PRICE]</span>
+
+Evaluate this messaging on:
+(1) Clarity - does a stranger instantly understand what they get?
+(2) Specificity - is the result measurable and time-bound?
+(3) Differentiation - does the "without" feel fresh, not generic?
+(4) Scroll-stopping power - would someone screenshot this?
+(5) Give me 3 improved versions that are even more compelling.</div>
+    <div class="prompt-note">Run this on ALL 3 versions from Section 3. The AI will tell you which one has the strongest hook.</div>
+  </div>
+
+  <div class="gold-box">
+    <h4>VIP Prompt #3 - The Product Blueprint Generator</h4>
+    <p>This prompt is in your VIP Telegram community. Marissa will personally review your messaging in a private thread. Check the pinned message.</p>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 5</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6: COMMON OBJECTIONS
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 6</div>
+  <h2 class="sec-title">Crushing Your <em>Own Objections</em></h2>
+  <p class="sec-sub">Before we move on, let's address the voice in your head. Marissa heard every single one of these. Here's why they're wrong.</p>
+
+  <div class="cherry-box">
+    <h4>"Low-ticket cheapens my brand."</h4>
+    <p>Premium buyers buy low-ticket too. Apple sells $19 cases. Luxury brands use entry points. A $47 product doesn't cheapen you - it creates a door into your world.</p>
+  </div>
+
+  <div class="cherry-box">
+    <h4>"I don't have a big enough audience."</h4>
+    <p>500 followers is 500 EYEBALLS. You can DM, launch small, get feedback + cash. Marissa made $40,000+ from just 200 email subscribers. You don't need 10,000 followers. You need 10 buyers.</p>
+  </div>
+
+  <div class="cherry-box">
+    <h4>"This won't work for my niche."</h4>
+    <p>Name a niche. Any niche. Fitness, real estate, baby sleep, relationships, plumbing, spiritual coaching, dog training - the model works because the SYSTEM works, not because the niche is special.</p>
+  </div>
+
+  <div class="field" style="margin-top:24px">
+    <div class="field-label">What's YOUR biggest hesitation right now? Write it down honestly.</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Now - what would you tell a friend who said that same thing to you?</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 6</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SECTION 7: DAY 1 ACTION STEPS
+     ═══════════════════════════════════════ -->
+<div class="page">
+  <div class="sec-num">SECTION 7</div>
+  <h2 class="sec-title">Your Day 1 <em>Action Steps</em></h2>
+  <p class="sec-sub">Do these TONIGHT. Not tomorrow. Not "when I have time." Day 2 moves FAST and you need your niche + messaging locked in.</p>
+
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>Write your Messaging Formula</strong> - all 3 versions in Section 3. Circle the strongest one.</div>
+  </div>
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>Pick ONE niche.</strong> Not three. Not five. ONE. Write it down. Not in your head - on paper.</div>
+  </div>
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>Run AI Prompt #1</strong> (Niche Validation) on your chosen niche. If it scores below 7, pivot.</div>
+  </div>
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>Run AI Prompt #2</strong> (Messaging Tester) on your top messaging formula. Take the AI's improved version.</div>
+  </div>
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>Design your $47 product concept</strong> - name, price, 3-5 deliverables (Section 4).</div>
+  </div>
+  <div class="check-item">
+    <input type="checkbox" class="check-box">
+    <div class="check-text"><strong>VIP ONLY: Check the Telegram community</strong> for Prompt #3 and post your messaging formula for Marissa to review.</div>
+  </div>
+
+  <div class="teach-box" style="margin-top:28px">
+    <h4>
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5v13M1.5 8h13" stroke="var(--t1)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      What's Coming on Day 2
+    </h4>
+    <p>Tomorrow Marissa shows you the exact process she'd use if she were starting from scratch in YOUR niche. You'll build your entire product concept using AI - slides, scripts, worksheets, everything. Plus: the exact prompt behind her $40K launch. Have your validated idea ready and your ChatGPT/Claude open.</p>
+  </div>
+
+  <div class="field" style="margin-top:24px">
+    <div class="field-label">My #1 niche (bring this to Day 2)</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">My strongest messaging formula (bring this to Day 2)</div>
+    <textarea class="field-box"></textarea>
+  </div>
+  <div class="field">
+    <div class="field-label">My #1 question for Marissa</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div class="gold-box" style="margin-top:24px">
+    <h4>You have everything you need to start.</h4>
+    <p>The model. The formula. The proof. The prompts. Now go do something about it. See you tomorrow - bring your niche, bring your questions, bring your energy.</p>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 1 Workbook | VIP Exclusive | Page 7</div>
+  </div>
+</div>
+
+</body>
+</html>
