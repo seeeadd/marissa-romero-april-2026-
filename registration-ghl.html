@@ -69,10 +69,16 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero{position:relative;padding:64px 3% 56px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 35%,var(--warmbg) 100%)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(10,209,217,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(255,79,73,.04) 0%,transparent 40%);pointer-events:none;z-index:1}
 .hero::after{content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,rgba(22,208,156,.04) 40%,transparent 70%);pointer-events:none;z-index:0;filter:blur(40px)}
-.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:32px;align-items:center;position:relative;z-index:5}
+.hero-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center;position:relative;z-index:5}
 .hero-left{position:relative}
+.device-frame{background:var(--ablack);overflow:hidden;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03),0 0 80px rgba(10,209,217,.04);border:1px solid rgba(255,255,255,.08);position:relative;margin-top:20px}
+.device-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tg);z-index:3}
+.device-bar{display:flex;align-items:center;gap:6px;padding:10px 16px;background:rgba(0,0,0,.4);border-bottom:1px solid rgba(255,255,255,.05);position:relative;z-index:2}
+.device-dot{width:10px;height:10px;border-radius:50%}
+.device-url{flex:1;height:22px;background:rgba(255,255,255,.04);border-radius:12px;display:flex;align-items:center;padding:0 12px;margin-left:8px}
+.device-url span{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.02em}
 /* 16:9 VSL — large */
-.hero-vsl{width:100%;aspect-ratio:16/9;background:var(--ablack);margin-top:20px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden;border:1px solid rgba(255,255,255,.05)}
+.hero-vsl{width:100%;aspect-ratio:16/9;background:var(--ablack);margin-top:0;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden;border:1px solid rgba(255,255,255,.05)}
 .hero-vsl::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 40%,transparent 60%,rgba(255,255,255,.02) 100%);pointer-events:none;z-index:1}
 .hero-vsl::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.3),transparent);pointer-events:none}
 .vsl-play{width:76px;height:76px;background:var(--cherry);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);display:flex;align-items:center;justify-content:center;transition:transform .3s;position:relative;z-index:2;filter:drop-shadow(0 4px 12px rgba(255,79,73,.4)) drop-shadow(0 8px 28px rgba(255,79,73,.2))}
@@ -80,7 +86,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .vsl-play svg{margin-left:4px}
 .hero-annot{display:inline-block;margin:8px 0 2px;font-family:var(--script);font-size:clamp(18px,2vw,24px);color:var(--cherry);transform:rotate(-2deg);white-space:nowrap;z-index:6;opacity:.85}
 .hero-annot svg{width:40px;height:28px;vertical-align:middle;margin-left:-2px}
-.hero-right{position:relative;z-index:5;align-self:center;background:none;padding:0;border-radius:0;text-align:center}
+.hero-right{position:relative;z-index:5;align-self:center;background:radial-gradient(ellipse 120% 110% at 30% 50%,rgba(245,241,236,.95) 30%,rgba(245,241,236,.7) 60%,transparent 100%);padding:20px 16px 20px 0;border-radius:16px}
 .hero-pre{font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--pacific);margin-bottom:16px;letter-spacing:-.01em;text-transform:uppercase}
 .hero h1{font-family:var(--display);font-size:clamp(36px,4.4vw,60px);font-weight:700;line-height:1.08;color:var(--ablack);margin-bottom:22px;letter-spacing:-.01em;text-wrap:balance}
 .hl-box{display:inline;background:var(--tg);color:#fff;-webkit-text-fill-color:#fff;padding:6px 16px;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:4px;text-shadow:0 1px 2px rgba(0,0,0,.15),0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
@@ -94,7 +100,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .cd-lbl{font-size:9px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.14em;margin-top:3px;font-weight:600}
 .cd-sep{color:var(--cherry);font-size:22px;font-weight:900;animation:blink 1s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.cta-wrap{display:flex;flex-direction:column;gap:12px;align-items:center}
+.cta-wrap{display:flex;flex-direction:column;gap:12px}
 .cta{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:20px 44px;font-family:var(--body);font-size:clamp(15px,1.6vw,19px);font-weight:800;border:none;cursor:pointer;transition:all .2s;z-index:1;overflow:hidden;text-align:center;line-height:1.2;text-decoration:none;text-transform:uppercase;letter-spacing:.04em}
 .cta-cherry{background:var(--cherry);color:#fff;box-shadow:0 4px 0 var(--cherry-dk),0 6px 0 rgba(0,0,0,.12),var(--sh-md)}
 .cta-cherry:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--cherry-dk),0 8px 0 rgba(0,0,0,.12),var(--sh-lg)}
@@ -1017,8 +1023,11 @@ body::before,body::after{display:none !important}
 
   <div class="hero-inner">
     <div class="hero-left fi">
-      <div class="hero-vsl" id="hero-vsl" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/uduKWHHc8A0?autoplay=1&rel=0\' frameborder=\'0\' allow=\'autoplay;encrypted-media\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>';this.style.cursor='default'" style="background:url('https://img.youtube.com/vi/uduKWHHc8A0/maxresdefault.jpg') center/cover no-repeat, var(--ablack)">
-        <div class="vsl-play"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fff"/></svg></div>
+      <div class="device-frame">
+        <div class="device-bar"><span class="device-dot" style="background:#ff4f49"></span><span class="device-dot" style="background:#f1c232"></span><span class="device-dot" style="background:#7ccb61"></span><div class="device-url"><span>marissaromero.com/challenge</span></div></div>
+        <div class="hero-vsl" id="hero-vsl" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/uduKWHHc8A0?autoplay=1&rel=0\' frameborder=\'0\' allow=\'autoplay;encrypted-media\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>';this.style.cursor='default'" style="background:url('https://img.youtube.com/vi/uduKWHHc8A0/maxresdefault.jpg') center/cover no-repeat, var(--ablack)">
+          <div class="vsl-play"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fff"/></svg></div>
+        </div>
       </div>
 
       <div class="challenge-banner fi">
@@ -1057,7 +1066,7 @@ body::before,body::after{display:none !important}
       <p class="hero-pre fi">DIGITAL COURSE LAUNCH LAB - FREE 3-DAY LIVE CHALLENGE</p>
       <h1 class="fi fi-d1">The Low-Ticket Course System That Turned 200 Subscribers Into <span class="hl-big">$40,000</span> <span class="hl-box">Built in 21 Days With AI</span></h1>
       <p class="hero-rest fi fi-d1">For coaches, consultants, and service providers who already have the expertise - and want to stop leaving money on the table by turning it into a digital product that sells.</p>
-      <ul class="hero-bullets fi fi-d1" style="list-style:none;padding:0;margin:0 auto 24px;display:flex;flex-direction:column;gap:10px;font-size:clamp(14px,1.4vw,16px);color:var(--char);line-height:1.5;max-width:680px;text-align:left">
+      <ul class="hero-bullets fi fi-d1" style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;font-size:clamp(14px,1.4vw,16px);color:var(--char);line-height:1.5">
         <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Map exactly what YOUR low-ticket product should be - and validate it before you build anything</li>
         <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use AI to write your sales page, outline your course, and nail your messaging (I'll give you the prompts)</li>
         <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>See the full ecosystem model - how a $47 product becomes $440+ per customer through the backend</li>
