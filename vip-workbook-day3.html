@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 3 Workbook - Digital Course Launch Lab VIP</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%20%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%3Cstop%20offset=%220%25%22%20stop-color=%22%230ad1d9%22/%3E%3Cstop%20offset=%22100%25%22%20stop-color=%22%2316d09c%22/%3E%3C/linearGradient%3E%3C/defs%3E%20%3Ccircle%20cx=%2216%22%20cy=%2216%22%20r=%2215%22%20fill=%22url(%23g)%22/%3E%20%3Cpath%20d=%22M16%204C16%204%2010%208%2010%2016C10%2020%2012%2024%2016%2028C14%2024%2013%2020%2014%2016C15%2012%2016%2010%2019%208C17%207%2016%204%2016%204Z%22%20fill=%22rgba(255,255,255,0.95)%22/%3E%20%3Cpath%20d=%22M16%206C18%209%2022%2012%2022%2018C22%2022%2020%2026%2016%2028C19%2024%2020%2020%2019%2016C18%2012%2016%209%2016%206Z%22%20fill=%22rgba(255,255,255,0.7)%22/%3E%20%3Cellipse%20cx=%2213%22%20cy=%2214%22%20rx=%221.5%22%20ry=%222.5%22%20fill=%22url(%23g)%22%20opacity=%220.6%22%20transform=%22rotate(-15%2013%2014)%22/%3E%20%3Cellipse%20cx=%2218%22%20cy=%2212%22%20rx=%221.2%22%20ry=%222%22%20fill=%22url(%23g)%22%20opacity=%220.5%22%20transform=%22rotate(10%2018%2012)%22/%3E%20%3Cpath%20d=%22M16%208C16%208%2014%2011%2014%2015%22%20stroke=%22rgba(255,255,255,0.4)%22%20stroke-width=%220.5%22%20fill=%22none%22/%3E%20%3Cpath%20d=%22M16%208C16%208%2018%2011%2018%2014%22%20stroke=%22rgba(255,255,255,0.3)%22%20stroke-width=%220.5%22%20fill=%22none%22/%3E%20%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:letter;margin:0.6in 0.7in}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  --gold:#D4A853;--gold-dk:#B8923E;--gold-lt:#E8C97A;
+  --pacific:#0097a7;--warm:#f7f4f0;--warmdk:#ede8e2;--warmbg:#faf8f5;
+  --char:#434343;--ablack:#1a1a2e;--slate:#8e8d8d;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --gg:linear-gradient(135deg,var(--gold),var(--gold-lt),#f0d68a,var(--gold));
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:#fff}
+.cover{min-height:100vh;background:linear-gradient(160deg,#1a160a 0%,#2a2210 20%,#1e1a0c 55%,#120f06 100%);border-top:6px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;page-break-after:always}
+.cover::before{content:'';position:absolute;top:-10%;left:15%;width:800px;height:800px;background:radial-gradient(circle,rgba(212,168,83,.25),rgba(232,201,122,.06),transparent 55%);filter:blur(60px)}
+.cover::after{content:'';position:absolute;bottom:-10%;right:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,83,.12),transparent 60%);filter:blur(40px)}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,168,83,.15),rgba(212,168,83,.05));border:1px solid rgba(212,168,83,.3);padding:8px 20px;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:24px;position:relative;z-index:1}
+.cover-badge svg{width:14px;height:14px}
+.cover-day{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;position:relative;z-index:1}
+.cover-divider{width:80px;height:2px;background:var(--gg);margin:0 auto 32px;position:relative;z-index:1}
+.cover h1{font-family:var(--display);font-size:clamp(44px,7vw,64px);font-weight:700;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;position:relative;z-index:1}
+.cover h1 em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cover-sub{font-size:18px;color:rgba(255,255,255,.6);max-width:500px;line-height:1.7;margin-bottom:40px;position:relative;z-index:1}
+.cover-meta{display:flex;align-items:center;gap:24px;position:relative;z-index:1}
+.cover-meta span{font-size:14px;color:rgba(255,255,255,.4);font-weight:600}
+.cover-leaf{position:absolute;z-index:0;opacity:.08}
+.page{max-width:750px;margin:0 auto;padding:48px 40px;page-break-after:always}
+.page:last-child{page-break-after:auto}
+.sec-num{font-family:var(--display);font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.sec-num::before{content:'';width:20px;height:2px;background:var(--gg)}
+.sec-title{font-family:var(--display);font-size:clamp(28px,4.5vw,36px);font-weight:700;color:var(--ablack);line-height:1.15;letter-spacing:-.02em;margin-bottom:8px}
+.sec-title em{font-style:normal;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:28px;max-width:580px}
+.teach-box{background:linear-gradient(145deg,rgba(10,209,217,.04),rgba(10,209,217,.02));border:1px solid rgba(10,209,217,.12);border-left:4px solid var(--t1);padding:20px 24px;margin-bottom:24px}
+.teach-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.teach-box p{font-size:15px;color:#666;line-height:1.7}
+.gold-box{background:linear-gradient(145deg,rgba(212,168,83,.06),rgba(212,168,83,.02));border:1px solid rgba(212,168,83,.15);border-left:4px solid var(--gold);padding:20px 24px;margin-bottom:24px}
+.gold-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.gold-box p{font-size:15px;color:#666;line-height:1.7}
+.cherry-box{background:linear-gradient(145deg,rgba(255,79,73,.04),rgba(255,79,73,.02));border:1px solid rgba(255,79,73,.12);border-left:4px solid var(--cherry);padding:20px 24px;margin-bottom:24px}
+.cherry-box h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:8px}
+.cherry-box p{font-size:15px;color:#666;line-height:1.7}
+.field{margin-bottom:20px}
+.field-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pacific);margin-bottom:6px}
+.field-line{border:none;border-bottom:2px solid #e0dcd6;width:100%;height:40px;display:block;margin-bottom:4px;font-family:var(--body);font-size:16px;color:var(--char);outline:none;background:transparent;padding:8px 4px;transition:border-color .2s}
+.field-line:focus{border-bottom-color:var(--t1)}
+.field-box{border:2px solid #e0dcd6;width:100%;min-height:80px;display:block;margin-bottom:4px;padding:10px;background:rgba(250,248,245,.5);font-family:var(--body);font-size:15px;color:var(--char);outline:none;resize:vertical;line-height:1.6;transition:border-color .2s}
+.field-box:focus{border-color:var(--t1);background:rgba(250,248,245,.8)}
+.field-tall{min-height:120px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px}
+.card{border:1px solid #e0dcd6;padding:16px;background:var(--warmbg)}
+.card h5{font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin-bottom:6px}
+.card p{font-size:14px;color:#777;line-height:1.5}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.check-item:last-child{border-bottom:none}
+.check-box{width:18px;height:18px;flex-shrink:0;margin-top:3px;cursor:pointer;accent-color:var(--t1)}
+.check-text{font-size:13px;color:var(--char);line-height:1.5}
+.check-text strong{color:var(--ablack)}
+.prompt-block{background:#0a2628;padding:24px 28px;margin:20px 0;position:relative;overflow:hidden;font-family:'Courier New',monospace}
+.prompt-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gg)}
+.prompt-label{display:inline-flex;align-items:center;gap:6px;background:rgba(212,168,83,.15);border:1px solid rgba(212,168,83,.25);padding:4px 12px;font-family:var(--body);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:14px}
+.prompt-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.8;white-space:pre-wrap}
+.prompt-text .var{color:var(--t1);font-weight:700}
+.prompt-note{font-family:var(--body);font-size:13px;color:rgba(255,255,255,.4);margin-top:14px;font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:10px}
+.hand{font-family:var(--script);color:var(--cherry);transform:rotate(-1.5deg);display:inline-block}
+.pg-foot{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid #e0dcd6;margin-top:40px;font-size:11px;color:var(--slate)}
+.pg-foot-logo{font-family:var(--display);font-weight:800;color:var(--ablack);font-size:12px;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Calendar grid */
+.cal{width:100%;border-collapse:collapse;margin-bottom:24px}
+.cal th{font-family:var(--display);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--pacific);padding:8px 6px;text-align:left;border-bottom:2px solid var(--t1)}
+.cal td{font-size:11px;color:var(--char);padding:10px 6px;border-bottom:1px solid #eee;vertical-align:top;line-height:1.4}
+.cal td:first-child{font-weight:700;color:var(--ablack);white-space:nowrap;width:80px}
+.cal .cal-action{font-size:10px;color:var(--pacific);font-weight:600;display:block;margin-top:2px}
+.cal .cal-highlight{background:rgba(10,209,217,.04)}
+.cal .cal-launch{background:rgba(255,79,73,.04)}
+/* Revenue calc */
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eee}
+.calc-row:last-child{border-bottom:none;border-top:2px solid var(--ablack);font-weight:700}
+.calc-label{flex:1;font-size:13px;color:var(--char)}
+.calc-val{font-family:var(--display);font-size:16px;font-weight:800;color:var(--ablack);min-width:100px;text-align:right}
+.calc-input{border:none;border-bottom:2px solid #e0dcd6;width:80px;height:32px;text-align:center;font-family:var(--display);font-size:16px;font-weight:800;color:var(--cherry)}
+@media print{body{background:#fff}.cover{min-height:auto;height:100vh}.page{padding:36px 20px}}
+@media(max-width:600px){.page{padding:32px 20px}.grid-2,.grid-3{grid-template-columns:1fr}.cal{font-size:10px}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge"><svg viewBox="0 0 16 16" fill="none"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7L8 1z" fill="var(--gold-lt)"/></svg>VIP EXCLUSIVE WORKBOOK</div>
+  <div class="cover-day">DAY 3 OF 3</div>
+  <div class="cover-divider"></div>
+  <h1>Launch & Get<br><em>Your First Sales</em></h1>
+  <p class="cover-sub">Your 21-day launch calendar, revenue goal calculator, funnel checklist, and the launch email templates to go from "I built something" to "I got my first sale."</p>
+  <div class="cover-meta">
+    <span>Digital Course Launch Lab</span>
+    <span>Marissa Romero</span>
+    <span>VIP Challenger</span>
+  </div>
+</div>
+
+<!-- SECTION 1: REVENUE GOAL CALCULATOR -->
+<div class="page">
+  <div class="sec-num">SECTION 1</div>
+  <h2 class="sec-title">Revenue <em>Goal Calculator</em></h2>
+  <p class="sec-sub">15 sales x $47 = $705. That's your program paid for. Everything after that is profit. Let's reverse-engineer your first revenue target.</p>
+
+  <div class="cherry-box">
+    <h4>The "15 Sales" Benchmark</h4>
+    <p>If you're in Digital Course Launch Lab ($697), you only need 15 sales of your $47 product to pay for the entire program. That's the floor, not the ceiling.</p>
+  </div>
+
+  <div style="margin-bottom:24px" id="revenueCalc">
+    <div class="calc-row">
+      <div class="calc-label">Your product price</div>
+      <div class="calc-val">$<input id="rc-price" type="number" value="47" min="1" style="border:none;border-bottom:2px dashed #ccc;width:60px;text-align:center;font-family:var(--display);font-size:inherit;font-weight:inherit;color:inherit;outline:none;background:transparent"></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Target sales per month</div>
+      <div class="calc-val"><input id="rc-sales" type="number" value="30" min="1" style="border:none;border-bottom:2px dashed #ccc;width:60px;text-align:center;font-family:var(--display);font-size:inherit;font-weight:inherit;color:inherit;outline:none;background:transparent"></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">= Monthly front-end revenue</div>
+      <div class="calc-val">$<span id="rc-monthly" style="display:inline-block;min-width:60px;text-align:center">1,410</span></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Estimated AOV multiplier with upsells</div>
+      <div class="calc-val" style="display:flex;align-items:center;gap:8px;justify-content:flex-end"><input id="rc-mult" type="range" min="1" max="3" step="0.1" value="2" style="width:80px;accent-color:var(--cherry)"><span id="rc-mult-val" style="font-size:13px;min-width:30px">x2.0</span></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">= Total monthly revenue potential</div>
+      <div class="calc-val" style="color:var(--cherry)">$<span id="rc-total-mo">2,820</span></div>
+    </div>
+    <div class="calc-row" style="border-top:2px solid var(--ablack)">
+      <div class="calc-label"><strong>Annual projection (x 12)</strong></div>
+      <div class="calc-val" style="font-size:20px;color:var(--cherry)">$<span id="rc-annual">33,840</span></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var price=document.getElementById('rc-price'),sales=document.getElementById('rc-sales'),mult=document.getElementById('rc-mult');
+    var mo=document.getElementById('rc-monthly'),mv=document.getElementById('rc-mult-val'),tm=document.getElementById('rc-total-mo'),an=document.getElementById('rc-annual');
+    function fmt(n){return n.toLocaleString('en-US')}
+    function calc(){
+      var p=parseFloat(price.value)||0,s=parseFloat(sales.value)||0,m=parseFloat(mult.value)||1;
+      var frontend=p*s,total=frontend*m,annual=total*12;
+      mo.textContent=fmt(Math.round(frontend));
+      mv.textContent='x'+m.toFixed(1);
+      tm.textContent=fmt(Math.round(total));
+      an.textContent=fmt(Math.round(annual));
+    }
+    price.addEventListener('input',calc);sales.addEventListener('input',calc);mult.addEventListener('input',calc);
+    calc();
+  })();
+  </script>
+
+  <div class="teach-box">
+    <h4>Traffic You Need</h4>
+    <p>At a 5-7% conversion rate (Marissa's benchmark), you need 15-20 visitors per sale. For 30 sales/month, that's 430-600 visitors. From YouTube, email, or social - that's very achievable with organic traffic alone.</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>The Ecosystem Math (This Is Where It Gets Exciting)</h4>
+    <p>3 out of 56 buyers in Marissa's launch became high-ticket clients at $10K-$20K each. That's a 5.3% ascension rate. If 5% of your $47 buyers become $2K-$5K clients, your actual revenue per buyer is dramatically higher than $47.</p>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 3 Workbook | VIP Exclusive | Page 1</div>
+  </div>
+</div>
+
+<!-- SECTION 2: 21-DAY LAUNCH CALENDAR -->
+<div class="page">
+  <div class="sec-num">SECTION 2</div>
+  <h2 class="sec-title">Your <em>21-Day Launch Calendar</em></h2>
+  <p class="sec-sub">This is the exact timeline to go from "product ready" to "money in the bank." Fill in your specific dates.</p>
+
+  <div class="field">
+    <div class="field-label">My launch date (Day 15 below)</div>
+    <input type="text" class="field-line">
+  </div>
+
+  <table class="cal">
+    <thead>
+      <tr><th>Day</th><th>Phase</th><th>Task</th></tr>
+    </thead>
+    <tbody>
+      <tr class="cal-highlight"><td>Day 1-2</td><td>Setup</td><td>Finalize product content + upload to platform<span class="cal-action">Action: record videos / format templates / upload to GHL</span></td></tr>
+      <tr class="cal-highlight"><td>Day 3-4</td><td>Setup</td><td>Build sales page using AI prompt from Day 2 workbook<span class="cal-action">Action: use GHL AI Funnel Builder</span></td></tr>
+      <tr class="cal-highlight"><td>Day 5</td><td>Setup</td><td>Build checkout page + connect payment (Stripe)<span class="cal-action">Action: test purchase flow end-to-end</span></td></tr>
+      <tr class="cal-highlight"><td>Day 6-7</td><td>Setup</td><td>Build upsell pages + downsell pages<span class="cal-action">Action: wire the full funnel sequence</span></td></tr>
+      <tr><td>Day 8</td><td>Pre-Launch</td><td>Write launch email sequence (5 emails)<span class="cal-action">Action: use AI Email Prompt from prompt library</span></td></tr>
+      <tr><td>Day 9</td><td>Pre-Launch</td><td>Create 3-5 social media posts / stories for launch week<span class="cal-action">Action: tease the product without revealing everything</span></td></tr>
+      <tr><td>Day 10</td><td>Pre-Launch</td><td>Set up email automations + tags in GHL<span class="cal-action">Action: welcome sequence, purchase confirmation, upsell follow-up</span></td></tr>
+      <tr><td>Day 11-12</td><td>Pre-Launch</td><td>DM your warmest contacts. Personal outreach to 20-50 people.<span class="cal-action">Action: "Hey, I made something for [niche]. Want first access?"</span></td></tr>
+      <tr><td>Day 13-14</td><td>Pre-Launch</td><td>Final QA: test every link, every email, every page on mobile<span class="cal-action">Action: buy your own product as a test</span></td></tr>
+      <tr class="cal-launch"><td><strong>Day 15</strong></td><td><strong>LAUNCH</strong></td><td><strong>SEND THE EMAIL. POST THE POST. GO LIVE.</strong><span class="cal-action">Action: launch email #1 + social post + DM your pre-launch list</span></td></tr>
+      <tr class="cal-launch"><td>Day 16</td><td>Launch</td><td>Launch email #2: social proof + FAQ<span class="cal-action">Action: share any early sales/feedback</span></td></tr>
+      <tr class="cal-launch"><td>Day 17</td><td>Launch</td><td>Launch email #3: objection crusher<span class="cal-action">Action: address the #1 hesitation your audience has</span></td></tr>
+      <tr class="cal-launch"><td>Day 18</td><td>Launch</td><td>Go live on social (IG, YT, or community)<span class="cal-action">Action: teach a micro-lesson, pitch the product at the end</span></td></tr>
+      <tr class="cal-launch"><td>Day 19</td><td>Launch</td><td>Launch email #4: deadline reminder + bonus<span class="cal-action">Action: add a time-limited bonus for early buyers</span></td></tr>
+      <tr class="cal-launch"><td>Day 20</td><td>Launch</td><td>Launch email #5: last chance / cart closing<span class="cal-action">Action: final urgency push</span></td></tr>
+      <tr><td>Day 21</td><td>Post-Launch</td><td>Debrief: count sales, review metrics, plan next launch<span class="cal-action">Action: what worked? What to improve? Plan upsell #2.</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 3 Workbook | VIP Exclusive | Page 2</div>
+  </div>
+</div>
+
+<!-- SECTION 3: LAUNCH CHECKLIST -->
+<div class="page">
+  <div class="sec-num">SECTION 3</div>
+  <h2 class="sec-title">Pre-Launch <em>Checklist</em></h2>
+  <p class="sec-sub">Don't launch until every box is checked. This is your "go / no-go" list.</p>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="background:var(--tg);color:#fff;padding:2px 10px;font-size:11px;letter-spacing:.1em">PRODUCT</span></h3>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Product content is finalized and uploaded</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Deliverables (templates, PDFs, resources) are ready to download</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Welcome / onboarding email is written and automated</div></div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin:20px 0 12px;display:flex;align-items:center;gap:8px"><span style="background:var(--gg);color:#fff;padding:2px 10px;font-size:11px;letter-spacing:.1em">FUNNEL</span></h3>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Sales page is live with correct pricing + CTA</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Checkout page works + Stripe is connected</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Upsell 1 page is wired (shows after purchase)</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Downsell page is wired (shows if they decline upsell)</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Thank you / confirmation page is live</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Tested the FULL purchase flow yourself (bought your own product)</div></div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin:20px 0 12px;display:flex;align-items:center;gap:8px"><span style="background:linear-gradient(135deg,var(--cherry),#ff6b5e);color:#fff;padding:2px 10px;font-size:11px;letter-spacing:.1em">EMAILS</span></h3>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">5-email launch sequence is written and scheduled</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Purchase confirmation email is automated</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Upsell follow-up email (for those who didn't buy upsell)</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Email domain is warmed up (deliverability check)</div></div>
+
+  <h3 style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ablack);margin:20px 0 12px;display:flex;align-items:center;gap:8px"><span style="background:linear-gradient(135deg,var(--t3),var(--t4));color:#fff;padding:2px 10px;font-size:11px;letter-spacing:.1em">TRAFFIC</span></h3>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">3-5 social posts created for launch week</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">DM list of 20-50 warm contacts ready</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">YouTube video or content piece planned for launch day</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text">Link is correct everywhere (email, social, DMs)</div></div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 3 Workbook | VIP Exclusive | Page 3</div>
+  </div>
+</div>
+
+<!-- SECTION 4: LAUNCH EMAIL FRAMEWORKS -->
+<div class="page">
+  <div class="sec-num">SECTION 4</div>
+  <h2 class="sec-title">Launch <em>Email Templates</em></h2>
+  <p class="sec-sub">5 emails. 5 days. Use these frameworks and feed them into the AI Email Prompt to generate your actual copy.</p>
+
+  <div class="grid-2" style="margin-bottom:16px">
+    <div class="card" style="border-top:3px solid var(--t1)">
+      <h5>Email 1: The Announcement</h5>
+      <p><strong>Subject:</strong> It's here (and it's $47)<br><strong>Angle:</strong> Excitement + what they get<br><strong>CTA:</strong> Direct link to sales page<br><strong>Tone:</strong> "I built this for YOU"</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--gold)">
+      <h5>Email 2: Social Proof</h5>
+      <p><strong>Subject:</strong> [X] people already grabbed this<br><strong>Angle:</strong> Early buyer reactions + FAQ answers<br><strong>CTA:</strong> "Join them"<br><strong>Tone:</strong> Validation + trust</p>
+    </div>
+  </div>
+  <div class="grid-2" style="margin-bottom:16px">
+    <div class="card" style="border-top:3px solid var(--cherry)">
+      <h5>Email 3: Objection Crusher</h5>
+      <p><strong>Subject:</strong> "But will this work for me?"<br><strong>Angle:</strong> Address #1 hesitation directly<br><strong>CTA:</strong> "Here's proof it works"<br><strong>Tone:</strong> Empathetic + evidence</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--t3)">
+      <h5>Email 4: Deadline + Bonus</h5>
+      <p><strong>Subject:</strong> Bonus disappears in 24 hours<br><strong>Angle:</strong> Add a time-limited bonus<br><strong>CTA:</strong> "Grab it before midnight"<br><strong>Tone:</strong> Urgency without pressure</p>
+    </div>
+  </div>
+  <div class="card" style="border-top:3px solid var(--ablack);margin-bottom:24px">
+    <h5>Email 5: Last Chance</h5>
+    <p><strong>Subject:</strong> Last call - cart closes tonight<br><strong>Angle:</strong> The 3 options (do nothing / do it yourself / let me help)<br><strong>CTA:</strong> "This is your moment"<br><strong>Tone:</strong> Direct, honest, encouraging</p>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">AI PROMPT - LAUNCH EMAIL GENERATOR</div>
+    <div class="prompt-text">You are an email copywriter for course creators. Write a 5-email launch sequence for a $<span class="var">[PRICE]</span> digital product called "<span class="var">[PRODUCT NAME]</span>".
+
+Target audience: <span class="var">[WHO THEY ARE]</span>
+Core promise: <span class="var">[MESSAGING FORMULA]</span>
+Launch dates: <span class="var">[START - END]</span>
+
+Email 1: Announcement (excitement + what they get)
+Email 2: Social proof (early reactions + FAQ)
+Email 3: Objection crusher (address biggest hesitation)
+Email 4: Deadline + bonus (urgency, time-limited extra)
+Email 5: Last chance (3 options framework, honest close)
+
+Keep each email under 300 words. Use short paragraphs. Conversational tone. One clear CTA per email.</div>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 3 Workbook | VIP Exclusive | Page 4</div>
+  </div>
+</div>
+
+<!-- SECTION 5: DAY 3 ACTION STEPS -->
+<div class="page">
+  <div class="sec-num">SECTION 5</div>
+  <h2 class="sec-title">Your Day 3 <em>Action Steps</em></h2>
+  <p class="sec-sub">This is it. The model works. The messaging formula works. Your niche works. Now go do something about it.</p>
+
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>Set your launch date</strong> - 21 days from today. Put it in your calendar. Tell someone.</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>Complete the Revenue Goal Calculator</strong> (Section 1) - know your numbers.</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>Fill in the 21-Day Calendar</strong> (Section 2) with your actual dates.</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>Run the Launch Email AI Prompt</strong> (Section 4) - generate all 5 emails.</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>Start building your funnel in GHL</strong> - sales page first, then checkout.</div></div>
+  <div class="check-item"><input type="checkbox" class="check-box"><div class="check-text"><strong>VIP ONLY: Share your launch date</strong> in the VIP Telegram. Accountability = results.</div></div>
+
+  <div class="gold-box" style="margin-top:28px">
+    <h4>The 3 Options (Be Honest With Yourself)</h4>
+    <p><strong>Option 1: Do Nothing.</strong> Stay where you are. Keep thinking about it. Nothing changes.<br><br><strong>Option 2: Do It Yourself.</strong> It'll take longer, cost more in mistakes, but you might get there eventually.<br><br><strong>Option 3: Let Marissa Help.</strong> 4 weeks. Weekly workshops. AI prompts. GHL templates. Loom feedback. The fastest path from idea to income.</p>
+  </div>
+
+  <div class="field" style="margin-top:24px">
+    <div class="field-label">My launch date</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">My revenue target for first 30 days</div>
+    <input type="text" class="field-line">
+  </div>
+  <div class="field">
+    <div class="field-label">The ONE thing I'm committing to doing THIS WEEKEND</div>
+    <textarea class="field-box"></textarea>
+  </div>
+
+  <div style="background:#0a2628;padding:24px 28px;margin-top:28px;text-align:center">
+    <div style="font-family:var(--display);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:8px">REMEMBER</div>
+    <div style="font-family:var(--display);font-size:22px;font-weight:700;color:#fff;line-height:1.3">Every business needs a low-ticket<br>digital product. Not some. <span style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Every.</span></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:8px">Including yours. Now go build it.</div>
+  </div>
+
+  <div class="pg-foot">
+    <div class="pg-foot-logo">Marissa Romero - <em>Digital Course Launch Lab</em></div>
+    <div>Day 3 Workbook | VIP Exclusive | Page 5</div>
+  </div>
+</div>
+
+</body>
+</html>
