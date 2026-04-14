@@ -1,9 +1,11 @@
+<link rel="icon" type="image/png" href="https://i.imgur.com/9hLtted.png">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+
 <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
 <style>
 /* CONGRATS PAGE — "YOU'RE IN"
    SHOW-UP MAXIMIZER + TROPICAL LEAF REVEAL INTRO
-   Leaf-curtain opens → confetti → hero with VSL device mockup */
+   Hero with VSL device mockup */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
@@ -49,44 +51,6 @@ a{text-decoration:none;color:inherit}
 @keyframes leafBreeze{0%,100%{transform:translateY(0) translateX(0) rotate(0) scale(1)}15%{transform:translateY(-6px) translateX(3px) rotate(1.5deg) scale(1.01)}30%{transform:translateY(-10px) translateX(-2px) rotate(-1deg) scale(.99)}50%{transform:translateY(-4px) translateX(5px) rotate(2deg) scale(1.02)}70%{transform:translateY(-12px) translateX(-3px) rotate(-1.5deg) scale(1)}85%{transform:translateY(-5px) translateX(2px) rotate(.5deg) scale(1.01)}}
 @keyframes leafWindSway{0%,100%{transform:rotate(0) scale(1) translateX(0)}12%{transform:rotate(2deg) scale(1.01) translateX(4px)}28%{transform:rotate(-1.5deg) scale(.99) translateX(-3px)}45%{transform:rotate(1deg) scale(1.02) translateX(6px)}62%{transform:rotate(-2deg) scale(1) translateX(-5px)}78%{transform:rotate(1.5deg) scale(1.01) translateX(3px)}90%{transform:rotate(-.5deg) scale(.99) translateX(-2px)}}
 .deco-circle{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
-
-/* ══ LEAF REVEAL INTRO ══ */
-.intro-overlay{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse at 50% 40%,#0d3133,#0a2628 60%,#071d1f);overflow:hidden}
-.intro-overlay.done{opacity:0;pointer-events:none;transition:opacity .5s ease}
-.intro-particles{position:absolute;inset:0;pointer-events:none}
-.intro-dot{position:absolute;border-radius:50%;pointer-events:none}
-/* Leaf curtains */
-.intro-leaf{position:absolute;top:0;height:100%;width:55%;z-index:5;transition:none}
-.intro-leaf svg{width:100%;height:100%}
-.intro-leaf-L{left:0;transform-origin:left center;animation:leafCurtainIn .8s .2s cubic-bezier(.4,0,.2,1) forwards,leafCurtainOut .9s 2.2s cubic-bezier(.4,0,.2,1) forwards}
-.intro-leaf-R{right:0;transform-origin:right center;animation:leafCurtainIn .8s .2s cubic-bezier(.4,0,.2,1) forwards,leafCurtainOut .9s 2.2s cubic-bezier(.4,0,.2,1) forwards}
-.intro-leaf-L{transform:translateX(-100%)}
-.intro-leaf-R{transform:translateX(100%)}
-@keyframes leafCurtainIn{0%{opacity:.8}100%{opacity:1;transform:translateX(0)}}
-@keyframes leafCurtainOut{0%{transform:translateX(0)}100%{transform:translateX(var(--out))}}
-/* Center content */
-.intro-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;text-align:center;padding:0 20px}
-.intro-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(10,209,217,.15) 0%,transparent 65%);transform:scale(0);animation:introGlowPulse 1s 1s ease-out forwards;pointer-events:none}
-.intro-headline{font-family:var(--display);font-size:clamp(52px,12vw,90px);font-weight:900;color:#fff;letter-spacing:-.03em;opacity:0;transform:translateY(30px) scale(.9);animation:introStamp .6s .8s cubic-bezier(.2,.8,.2,1.2) forwards}
-.intro-headline span{background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.intro-sub{font-size:clamp(14px,2vw,20px);color:rgba(255,255,255,.5);margin-top:10px;opacity:0;animation:introFadeUp .6s 1.1s ease-out forwards}
-.intro-diamond{position:absolute;top:50%;left:50%;transform:translate(-50%,-120%) scale(0);opacity:0;z-index:11;animation:introDiamondIn .7s 1.5s cubic-bezier(.22,1,.36,1) forwards}
-/* Leaf particles that burst out */
-.intro-leaf-particle{position:absolute;top:50%;left:50%;opacity:0;z-index:12;pointer-events:none}
-/* Wash */
-.intro-wash{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(250,248,245,.9),#faf8f5 70%);transform:scale(0);opacity:0;z-index:20;animation:introWash .7s 3s ease-out forwards}
-@keyframes introStamp{0%{opacity:0;transform:translateY(30px) scale(.9)}60%{opacity:1;transform:translateY(-5px) scale(1.03)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes introFadeUp{0%{opacity:0;transform:translateY(15px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes introGlowPulse{0%{transform:scale(0);opacity:0}60%{opacity:1}100%{transform:scale(1.5);opacity:.6}}
-@keyframes introDiamondIn{0%{transform:translate(-50%,-120%) scale(0) rotate(-25deg);opacity:0}50%{opacity:1}100%{transform:translate(-50%,-120%) scale(1) rotate(0);opacity:1;filter:drop-shadow(0 0 30px rgba(10,209,217,.5)) drop-shadow(0 0 60px rgba(10,209,217,.2))}}
-@keyframes introWash{0%{transform:scale(0);opacity:0}60%{opacity:1}100%{transform:scale(5);opacity:1}}
-@keyframes introTextOut{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.92) translateY(-10px)}}
-@keyframes introDot{0%{opacity:.5}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
-@keyframes introLeafBurst{0%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}100%{opacity:0;transform:translate(var(--lx),var(--ly)) rotate(var(--lr)) scale(.3)}}
-
-/* ══ CONFETTI CANVAS ══ */
-#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:0;transition:opacity .3s}
-#confetti-canvas.show{opacity:1}
 
 /* ══ HERO ══ */
 .hero{position:relative;padding:44px 3% 36px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 40%,var(--warmbg) 100%);display:flex;flex-direction:column;align-items:center}
@@ -243,6 +207,33 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
 .email-mock-row.faded{opacity:.4}
 .email-mock-star{color:#ddd;font-size:14px}
 .email-mock-star.on{color:var(--sun)}
+
+/* Telegram mockup */
+.tg-mock{margin:20px auto 0;max-width:300px;background:#fff;border:1px solid #e0e0e0;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);border-radius:16px;border:2px solid #222;position:relative}
+.tg-mock::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:4px;background:#222;border-radius:0 0 4px 4px;z-index:10}
+.tg-mock-header{display:flex;align-items:center;gap:10px;padding:8px 12px;background:linear-gradient(135deg,#0ad1d9,#0dc5cf,#16d09c);color:#fff;position:relative;border-radius:14px 14px 0 0}
+.tg-mock-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,.15)}
+.tg-mock-back{display:flex;align-items:center;flex-shrink:0}
+.tg-mock-avatar{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:800;backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.3)}
+.tg-mock-info{flex:1;min-width:0}
+.tg-mock-name{font-family:var(--display);font-size:12px;font-weight:800;letter-spacing:.01em}
+.tg-mock-members{font-size:9px;opacity:.85;font-weight:500}
+.tg-mock-actions{display:flex;gap:12px;flex-shrink:0}
+.tg-mock-chat{padding:10px 12px;background:#e8ede5;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10c2 0 3.5-1.5 3.5-3.5S32 3 30 3s-3.5 1.5-3.5 3.5S28 10 30 10zM15 25c1.5 0 2.5-1 2.5-2.5S16.5 20 15 20s-2.5 1-2.5 2.5S13.5 25 15 25zM45 40c1 0 2-.8 2-2s-1-2-2-2-2 .8-2 2 1 2 2 2z' fill='%23d4dcc8' opacity='.3'/%3E%3C/svg%3E");display:flex;flex-direction:column;gap:5px}
+.tg-mock-sys{text-align:center;padding:3px 10px;background:rgba(0,0,0,.06);border-radius:10px;font-size:9px;color:#6b7b68;align-self:center;font-weight:600;max-width:280px}
+.tg-mock-bubble{max-width:82%;padding:5px 10px 3px;border-radius:0 8px 8px 8px;position:relative;line-height:1.4}
+.tg-mock-bubble.outgoing{align-self:flex-end;border-radius:8px 0 8px 8px;background:#dcf8c6}
+.tg-mock-bubble.incoming{align-self:flex-start;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.tg-mock-bubble .tg-sender{font-size:10px;font-weight:700;margin-bottom:1px}
+.tg-mock-bubble .tg-text{font-size:11px;color:#1a1a1a;line-height:1.4}
+.tg-mock-bubble .tg-time{font-size:8px;color:#8a9a87;text-align:right;margin-top:1px}
+.tg-mock-pinned{display:flex;align-items:center;gap:6px;padding:5px 12px;background:#fff;border-bottom:1px solid #eee;font-size:10px;color:#555}
+.tg-mock-pinned svg{flex-shrink:0;color:var(--t1)}
+.tg-mock-pinned strong{color:var(--ablack)}
+.tg-mock-input{display:flex;align-items:center;gap:6px;padding:5px 10px;background:#fff;border-top:1px solid #eee;border-radius:0 0 14px 14px}
+.tg-mock-input-field{flex:1;height:26px;background:#f4f4f4;border-radius:13px;padding:0 12px;font-size:10px;color:#999;display:flex;align-items:center}
+@media(max-width:580px){.step-card [style*="grid-template-columns"]{grid-template-columns:1fr!important}.step-card [style*="grid-template-columns"]>div:last-child{justify-content:center}}
+@media(max-width:480px){.tg-mock-bubble{max-width:88%}.tg-mock-chat{padding:10px}}
 .email-mock-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0}
 .email-mock-content{flex:1;min-width:0}
 .email-mock-from{font-size:12px;font-weight:700;color:var(--ablack)}
@@ -306,12 +297,8 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
 @keyframes vipGlow{0%,100%{box-shadow:0 0 80px rgba(241,194,50,.08),0 24px 64px rgba(0,0,0,.35),0 0 120px rgba(241,194,50,.06)}50%{box-shadow:0 0 110px rgba(241,194,50,.16),0 24px 64px rgba(0,0,0,.35),0 0 160px rgba(241,194,50,.12)}}
 .vip-diamond{text-align:center;margin-bottom:20px;animation:vipDiamondFloat 4s ease-in-out infinite}
 @keyframes vipDiamondFloat{0%,100%{transform:translateY(0);filter:drop-shadow(0 0 18px rgba(241,194,50,.3))}50%{transform:translateY(-10px);filter:drop-shadow(0 0 30px rgba(241,194,50,.5)) drop-shadow(0 0 60px rgba(241,194,50,.15))}}
-.vip-photo{width:100%;aspect-ratio:16/9;margin-bottom:24px;overflow:hidden;border:1px solid rgba(241,194,50,.2);position:relative}
-.vip-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.vip-photo-placeholder,.vip-photo-empty .vip-photo-placeholder{display:flex}
-.vip-photo-placeholder{display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,194,50,.06),rgba(241,194,50,.02));backdrop-filter:blur(4px)}
-.vip-photo-placeholder span{font-size:12px;font-weight:600;letter-spacing:.04em;color:rgba(241,194,50,.4)}
-.vip-photo img[src=""]+.vip-photo-placeholder{display:flex}
+.vip-photo{width:100%;margin-bottom:24px;overflow:visible;position:relative}
+.vip-photo svg{width:100%;height:auto;display:block}
 .vip-eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);margin-bottom:14px;text-align:center;text-shadow:0 0 20px rgba(241,194,50,.3)}
 .vip-title{font-family:var(--display);font-size:clamp(26px,3.5vw,36px);font-weight:800;color:#fff;text-align:center;line-height:1.12;margin-bottom:22px;text-shadow:0 2px 8px rgba(0,0,0,.2)}
 .vip-body{font-size:clamp(14px,1.3vw,15.5px);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:26px}
@@ -361,7 +348,6 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
   .vip-list{grid-template-columns:1fr}
   .deco-leaf-fg,.deco-leaf-mid{display:none!important}
   .deco-leaf-bg{opacity:.12!important}
-  .intro-leaf{width:60%}
 }
 @media(max-width:480px){
   .hero{padding:28px 5% 24px}
@@ -438,7 +424,7 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
           <iframe
             id="vslIframe"
             class="vsl-iframe"
-            src=""
+            src="https://www.youtube.com/embed/yGqa5-dwyrw?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1&controls=0&showinfo=0&playsinline=1"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             allowfullscreen webkitallowfullscreen mozallowfullscreen
@@ -512,7 +498,7 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
   <div class="steps-inner">
     <div class="steps-header fi">
       <h2>Before You Close This Tab</h2>
-      <p>The people who do these 3 things are the ones who actually show up, do the work, and walk away with a real plan. <span class="hl-script">don't skip these.</span></p>
+      <p>The people who do these 4 things are the ones who actually show up, do the work, and walk away with a real plan. <span class="hl-script">don't skip these.</span></p>
     </div>
 
     <!-- STEP 1: CALENDAR -->
@@ -551,10 +537,84 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
 
     <div class="step-connector"></div>
 
-    <!-- STEP 2: EMAIL -->
+    <!-- STEP 2: TELEGRAM — 2-col -->
+    <div class="step-card fi" style="padding:0;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 260px;min-height:0">
+        <!-- Left: copy + CTA -->
+        <div style="padding:28px 24px">
+          <div class="step-head">
+            <div class="step-num">2</div>
+            <div class="step-meta">
+              <div class="step-title">Join the Challenge Community</div>
+              <span class="step-urgency">Join Now — Updates Start Immediately</span>
+            </div>
+          </div>
+          <div class="step-body">
+            <p>This is where we'll hang out before and during the challenge. I'll be sharing tips, reminders, and bonus content leading up to Day 1 — and it's where you'll connect with other challengers.</p>
+            <div style="margin-top:20px">
+              <a href="https://t.me/+rNHGYJXGTUU0ZDM1" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#0ad1d9,#16d09c);color:#fff;font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #0a9ea5,0 6px 16px rgba(10,209,217,.2);transition:transform .15s,box-shadow .15s;cursor:pointer" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 0 #0a9ea5,0 10px 24px rgba(10,209,217,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 0 #0a9ea5,0 6px 16px rgba(10,209,217,.2)'">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                JOIN TELEGRAM
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Right: phone mockup -->
+        <div style="display:flex;align-items:center;justify-content:center;padding:20px 16px;background:rgba(10,209,217,.03)">
+          <div class="tg-mock" style="margin:0">
+            <div class="tg-mock-header">
+              <div class="tg-mock-back">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="tg-mock-avatar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="tg-mock-info">
+                <div class="tg-mock-name">Launch Lab</div>
+                <div class="tg-mock-members">247 members, 38 online</div>
+              </div>
+              <div class="tg-mock-actions">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="1.5" fill="#fff"/><circle cx="12" cy="12" r="1.5" fill="#fff"/><circle cx="12" cy="18" r="1.5" fill="#fff"/></svg>
+              </div>
+            </div>
+            <div class="tg-mock-pinned">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2l2 8h8l-6.5 5 2.5 8L12 18l-6 5 2.5-8L2 10h8z" fill="currentColor"/></svg>
+              <span><strong>Pinned:</strong> Zoom links drop May 4th</span>
+            </div>
+            <div class="tg-mock-chat">
+              <div class="tg-mock-sys">Marissa created the group</div>
+              <div class="tg-mock-bubble incoming">
+                <div class="tg-sender" style="color:#0ad1d9">Marissa Romero</div>
+                <div class="tg-text">Welcome to the Lab! Tips + reminders dropping here before Day 1.</div>
+                <div class="tg-time">2:14 PM</div>
+              </div>
+              <div class="tg-mock-bubble incoming" style="background:#f0f8ff">
+                <div class="tg-sender" style="color:#5b8fb9">Sarah K.</div>
+                <div class="tg-text">So excited! Notebook ready 📓</div>
+                <div class="tg-time">2:18 PM</div>
+              </div>
+              <div class="tg-mock-bubble incoming">
+                <div class="tg-sender" style="color:#0ad1d9">Marissa Romero</div>
+                <div class="tg-text">Love the energy! See you Monday 💪</div>
+                <div class="tg-time">2:20 PM</div>
+              </div>
+            </div>
+            <div class="tg-mock-input">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="#999" stroke-width="1.5"/><circle cx="9" cy="10" r="1" fill="#999"/><circle cx="15" cy="10" r="1" fill="#999"/></svg>
+              <div class="tg-mock-input-field">Message...</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"></div>
+
+    <!-- STEP 3: EMAIL -->
     <div class="step-card fi">
       <div class="step-head">
-        <div class="step-num">2</div>
+        <div class="step-num">3</div>
         <div class="step-meta">
           <div class="step-title">Check Your Email</div>
           <span class="step-urgency">Do This Before You Close This Tab</span>
@@ -620,10 +680,10 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
 
     <div class="step-connector"></div>
 
-    <!-- STEP 3: MISSION -->
+    <!-- STEP 4: MISSION -->
     <div class="step-card fi" style="border:none;padding:0;background:none;box-shadow:none">
       <div class="step-head" style="margin-bottom:0;padding:0 4px">
-        <div class="step-num" style="background:var(--ablack)">3</div>
+        <div class="step-num" style="background:var(--ablack)">4</div>
         <div class="step-meta">
           <div class="step-title">Your Pre-Challenge Mission</div>
           <span class="step-urgency" style="background:rgba(10,209,217,.08);color:var(--pacific)">Before Day 1</span>
@@ -635,7 +695,7 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
           Your Homework
         </div>
         <div class="mission-title">Come to Day 1 with your course idea ready.</div>
-        <div class="mission-body">On Day 1, we're validating your course idea live. The people who come prepared with even a rough idea get 10x more out of the session than the ones who show up blank. <strong>You don't need it to be perfect.</strong> You just need a starting point.</div>
+        <div class="mission-body">Grab a pen and paper and write down 3 course ideas you've been thinking about. They don't need to be perfect - just bring them so we can dissect them together and get you on the right track.</div>
         <div class="mission-prompt">
           <p>Think about this before Monday:<br><span class="hl-script">What's the one thing you know well enough to teach someone else?</span></p>
         </div>
@@ -686,13 +746,293 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
       <div class="vip-eyebrow">VIP Challenge Kit</div>
       <div class="vip-title">Want to Actually Do Something With What You Learn?</div>
 
-      <!-- VIP Kit Photo Placeholder — replace src with actual image -->
       <div class="vip-photo">
-        <img src="" alt="VIP Challenge Kit" onerror="this.style.display='none';this.parentElement.classList.add('vip-photo-empty')">
-        <div class="vip-photo-placeholder">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="rgba(241,194,50,.4)" stroke-width="1.5"/><circle cx="8" cy="9" r="2" stroke="rgba(241,194,50,.4)" stroke-width="1.5"/><path d="M2 17l5-5 3 3 4-4 8 8" stroke="rgba(241,194,50,.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>VIP Challenge Kit image</span>
-        </div>
+        <svg viewBox="0 0 900 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vkTeal" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ad1d9"/><stop offset="100%" stop-color="#16d09c"/></linearGradient>
+            <linearGradient id="vkGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4A853"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient>
+            <linearGradient id="vkScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d3538"/><stop offset="100%" stop-color="#0a2628"/></linearGradient>
+            <filter id="vkSh"><feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity=".35"/></filter>
+            <filter id="vkShSm"><feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity=".3"/></filter>
+            <filter id="vkGlow"><feDropShadow dx="0" dy="0" stdDeviation="20" flood-color="#0ad1d9" flood-opacity=".2"/></filter>
+            <clipPath id="vkLaptopClip"><rect x="222" y="72" width="390" height="244" rx="2"/></clipPath>
+            <clipPath id="vkTabClip"><rect x="648" y="118" width="178" height="250" rx="2"/></clipPath>
+            <clipPath id="vkPhoneClip"><rect x="72" y="188" width="118" height="210" rx="2"/></clipPath>
+          </defs>
+
+          <!-- === AMBIENT GLOW === -->
+          <circle cx="450" cy="280" r="260" fill="url(#vkTeal)" opacity=".04" filter="url(#vkGlow)"/>
+          <circle cx="300" cy="350" r="140" fill="#0ad1d9" opacity=".03"/>
+          <circle cx="650" cy="200" r="120" fill="#16d09c" opacity=".03"/>
+
+          <!-- === WORKBOOK STACK (left back) === -->
+          <g filter="url(#vkShSm)" transform="translate(28, 50)">
+            <!-- Book 3 (bottom/back) -->
+            <rect x="0" y="20" width="155" height="200" rx="3" fill="#f7f4f0" transform="rotate(-8 78 120)"/>
+            <rect x="4" y="24" width="147" height="192" rx="2" fill="#fff" transform="rotate(-8 78 120)"/>
+            <rect x="12" y="32" width="131" height="8" rx="1" fill="url(#vkTeal)" opacity=".7" transform="rotate(-8 78 120)"/>
+            <rect x="12" y="46" width="95" height="4" rx="1" fill="#e0dcd6" transform="rotate(-8 78 120)"/>
+            <rect x="12" y="55" width="110" height="4" rx="1" fill="#e0dcd6" transform="rotate(-8 78 120)"/>
+            <text x="78" y="88" font-family="Helvetica,sans-serif" font-size="8" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".06em" transform="rotate(-8 78 120)">DAY 3</text>
+            <text x="78" y="102" font-family="Helvetica,sans-serif" font-size="6.5" fill="#8e8d8d" text-anchor="middle" transform="rotate(-8 78 120)">LAUNCH ROADMAP</text>
+            <!-- Miniature checklist lines -->
+            <rect x="22" y="115" width="8" height="8" rx="1" stroke="#0ad1d9" stroke-width="1" fill="none" transform="rotate(-8 78 120)"/>
+            <rect x="35" y="117" width="65" height="3" rx="1" fill="#e8e4de" transform="rotate(-8 78 120)"/>
+            <rect x="22" y="128" width="8" height="8" rx="1" stroke="#0ad1d9" stroke-width="1" fill="none" transform="rotate(-8 78 120)"/>
+            <rect x="35" y="130" width="55" height="3" rx="1" fill="#e8e4de" transform="rotate(-8 78 120)"/>
+            <rect x="22" y="141" width="8" height="8" rx="1" stroke="#0ad1d9" stroke-width="1" fill="none" transform="rotate(-8 78 120)"/>
+            <rect x="35" y="143" width="70" height="3" rx="1" fill="#e8e4de" transform="rotate(-8 78 120)"/>
+          </g>
+
+          <g filter="url(#vkShSm)" transform="translate(40, 42)">
+            <!-- Book 2 (middle) -->
+            <rect x="0" y="20" width="155" height="200" rx="3" fill="#f7f4f0" transform="rotate(-3 78 120)"/>
+            <rect x="4" y="24" width="147" height="192" rx="2" fill="#fff" transform="rotate(-3 78 120)"/>
+            <rect x="12" y="32" width="131" height="8" rx="1" fill="#ff4f49" opacity=".8" transform="rotate(-3 78 120)"/>
+            <rect x="12" y="46" width="85" height="4" rx="1" fill="#e0dcd6" transform="rotate(-3 78 120)"/>
+            <rect x="12" y="55" width="100" height="4" rx="1" fill="#e0dcd6" transform="rotate(-3 78 120)"/>
+            <text x="78" y="88" font-family="Helvetica,sans-serif" font-size="8" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".06em" transform="rotate(-3 78 120)">DAY 2</text>
+            <text x="78" y="102" font-family="Helvetica,sans-serif" font-size="6.5" fill="#8e8d8d" text-anchor="middle" transform="rotate(-3 78 120)">OFFER FRAMEWORK</text>
+            <!-- Mini chart -->
+            <rect x="25" y="115" width="12" height="30" rx="1" fill="rgba(10,209,217,.15)" transform="rotate(-3 78 120)"/>
+            <rect x="42" y="105" width="12" height="40" rx="1" fill="rgba(10,209,217,.25)" transform="rotate(-3 78 120)"/>
+            <rect x="59" y="95" width="12" height="50" rx="1" fill="rgba(10,209,217,.4)" transform="rotate(-3 78 120)"/>
+            <rect x="76" y="85" width="12" height="60" rx="1" fill="url(#vkTeal)" opacity=".6" transform="rotate(-3 78 120)"/>
+          </g>
+
+          <g filter="url(#vkShSm)" transform="translate(52, 34)">
+            <!-- Book 1 (front/top) -->
+            <rect x="0" y="20" width="155" height="200" rx="3" fill="#f7f4f0" transform="rotate(2 78 120)"/>
+            <rect x="4" y="24" width="147" height="192" rx="2" fill="#fff" transform="rotate(2 78 120)"/>
+            <rect x="12" y="32" width="131" height="8" rx="1" fill="url(#vkGold)" transform="rotate(2 78 120)"/>
+            <rect x="12" y="46" width="90" height="4" rx="1" fill="#e0dcd6" transform="rotate(2 78 120)"/>
+            <rect x="12" y="55" width="108" height="4" rx="1" fill="#e0dcd6" transform="rotate(2 78 120)"/>
+            <text x="78" y="82" font-family="Helvetica,sans-serif" font-size="8" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".06em" transform="rotate(2 78 120)">DAY 1</text>
+            <text x="78" y="96" font-family="Helvetica,sans-serif" font-size="6.5" fill="#8e8d8d" text-anchor="middle" transform="rotate(2 78 120)">YOUR MAP</text>
+            <!-- Miniature map/compass graphic -->
+            <circle cx="78" cy="140" r="28" stroke="url(#vkTeal)" stroke-width="1.5" fill="rgba(10,209,217,.06)" transform="rotate(2 78 120)"/>
+            <circle cx="78" cy="140" r="18" stroke="url(#vkTeal)" stroke-width=".8" fill="none" opacity=".4" transform="rotate(2 78 120)"/>
+            <line x1="78" y1="118" x2="78" y2="162" stroke="url(#vkTeal)" stroke-width=".6" opacity=".3" transform="rotate(2 78 120)"/>
+            <line x1="56" y1="140" x2="100" y2="140" stroke="url(#vkTeal)" stroke-width=".6" opacity=".3" transform="rotate(2 78 120)"/>
+            <polygon points="78,125 82,138 78,135 74,138" fill="#0ad1d9" opacity=".8" transform="rotate(2 78 120)"/>
+            <polygon points="78,155 74,142 78,145 82,142" fill="#16d09c" opacity=".5" transform="rotate(2 78 120)"/>
+            <!-- VIP badge -->
+            <rect x="98" y="170" width="40" height="16" rx="2" fill="url(#vkGold)" transform="rotate(2 78 120)"/>
+            <text x="118" y="181" font-family="Helvetica,sans-serif" font-size="7" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".1em" transform="rotate(2 78 120)">VIP</text>
+          </g>
+
+          <!-- === LAPTOP (center, main) === -->
+          <g filter="url(#vkSh)">
+            <!-- Laptop base/keyboard -->
+            <path d="M190 320L210 344L624 344L644 320Z" fill="#2a2a2a"/>
+            <path d="M200 344L160 366L674 366L634 344Z" fill="#1e1e1e"/>
+            <rect x="370" y="334" width="94" height="4" rx="2" fill="#3a3a3a"/>
+            <!-- Screen bezel -->
+            <rect x="208" y="58" width="418" height="268" rx="6" fill="#1a1a1a"/>
+            <rect x="208" y="58" width="418" height="268" rx="6" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <!-- Camera dot -->
+            <circle cx="417" cy="65" r="2" fill="#333"/>
+            <!-- Screen content -->
+            <g clip-path="url(#vkLaptopClip)">
+              <rect x="222" y="72" width="390" height="244" fill="url(#vkScreen)"/>
+              <!-- Glow accents on screen -->
+              <circle cx="320" cy="140" r="120" fill="#0ad1d9" opacity=".06"/>
+              <circle cx="500" cy="220" r="100" fill="#16d09c" opacity=".04"/>
+              <!-- Video player UI -->
+              <rect x="252" y="92" width="330" height="186" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width=".8"/>
+              <!-- Marissa silhouette/avatar area -->
+              <circle cx="417" cy="162" r="42" fill="rgba(10,209,217,.08)" stroke="rgba(10,209,217,.15)" stroke-width="1"/>
+              <circle cx="417" cy="150" r="14" fill="rgba(255,255,255,.12)"/>
+              <path d="M397 178C397 168 405 160 417 160C429 160 437 168 437 178" fill="rgba(255,255,255,.08)"/>
+              <!-- Play button -->
+              <circle cx="417" cy="162" r="18" fill="rgba(10,209,217,.2)" stroke="rgba(10,209,217,.5)" stroke-width="1.5"/>
+              <polygon points="412,152 426,162 412,172" fill="rgba(255,255,255,.9)"/>
+              <!-- "PERMANENT REPLAY" badge -->
+              <rect x="350" y="96" width="134" height="20" rx="2" fill="rgba(10,209,217,.12)" stroke="rgba(10,209,217,.2)" stroke-width=".5"/>
+              <text x="417" y="109" font-family="Helvetica,sans-serif" font-size="7.5" fill="#0ad1d9" text-anchor="middle" font-weight="800" letter-spacing=".12em">PERMANENT REPLAY</text>
+              <!-- Progress bar -->
+              <rect x="270" y="256" width="294" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
+              <rect x="270" y="256" width="108" height="4" rx="2" fill="url(#vkTeal)" opacity=".8"/>
+              <circle cx="378" cy="258" r="5" fill="#0ad1d9"/>
+              <!-- Timestamp -->
+              <text x="270" y="270" font-family="Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,.35)">24:18</text>
+              <text x="552" y="270" font-family="Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,.35)">1:32:04</text>
+              <!-- Day selector tabs -->
+              <rect x="270" y="222" width="54" height="20" rx="2" fill="rgba(10,209,217,.2)" stroke="rgba(10,209,217,.35)" stroke-width=".5"/>
+              <text x="297" y="235" font-family="Helvetica,sans-serif" font-size="7" fill="#0ad1d9" text-anchor="middle" font-weight="700">Day 1</text>
+              <rect x="330" y="222" width="54" height="20" rx="2" fill="rgba(255,255,255,.04)"/>
+              <text x="357" y="235" font-family="Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,.3)" text-anchor="middle">Day 2</text>
+              <rect x="390" y="222" width="54" height="20" rx="2" fill="rgba(255,255,255,.04)"/>
+              <text x="417" y="235" font-family="Helvetica,sans-serif" font-size="7" fill="rgba(255,255,255,.3)" text-anchor="middle">Day 3</text>
+              <rect x="450" y="222" width="54" height="20" rx="2" fill="rgba(241,194,50,.1)" stroke="rgba(241,194,50,.2)" stroke-width=".5"/>
+              <text x="477" y="235" font-family="Helvetica,sans-serif" font-size="7" fill="#D4A853" text-anchor="middle" font-weight="700">Q&amp;A</text>
+              <!-- DCLL branding -->
+              <text x="417" y="290" font-family="Helvetica,sans-serif" font-size="6" fill="rgba(255,255,255,.15)" text-anchor="middle" letter-spacing=".15em">DIGITAL COURSE LAUNCH LAB</text>
+            </g>
+          </g>
+
+          <!-- === TABLET (right) — Q&A Session === -->
+          <g filter="url(#vkSh)">
+            <!-- Tablet body -->
+            <rect x="636" y="104" width="202" height="274" rx="12" fill="#1a1a1a"/>
+            <rect x="636" y="104" width="202" height="274" rx="12" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <!-- Camera -->
+            <circle cx="737" cy="112" r="2" fill="#333"/>
+            <!-- Screen -->
+            <g clip-path="url(#vkTabClip)">
+              <rect x="648" y="118" width="178" height="250" fill="#0d3538"/>
+              <circle cx="700" cy="200" r="90" fill="#0ad1d9" opacity=".05"/>
+              <!-- Header -->
+              <rect x="648" y="118" width="178" height="32" fill="rgba(10,209,217,.08)"/>
+              <text x="737" y="138" font-family="Helvetica,sans-serif" font-size="8" fill="#0ad1d9" text-anchor="middle" font-weight="800" letter-spacing=".1em">DAY 4 VIP Q&amp;A</text>
+              <!-- Marissa avatar -->
+              <circle cx="737" cy="185" r="26" fill="rgba(10,209,217,.1)" stroke="url(#vkGold)" stroke-width="1.5"/>
+              <circle cx="737" cy="178" r="9" fill="rgba(255,255,255,.15)"/>
+              <path d="M724 200C724 193 729 188 737 188C745 188 750 193 750 200" fill="rgba(255,255,255,.1)"/>
+              <!-- LIVE badge -->
+              <rect x="754" y="167" width="28" height="12" rx="2" fill="#ff4f49"/>
+              <text x="768" y="176" font-family="Helvetica,sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="800">LIVE</text>
+              <!-- Q&A list items -->
+              <rect x="662" y="222" width="150" height="24" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+              <circle cx="674" cy="234" r="4" fill="rgba(241,194,50,.3)"/>
+              <text x="674" y="237" font-family="Helvetica,sans-serif" font-size="5" fill="#0a2628" text-anchor="middle" font-weight="700">?</text>
+              <rect x="683" y="230" width="80" height="3" rx="1" fill="rgba(255,255,255,.15)"/>
+              <rect x="683" y="236" width="55" height="3" rx="1" fill="rgba(255,255,255,.08)"/>
+
+              <rect x="662" y="252" width="150" height="24" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+              <circle cx="674" cy="264" r="4" fill="rgba(10,209,217,.3)"/>
+              <text x="674" y="267" font-family="Helvetica,sans-serif" font-size="5" fill="#fff" text-anchor="middle" font-weight="700">?</text>
+              <rect x="683" y="260" width="90" height="3" rx="1" fill="rgba(255,255,255,.15)"/>
+              <rect x="683" y="266" width="60" height="3" rx="1" fill="rgba(255,255,255,.08)"/>
+
+              <rect x="662" y="282" width="150" height="24" rx="3" fill="rgba(10,209,217,.06)" stroke="rgba(10,209,217,.15)" stroke-width=".5"/>
+              <circle cx="674" cy="294" r="4" fill="rgba(10,209,217,.5)"/>
+              <path d="M671 294L673 296L677 292" stroke="#fff" stroke-width="1" stroke-linecap="round" fill="none"/>
+              <rect x="683" y="290" width="70" height="3" rx="1" fill="rgba(10,209,217,.3)"/>
+              <rect x="683" y="296" width="95" height="3" rx="1" fill="rgba(10,209,217,.15)"/>
+              <!-- Answering now indicator -->
+              <rect x="662" y="312" width="150" height="20" rx="3" fill="rgba(241,194,50,.08)" stroke="rgba(241,194,50,.15)" stroke-width=".5"/>
+              <circle cx="672" cy="322" r="3" fill="#D4A853" opacity=".6"><animate attributeName="opacity" values=".3;.8;.3" dur="1.5s" repeatCount="indefinite"/></circle>
+              <text x="680" y="325" font-family="Helvetica,sans-serif" font-size="6" fill="rgba(241,194,50,.7)">Marissa answering...</text>
+              <!-- Participants count -->
+              <text x="737" y="356" font-family="Helvetica,sans-serif" font-size="6" fill="rgba(255,255,255,.2)" text-anchor="middle">47 VIPs watching</text>
+            </g>
+            <!-- Home indicator -->
+            <rect x="710" y="372" width="54" height="3" rx="1.5" fill="rgba(255,255,255,.15)"/>
+          </g>
+
+          <!-- === PHONE (left) — Telegram Group === -->
+          <g filter="url(#vkSh)">
+            <!-- Phone body -->
+            <rect x="60" y="176" width="142" height="264" rx="16" fill="#1a1a1a"/>
+            <rect x="60" y="176" width="142" height="264" rx="16" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <!-- Notch/dynamic island -->
+            <rect x="108" y="180" width="46" height="10" rx="5" fill="#0e0e0e"/>
+            <!-- Screen -->
+            <g clip-path="url(#vkPhoneClip)">
+              <rect x="72" y="188" width="118" height="210" fill="#0e1621"/>
+              <!-- Telegram header -->
+              <rect x="72" y="188" width="118" height="28" fill="#17212b"/>
+              <text x="78" y="200" font-family="Helvetica,sans-serif" font-size="6" fill="rgba(255,255,255,.5)">&#x2190;</text>
+              <circle cx="96" cy="202" r="8" fill="#0ad1d9"/>
+              <text x="96" y="205" font-family="Helvetica,sans-serif" font-size="5.5" fill="#fff" text-anchor="middle" font-weight="800">V</text>
+              <text x="110" y="200" font-family="Helvetica,sans-serif" font-size="6.5" fill="#fff" font-weight="700">VIP Group</text>
+              <text x="110" y="208" font-family="Helvetica,sans-serif" font-size="5" fill="rgba(255,255,255,.35)">47 members</text>
+              <!-- Chat messages -->
+              <!-- Marissa msg -->
+              <rect x="78" y="224" width="82" height="32" rx="6" fill="#1d2a36"/>
+              <text x="82" y="233" font-family="Helvetica,sans-serif" font-size="5" fill="#0ad1d9" font-weight="700">Marissa</text>
+              <text x="82" y="241" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.85)">Welcome VIPs!</text>
+              <text x="82" y="250" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.85)">Drop your wins!</text>
+              <!-- Reactions -->
+              <rect x="78" y="258" width="22" height="10" rx="5" fill="rgba(10,209,217,.15)"/>
+              <text x="89" y="265" font-family="sans-serif" font-size="6" text-anchor="middle">&#x1F525;</text>
+              <rect x="103" y="258" width="22" height="10" rx="5" fill="rgba(255,79,73,.12)"/>
+              <text x="114" y="265" font-family="sans-serif" font-size="6" text-anchor="middle">&#x2764;&#xFE0F;</text>
+              <!-- Student msg -->
+              <rect x="102" y="274" width="82" height="24" rx="6" fill="#2b5278"/>
+              <text x="106" y="284" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.9)">Just finished my</text>
+              <text x="106" y="292" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.9)">outline!! &#x1F929;</text>
+              <!-- Student msg 2 -->
+              <rect x="102" y="304" width="82" height="24" rx="6" fill="#2b5278"/>
+              <text x="106" y="314" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.9)">The AI prompts</text>
+              <text x="106" y="322" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.9)">are incredible &#x1F4A1;</text>
+              <!-- Typing indicator -->
+              <rect x="78" y="334" width="50" height="14" rx="7" fill="#1d2a36"/>
+              <circle cx="90" cy="341" r="2" fill="rgba(255,255,255,.3)"><animate attributeName="opacity" values=".2;.7;.2" dur="1.2s" repeatCount="indefinite"/></circle>
+              <circle cx="97" cy="341" r="2" fill="rgba(255,255,255,.3)"><animate attributeName="opacity" values=".2;.7;.2" dur="1.2s" begin=".2s" repeatCount="indefinite"/></circle>
+              <circle cx="104" cy="341" r="2" fill="rgba(255,255,255,.3)"><animate attributeName="opacity" values=".2;.7;.2" dur="1.2s" begin=".4s" repeatCount="indefinite"/></circle>
+              <!-- Input bar -->
+              <rect x="72" y="376" width="118" height="22" fill="#17212b"/>
+              <rect x="78" y="380" width="82" height="14" rx="7" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>
+              <text x="86" y="389" font-family="Helvetica,sans-serif" font-size="5.5" fill="rgba(255,255,255,.2)">Message...</text>
+              <!-- Send -->
+              <circle cx="172" cy="387" r="7" fill="#0ad1d9"/>
+              <path d="M169 387L174 387M173 384L176 387L173 390" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <!-- Home indicator -->
+            <rect x="112" y="434" width="38" height="3" rx="1.5" fill="rgba(255,255,255,.15)"/>
+          </g>
+
+          <!-- === AI PROMPTS CARD (bottom right, tilted) === -->
+          <g filter="url(#vkShSm)">
+            <rect x="668" y="392" width="130" height="80" rx="3" fill="#fff" transform="rotate(-5 733 432)"/>
+            <rect x="674" y="398" width="118" height="6" rx="1" fill="url(#vkTeal)" opacity=".7" transform="rotate(-5 733 432)"/>
+            <text x="733" y="418" font-family="Helvetica,sans-serif" font-size="6.5" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".06em" transform="rotate(-5 733 432)">AI PROMPTS GUIDE</text>
+            <text x="733" y="428" font-family="Helvetica,sans-serif" font-size="5.5" fill="#8e8d8d" text-anchor="middle" transform="rotate(-5 733 432)">50+ prompts for your launch</text>
+            <!-- Mini prompt lines -->
+            <rect x="682" y="436" width="10" height="6" rx="1" fill="rgba(10,209,217,.12)" transform="rotate(-5 733 432)"/>
+            <rect x="695" y="438" width="60" height="3" rx="1" fill="#e8e4de" transform="rotate(-5 733 432)"/>
+            <rect x="682" y="446" width="10" height="6" rx="1" fill="rgba(10,209,217,.12)" transform="rotate(-5 733 432)"/>
+            <rect x="695" y="448" width="50" height="3" rx="1" fill="#e8e4de" transform="rotate(-5 733 432)"/>
+            <rect x="682" y="456" width="10" height="6" rx="1" fill="rgba(10,209,217,.12)" transform="rotate(-5 733 432)"/>
+            <rect x="695" y="458" width="65" height="3" rx="1" fill="#e8e4de" transform="rotate(-5 733 432)"/>
+          </g>
+
+          <!-- === PROGRESS TRACKER CARD (bottom center-left) === -->
+          <g filter="url(#vkShSm)">
+            <rect x="212" y="376" width="140" height="88" rx="3" fill="#fff" transform="rotate(3 282 420)"/>
+            <rect x="218" y="382" width="128" height="6" rx="1" fill="#ff4f49" opacity=".7" transform="rotate(3 282 420)"/>
+            <text x="282" y="402" font-family="Helvetica,sans-serif" font-size="6.5" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".06em" transform="rotate(3 282 420)">PROGRESS TRACKER</text>
+            <!-- Progress bar mockup -->
+            <rect x="228" y="412" width="108" height="6" rx="3" fill="#e8e4de" transform="rotate(3 282 420)"/>
+            <rect x="228" y="412" width="72" height="6" rx="3" fill="url(#vkTeal)" opacity=".7" transform="rotate(3 282 420)"/>
+            <text x="282" y="428" font-family="Helvetica,sans-serif" font-size="5.5" fill="#8e8d8d" text-anchor="middle" transform="rotate(3 282 420)">67% complete</text>
+            <!-- Mini checkboxes -->
+            <rect x="232" y="436" width="7" height="7" rx="1" fill="url(#vkTeal)" transform="rotate(3 282 420)"/>
+            <path d="M233 439.5L234.5 441L237 438" stroke="#fff" stroke-width=".8" fill="none" stroke-linecap="round" transform="rotate(3 282 420)"/>
+            <rect x="243" y="438" width="40" height="2.5" rx="1" fill="#c8c4be" transform="rotate(3 282 420)"/>
+            <rect x="232" y="447" width="7" height="7" rx="1" fill="url(#vkTeal)" transform="rotate(3 282 420)"/>
+            <path d="M233 450.5L234.5 452L237 449" stroke="#fff" stroke-width=".8" fill="none" stroke-linecap="round" transform="rotate(3 282 420)"/>
+            <rect x="243" y="449" width="50" height="2.5" rx="1" fill="#c8c4be" transform="rotate(3 282 420)"/>
+            <rect x="232" y="458" width="7" height="7" rx="1" rx="1" stroke="#d0ccc6" stroke-width=".8" fill="none" transform="rotate(3 282 420)"/>
+            <rect x="243" y="460" width="35" height="2.5" rx="1" fill="#e0dcd6" transform="rotate(3 282 420)"/>
+          </g>
+
+          <!-- === FLOATING LABELS === -->
+          <!-- Replays label -->
+          <rect x="326" y="38" width="180" height="24" rx="3" fill="rgba(10,209,217,.1)" stroke="rgba(10,209,217,.2)" stroke-width=".8"/>
+          <circle cx="338" cy="50" r="4" fill="url(#vkTeal)"/>
+          <path d="M336 50L340 50M339 48L341 50L339 52" stroke="#fff" stroke-width=".8" stroke-linecap="round" fill="none"/>
+          <text x="348" y="54" font-family="Helvetica,sans-serif" font-size="8" fill="#0ad1d9" font-weight="700">Permanent Replay Access</text>
+
+          <!-- Worksheets label -->
+          <rect x="4" y="290" width="140" height="24" rx="3" fill="rgba(241,194,50,.1)" stroke="rgba(241,194,50,.2)" stroke-width=".8"/>
+          <text x="74" y="306" font-family="Helvetica,sans-serif" font-size="8" fill="#D4A853" text-anchor="middle" font-weight="700">Day 1-3 Worksheets</text>
+
+          <!-- Q&A label -->
+          <rect x="680" y="84" width="134" height="24" rx="3" fill="rgba(255,79,73,.1)" stroke="rgba(255,79,73,.2)" stroke-width=".8"/>
+          <text x="747" y="100" font-family="Helvetica,sans-serif" font-size="8" fill="#ff4f49" text-anchor="middle" font-weight="700">Day 4 VIP Q&amp;A</text>
+
+          <!-- Telegram label -->
+          <rect x="50" y="448" width="164" height="24" rx="3" fill="rgba(10,209,217,.1)" stroke="rgba(10,209,217,.2)" stroke-width=".8"/>
+          <text x="132" y="464" font-family="Helvetica,sans-serif" font-size="8" fill="#0ad1d9" text-anchor="middle" font-weight="700">7-Day Telegram Group</text>
+
+          <!-- === "$47" BADGE === -->
+          <rect x="390" y="370" width="80" height="32" rx="4" fill="url(#vkGold)"/>
+          <text x="430" y="383" font-family="Helvetica,sans-serif" font-size="7" fill="#0a2628" text-anchor="middle" font-weight="800" letter-spacing=".08em">ALL YOURS</text>
+          <text x="430" y="396" font-family="Helvetica,sans-serif" font-size="12" fill="#0a2628" text-anchor="middle" font-weight="900">$47</text>
+        </svg>
       </div>
 
       <div class="vip-body">
@@ -738,7 +1078,7 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
       <div class="tl-item fi">
         <div class="tl-dot d1">1</div>
         <div class="tl-card">
-          <div class="tl-photo"><img src="" alt="Day 1" onerror="this.style.display='none';this.parentElement.classList.add('tl-photo-empty')"><div class="tl-photo-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="rgba(10,209,217,.3)" stroke-width="1.5"/><circle cx="8" cy="9" r="2" stroke="rgba(10,209,217,.3)" stroke-width="1.5"/><path d="M2 17l5-5 3 3 4-4 8 8" stroke="rgba(10,209,217,.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Day 1 image</span></div></div>
+          <div class="tl-photo"><img src="https://i.imgur.com/t8VbDzV.gif" alt="Day 1"></div>
           <div class="tl-date">Monday, May 5th at 3 PM EST</div>
           <div class="tl-title">Why Every Business Owner Needs a Low-Ticket Digital Course</div>
           <div class="tl-desc">You'll learn the $697 sweet spot, validate your course idea in 24 hours, and use the "Offer Map" framework to turn your expertise into a product. Live workshop: build your course outline using AI in real time.</div>
@@ -748,17 +1088,17 @@ body.vsl-fs-active *:not(dialog):not(.hero-vsl):not(.vsl-iframe):not(.vsl-min-co
       <div class="tl-item fi">
         <div class="tl-dot d2">2</div>
         <div class="tl-card">
-          <div class="tl-photo"><img src="" alt="Day 2" onerror="this.style.display='none';this.parentElement.classList.add('tl-photo-empty')"><div class="tl-photo-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="rgba(255,79,73,.3)" stroke-width="1.5"/><circle cx="8" cy="9" r="2" stroke="rgba(255,79,73,.3)" stroke-width="1.5"/><path d="M2 17l5-5 3 3 4-4 8 8" stroke="rgba(255,79,73,.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Day 2 image</span></div></div>
+          <div class="tl-photo"><img src="https://i.imgur.com/Dy9PiXs.gif" alt="Day 2"></div>
           <div class="tl-date">Tuesday, May 6th at 3 PM EST</div>
-          <div class="tl-title">The Best First Offer for Your Business + Your AI Launch Plan</div>
-          <div class="tl-desc">Your "First Offer Framework" with exact pricing, AI-written sales pages in under 30 minutes, funnel blueprints, email sequences, and automations. Live workshop: set up your sales funnel together.</div>
+          <div class="tl-title">The Best Offer for Your Business + Your AI Launch Plan</div>
+          <div class="tl-desc">Your "Offer Framework" with exact pricing, AI-written sales pages in under 30 minutes, funnel blueprints, email sequences, and automations. Live workshop: set up your sales funnel together.</div>
           <div class="tl-outcome">You'll have a complete sales funnel with landing page, email sequences, and payment setup... all built with AI.</div>
         </div>
       </div>
       <div class="tl-item fi">
         <div class="tl-dot d3">3</div>
         <div class="tl-card">
-          <div class="tl-photo"><img src="" alt="Day 3" onerror="this.style.display='none';this.parentElement.classList.add('tl-photo-empty')"><div class="tl-photo-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="rgba(20,20,20,.25)" stroke-width="1.5"/><circle cx="8" cy="9" r="2" stroke="rgba(20,20,20,.25)" stroke-width="1.5"/><path d="M2 17l5-5 3 3 4-4 8 8" stroke="rgba(20,20,20,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Day 3 image</span></div></div>
+          <div class="tl-photo"><img src="https://i.imgur.com/64XpkPy.gif" alt="Day 3"></div>
           <div class="tl-date">Wednesday, May 7th at 3 PM EST</div>
           <div class="tl-title">Your 21-Day Launch Roadmap (So You Actually Do It)</div>
           <div class="tl-desc">The 21-day launch calendar with every task mapped out, how to launch to a small list and still hit $1K-$5K, and the post-launch email sequence that keeps revenue flowing. Live Q&A included.</div>
@@ -970,8 +1310,6 @@ document.addEventListener('keydown',function(e){
 
 (function(){
 
-/* Intro + confetti removed */
-
 /* ═══ COUNTDOWN ═══ */
 (function(){
   var target=new Date('2026-05-05T19:00:00Z').getTime();
@@ -995,7 +1333,7 @@ window.addOutlook=function(){
 window.addApple=function(){
   var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Marissa Romero//Launch Lab//EN',
     'BEGIN:VEVENT','DTSTART:20260505T190000Z','DTEND:20260505T203000Z','SUMMARY:Digital Course Launch Lab Day 1','DESCRIPTION:Day 1: Why Every Business Owner Needs a Low-Ticket Digital Course. 90 min live training with Marissa Romero.','END:VEVENT',
-    'BEGIN:VEVENT','DTSTART:20260506T190000Z','DTEND:20260506T203000Z','SUMMARY:Digital Course Launch Lab Day 2','DESCRIPTION:Day 2: The Best First Offer + Your AI Launch Plan. 90 min live training.','END:VEVENT',
+    'BEGIN:VEVENT','DTSTART:20260506T190000Z','DTEND:20260506T203000Z','SUMMARY:Digital Course Launch Lab Day 2','DESCRIPTION:Day 2: The Best Offer + Your AI Launch Plan. 90 min live training.','END:VEVENT',
     'BEGIN:VEVENT','DTSTART:20260507T190000Z','DTEND:20260507T203000Z','SUMMARY:Digital Course Launch Lab Day 3','DESCRIPTION:Day 3: Your 21-Day Launch Roadmap. 90 min live training + Q&A.','END:VEVENT',
     'END:VCALENDAR'].join('\r\n');
   var blob=new Blob([ics],{type:'text/calendar'});
