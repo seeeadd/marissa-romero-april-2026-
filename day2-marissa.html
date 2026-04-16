@@ -1,0 +1,691 @@
+<link rel="icon" type="image/png" href="https://i.imgur.com/9hLtted.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
+<style>
+/* DAY 2 LIVE TRAINING — "Build Your Course with AI"
+   Same structure as Day 1 but with plum/mauve color variation
+   Bailey's Day 2 shifts from coral → mauve. Marissa shifts from teal-dominant → warm plum accent */
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --t1:#0ad1d9;--t2:#0dc5cf;--t3:#16d09c;--t4:#7ccb61;
+  --cherry:#ff4f49;--cherry-dk:#e63e38;
+  /* DAY 2 ACCENT: Coral (Marissa's signature) */
+  --plum:#ff4f49;--plum-dk:#e63e38;--plum-lt:#ff8a85;
+  --plum-glow:rgba(255,79,73,.12);
+  --pacific:#0097a7;--carib:#23b8a5;--lime:#98e435;
+  --snow:#f3f3f3;--slate:#8e8d8d;--char:#434343;--ablack:#1a1a2e;
+  --leafy:#8bc540;--sun:#f1c232;--tang:#fb4708;
+  /* Warm with slight coral cast */
+  --warm:#f5f0ed;--warmdk:#ede6e2;--warmbg:#faf8f6;
+  --body:'Open Sans',Helvetica,sans-serif;
+  --display:Helvetica,'Arial Narrow',Arial,sans-serif;
+  --script:'Nanum Pen Script',cursive;
+  --tg:linear-gradient(135deg,var(--t1),var(--t2),var(--t3),var(--t4));
+  --pg:linear-gradient(135deg,var(--plum),#ff6b5e,var(--plum-lt),var(--plum));
+  --sh-sm:0 1px 2px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.04);
+  --sh-md:0 2px 4px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.04);
+  --sh-lg:0 4px 8px rgba(0,0,0,.08),0 16px 40px rgba(0,0,0,.08),0 32px 80px rgba(0,0,0,.06);
+  --sh-xl:0 8px 16px rgba(0,0,0,.1),0 24px 56px rgba(0,0,0,.1),0 48px 96px rgba(0,0,0,.08);
+  --grain:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--char);line-height:1.6;background:var(--warmbg);-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;background-image:var(--grain)}
+
+/* ══ DECO SYSTEM ══ */
+.dc{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.dl{position:absolute;pointer-events:none}
+.dl-bg{z-index:0;filter:blur(8px) saturate(1.4);opacity:.22}
+.dl-mid{z-index:1;filter:blur(3px) saturate(1.2);opacity:.15}
+.dl-fg{z-index:3;filter:drop-shadow(4px 8px 16px rgba(0,40,30,.1))}
+@keyframes leafBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(2deg)}}
+.dl-bob{animation:leafBob 6s ease-in-out infinite}
+.dl-bob2{animation:leafBob 7s 1.5s ease-in-out infinite}
+
+/* ══ HEADER BAR ══ */
+.hbar{position:fixed;top:0;left:0;right:0;z-index:200;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.06);box-shadow:0 2px 16px rgba(0,0,0,.04)}
+.hbar-left{display:flex;align-items:center;gap:14px}
+.hbar-logo{font-family:var(--display);font-size:15px;font-weight:800;color:var(--ablack);letter-spacing:-.02em}
+.hbar-logo em{font-style:normal;background:var(--pg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hbar-live{display:inline-flex;align-items:center;gap:6px;background:var(--plum);padding:4px 12px 4px 9px;font-size:9px;font-weight:800;letter-spacing:.12em;color:#fff;text-transform:uppercase}
+.pulse-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+.hbar-right{display:flex;align-items:center;gap:16px}
+.hbar-viewers{display:flex;align-items:center;gap:8px}
+.hbar-avatars{display:flex}
+.hbar-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;border:2px solid #fff;margin-left:-8px}
+.hbar-av:first-child{margin-left:0}
+.hbar-vcount{font-size:12px;font-weight:700;color:var(--char)}
+.hbar-vcount strong{color:var(--ablack)}
+.hbar-day{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--plum)}
+
+/* ══ VIDEO SECTION ══ */
+.vid-sec{padding:100px 3% 64px;background:linear-gradient(175deg,#f8f0ec 0%,var(--warm) 40%,var(--warmbg) 100%);position:relative;overflow:hidden;min-height:100vh}
+.vid-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.5}
+.vid-layout{max-width:1260px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:36px;position:relative;z-index:2;align-items:start}
+.vid-main{min-width:0}
+.vid-ey{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.2em;color:var(--plum);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.vid-ey::before{content:'';width:24px;height:2px;background:var(--pg)}
+.vid-h{font-family:var(--display);font-size:clamp(28px,3.5vw,44px);font-weight:700;color:var(--ablack);line-height:1.08;letter-spacing:-.02em;margin-bottom:8px;text-wrap:balance}
+.vid-h em{font-style:normal;background:var(--pg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.vid-sub{font-size:16px;color:#666;line-height:1.7;margin-bottom:24px;max-width:600px}
+
+/* ══ VIDEO FRAME ══ */
+.vid-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;background:#1e1210;border-radius:14px;box-shadow:0 16px 60px rgba(0,0,0,.12),0 4px 16px rgba(0,0,0,.06),0 0 80px rgba(255,79,73,.1);border:1px solid rgba(255,79,73,.1);display:flex;align-items:center;justify-content:center;position:relative}
+.vid-wrap iframe,.vid-wrap video{width:100%;height:100%;object-fit:contain;border:none;border-radius:12px}
+.vid-dots{position:absolute;top:14px;left:18px;display:flex;gap:7px;z-index:5}
+.vid-dots span{width:11px;height:11px;border-radius:50%}
+.vid-dots span:nth-child(1){background:#ff4f49;box-shadow:0 0 6px rgba(255,79,73,.3)}
+.vid-dots span:nth-child(2){background:#f1c232;box-shadow:0 0 6px rgba(241,194,50,.3)}
+.vid-dots span:nth-child(3){background:#7ccb61;box-shadow:0 0 6px rgba(124,203,97,.3)}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:4;background:radial-gradient(ellipse 50% 50% at center,rgba(30,18,16,.4),transparent);transition:opacity .3s}
+.vid-play-btn{width:80px;height:80px;background:linear-gradient(135deg,var(--plum),var(--plum-lt));border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(255,79,73,.35),0 0 0 8px rgba(255,79,73,.12);transition:transform .2s,box-shadow .2s}
+.vid-play-btn svg{width:28px;height:28px;margin-left:3px}
+.vid-play:hover .vid-play-btn{transform:scale(1.08);box-shadow:0 12px 40px rgba(255,79,73,.45),0 0 0 12px rgba(255,79,73,.15)}
+/* Fullscreen handling */
+.vid-wrap:fullscreen,.vid-wrap:-webkit-full-screen{border-radius:0;border:none;box-shadow:none;background:#000}
+.vid-wrap:fullscreen iframe,.vid-wrap:-webkit-full-screen iframe{border-radius:0;width:100%;height:100%}
+.vid-wrap:fullscreen .vid-dots,.vid-wrap:-webkit-full-screen .vid-dots{display:none}
+.vid-wrap:fullscreen .vid-glow,.vid-wrap:-webkit-full-screen .vid-glow{display:none}
+.vid-wrap iframe{width:100%;height:100%;border:none;border-radius:12px}
+.vid-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120%;height:120%;background:radial-gradient(ellipse 60% 50% at center,rgba(255,79,73,.06),transparent 60%);pointer-events:none;z-index:-1}
+
+.vid-note{margin-top:14px;font-size:13px;color:var(--slate);display:flex;align-items:center;gap:8px}
+.vid-note svg{flex-shrink:0}
+
+/* ══ REPLAY TIMER ══ */
+.replay-bar{margin-top:20px;background:linear-gradient(135deg,rgba(30,18,16,.95),rgba(40,24,20,.95));backdrop-filter:blur(16px);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid rgba(255,79,73,.12);position:relative;overflow:hidden}
+.replay-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 20% 0%,rgba(255,79,73,.08),transparent 50%);pointer-events:none}
+.replay-bar-left{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.replay-bar-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,79,73,.15);display:flex;align-items:center;justify-content:center}
+.replay-bar-text{font-size:13px;color:rgba(255,255,255,.7);font-weight:600}
+.replay-bar-text strong{color:#fff}
+.replay-cd{display:flex;align-items:center;gap:4px;position:relative;z-index:1}
+.replay-cd-block{background:var(--ablack);padding:8px 10px;text-align:center;border-radius:6px;min-width:48px}
+.replay-cd-num{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.replay-cd-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-top:3px}
+.replay-cd-sep{font-size:22px;font-weight:800;color:var(--plum);animation:blink 1s ease-in-out infinite;margin:0 1px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.replay-urgent{animation:replayPulse 2s ease-in-out infinite}
+@keyframes replayPulse{0%,100%{border-color:rgba(255,79,73,.12)}50%{border-color:rgba(255,79,73,.35);box-shadow:0 0 20px rgba(255,79,73,.1)}}
+
+/* ══ SIDEBAR ══ */
+.vid-side{position:sticky;top:80px}
+.side-card{background:linear-gradient(145deg,rgba(255,255,255,.65),rgba(250,240,238,.5),rgba(255,255,255,.55));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.7);border-top:4px solid;border-image:var(--pg) 1;box-shadow:var(--sh-lg),inset 0 1px 0 rgba(255,255,255,.8);padding:28px 24px;margin-bottom:20px}
+.side-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:var(--ablack);margin-bottom:12px;letter-spacing:-.01em}
+.side-card p{font-size:14px;color:#666;line-height:1.6}
+.side-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.side-item:last-child{border-bottom:none}
+.side-item-icon{width:32px;height:32px;border-radius:50%;background:rgba(255,79,73,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.side-item-icon svg{width:14px;height:14px}
+.side-item-text{font-size:13px;font-weight:600;color:var(--char);line-height:1.5}
+.side-item-text span{font-weight:400;color:#888;display:block;font-size:12px;margin-top:2px}
+
+.side-cta{margin-top:4px}
+.side-cta .cta-main{font-size:14px;padding:16px 20px}
+
+/* CTA system — plum accent */
+.cta-main{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:20px 32px;font-family:var(--body);font-size:clamp(15px,1.6vw,18px);font-weight:800;color:#fff;background:linear-gradient(135deg,var(--plum),var(--plum-lt));border:none;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;overflow:hidden;transition:all .2s;text-align:center;line-height:1.3;box-shadow:0 5px 0 var(--plum-dk),0 7px 0 rgba(0,0,0,.1),0 10px 40px rgba(255,79,73,.3);text-decoration:none}
+.cta-main:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--plum-dk),0 10px 0 rgba(0,0,0,.1),0 16px 48px rgba(255,79,73,.4)}
+.cta-main:active{transform:translateY(2px);box-shadow:0 1px 0 var(--plum-dk),0 2px 0 rgba(0,0,0,.08)}
+.cta-shim{position:absolute;top:0;left:-35%;width:35%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:skewX(-15deg);animation:ctaShim 3.5s ease-in-out infinite;pointer-events:none}
+@keyframes ctaShim{0%{left:-35%}40%,100%{left:135%}}
+
+/* ══ WAVE DIVIDERS ══ */
+.wv{position:relative;z-index:1;line-height:0;margin-top:-1px}
+.wv svg{display:block;width:100%;pointer-events:none}
+
+/* ══ EPISODES SECTION ══ */
+.ep-sec{padding:64px 3% 72px;background:linear-gradient(175deg,var(--warm) 0%,var(--warmbg) 100%);position:relative;overflow:hidden}
+.ep-sec::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-size:200px;mix-blend-mode:multiply;pointer-events:none;opacity:.5}
+.ep-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.ep-ey{text-align:center;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.2em;color:var(--plum);margin-bottom:8px}
+.ep-title{text-align:center;font-family:var(--display);font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--ablack);letter-spacing:-.02em;margin-bottom:40px}
+.ep-title em{font-style:normal;background:var(--pg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ep-card{background:linear-gradient(145deg,rgba(255,255,255,.6),rgba(250,240,238,.45),rgba(255,255,255,.5));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.7);box-shadow:var(--sh-md),inset 0 1px 0 rgba(255,255,255,.8);padding:0;overflow:hidden;transition:transform .3s,box-shadow .3s;position:relative}
+.ep-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.ep-card.ep-active{border-top:4px solid;border-image:var(--pg) 1}
+.ep-card.ep-done{opacity:.7}
+.ep-card.ep-locked{opacity:.55;filter:grayscale(.3)}
+.ep-card-top{padding:24px 24px 16px;position:relative}
+.ep-card-day{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--plum);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.ep-card-day .ep-live-dot{width:6px;height:6px;border-radius:50%;background:var(--plum);animation:pulse 2s ease-in-out infinite}
+.ep-card h3{font-family:var(--display);font-size:clamp(18px,2vw,22px);font-weight:700;color:var(--ablack);letter-spacing:-.01em;line-height:1.2;margin-bottom:8px}
+.ep-card p{font-size:13px;color:#777;line-height:1.6}
+/* Episode card video preview */
+.ep-card-thumb{position:relative;aspect-ratio:16/9;background:#1e1210;overflow:hidden;margin:0}
+.ep-card-thumb-dots{position:absolute;top:8px;left:10px;display:flex;gap:5px;z-index:3}
+.ep-card-thumb-dots span{width:7px;height:7px;border-radius:50%}
+.ep-card-thumb-dots span:nth-child(1){background:#ff4f49}
+.ep-card-thumb-dots span:nth-child(2){background:#f1c232}
+.ep-card-thumb-dots span:nth-child(3){background:#7ccb61}
+.ep-card-thumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(30,18,16,.9),rgba(40,24,20,.85))}
+.ep-card-thumb-play{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--plum),var(--plum-lt));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(255,79,73,.3);transition:transform .2s}
+.ep-card-thumb-play svg{width:16px;height:16px;margin-left:2px}
+.ep-card:hover .ep-card-thumb-play{transform:scale(1.1)}
+.ep-card-thumb-label{position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);padding:3px 8px;font-size:9px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;text-transform:uppercase;z-index:3}
+.ep-card-thumb-live{background:var(--plum)}
+.ep-card-thumb-done{background:var(--pacific)}
+.ep-card-thumb-locked{position:absolute;inset:0;background:rgba(30,18,16,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:4}
+.ep-card-thumb-locked svg{width:28px;height:28px;opacity:.4}
+.ep-card-slide{position:absolute;inset:20px 16px 16px;border:1px solid rgba(255,79,73,.12);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px}
+.ep-card-slide-title{font-family:var(--display);font-size:9px;font-weight:700;color:rgba(255,255,255,.5);text-align:center;text-transform:uppercase;letter-spacing:.1em;line-height:1.3}
+.ep-card-slide-icon{opacity:.25}
+
+.ep-card-bar{height:4px;background:rgba(0,0,0,.04);margin-top:auto}
+.ep-card-bar-fill{height:100%;transition:width 1s ease}
+.ep-card-bar-fill-teal{background:var(--tg)}
+.ep-card-bar-fill-plum{background:var(--pg)}
+.ep-card-bottom{padding:14px 24px;border-top:1px solid rgba(0,0,0,.05);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ep-card-status{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.ep-status-live{color:var(--plum)}
+.ep-status-done{color:var(--pacific)}
+.ep-status-soon{color:var(--slate)}
+.ep-status-locked{color:rgba(0,0,0,.25)}
+.ep-card-lock{width:20px;height:20px;opacity:.3}
+/* Episode countdown timer */
+.ep-cd{display:flex;align-items:center;gap:3px}
+.ep-cd-block{background:var(--ablack);padding:4px 6px;text-align:center;border-radius:4px;min-width:32px}
+.ep-cd-num{font-family:var(--display);font-size:14px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.ep-cd-label{font-size:6px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-top:1px}
+.ep-cd-sep{font-size:13px;font-weight:800;color:var(--plum);animation:blink 1s ease-in-out infinite}
+.ep-card.ep-locked .ep-cd-block{background:rgba(0,0,0,.08)}
+.ep-card.ep-locked .ep-cd-num{color:rgba(0,0,0,.2)}
+.ep-card.ep-locked .ep-cd-sep{color:rgba(0,0,0,.15);animation:none}
+.ep-card.ep-locked .ep-cd-label{color:rgba(0,0,0,.15)}
+
+/* ══ POST-VIDEO SECTION (Action Steps) ══ */
+.post-sec{padding:72px 3% 80px;background:linear-gradient(135deg,#1e1210,#281814);position:relative;overflow:hidden}
+.post-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,79,73,.12) 0%,transparent 50%),radial-gradient(ellipse 60% 50% at 80% 90%,rgba(255,138,133,.06) 0%,transparent 40%);pointer-events:none}
+.post-sec::after{content:'';position:absolute;inset:0;opacity:.35;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.post-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.post-ey{text-align:center;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.2em;color:var(--plum-lt);margin-bottom:8px}
+.post-title{text-align:center;font-family:var(--display);font-size:clamp(26px,3.5vw,40px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:12px}
+.post-sub{text-align:center;font-size:15px;color:rgba(255,255,255,.6);margin-bottom:48px;max-width:540px;margin-left:auto;margin-right:auto}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,79,73,.12);padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.post-card:hover{transform:translateY(-4px);border-color:rgba(255,79,73,.3)}
+.post-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pg)}
+.post-card-num{font-family:var(--display);font-size:48px;font-weight:800;background:var(--pg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.2;position:absolute;top:16px;right:20px;line-height:1}
+.post-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25}
+.post-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7}
+.post-card-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,79,73,.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.post-card-icon svg{width:20px;height:20px}
+
+/* ══ CTA BANNER ══ */
+.cta-banner{padding:56px 3%;background:linear-gradient(135deg,#1e1210,#281814);text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 50% 100%,rgba(255,79,73,.12),transparent 60%);pointer-events:none}
+.cta-banner::after{content:'';position:absolute;inset:0;opacity:.3;mix-blend-mode:soft-light;background-image:var(--grain);background-size:200px;pointer-events:none}
+.cta-banner-inner{max-width:620px;margin:0 auto;position:relative;z-index:2}
+.cta-banner-script{font-family:var(--script);font-size:clamp(20px,2.2vw,26px);color:var(--plum-lt);transform:rotate(-1.5deg);display:block;margin-bottom:8px;opacity:.85}
+.cta-banner h2{font-family:var(--display);font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:20px}
+.cta-banner h2 em{font-style:normal;background:var(--pg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-banner .cta-main{max-width:480px;margin:0 auto}
+.cta-trust{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.cta-trust span{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4)}
+.cta-trust span svg{width:14px;height:14px}
+
+/* ══ SCROLL REVEAL ══ */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.fi.v{opacity:1;transform:none}
+.fi-d1{transition-delay:.1s}.fi-d2{transition-delay:.18s}.fi-d3{transition-delay:.26s}
+.fi-d4{transition-delay:.34s}.fi-d5{transition-delay:.42s}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .vid-layout{grid-template-columns:1fr;gap:32px}
+  .vid-side{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .side-card{margin-bottom:0}
+}
+@media(max-width:768px){
+  .hbar{padding:10px 16px}
+  .hbar-logo{font-size:12px;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hbar-viewers{display:none}
+  .hbar-day{font-size:10px;letter-spacing:.08em}
+  .vid-sec{padding:64px 4% 48px}
+  .vid-h{font-size:clamp(24px,6vw,36px)}
+  .vid-sub{font-size:14px}
+  .vid-side{grid-template-columns:1fr}
+  .side-card{padding:24px 20px}
+  .ep-grid{grid-template-columns:1fr}
+  .ep-card-top{padding:20px 20px 14px}
+  .ep-card-bottom{padding:12px 20px}
+  .post-grid{grid-template-columns:1fr}
+  .post-card{padding:28px 24px}
+  .replay-bar{flex-direction:column;gap:12px;text-align:center;padding:14px 20px}
+  .cta-banner{padding:44px 5%}
+  .cta-banner .cta-main{max-width:100%}
+  .cta-trust{gap:12px}
+  .dl-fg,.dl-mid{display:none}
+  .dl-bg{opacity:.1!important}
+}
+@media(max-width:480px){
+  .hbar{padding:8px 12px;gap:8px}
+  .hbar-logo{font-size:11px;max-width:160px}
+  .hbar-live{padding:3px 8px 3px 6px;font-size:8px}
+  .hbar-day{font-size:9px}
+  .vid-sec{padding:56px 5% 36px}
+  .vid-h{font-size:clamp(22px,7vw,32px)}
+  .vid-sub{font-size:13px;margin-bottom:18px}
+  .vid-note{font-size:11px}
+  .ep-sec,.post-sec{padding:44px 5% 52px}
+  .ep-title{font-size:clamp(22px,6vw,32px);margin-bottom:28px}
+  .ep-card h3{font-size:clamp(16px,4.5vw,20px)}
+  .ep-cd-block{min-width:28px;padding:3px 5px}
+  .ep-cd-num{font-size:12px}
+  .ep-cd-sep{font-size:11px}
+  .ep-cd-label{font-size:5px}
+  .post-title{font-size:clamp(22px,6vw,32px)}
+  .post-card{padding:24px 20px}
+  .cta-banner{padding:36px 5%}
+  .cta-banner h2{font-size:clamp(22px,6vw,32px)}
+  .cta-main{padding:18px 24px;font-size:14px}
+  .replay-bar{padding:12px 16px;gap:10px}
+  .replay-cd-block{min-width:36px;padding:5px 7px}
+  .replay-cd-num{font-size:18px}
+  .replay-bar-text{font-size:12px}
+  .vid-dots span{width:8px;height:8px}
+  .vid-play-btn{width:60px;height:60px}
+  .vid-play-btn svg{width:22px;height:22px}
+}
+@media(max-width:360px){
+  .hbar-logo em{display:none}
+  .vid-sec{padding:52px 4% 32px}
+  .vid-h{font-size:clamp(20px,7vw,28px)}
+  .cta-main{padding:16px 20px;font-size:13px}
+  .replay-cd-block{min-width:32px}
+  .replay-cd-num{font-size:16px}
+}
+
+/* GHL overrides */
+.fi{opacity:1!important;transform:none!important}
+.ghl-break{overflow-x:hidden}
+body::before,body::after{display:none!important}
+</style>
+
+<!-- GHL CONTAINER BUSTER -->
+<script>
+(function(){
+  var me=document.currentScript;if(!me)return;
+  var p=me.parentElement;
+  while(p&&p!==document.documentElement&&p!==document.body){
+    var cs=window.getComputedStyle(p);
+    if(cs.maxWidth!=='none')p.style.maxWidth='none';
+    if(parseInt(cs.paddingLeft)>0)p.style.paddingLeft='0';
+    if(parseInt(cs.paddingRight)>0)p.style.paddingRight='0';
+    p.style.width='100%';p.style.boxSizing='border-box';
+    if(p.parentElement&&p.parentElement!==document.documentElement&&p.parentElement!==document.body){
+      p.style.overflow='visible';p.style.overflowX='visible';p.style.overflowY='visible';
+      if(cs.height!=='auto'&&cs.height!=='0px'){var h=parseInt(cs.height);if(h>0&&h<window.innerHeight*2)p.style.height='auto'}
+      if(cs.maxHeight!=='none')p.style.maxHeight='none';
+    }else{p.style.webkitOverflowScrolling='touch'}
+    p=p.parentElement;
+  }
+})();
+</script>
+
+<div class="ghl-break">
+
+<!-- ═══════════════════════════════════════
+     HEADER BAR — Fixed top with live indicator
+     ═══════════════════════════════════════ -->
+<header class="hbar">
+  <div class="hbar-left">
+    <div class="hbar-logo">Marissa Romero — <em>Digital Course Launch Lab</em></div>
+    <div class="hbar-live"><span class="pulse-dot"></span> LIVE NOW</div>
+  </div>
+  <div class="hbar-right">
+    <div class="hbar-viewers">
+      <div class="hbar-avatars">
+        <div class="hbar-av" style="background:linear-gradient(135deg,#ff4f49,#ff6b5e)">M</div>
+        <div class="hbar-av" style="background:linear-gradient(135deg,#0ad1d9,#16d09c)">R</div>
+        <div class="hbar-av" style="background:linear-gradient(135deg,#7ccb61,#0dc5cf)">K</div>
+        <div class="hbar-av" style="background:linear-gradient(135deg,#f1c232,#fb4708)">J</div>
+      </div>
+      <div class="hbar-vcount"><strong id="viewerCount">1,243</strong> watching with you</div>
+    </div>
+    <div class="hbar-day">DAY 2 OF 3</div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     VIDEO SECTION — 2-col layout: video + sidebar
+     ═══════════════════════════════════════ -->
+<section class="vid-sec">
+  <!-- Plum atmospheric glows -->
+  <div class="dc" style="top:-5%;left:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,79,73,.07),transparent 65%);filter:blur(30px)"></div>
+  <div class="dc" style="bottom:5%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,138,133,.05),transparent 65%);filter:blur(25px)"></div>
+
+  <!-- BG Leaf — monstera with plum tint -->
+  <div class="dl dl-bg" style="top:-30px;right:-60px;width:480px;height:480px;transform:rotate(25deg)">
+    <svg viewBox="0 0 400 400" fill="none"><path d="M200 380 C200 380 80 300 60 180 C40 60 160 20 200 20 C240 20 360 60 340 180 C320 300 200 380 200 380Z" fill="url(#lg2)" opacity=".24"/><path d="M200 20 L200 380" stroke="rgba(255,255,255,.06)" stroke-width="3"/><ellipse cx="140" cy="140" rx="25" ry="35" fill="#1e1210" opacity=".12" transform="rotate(-15 140 140)"/><ellipse cx="260" cy="160" rx="20" ry="30" fill="#1e1210" opacity=".1" transform="rotate(10 260 160)"/><ellipse cx="150" cy="240" rx="22" ry="28" fill="#1e1210" opacity=".11" transform="rotate(-8 150 240)"/><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff4f49"/><stop offset="50%" stop-color="#16d09c"/><stop offset="100%" stop-color="#0dc5cf"/></linearGradient></defs></svg>
+  </div>
+
+  <!-- BG Palm leaf bottom-left -->
+  <div class="dl dl-bg" style="bottom:-40px;left:-80px;width:400px;height:400px;transform:rotate(-15deg) scaleX(-1)">
+    <svg viewBox="0 0 300 300" fill="none"><path d="M150 280 C150 280 20 220 10 130 C0 40 80 10 150 10 C220 10 300 40 290 130 C280 220 150 280 150 280Z" fill="url(#lg2b)" opacity=".2"/><defs><linearGradient id="lg2b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#16d09c"/><stop offset="100%" stop-color="#ff4f49"/></linearGradient></defs></svg>
+  </div>
+
+  <div class="vid-layout">
+    <!-- MAIN: Video Area -->
+    <div class="vid-main fi">
+      <div class="vid-ey">DAY 2 — LIVE TRAINING</div>
+      <h1 class="vid-h">Build Your Entire Course <em>Using AI</em></h1>
+      <p class="vid-sub">Today we turn your validated idea into a complete digital course — slides, scripts, worksheets — using AI tools that cut weeks of work into hours.</p>
+
+      <!-- VIDEO FRAME -->
+      <div class="vid-wrap" id="vidWrap">
+        <div class="vid-dots"><span></span><span></span><span></span></div>
+        <div class="vid-play" id="vidPlay">
+          <div class="vid-play-btn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="vid-glow"></div>
+      </div>
+
+      <div class="vid-note">
+        <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><circle cx="8" cy="8" r="7" stroke="var(--slate)" stroke-width="1.5"/><path d="M8 5v3M8 10v1" stroke="var(--slate)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Having trouble? Refresh the page. Live chat is open below.</span>
+      </div>
+
+      <!-- REPLAY COUNTDOWN -->
+      <div class="replay-bar fi fi-d1" id="replayBar">
+        <div class="replay-bar-left">
+          <div class="replay-bar-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><circle cx="10" cy="10" r="8" stroke="var(--plum-lt)" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="var(--plum-lt)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="replay-bar-text"><strong>Replay expires soon</strong> — watch before it's gone</div>
+        </div>
+        <div class="replay-cd">
+          <div class="replay-cd-block"><div class="replay-cd-num" id="cdH">23</div><div class="replay-cd-label">Hours</div></div>
+          <span class="replay-cd-sep">:</span>
+          <div class="replay-cd-block"><div class="replay-cd-num" id="cdM">59</div><div class="replay-cd-label">Min</div></div>
+          <span class="replay-cd-sep">:</span>
+          <div class="replay-cd-block"><div class="replay-cd-num" id="cdS">59</div><div class="replay-cd-label">Sec</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="vid-side">
+      <div class="side-card fi fi-d1">
+        <h3>Today's Agenda</h3>
+        <div class="side-item">
+          <div class="side-item-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="var(--plum)" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="side-item-text">AI Course Builder Framework<span>Structure 6+ modules in under 30 min</span></div>
+        </div>
+        <div class="side-item">
+          <div class="side-item-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="var(--plum)" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="side-item-text">Slide & Script Generator<span>AI writes your lesson content for you</span></div>
+        </div>
+        <div class="side-item">
+          <div class="side-item-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="var(--plum)" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="side-item-text">Worksheet & Resource Templates<span>Downloadable templates ready to brand</span></div>
+        </div>
+        <div class="side-item">
+          <div class="side-item-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="var(--plum)" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="side-item-text">Your Action Step<span>Finish your course outline before Day 3</span></div>
+        </div>
+      </div>
+
+      <div class="side-card fi fi-d2">
+        <h3>Don't Miss the Full System</h3>
+        <p style="margin-bottom:14px">This training is Day 2 of 3. The complete system — AI prompts, funnel templates, coaching calls — is inside <strong>Digital Course Launch Lab</strong>.</p>
+        <div class="side-cta">
+          <a href="#" class="cta-main" style="text-decoration:none"><span class="cta-shim"></span>Learn More About the Lab<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → warm -->
+<div class="wv" style="background:linear-gradient(175deg,var(--warmbg),var(--warm))"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,48 C180,16 360,72 540,36 C720,0 900,56 1080,28 C1260,0 1380,44 1440,32 L1440,80 L0,80Z" fill="var(--warm)"/></svg></div>
+
+<!-- ═══════════════════════════════════════
+     EPISODES — Day 1 (done) / 2 (active) / 3 (locked)
+     ═══════════════════════════════════════ -->
+<section class="ep-sec">
+  <div class="dc" style="top:30%;left:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,79,73,.06),transparent 65%);filter:blur(25px)"></div>
+  <div class="ep-inner">
+    <div class="ep-ey fi">YOUR 3-DAY JOURNEY</div>
+    <h2 class="ep-title fi">Build Your Course in <em>3 Live Sessions</em></h2>
+    <div class="ep-grid">
+      <!-- Day 1 — Completed -->
+      <a href="day1-marissa.html" style="text-decoration:none;color:inherit">
+      <div class="ep-card ep-done fi fi-d1">
+        <div class="ep-card-thumb">
+          <div class="ep-card-thumb-dots"><span></span><span></span><span></span></div>
+          <div class="ep-card-thumb-inner">
+            <div class="ep-card-slide">
+              <div class="ep-card-slide-icon"><svg viewBox="0 0 40 40" width="32" height="32" fill="none"><circle cx="20" cy="20" r="16" stroke="rgba(10,209,217,.3)" stroke-width="1.5"/><path d="M14 12l16 8-16 8V12z" fill="rgba(10,209,217,.25)"/></svg></div>
+              <div class="ep-card-slide-title">The Idea Goldmine<br>Framework</div>
+            </div>
+          </div>
+          <div class="ep-card-thumb-label ep-card-thumb-done">✓ COMPLETED</div>
+        </div>
+        <div class="ep-card-top">
+          <div class="ep-card-day" style="color:var(--pacific)">DAY 1 — COMPLETED</div>
+          <h3>Pick Your Winning Idea</h3>
+          <p>Find and validate your profitable course topic using the Idea Goldmine Framework and AI prompts that do the research for you.</p>
+        </div>
+        <div class="ep-card-bar"><div class="ep-card-bar-fill ep-card-bar-fill-teal" style="width:100%"></div></div>
+        <div class="ep-card-bottom">
+          <span class="ep-card-status ep-status-done">✓ WATCHED</span>
+        </div>
+      </div>
+      </a>
+
+      <!-- Day 2 — Active / Now Playing -->
+      <a href="day2-marissa.html" style="text-decoration:none;color:inherit">
+      <div class="ep-card ep-active fi fi-d2">
+        <div class="ep-card-thumb">
+          <div class="ep-card-thumb-dots"><span></span><span></span><span></span></div>
+          <div class="ep-card-thumb-inner">
+            <div class="ep-card-slide">
+              <div class="ep-card-slide-icon"><svg viewBox="0 0 40 40" width="32" height="32" fill="none"><rect x="6" y="10" width="28" height="20" rx="2" stroke="rgba(255,79,73,.3)" stroke-width="1.5"/><path d="M6 15h28" stroke="rgba(255,79,73,.2)" stroke-width="1"/><circle cx="10" cy="12.5" r="1" fill="rgba(255,79,73,.3)"/><circle cx="14" cy="12.5" r="1" fill="rgba(241,194,50,.3)"/><circle cx="18" cy="12.5" r="1" fill="rgba(124,203,97,.3)"/></svg></div>
+              <div class="ep-card-slide-title">AI Course Builder<br>+ Templates</div>
+            </div>
+          </div>
+          <div class="ep-card-thumb-play"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fff"/></svg></div>
+          <div class="ep-card-thumb-label ep-card-thumb-live">● LIVE</div>
+        </div>
+        <div class="ep-card-top">
+          <div class="ep-card-day"><span class="ep-live-dot"></span> DAY 2 — NOW PLAYING</div>
+          <h3>Build Your Course with AI</h3>
+          <p>Turn your validated idea into a complete course — slides, scripts, worksheets — using AI tools that cut weeks into hours.</p>
+        </div>
+        <div class="ep-card-bar"><div class="ep-card-bar-fill ep-card-bar-fill-plum" id="d2Progress" style="width:0%"></div></div>
+        <div class="ep-card-bottom">
+          <span class="ep-card-status ep-status-live">● WATCHING NOW</span>
+        </div>
+      </div>
+      </a>
+
+      <!-- Day 3 — Locked (with countdown) -->
+      <a href="day3-marissa.html" style="text-decoration:none;color:inherit;pointer-events:none" class="ep-link-d3">
+      <div class="ep-card ep-locked fi fi-d3">
+        <div class="ep-card-thumb">
+          <div class="ep-card-thumb-dots"><span></span><span></span><span></span></div>
+          <div class="ep-card-thumb-inner">
+            <div class="ep-card-slide">
+              <div class="ep-card-slide-icon"><svg viewBox="0 0 40 40" width="32" height="32" fill="none"><path d="M8 32V16l12-8 12 8v16L20 40 8 32z" stroke="rgba(255,79,73,.2)" stroke-width="1.5"/><path d="M20 24v6" stroke="rgba(255,79,73,.15)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <div class="ep-card-slide-title">Launch Funnel<br>+ First Sales</div>
+            </div>
+          </div>
+          <div class="ep-card-thumb-locked"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="1.5" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/><path d="M8 11V8a4 4 0 018 0v3" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="ep-card-thumb-label">TOMORROW</div>
+        </div>
+        <div class="ep-card-top">
+          <div class="ep-card-day" style="color:rgba(0,0,0,.3)">DAY 3 — TOMORROW</div>
+          <h3>Launch & Get Your First Sales</h3>
+          <p>Set up your sales funnel, write your launch emails, and go live — with the exact funnel templates behind $600K+ in digital product sales.</p>
+        </div>
+        <div class="ep-card-bar"><div class="ep-card-bar-fill" style="width:0%"></div></div>
+        <div class="ep-card-bottom">
+          <span class="ep-card-status ep-status-locked">UNLOCKS IN</span>
+          <div class="ep-cd">
+            <div class="ep-cd-block"><div class="ep-cd-num" id="d3H">--</div><div class="ep-cd-label">Hr</div></div>
+            <span class="ep-cd-sep">:</span>
+            <div class="ep-cd-block"><div class="ep-cd-num" id="d3M">--</div><div class="ep-cd-label">Min</div></div>
+            <span class="ep-cd-sep">:</span>
+            <div class="ep-cd-block"><div class="ep-cd-num" id="d3S">--</div><div class="ep-cd-label">Sec</div></div>
+          </div>
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: warm → dark plum -->
+<div class="wv" style="background:var(--warm)"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px"><path d="M0,24 C240,68 480,0 720,40 C960,80 1200,16 1440,48 L1440,80 L0,80Z" fill="#1e1210"/></svg></div>
+
+<!-- ═══════════════════════════════════════
+     POST-VIDEO: Action Steps
+     ═══════════════════════════════════════ -->
+<section class="post-sec">
+  <div class="dc" style="top:20%;right:10%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,79,73,.06),transparent 65%);filter:blur(25px)"></div>
+  <div class="post-inner">
+    <div class="post-ey fi">BEFORE YOU CLOSE THIS TAB</div>
+    <h2 class="post-title fi">Your Day 2 Action Steps</h2>
+    <p class="post-sub fi">Complete these tonight and you'll show up to Day 3 ready to launch.</p>
+    <div class="post-grid">
+      <div class="post-card fi fi-d1">
+        <div class="post-card-num">01</div>
+        <div class="post-card-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="var(--plum-lt)" stroke-width="1.5"/><path d="M7 6h6M7 9h6M7 12h4" stroke="var(--plum-lt)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h3>Finish Your Course Outline</h3>
+        <p>Use the AI Course Builder prompts from today's training. You should have 6 modules with lesson titles, learning outcomes, and key points.</p>
+      </div>
+      <div class="post-card fi fi-d2">
+        <div class="post-card-num">02</div>
+        <div class="post-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M3 3h14v11H7l-4 3V3z" stroke="var(--plum-lt)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7h6M7 10h4" stroke="var(--plum-lt)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <h3>Generate Your First 3 Scripts</h3>
+        <p>Run the Slide & Script Generator AI prompt for your first 3 lessons. Review the output and tweak it to match your voice and teaching style.</p>
+      </div>
+      <div class="post-card fi fi-d3">
+        <div class="post-card-num">03</div>
+        <div class="post-card-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M8 2L2 6v8l6 4 6-4V6L8 2z" stroke="var(--plum-lt)" stroke-width="1.5"/><path d="M14 2l6 4v8l-6 4" stroke="var(--plum-lt)" stroke-width="1.5" opacity=".5"/></svg></div>
+        <h3>Prep for Launch Day</h3>
+        <p>Tomorrow we build your sales funnel and go live. Have your course title, a 1-sentence promise, and your price point ready. We'll handle the rest with AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: dark → dark CTA -->
+<div class="wv" style="background:linear-gradient(135deg,#1e1210,#281814)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:40px"><path d="M0,20 C360,50 720,0 1080,30 C1260,45 1380,10 1440,20 L1440,60 L0,60Z" fill="#211614"/></svg></div>
+
+<!-- ═══════════════════════════════════════
+     CTA BANNER
+     ═══════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="cta-banner-inner fi">
+    <span class="cta-banner-script">want the full system, not just the free training?</span>
+    <h2>Get the Complete <em>Digital Course Launch Lab</em></h2>
+    <a href="#" class="cta-main" style="text-decoration:none"><span class="cta-shim"></span>Join the Lab — Limited Spots<svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="cta-trust">
+      <span><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="8" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Secure checkout</span>
+      <span><svg viewBox="0 0 20 20" fill="none"><path d="M13 2L3 14h6l-1 6 10-12h-6l1-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Instant access</span>
+      <span><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Lifetime updates</span>
+    </div>
+  </div>
+</section>
+
+</div><!-- /ghl-break -->
+
+<script>
+(function(){
+  /* ═══ SCROLL REVEAL ═══ */
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+
+  /* ═══ REPLAY COUNTDOWN (24hr from page load) ═══ */
+  const cdKey='marissa_d2_cd_end';
+  let end=localStorage.getItem(cdKey);
+  if(!end){end=Date.now()+24*60*60*1000;localStorage.setItem(cdKey,end)}
+  end=parseInt(end);
+  const hEl=document.getElementById('cdH'),mEl=document.getElementById('cdM'),sEl=document.getElementById('cdS');
+  const bar=document.getElementById('replayBar');
+  function tickCD(){
+    const diff=Math.max(0,end-Date.now());
+    const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    if(hEl)hEl.textContent=String(h).padStart(2,'0');
+    if(mEl)mEl.textContent=String(m).padStart(2,'0');
+    if(sEl)sEl.textContent=String(s).padStart(2,'0');
+    if(diff<7200000&&bar)bar.classList.add('replay-urgent');
+    if(diff<=0){if(hEl)hEl.textContent='00';if(mEl)mEl.textContent='00';if(sEl)sEl.textContent='00';return}
+    requestAnimationFrame(()=>setTimeout(tickCD,1000));
+  }
+  tickCD();
+
+  /* ═══ DAY 3 COUNTDOWN (unlocks tomorrow) ═══ */
+  (function(){
+    const d3Key='marissa_d3_unlock';
+    let d3End=localStorage.getItem(d3Key);
+    if(!d3End){
+      const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);tomorrow.setHours(10,0,0,0);
+      d3End=tomorrow.getTime();localStorage.setItem(d3Key,d3End);
+    }
+    d3End=parseInt(d3End);
+    const d3H=document.getElementById('d3H'),d3M=document.getElementById('d3M'),d3S=document.getElementById('d3S');
+    function tickD3(){
+      const diff=Math.max(0,d3End-Date.now());
+      const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+      if(d3H)d3H.textContent=String(h).padStart(2,'0');
+      if(d3M)d3M.textContent=String(m).padStart(2,'0');
+      if(d3S)d3S.textContent=String(s).padStart(2,'0');
+      if(diff<=0){
+        const link=document.querySelector('.ep-link-d3');if(link)link.style.pointerEvents='auto';
+        if(d3H)d3H.textContent='00';if(d3M)d3M.textContent='00';if(d3S)d3S.textContent='00';
+        return;
+      }
+      requestAnimationFrame(()=>setTimeout(tickD3,1000));
+    }
+    tickD3();
+  })();
+
+  /* ═══ CLICK-TO-PLAY VIDEO ═══ */
+  const vidPlay=document.getElementById('vidPlay');
+  const vidWrap=document.getElementById('vidWrap');
+  if(vidPlay&&vidWrap){
+    vidPlay.addEventListener('click',function(){
+      const iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/bu6qz3L4JTs?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen');
+      iframe.setAttribute('allowfullscreen','');
+      iframe.setAttribute('webkitallowfullscreen','');
+      iframe.setAttribute('mozallowfullscreen','');
+      iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:12px;z-index:10';
+      vidWrap.appendChild(iframe);
+      vidPlay.style.display='none';
+      const glow=vidWrap.querySelector('.vid-glow');
+      if(glow)glow.style.display='none';
+    });
+  }
+
+  /* ═══ VIDEO PROGRESS BAR (simulated) ═══ */
+  const prog=document.getElementById('d2Progress');
+  if(prog){let w=0;const pi=setInterval(()=>{w+=.15;if(w>=100){w=100;clearInterval(pi)}prog.style.width=w+'%'},1000)}
+
+  /* ═══ VIEWER COUNT (subtle fluctuation) ═══ */
+  const vc=document.getElementById('viewerCount');
+  if(vc){
+    let count=1243;
+    setInterval(()=>{count+=Math.floor(Math.random()*9)-4;count=Math.max(1150,Math.min(1340,count));vc.textContent=count.toLocaleString()},8000);
+  }
+
+  /* ═══ TAB TITLE ANIMATION ═══ */
+  if(window.Worker){
+    const b=new Blob([`let i=0;const m=["🔴 Day 2 is LIVE!","⏰ Don't miss this...","🎯 Come back — training is live","💎 Marissa is building with AI"];setInterval(()=>{postMessage(m[i%m.length]);i++},2500)`],{type:'text/javascript'});
+    const w=new Worker(URL.createObjectURL(b));
+    const ot=document.title;
+    w.onmessage=e=>{if(document.hidden)document.title=e.data};
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)document.title=ot});
+  }
+})();
+</script>

@@ -1,4 +1,6 @@
+<link rel="icon" type="image/png" href="https://i.imgur.com/9hLtted.png">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');</style>
 <style>
 /* OFFER PAGE: "THE OPEN INVITATION"
@@ -169,6 +171,25 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .oc-embed-trust span{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.06em}
 .oc-cta{padding:0 28px 24px}
 .oc-cta .cta-main{width:100%;max-width:100%}
+/* "Not sure?" strategy call block — 2-col with image */
+.oc-unsure{padding:0 28px 28px}
+.oc-unsure-box{background:linear-gradient(135deg,rgba(10,38,40,.04),rgba(10,209,217,.03));border:1px dashed rgba(10,209,217,.2);padding:0;position:relative;overflow:hidden;display:grid;grid-template-columns:140px 1fr;align-items:stretch}
+.oc-unsure-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--tg);opacity:.35;z-index:1}
+/* Left: image + call graphic */
+.oc-unsure-img{position:relative;background:linear-gradient(145deg,#0a2628,#0d3133);overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px}
+.oc-unsure-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.oc-unsure-img-placeholder{position:relative;z-index:1;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px}
+.oc-unsure-img-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 40%,rgba(10,209,217,.1),transparent 60%);pointer-events:none}
+/* Right: text + CTA */
+.oc-unsure-content{padding:24px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.oc-unsure-tag{font-family:var(--script);font-size:20px;color:var(--cherry);transform:rotate(-1.5deg);display:block;margin-bottom:6px}
+.oc-unsure-h{font-family:var(--display);font-size:16px;font-weight:700;color:var(--ablack);margin-bottom:6px;letter-spacing:-.01em}
+.oc-unsure-p{font-size:13px;color:#777;line-height:1.6;margin-bottom:14px;max-width:280px}
+.oc-unsure-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-family:var(--body);font-size:13px;font-weight:700;color:var(--pacific);background:rgba(10,209,217,.06);border:1.5px solid rgba(10,209,217,.18);cursor:pointer;text-decoration:none;transition:all .2s;text-transform:uppercase;letter-spacing:.06em}
+.oc-unsure-btn:hover{background:rgba(10,209,217,.12);border-color:rgba(10,209,217,.3);transform:translateY(-2px);box-shadow:0 4px 16px rgba(10,209,217,.12)}
+.oc-unsure-btn svg{flex-shrink:0}
+.oc-unsure-note{font-size:11px;color:var(--slate);margin-top:8px}
+@media(max-width:480px){.oc-unsure-box{grid-template-columns:1fr}.oc-unsure-img{min-height:140px}}
 
 /* ══════════════════════════════════════
    PROOF STRIP
@@ -401,7 +422,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   .oc{grid-template-columns:1fr}
   .oc-right{border-left:none;border-top:1px solid rgba(0,0,0,.06)}
   .oc-inc{flex-direction:column}
-  .oc-head,.oc-price,.oc-embed,.oc-cta{padding-left:24px;padding-right:24px}
+  .oc-head,.oc-price,.oc-embed,.oc-cta,.oc-unsure{padding-left:24px;padding-right:24px}
   .oc-head{text-align:center}
   .oc-price{text-align:center}
   .pg-wall{min-height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -415,14 +436,39 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 @media(max-width:480px){
   .hero{padding:28px 5% 36px}
   .hero h1{font-size:clamp(26px,8vw,36px)}
-  .ps-in{gap:12px}
+  .hero-sub{font-size:14px}
+  .ps-in{gap:12px;grid-template-columns:repeat(2,1fr)}
   .ps-n{font-size:clamp(22px,6vw,30px)}
-  .mag-sec,.ck-sec,.gf-sec,.sp-sec,.ab-sec,.wh-sec,.pg-sec,.fq-sec,.fc-sec{padding:56px 5% 64px}
+  .ps-l{font-size:10px;letter-spacing:.08em}
+  .mag-sec,.ck-sec,.gf-sec,.sp-sec,.ab-sec,.wh-sec,.pg-sec,.fq-sec,.fc-sec{padding:44px 5% 52px}
   .oc::before{inset:8px}
-  .pr-now{font-size:56px}
+  .oc-head h2{font-size:clamp(20px,5vw,28px)}
+  .oc-obj p{font-size:13px}
+  .oc-obj li{font-size:12px}
+  .oc-item{font-size:12px}
+  .oc-embed{padding:20px 20px 24px}
+  .oc-cta{padding:0 20px 24px}
+  .oc-unsure{padding:0 20px 24px}
+  .pr-now{font-size:52px}
+  .pr-was{font-size:18px}
+  .pr-note{font-size:12px}
   .pg-wall{grid-template-columns:1fr}
   .fc-val{max-width:100%}
   .wh-card{flex:0 0 85vw}
+  .cta-main{padding:18px 24px;font-size:14px}
+  .gb-links{flex-direction:column;align-items:center}
+  .gf-card{padding:24px 20px}
+  .fq-item-q{font-size:15px;padding:16px 20px}
+  .fq-item-a{padding:0 20px 16px;font-size:13px}
+}
+@media(max-width:360px){
+  .hero{padding:24px 4% 32px}
+  .hero h1{font-size:clamp(24px,7.5vw,32px)}
+  .ps-in{grid-template-columns:repeat(2,1fr)}
+  .pr-now{font-size:44px}
+  .cta-main{padding:16px 20px;font-size:13px}
+  .oc-head,.oc-price,.oc-embed,.oc-cta,.oc-unsure{padding-left:16px;padding-right:16px}
+  .oc-embed-trust{flex-direction:column;gap:8px}
 }
 </style>
 
@@ -650,6 +696,49 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
             <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><rect x="3" y="8" width="14" height="10" rx="1" stroke="#8e8d8d" stroke-width="1.5"/><path d="M7 8V5a3 3 0 016 0v3" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Secure</span>
             <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M13 2L3 14h6l-1 6 10-12h-6l1-6z" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> Instant access</span>
             <span><svg viewBox="0 0 20 20" fill="none" width="14" height="14"><circle cx="10" cy="10" r="7" stroke="#8e8d8d" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#8e8d8d" stroke-width="1.5" stroke-linecap="round"/></svg> SSL encrypted</span>
+          </div>
+        </div>
+        <!-- NOT SURE? STRATEGY CALL -->
+        <div class="oc-unsure">
+          <div class="oc-unsure-box">
+            <!-- LEFT: Image placeholder (replace src with Marissa on call photo) -->
+            <div class="oc-unsure-img">
+              <!-- Replace this placeholder with: <img src="img/marissa-call.jpg" alt="Marissa on a strategy call"> -->
+              <div class="oc-unsure-img-placeholder">
+                <!-- Custom call graphic SVG -->
+                <svg viewBox="0 0 100 100" width="64" height="64" fill="none">
+                  <!-- Laptop -->
+                  <rect x="16" y="28" width="68" height="44" rx="4" stroke="rgba(10,209,217,.5)" stroke-width="2"/>
+                  <rect x="20" y="32" width="60" height="36" rx="2" fill="rgba(10,209,217,.06)"/>
+                  <rect x="30" y="76" width="40" height="3" rx="1.5" fill="rgba(10,209,217,.3)"/>
+                  <!-- Video call UI inside screen -->
+                  <rect x="24" y="36" width="26" height="20" rx="2" fill="rgba(10,209,217,.12)" stroke="rgba(10,209,217,.25)" stroke-width="1"/>
+                  <circle cx="37" cy="43" r="5" fill="rgba(255,79,73,.15)" stroke="rgba(255,79,73,.35)" stroke-width="1"/>
+                  <path d="M34 47 Q37 50 40 47" stroke="rgba(255,79,73,.3)" stroke-width="1" stroke-linecap="round" fill="none"/>
+                  <rect x="54" y="36" width="22" height="20" rx="2" fill="rgba(124,203,97,.08)" stroke="rgba(124,203,97,.2)" stroke-width="1"/>
+                  <circle cx="65" cy="43" r="4.5" fill="rgba(10,209,217,.1)" stroke="rgba(10,209,217,.3)" stroke-width="1"/>
+                  <path d="M62.5 47 Q65 49.5 67.5 47" stroke="rgba(10,209,217,.25)" stroke-width="1" stroke-linecap="round" fill="none"/>
+                  <!-- Decorative dots -->
+                  <circle cx="28" cy="62" r="1.5" fill="rgba(255,79,73,.35)"/>
+                  <circle cx="34" cy="62" r="1.5" fill="rgba(241,194,50,.35)"/>
+                  <circle cx="40" cy="62" r="1.5" fill="rgba(124,203,97,.35)"/>
+                  <!-- Teal glow -->
+                  <circle cx="50" cy="50" r="30" fill="rgba(10,209,217,.04)"/>
+                </svg>
+                <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(10,209,217,.45);text-align:center">Your photo here</div>
+              </div>
+            </div>
+            <!-- RIGHT: Text + CTA -->
+            <div class="oc-unsure-content">
+              <span class="oc-unsure-tag">not quite sure yet?</span>
+              <div class="oc-unsure-h">Book a Free Strategy Call</div>
+              <p class="oc-unsure-p">No pressure, no pitch. Let's chat about where you are, where you want to go, and whether the Lab is the right fit.</p>
+              <a href="#" class="oc-unsure-btn">
+                <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M15 3H5a2 2 0 00-2 2v7a2 2 0 002 2h2l3 3 3-3h2a2 2 0 002-2V5a2 2 0 00-2-2z" stroke="var(--pacific)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="7.5" cy="8.5" r="1" fill="var(--pacific)"/><circle cx="10" cy="8.5" r="1" fill="var(--t1)"/><circle cx="12.5" cy="8.5" r="1" fill="var(--pacific)"/></svg>
+                Book My Free Call
+              </a>
+              <div class="oc-unsure-note">15 min · Zoom · Pick a time that works for you</div>
+            </div>
           </div>
         </div>
       </div>
