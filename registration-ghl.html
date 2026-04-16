@@ -780,16 +780,17 @@ section,.breakdown,.imagine,.transform,.final,.vsl-cta{overflow:hidden}
 .hero-pre{order:1}
 .hero h1{order:2;text-wrap:pretty}
 .hero-rest{order:3}
-.vsl-frame{order:4;margin-top:8px}
+.device-frame{order:4;margin-top:8px}
+.hero-bullets{order:5}
 .vsl-poster-play{width:80px;height:80px}
 .vsl-poster-play svg{width:34px;height:34px}
 .vsl-poster-label{font-size:11px;bottom:16px}
 .vsl-min-controls{bottom:10px;right:10px;gap:6px;opacity:.95;pointer-events:auto}
 .vsl-mc-btn{width:38px;height:38px}
 .vsl-mc-btn svg{width:16px;height:16px}
-.cd-row{order:5}
-.cta-wrap{order:6;align-items:center}
-.challenge-banner{order:7}
+.cd-row{order:6}
+.cta-wrap{order:7;align-items:center}
+.challenge-banner{order:8}
 .hero-annot{bottom:auto;top:-14px;right:10%}
 .challenge-banner-inner{flex-direction:column;text-align:center;padding:22px 20px}
 .cb-laptop{width:100px}
@@ -861,7 +862,8 @@ section,.breakdown,.imagine,.transform,.final,.vsl-cta{overflow:hidden}
 /* Center the countdown timer */
 .cd-row{display:flex;flex-direction:column;align-items:center}
 .cd{justify-content:center}
-.vsl-frame{margin-top:0;aspect-ratio:16/9}
+.device-frame{margin-top:0}
+.vsl-frame{aspect-ratio:16/9}
 .hero-pre{font-size:12px;margin-bottom:0;letter-spacing:.02em}
 .hero h1{font-size:clamp(26px,7.5vw,38px);margin-bottom:0;line-height:1.15}
 .h1-em{white-space:normal}
@@ -1558,25 +1560,13 @@ body::before,body::after{display:none !important}
     <div class="proof-sub">in digital product sales</div>
     <div class="proof-desc">Not because I'm special. Because I followed a system that works whether you have 200 subscribers or 200,000.</div>
   </div>
-  <div class="proof-cards-row fi fi-d2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:32px auto 0;padding:0 24px">
-    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
-      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$40K</div>
-      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">from 200 subscribers</div>
-      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">52 buyers at $47. Three became $10K+ clients. The ecosystem did the rest.</p>
-      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves it works at small scale - you don't need a massive audience.</p>
-    </div>
-    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
-      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$35K</div>
-      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">from ONE launch</div>
-      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">One offer. One launch weekend. One $700 product. That's what happens when the positioning is right.</p>
-      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves it's repeatable and fast - not a one-time fluke.</p>
-    </div>
-    <div style="background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);padding:28px 24px;box-shadow:var(--sh-md)">
-      <div style="font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--ablack);line-height:1.1">$30-40K/mo</div>
-      <div style="font-size:13px;font-weight:700;color:var(--pacific);margin:4px 0 12px;text-transform:uppercase;letter-spacing:.05em">on maternity leave</div>
-      <p style="font-size:14px;color:var(--char);line-height:1.55;margin:0">90 days on bed rest. Business ran without me. That's not hustle - that's structure.</p>
-      <p style="font-size:12px;color:var(--slate);margin:10px 0 0;font-style:italic">This proves the system runs without you - the dream outcome.</p>
-    </div>
+  <div class="proof-screenshots fi fi-d2" style="display:flex;gap:16px;max-width:1100px;margin:32px auto 0;padding:0 24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+    <style>.proof-screenshots::-webkit-scrollbar{display:none}.proof-screenshots img{flex:0 0 240px;width:240px;height:auto;display:block;border-radius:4px;box-shadow:0 8px 28px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06);scroll-snap-align:start}</style>
+    <img src="https://i.imgur.com/qBLD0Np.png" alt="Student testimonial" loading="lazy">
+    <img src="https://i.imgur.com/omrFimi.png" alt="Student testimonial" loading="lazy">
+    <img src="https://i.imgur.com/lnzGX2d.png" alt="Student testimonial" loading="lazy">
+    <img src="https://i.imgur.com/rSjGocg.png" alt="Student testimonial" loading="lazy">
+    <img src="https://i.imgur.com/Qugtv04.png" alt="Student testimonial" loading="lazy">
   </div>
 </section>
 
