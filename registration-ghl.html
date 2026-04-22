@@ -2699,8 +2699,8 @@ params.append('first_name',n);params.append('email',em);params.append('phone',fu
 params.append('tags','challenge-registered-may2026');params.append('source','digital-course-launch-lab');
 if(amId)params.append('am_id',amId);
 fetch('https://script.google.com/macros/s/AKfycbzpgySxBMHWuACrOzhbjnGP_agqXvr9L8GUavoVdAyr6jy6pXYG_gMcEcF6N2BGE6LE6w/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:n,email:em,phone:fullPhone,tags:'challenge-registered-may2026',source:'digital-course-launch-lab',am_id:amId})});
-fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/2a87c99c-edd5-4ed3-b016-ef1c082ba5c2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:n,email:em,phone:fullPhone,tags:'challenge-registered-may2026',source:'digital-course-launch-lab',am_id:amId||''})});
-fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/1a6e4b08-e889-472c-bc9d-bdb035728bef',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()})
+fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/2a87c99c-edd5-4ed3-b016-ef1c082ba5c2',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()});
+fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/1a6e4b08-e889-472c-bc9d-bdb035728bef',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()})
 .then(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){window.location.href='https://offer.marissaromero.com/vip'},800)})
 .catch(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){window.location.href='https://offer.marissaromero.com/vip'},800)});
 });
