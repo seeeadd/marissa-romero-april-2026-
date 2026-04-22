@@ -2546,6 +2546,8 @@ body::before,body::after{display:none !important}
 
 <script>
 function _initAll(){
+/* === AFFILIATE PERSIST === */
+(function(){var u=new URLSearchParams(window.location.search).get('am_id');if(u)localStorage.setItem('_mr_am_id',u)})();
 /* === COUNTDOWN === */
 (function(){var target=new Date("2026-05-12T15:00:00-05:00").getTime();function upd(){var d=target-Date.now();if(d<0)d=0;var dd=Math.floor(d/864e5),hh=Math.floor(d%864e5/36e5),mm=Math.floor(d%36e5/6e4),ss=Math.floor(d%6e4/1e3),p=function(n){return String(n).padStart(2,'0')};var s=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};s('cd-d',p(dd));s('cd-h',p(hh));s('cd-m',p(mm));s('cd-s',p(ss));s('tb-d',p(dd));s('tb-h',p(hh));s('tb-m',p(mm));s('tb-s',p(ss));document.querySelectorAll('.cd-x-d').forEach(function(e){e.textContent=p(dd)});document.querySelectorAll('.cd-x-h').forEach(function(e){e.textContent=p(hh)});document.querySelectorAll('.cd-x-m').forEach(function(e){e.textContent=p(mm)});document.querySelectorAll('.cd-x-s').forEach(function(e){e.textContent=p(ss)})}upd();setInterval(upd,1000)})();
 
@@ -2689,10 +2691,14 @@ btn.disabled=true;
 var phrases=['One sec. Big things happening.','Reserving your front-row seat...','Almost. Don\u2019t look at me like that.','Doing very important things rn.','Telling AI to get your seat ready...','Securing your spot. Be cool.'];
 var pi=0;sp.textContent=phrases[0];
 var wi=setInterval(function(){pi=(pi+1)%phrases.length;sp.textContent=phrases[pi]},1200);
+var urlParams=new URLSearchParams(window.location.search);
+var amId=urlParams.get('am_id')||localStorage.getItem('_mr_am_id')||'';
+if(amId)localStorage.setItem('_mr_am_id',amId);
 var params=new URLSearchParams();
 params.append('first_name',n);params.append('email',em);params.append('phone',fullPhone);
 params.append('tags','challenge-registered-may2026');params.append('source','digital-course-launch-lab');
-fetch('https://script.google.com/macros/s/AKfycbzpgySxBMHWuACrOzhbjnGP_agqXvr9L8GUavoVdAyr6jy6pXYG_gMcEcF6N2BGE6LE6w/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:n,email:em,phone:fullPhone,tags:'challenge-registered-may2026',source:'digital-course-launch-lab'})});
+if(amId)params.append('am_id',amId);
+fetch('https://script.google.com/macros/s/AKfycbzpgySxBMHWuACrOzhbjnGP_agqXvr9L8GUavoVdAyr6jy6pXYG_gMcEcF6N2BGE6LE6w/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:n,email:em,phone:fullPhone,tags:'challenge-registered-may2026',source:'digital-course-launch-lab',am_id:amId})});
 fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/1a6e4b08-e889-472c-bc9d-bdb035728bef',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()})
 .then(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){window.location.href='https://offer.marissaromero.com/vip'},800)})
 .catch(function(){clearInterval(wi);sp.textContent="You\u2019re In!";submitting=false;if(window._exitRegistered)window._exitRegistered();setTimeout(function(){window.location.href='https://offer.marissaromero.com/vip'},800)});
