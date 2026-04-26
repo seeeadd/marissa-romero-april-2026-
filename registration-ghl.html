@@ -69,7 +69,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero{position:relative;padding:64px 3% 56px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 35%,var(--warmbg) 100%)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(10,209,217,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(255,79,73,.04) 0%,transparent 40%);pointer-events:none;z-index:1}
 .hero::after{content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,rgba(22,208,156,.04) 40%,transparent 70%);pointer-events:none;z-index:0;filter:blur(40px)}
-.hero-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;position:relative;z-index:5}
+.hero-inner{max-width:1520px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:52px;align-items:center;position:relative;z-index:5}
+.hero-left,.hero-right{min-width:0}
 .hero-left{position:relative}
 .device-frame{background:var(--ablack);overflow:hidden;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03),0 0 80px rgba(10,209,217,.04);border:1px solid rgba(255,255,255,.08);position:relative;margin-top:20px}
 .device-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tg);z-index:3}
@@ -213,8 +214,9 @@ body.vsl-fs-active{overflow:hidden!important;touch-action:none!important;overscr
 .hero-right{position:relative;z-index:5;align-self:center;background:radial-gradient(ellipse 120% 110% at 30% 50%,rgba(245,241,236,.95) 30%,rgba(245,241,236,.7) 60%,transparent 100%);padding:28px 28px 28px 8px;border-radius:16px}
 .hero-pre{font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--pacific);margin-bottom:16px;letter-spacing:-.01em;text-transform:uppercase}
 .hero h1{font-family:var(--display);font-size:clamp(30px,3.6vw,50px);font-weight:700;line-height:1.12;color:var(--ablack);margin-bottom:18px;letter-spacing:-.015em;text-wrap:balance}
-.h1-em{color:var(--pacific);position:relative;white-space:nowrap}
+.h1-em{color:var(--pacific);position:relative;background:var(--tg);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
 .h1-em::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:3px;background:var(--tg);border-radius:2px}
+.h1-cherry{color:var(--cherry);font-weight:900}
 .h1-light{font-weight:400;color:var(--slate)}
 .hl-box{display:inline;background:var(--tg);color:#fff;-webkit-text-fill-color:#fff;padding:6px 16px;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:4px;text-shadow:0 1px 2px rgba(0,0,0,.15),0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
 .hl-big{font-family:var(--display);font-weight:800;font-size:1.35em;color:var(--cherry);-webkit-text-fill-color:var(--cherry);display:block;margin:8px 0;text-shadow:2px 2px 0 rgba(255,79,73,.15),0 4px 12px rgba(255,79,73,.1);white-space:nowrap}
@@ -410,7 +412,7 @@ body.vsl-fs-active{overflow:hidden!important;touch-action:none!important;overscr
 @keyframes spotPulse{0%,100%{opacity:.8}50%{opacity:1}}
 .proof-from{font-size:clamp(16px,1.8vw,20px);font-weight:400;letter-spacing:-.01em;text-transform:uppercase;color:var(--t1);margin-bottom:16px;position:relative;z-index:1;text-shadow:0 0 20px rgba(10,209,217,.5)}
 /* 3D: Massive chrome-glow gradient text */
-.proof-big{font-family:var(--display);font-size:clamp(100px,20vw,200px);font-weight:700;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:.82;margin-bottom:18px;position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(10,209,217,.25)) drop-shadow(0 16px 40px rgba(10,209,217,.12))}
+.proof-big{font-family:var(--display);font-size:clamp(70px,14vw,140px);font-weight:700;background:var(--tg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:.82;margin-bottom:18px;position:relative;z-index:1;filter:drop-shadow(0 6px 12px rgba(10,209,217,.25)) drop-shadow(0 16px 40px rgba(10,209,217,.12))}
 .proof-sub{font-family:var(--display);font-size:clamp(24px,3vw,38px);font-weight:300;color:rgba(255,255,255,.7);margin-bottom:28px;position:relative;z-index:1;text-shadow:0 2px 6px rgba(0,0,0,.3)}
 .proof-desc{font-size:clamp(15px,1.5vw,17px);color:rgba(255,255,255,.4);max-width:620px;margin:0 auto 48px;line-height:1.75;position:relative;z-index:1}
 /* GLASS: Stats with glass morphism + teal glow hover */
@@ -742,7 +744,7 @@ body.vsl-fs-active{overflow:hidden!important;touch-action:none!important;overscr
 
 /* ── LARGE DESKTOP (1440px+) ── */
 @media(min-width:1440px){
-.hero-inner{grid-template-columns:1.25fr .75fr;gap:52px}
+.hero-inner{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:52px}
 }
 
 /* ── TABLET LANDSCAPE (max 1024px) ── */
@@ -906,7 +908,7 @@ section,.breakdown,.imagine,.transform,.final,.vsl-cta{overflow:hidden}
 .tl-mini-text{font-size:14px;line-height:1.55}
 /* PROOF */
 .proof-card{padding:44px 20px}
-.proof-big{font-size:clamp(56px,16vw,100px)}
+.proof-big{font-size:clamp(40px,11vw,70px)}
 .proof-sub{font-size:16px;line-height:1.5}
 .proof-from{font-size:15px}
 .proof-stat{font-size:15px}
@@ -1029,7 +1031,7 @@ section li{font-size:16px;line-height:1.6}
 .origin-text p{font-size:15px}
 .origin-pullquote{font-size:14px;padding:14px 14px}
 .proof-card{padding:32px 16px}
-.proof-big{font-size:clamp(44px,15vw,80px)}
+.proof-big{font-size:clamp(32px,10.5vw,56px)}
 .proof-stat{padding:14px 16px;font-size:14px}
 .proof-sub{font-size:15px}
 .breakdown{padding:28px 4% 28px}
@@ -1074,7 +1076,7 @@ section li{font-size:16px;line-height:1.6}
 .cd-block{min-width:32px;padding:4px 5px}
 .cd-num{font-size:15px}
 .q-img{width:100px;height:100px}
-.proof-big{font-size:clamp(36px,13vw,60px)}
+.proof-big{font-size:clamp(26px,9vw,42px)}
 }
 
 /* ══ FADE IN ══ */
@@ -1362,14 +1364,13 @@ body::before,body::after{display:none !important}
       </div>
     </div>
     <div class="hero-right">
-      <p class="hero-pre fi">DIGITAL COURSE LAUNCH LAB - FREE 3-DAY LIVE CHALLENGE</p>
-      <h1 class="fi fi-d1">In 3 Days, I'll Show You<br>The Low-Ticket Course Model Quietly Generating <span class="h1-em">4-5 Figure Months</span> for Business Owners - <span class="h1-light">In Any Economy, With Any Audience Size.</span></h1>
-      <p class="hero-rest fi fi-d1">For coaches, consultants, and service providers who already have the expertise - and are ready to stop underestimating low ticket and start building it like <strong style="color:var(--char)">the revenue engine it actually is.</strong></p>
+      <p class="hero-pre fi">DIGITAL COURSE LAUNCH LAB &middot; FREE 3-DAY LIVE CHALLENGE</p>
+      <h1 class="fi fi-d1"><span class="h1-cherry">The Low-Ticket Course Model</span> Quietly Generating <span class="h1-em">4-5 Figure Months</span> for Business Owners. <span class="h1-light">In Any Economy, With Any Audience Size.</span></h1>
+      <p class="hero-rest fi fi-d1"><strong style="color:var(--cherry)">$40,000</strong> powered by one low-ticket offer and the right system (no ads, sales team). For coaches, consultants, and service providers who already have the expertise and are ready to catapult a low ticket offer like <strong style="color:var(--char)">the revenue engine it is.</strong></p>
       <ul class="hero-bullets fi fi-d1" style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;font-size:clamp(14px,1.4vw,16px);color:var(--char);line-height:1.5">
-        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Map exactly what YOUR low-ticket offer should be - and validate it before you build a single thing</li>
-        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use AI to write your sales page, outline your offer, and nail your messaging (I'll give you the prompts)</li>
-        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>See the full ecosystem model - how a $47 product becomes $440+ per customer through the backend</li>
-        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Walk out with a 21-day launch plan that generates consistent income even if your audience is small</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Map exactly what YOUR low-ticket offer should be, validated before you build anything</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use AI to write your sales page, nail your messaging, and outline your offer in hours not months</li>
+        <li style="display:flex;align-items:flex-start;gap:8px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Walk out with a 21-day launch plan that works even if your audience is small</li>
       </ul>
       <div class="cd-row fi fi-d2">
         <div class="cd-label"><span class="pulse-dot" style="background:var(--cherry)"></span> WE START IN</div>
@@ -1424,10 +1425,10 @@ body::before,body::after{display:none !important}
 
     <!-- Pinned note cards in 2x2 grid -->
     <ul class="checks fi fi-d1">
-      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You always thought low ticket was "too small" to matter - but you're now realizing it might be <strong>the most powerful revenue arm you haven't built yet</strong></span></li>
-      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You have expertise, frameworks, and knowledge people would pay for - but it's still sitting in your head or <strong>your notes app</strong> instead of making you money</span></li>
-      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You only have <strong>60-90 minutes a day</strong> and you're done wasting that time on strategies that don't actually lead to consistent, predictable sales</span></li>
-      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You're ready to let <strong>AI do the heavy lifting</strong> - the outline, the copy, the sales page - while you focus on the teaching and delivering you already love</span></li>
+      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You've been <strong>"about to start"</strong> a highly profitable low ticket offer for months and honestly you're a little embarrassed it's taken this long</span></li>
+      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You always thought low ticket was "too small" to matter, but something is shifting and you're starting to realize it might be <strong>the most powerful revenue arm you haven't built yet</strong></span></li>
+      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You hate tech and you're so ready to let <strong>AI do the heavy lifting</strong>, the outline, the copy, the sales page, so you can focus on what you're actually good at</span></li>
+      <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You're busy, you're stretched, and you need this to <strong>work the first time</strong>, not after six months of trial and error</span></li>
       <li><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="var(--t3)" opacity=".15"/><path d="M10 16.5l4 4 8-9" stroke="var(--t3)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>You're tired of watching other coaches and creators generate <strong>four and five figure months</strong> from low-ticket offers while you're still on the sidelines planning</span></li>
     </ul>
 
@@ -1452,8 +1453,8 @@ body::before,body::after{display:none !important}
     <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#fff" stroke-width="2"/><circle cx="20" cy="20" r="5" stroke="#fff" stroke-width="1.5"/><line x1="20" y1="5" x2="20" y2="10" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="30" x2="20" y2="35" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
   </div>
   <div class="cta-sec-inner">
-    <h2 class="fi">Your Free Spot Is Waiting</h2>
-    <p class="cs-sub fi fi-d1">In just 3 days, you'll have your course mapped, your funnel built with AI, and a <strong>21-day launch plan</strong> in your hands. This is the exact system behind <strong>$600K+ in digital product sales</strong>.</p>
+    <h2 class="fi">Your Spot is waiting</h2>
+    <p class="cs-sub fi fi-d1">In just 3 days, you'll have your low-ticket offer selected, your funnel mapped out with AI, and a <strong>21-day launch plan</strong> ready to execute. This is the exact system behind <strong>$600K+ in digital product sales</strong>, and it's completely free.</p>
     <div class="fi fi-d2" style="display:flex;flex-direction:column;align-items:center;gap:14px"><button class="cta cta-cherry openPopup" style="font-size:clamp(16px,1.8vw,20px);padding:22px 52px"><span class="cta-ticket"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><g class="tk-top"><path d="M2 9V6a2 2 0 012-2h16a2 2 0 012 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><g class="tk-bot"><path d="M2 15v3a2 2 0 002 2h16a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g><path class="tk-notch" d="M22 9a3 3 0 00-3 3 3 3 0 003 3" stroke="currentColor" stroke-width="2"/><path class="tk-notch" d="M2 9a3 3 0 013 3 3 3 0 01-3 3" stroke="currentColor" stroke-width="2"/><line class="tk-perf" x1="9" y1="4" x2="9" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><line class="tk-perf" x1="9" y1="16" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 3"/><circle class="tk-spark" cx="18" cy="6" r="1.5" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-2" cx="20" cy="18" r="1" fill="currentColor" opacity="0"/><circle class="tk-spark tk-spark-3" cx="5" cy="5" r="1" fill="currentColor" opacity="0"/></svg></span><span class="cta-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GET YOUR FREE TICKET</button><span style="font-size:13px;color:#fff;font-weight:600;position:relative;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.25)">🔒 100% free. No credit card required.</span></div>
     <div class="cd-row fi fi-d3"><div class="cd-label"><span class="pulse-dot"></span> WE START IN</div><div class="cd" style="justify-content:center"><div class="cd-block"><div class="cd-num cd-x-d">00</div><div class="cd-lbl">Days</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-h">00</div><div class="cd-lbl">Hrs</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-m">00</div><div class="cd-lbl">Min</div></div><span class="cd-sep">:</span><div class="cd-block"><div class="cd-num cd-x-s">00</div><div class="cd-lbl">Sec</div></div></div></div>
   </div>
@@ -1475,7 +1476,7 @@ body::before,body::after{display:none !important}
   <div class="deco-circle deco-bob-3" style="bottom:15%;right:6%;width:16px;height:16px;background:#0ad1d9;opacity:.25"></div>
   <div class="origin-inner">
     <p class="origin-pre fi">Here's the kicker...</p>
-    <h2 class="fi fi-d1">From Civil Engineer to <strong>$600K+</strong><br>in Digital Product Sales</h2>
+    <h2 class="fi fi-d1">The Moment I Stopped Sleeping on <span class="h1-cherry">Low Ticket</span>,<br>And <span class="h1-em">Everything Changed</span></h2>
 
     <div class="origin-book fi fi-d2">
       <div class="origin-ribbon"></div>
@@ -1485,41 +1486,40 @@ body::before,body::after{display:none !important}
       <div class="origin-page-l">
         <div class="origin-chapter">The Journey</div>
         <div class="tl-mini">
-          <!-- 2016 -->
+          <!-- 2021 — first low-ticket offer -->
           <div class="tl-mini-stop">
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-            <div class="tl-mini-year">2016</div>
-            <div class="tl-mini-sub">the beginning</div>
-            <div class="tl-mini-photo"><img src="https://i.imgur.com/DfxxAeO.jpeg" alt="Marissa as a civil engineer" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
-            <div class="tl-mini-annot">↳ civil engineer + YouTube dreamer</div>
+            <div class="tl-mini-year">2021</div>
+            <div class="tl-mini-sub">first low-ticket offer</div>
+            <div class="tl-mini-photo"><img src="https://i.imgur.com/ZWb9dkF.png" alt="Marissa's first low-ticket launch" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
+            <div class="tl-mini-annot">↳ $6K in 5 days (no upsells!!)</div>
           </div>
-          <!-- hand-drawn arrow -->
           <svg class="tl-mini-arrow" width="30" height="20" viewBox="0 0 30 20" fill="none"><path d="M4,4 C10,10 16,12 24,10" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/><path d="M20,7 L25,10 L20,14" stroke="var(--cherry)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          <!-- 2018 -->
+          <!-- 2022 — maternity leave autopilot -->
           <div class="tl-mini-stop">
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-            <div class="tl-mini-year">2018</div>
-            <div class="tl-mini-sub">the struggle</div>
-            <div class="tl-mini-photo"><img src="https://i.imgur.com/o00tUtY.jpeg" alt="Marissa creating content" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
-            <div class="tl-mini-annot">↳ "what am I doing wrong??"</div>
+            <div class="tl-mini-year">2022</div>
+            <div class="tl-mini-sub">maternity leave, autopilot</div>
+            <div class="tl-mini-photo" style="display:flex;gap:6px;background:none;box-shadow:none"><img src="https://i.imgur.com/5aZO2Wk.jpeg" alt="Marissa on maternity leave" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"><img src="https://i.imgur.com/52bpcOn.jpeg" alt="Marissa writing on laptop" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div>
+            <div class="tl-mini-annot">↳ $30-40K/mo, 90 days off the grid</div>
           </div>
           <svg class="tl-mini-arrow" width="30" height="20" viewBox="0 0 30 20" fill="none"><path d="M4,4 C10,10 16,12 24,10" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/><path d="M20,7 L25,10 L20,14" stroke="var(--cherry)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          <!-- 2020 -->
+          <!-- 2023 — high ticket exhaustion -->
           <div class="tl-mini-stop">
             <div class="tl-mini-dot"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cherry)" stroke-width="2.5"/><polyline points="12,7 12,12 16,14" stroke="var(--cherry)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-            <div class="tl-mini-year">2020</div>
-            <div class="tl-mini-sub">the breakthrough</div>
-            <div class="tl-mini-photo"><img src="https://i.imgur.com/BXoCV0S.jpeg" alt="Marissa's $40K breakthrough" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
-            <div class="tl-mini-annot">↳ $40K from 730 views!!</div>
+            <div class="tl-mini-year">2023</div>
+            <div class="tl-mini-sub">high ticket exhaustion</div>
+            <div class="tl-mini-photo"><img src="https://i.imgur.com/jFqabYR.jpeg" alt="Marissa during high-ticket burnout" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block"></div>
+            <div class="tl-mini-annot">↳ every sale required me</div>
           </div>
           <svg class="tl-mini-arrow" width="30" height="20" viewBox="0 0 30 20" fill="none"><path d="M4,4 C10,10 16,12 24,10" stroke="var(--cherry)" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/><path d="M20,7 L25,10 L20,14" stroke="var(--cherry)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          <!-- 2023 -->
+          <!-- 2025 — YouTube case study -->
           <div class="tl-mini-stop">
             <div class="tl-mini-dot" style="border-color:var(--t1)"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--t1)" stroke-width="2.5"/><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z" fill="var(--t1)" transform="scale(.45) translate(13,13)"/></svg></div>
-            <div class="tl-mini-year" style="color:var(--t1)">2023</div>
-            <div class="tl-mini-sub">$600K+ milestone</div>
-            <div class="tl-mini-photo" style="display:flex;gap:6px;background:none;box-shadow:none"><img src="https://i.imgur.com/5aZO2Wk.jpeg" alt="Marissa on maternity leave" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"><img src="https://i.imgur.com/52bpcOn.jpeg" alt="Marissa freedom lifestyle" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div>
-            <div class="tl-mini-annot">↳ $30-40K/mo on maternity leave!</div>
+            <div class="tl-mini-year" style="color:var(--t1)">2025</div>
+            <div class="tl-mini-sub">the case study</div>
+            <div class="tl-mini-photo" style="display:flex;gap:6px;background:none;box-shadow:none"><img src="https://i.imgur.com/4BCZ7mj.jpeg" alt="Marissa's YouTube case study results" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"><img src="https://i.imgur.com/kVy2j3A.jpeg" alt="Low ticket funnel case study" loading="lazy" style="width:50%;height:100%;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)"></div>
+            <div class="tl-mini-annot">↳ $40K from 200 subs!!</div>
           </div>
         </div>
         <div class="origin-pagenum">1</div>
@@ -1528,13 +1528,13 @@ body::before,body::after{display:none !important}
       <!-- RIGHT PAGE — Story -->
       <div class="origin-page-r">
         <div class="origin-text">
-          <p>I wasn't born knowing how to create digital courses. I was a <em>civil engineer</em> - hard hat, blueprints, the whole thing. But on the side, I had this little YouTube channel where I talked about productivity and personal development. I didn't have a big audience. I didn't have a business plan. I just had this restless feeling that there had to be <strong>more</strong>.</p>
-          <p>So I did what most people do - I tried everything. I posted more content, hoping the algorithm would finally notice me. I bought expensive courses that promised six-figure secrets. I even hired consultants who charged me thousands and gave me cookie-cutter advice. <strong>Nothing moved the needle.</strong></p>
-          <p>I was exhausted, frustrated, and honestly? Ready to quit. But then I stumbled onto something that changed everything: a <strong>simple system for creating and launching low-ticket digital products using AI</strong>. No huge audience required. No tech degree. No six-month runway.</p>
-          <div class="origin-pullquote">$40K from a video with just 730 views. $35K from a single launch weekend. $30-40K per month while on maternity leave - the system kept running even when I stepped away.<div class="origin-highlight-note">Highlighted by 2,847 readers</div></div>
-          <p>Within months, I went from making zero dollars online to generating more revenue than my engineering salary. I kept refining the system, testing it, breaking it, rebuilding it - until it was <strong>bulletproof</strong>. I've now crossed <em>$600K+ in total digital product sales</em>, and I did it without a massive following, without a fancy team, and without burning out.</p>
-          <p>That system changed everything for me. And now I'm handing you the <strong>exact same system</strong> in 3 free days. No fluff. No theory. No "just post more content and hope for the best." Just the step-by-step playbook that actually works - the one I wish someone had given me back in 2016.</p>
-          <span class="origin-closing">- Marissa ♡</span>
+          <p>In <strong>2021</strong>, I launched my very first low-ticket offer. A <strong>$47 product</strong>. <strong>$6,000 in five days</strong>. No order bump. No upsells. No backend whatsoever. I left thousands on the table, and I knew it. But instead of doubling down, I moved on. Kept selling mid-ticket courses and built my way to <strong>$600K+ in total digital product sales</strong>.</p>
+          <p>Then in <strong>2022</strong>, I had my first son. I took <strong>90 days completely off</strong>. And my business kept running. Those $47 to $147 courses, the ones I had almost overlooked, made up a huge portion of the <strong>$30,000 to $40,000</strong> my business generated every single month while I was off the grid, present with my newborn, not touching my laptop. That's not hustle. That's what low ticket, built the right way, actually does.</p>
+          <p>But then in <strong>2023</strong>, I went high ticket. The paydays were great. But it came at a huge cost. <strong>Every sale required me.</strong> Every dollar was tied directly to my time and energy. It was heavy, demanding, and honestly exhausting. The kind of exhausting that makes you question everything.</p>
+          <p>In <strong>2025</strong>, I started a brand new YouTube channel as a case study. The goal was simple: <em>generate booked calls</em>. Low ticket wasn't even the focus. But something unexpected happened.</p>
+          <div class="origin-pullquote"><strong>730 people</strong> visited my sales page. <strong>53 bought</strong> the low-ticket offer. And <strong>3 of those buyers upgraded to high ticket</strong>. Total revenue: <strong>$40,000+</strong>. The front-end low-ticket funnel alone generated $4,000. The backend did the rest.<div class="origin-highlight-note">Highlighted by 2,847 readers</div></div>
+          <p>That was the moment everything clicked. Low ticket isn't just a cute little offer. When it's built the right way, it becomes the <strong>front door to everything else</strong> in your business. It runs without you. It builds trust before the sales conversation even starts. And it scales without adding more of your time. That's exactly what I'm handing you in <strong>3 days</strong>.</p>
+          <span class="origin-closing">xx, Marissa</span>
         </div>
         <div class="origin-pagenum-r">2</div>
       </div>
@@ -1560,14 +1560,6 @@ body::before,body::after{display:none !important}
     <div class="proof-sub">in digital product sales</div>
     <div class="proof-desc">Not because I'm special. Because I followed a system that works whether you have 200 subscribers or 200,000.</div>
   </div>
-  <div class="proof-screenshots fi fi-d2" style="display:flex;gap:16px;max-width:1100px;margin:32px auto 0;padding:0 24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none">
-    <style>.proof-screenshots::-webkit-scrollbar{display:none}.proof-screenshots img{flex:0 0 240px;width:240px;height:auto;display:block;border-radius:4px;box-shadow:0 8px 28px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06);scroll-snap-align:start}</style>
-    <img src="https://i.imgur.com/qBLD0Np.png" alt="Student testimonial" loading="lazy">
-    <img src="https://i.imgur.com/omrFimi.png" alt="Student testimonial" loading="lazy">
-    <img src="https://i.imgur.com/lnzGX2d.png" alt="Student testimonial" loading="lazy">
-    <img src="https://i.imgur.com/rSjGocg.png" alt="Student testimonial" loading="lazy">
-    <img src="https://i.imgur.com/Qugtv04.png" alt="Student testimonial" loading="lazy">
-  </div>
 </section>
 
 <!-- DAY BREAKDOWN — IMMERSIVE TIMELINE WITH SLIDE PREVIEWS -->
@@ -1582,7 +1574,7 @@ body::before,body::after{display:none !important}
     <svg viewBox="0 0 20 20" fill="none"><path d="M10,0 L11.5,7 L18,10 L11.5,13 L10,20 L8.5,13 L2,10 L8.5,7Z" fill="#ff4f49"/></svg>
   </div>
   <p class="bd-label fi">What You'll Learn</p>
-  <h2 class="fi fi-d1">Your 3-Day Roadmap To A<br>Launched Digital Course</h2>
+  <h2 class="fi fi-d1">Your 3-Day Roadmap</h2>
   <p class="breakdown-sub fi fi-d2">Each day is 90 minutes of live training, hands-on workshops, and real-time implementation. Here's exactly what you'll build together:</p>
   <div class="day-cards">
     <!-- ═══ DAY 1 ═══ -->
@@ -1626,17 +1618,15 @@ body::before,body::after{display:none !important}
           </div>
           <div class="day-body">
             <div class="day-date">Tuesday, May 12th at 3pm EST</div>
-            <div class="day-title">Why Every Business Owner Needs a Low-Ticket Digital Course</div>
+            <div class="day-title">Why Low Ticket Is the Most Powerful Revenue Arm You Haven't Built Yet</div>
             <ul class="day-list">
-              <li><span class="day-num">01</span> The low-ticket pricing sweet spot and why low-ticket courses outperform high-ticket for new creators</li>
-              <li><span class="day-num">02</span> How to validate your course idea in 24 hours (without building a single slide)</li>
-              <li><span class="day-num">03</span> The "Offer Map" framework that turns your expertise into a sellable digital product</li>
-              <li><span class="day-num">04</span> Why you don't need a big audience and the math that proves it</li>
-              <li><span class="day-num">05</span> Live workshop: Build your course outline using AI in real time</li>
-              <li><span class="day-num">06</span> The exact niche selection process Marissa used to find her $600K idea</li>
-              <li><span class="day-num">07</span> How to structure your course so students get results (and leave reviews)</li>
+              <li><span class="day-num">01</span> Why low ticket outperforms every other offer type right now, and the math that proves it</li>
+              <li><span class="day-num">02</span> The scroll-stopping headline formula that turns visitors into buyers, the difference between crickets and $1K, $3K days</li>
+              <li><span class="day-num">03</span> The messaging framework that turns your expertise into something people actually want to buy, and why getting this wrong is the #1 reason low-ticket offers fail</li>
+              <li><span class="day-num">04</span> How to find your perfect low-ticket angle using AI prompts, even if you have no idea where to start</li>
+              <li><span class="day-num">05</span> Real messaging examples that convert, plus what bad messaging looks like so you never make that mistake</li>
             </ul>
-            <div class="day-highlight">You'll walk away from Day 1 with a validated course idea, a complete outline, and total clarity on your offer.</div>
+            <div class="day-highlight">You'll walk away from Day 1 knowing exactly what your low-ticket offer should be and how to talk about it in a way that actually makes people buy.</div>
             <div class="day-cta-row">
               <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 1</button>
               <span class="day-annot">let's gooo!</span>
@@ -1679,17 +1669,14 @@ body::before,body::after{display:none !important}
           </div>
           <div class="day-body">
             <div class="day-date">Wednesday, May 13th at 3pm EST</div>
-            <div class="day-title">The Best Offer for Your Business + Your AI Launch Plan</div>
+            <div class="day-title">How to Pick Your Digital Product Type and Write Copy That Sells</div>
             <ul class="day-list">
-              <li><span class="day-num">01</span> Your "Offer Framework" with the exact pricing and packaging that converts</li>
-              <li><span class="day-num">02</span> How to use AI to write your entire sales page in under 30 minutes</li>
-              <li><span class="day-num">03</span> The funnel blueprint that turns cold traffic into buyers on autopilot</li>
-              <li><span class="day-num">04</span> Email sequences, upsells, and automations built by AI, reviewed by you</li>
-              <li><span class="day-num">05</span> Live workshop: Set up your sales funnel together (copy, paste, launch)</li>
-              <li><span class="day-num">06</span> The "stack and scale" method to turn one course into a product ecosystem</li>
-              <li><span class="day-num">07</span> Real examples of AI-generated sales pages that converted at 8%+</li>
+              <li><span class="day-num">01</span> How to choose the right format for your offer (calculators, audios, video tutorials) and which one converts best for your specific audience</li>
+              <li><span class="day-num">02</span> The AI prompts that write your entire sales page in under 30 minutes</li>
+              <li><span class="day-num">03</span> How 730 visits to a low-ticket sales page generated $40,000+ in total revenue, a live breakdown of the exact case study and what made it work</li>
+              <li><span class="day-num">04</span> Real examples of AI-generated sales pages that converted at 8%+, and how to model them for your own offer</li>
             </ul>
-            <div class="day-highlight">By the end of Day 2, you'll have a complete sales funnel with landing page, email sequences, and payment setup... all built with AI.</div>
+            <div class="day-highlight">You'll walk away from Day 2 with your offer format chosen, and proof that this works even with a tiny audience.</div>
             <div class="day-cta-row">
               <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 2</button>
               <span class="day-annot">AI magic happens here</span>
@@ -1737,17 +1724,14 @@ body::before,body::after{display:none !important}
           </div>
           <div class="day-body">
             <div class="day-date">Thursday, May 14th at 3pm EST</div>
-            <div class="day-title">Your 21-Day Launch Roadmap (So You Actually Do It)</div>
+            <div class="day-title">What This Really Looks Like in Real Life, and Where to Go From Here</div>
             <ul class="day-list">
-              <li><span class="day-num">01</span> The 21-day launch calendar with every task, every day, no guesswork</li>
-              <li><span class="day-num">02</span> How to launch to a small list and generate consistent course revenue</li>
-              <li><span class="day-num">03</span> The "social proof snowball" for getting testimonials before you even launch</li>
-              <li><span class="day-num">04</span> What to do after launch day: scaling, evergreen, and your next $10K</li>
-              <li><span class="day-num">05</span> Live Q&A: Get your specific questions answered + accountability plan</li>
-              <li><span class="day-num">06</span> The exact post-launch email sequence that keeps revenue flowing for months</li>
-              <li><span class="day-num">07</span> How to turn your launch into a repeatable evergreen system</li>
+              <li><span class="day-num">01</span> What a real low-ticket launch looks like from idea to first sale, no fluff, no theory, just the actual steps</li>
+              <li><span class="day-num">02</span> Why launching faster than you think is not only possible, it's the strategy that gets you a $1K, $3K, $5K cash injection quick</li>
+              <li><span class="day-num">03</span> Live Q&amp;A, bring your questions, get real answers, leave with zero excuses</li>
+              <li><span class="day-num">04</span> Your next steps mapped out so you walk out the door knowing exactly what to do first</li>
             </ul>
-            <div class="day-highlight">After Day 3, you'll have a complete 21-day launch plan with every task mapped out, plus the confidence to actually execute it.</div>
+            <div class="day-highlight">You'll walk away from Day 3 with total clarity, a real plan, and the confidence to actually execute it.</div>
             <div class="day-cta-row">
               <button class="day-cta openPopup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Your Free Ticket - Day 3</button>
               <span class="day-annot">launch day prep!</span>
@@ -1798,8 +1782,7 @@ body::before,body::after{display:none !important}
   </div>
   <div class="deco-circle deco-bob" style="bottom:12%;left:8%;width:14px;height:14px;background:linear-gradient(135deg,#0ad1d9,#16d09c);opacity:.28"></div>
   <h2 class="fi">Real Results From Real People</h2>
-  <p class="test-sub fi fi-d1">Students who followed the system...</p>
-  <p class="test-annot fi fi-d1">real screenshots from real DMs</p>
+  <p class="test-sub fi fi-d1">Clients who followed the system...</p>
   <div class="test-arc fi fi-d2">
     <div class="test-ss"><img src="https://i.imgur.com/qBLD0Np.png" alt="Testimonial screenshot" loading="lazy"></div>
     <div class="test-ss"><img src="https://i.imgur.com/omrFimi.png" alt="Testimonial screenshot" loading="lazy"></div>
@@ -2184,12 +2167,12 @@ body::before,body::after{display:none !important}
           </svg>
         </div>
         <div class="im-dream-label">Your new reality</div>
-        <h3>Waking up 90 days from now as a creator who:</h3>
+        <h3>Waking up 90 days from now as someone who:</h3>
         <ul class="im-dream-list">
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Has a <strong>low-ticket digital course</strong> with a backend that turns $47 buyers into $440+ customers</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Built a <strong>sales system</strong> that runs whether you're working or on maternity leave</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Stopped trading every hour for dollars - your expertise sells while you teach, coach, or just live your life</li>
-          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Uses <strong>AI to do the 80%</strong> that used to take months - so you launch in weeks, not quarters</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Has a <strong>low-ticket offer running on autopilot</strong>, quietly generating $1K, $3K, $5K months without you having to show up and sell every single day</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Built the <strong>front door to their entire business</strong>, where a $47 buyer becomes a $440+ customer through a backend that works while you sleep</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Finally <strong>stopped trading every hour for dollars</strong>. Your expertise is packaged, priced, and selling while you coach, teach, travel, or just live your life</li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="var(--t3)" opacity=".12"/><path d="M6 10.5l3 3 5-5.5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Used <strong>AI to do what used to take months</strong>, and launched in weeks instead of quarters</li>
         </ul>
       </div>
       <div class="im-without">
@@ -2407,19 +2390,19 @@ body::before,body::after{display:none !important}
             <circle class="im-wo-item" cx="-10" cy="200" r="4" fill="#e8e3dc" opacity=".15"/>
           </svg>
         </div>
-        <div class="im-without-label">All without needing</div>
-        <h3>Zero of these required:</h3>
+        <div class="im-without-label">And all without</div>
+        <h3>None of this required:</h3>
         <ul class="im-without-list">
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> A huge audience - 200 subscribers generated $40,000+ in total revenue</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Hours writing sales copy or designing funnels - AI handles that</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Months of planning before you can launch - 21 days, start to selling</li>
-          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> A team, an agency, or a big ad budget - this is a one-person operation</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> <strong>A huge audience</strong>, remember, a 200 subscriber YouTube channel generated $40K with low ticket as the driver</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> <strong>Hours writing copy or building funnels</strong>, AI handles that in under 30 minutes</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> <strong>Months of planning</strong>, 21 days from idea to first sale</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> <strong>A team, an agency, or a single dollar in ad spend</strong>, this is a one-person operation</li>
         </ul>
       </div>
     </div>
     <div class="im-bottom">
-      <p>All you need to do is <strong>dedicate 90 minutes with me over the next three days</strong> and I'll hand you the system, the templates, and the AI-powered tools to make it happen.</p>
-      <span class="im-date-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="var(--pacific)" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="var(--pacific)" stroke-width="2" stroke-linecap="round"/></svg>May 12-14, 2026 · 3pm EST · Free</span>
+      <p><strong>This is what low ticket, built the right way, actually does.</strong> All you need is 90 minutes a day for 3 days. I'll hand you the system, the AI prompts, and the exact framework that made it all possible.</p>
+      <span class="im-date-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="var(--pacific)" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="var(--pacific)" stroke-width="2" stroke-linecap="round"/></svg>May 12-14, 2026 · 3pm EST · 100% Free</span>
     </div>
   </div>
 </section>
@@ -2440,12 +2423,12 @@ body::before,body::after{display:none !important}
   <div class="tf-track fi fi-d2">
     <div class="tf-before">
       <div class="tf-photo" style="width:100%;margin-bottom:24px;overflow:hidden;border-radius:4px"><img src="https://i.imgur.com/W08de9f.jpeg" alt="Before the challenge" loading="lazy" style="width:100%;height:auto;display:block"></div>
-      <h3>Before the Challenge</h3>
+      <h3>Before the 3 Days</h3>
       <ul class="tf-list">
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Course idea stuck in your head (or notes app)</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Low-ticket idea stuck in your head (or notes app)</li>
         <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Overwhelmed by tech, funnels, and "strategy"</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Watching others make sales while you plan</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> No email list, no funnel, no launch plan</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> Watching others make consistent sales while you plan</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--cherry)" opacity=".06"/><path d="M6 6l6 6M12 6l-6 6" stroke="var(--cherry)" stroke-width="1.8" stroke-linecap="round"/></svg> No offer, no funnel, no launch plan</li>
       </ul>
     </div>
     <div class="tf-center">
@@ -2455,10 +2438,10 @@ body::before,body::after{display:none !important}
       <div class="tf-photo" style="width:100%;margin-bottom:24px;overflow:hidden;border-radius:4px"><img src="https://i.imgur.com/TgPRy0l.jpeg" alt="After 3 days with Marissa" loading="lazy" style="width:100%;height:auto;display:block"></div>
       <h3>After 3 Days with Marissa</h3>
       <ul class="tf-list">
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Course outlined and validated with AI</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Sales page written and funnel mapped out</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 21-day launch roadmap in your hands</li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Ready to make sales within weeks</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Low-ticket offer validated and ready to build</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Messaging locked in and ready to convert</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> A complete AI prompt toolkit that does in hours what used to take months to build</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;margin-top:3px"><circle cx="9" cy="9" r="8" fill="var(--t3)" opacity=".12"/><path d="M5.5 9.5l2.5 2.5 4.5-5" stroke="var(--t3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Total clarity on exactly what to do next</li>
       </ul>
     </div>
   </div>
@@ -2493,21 +2476,18 @@ body::before,body::after{display:none !important}
   <div class="deco-float deco-bob-3" style="top:8%;right:18%;width:14px;height:14px;opacity:.25">
     <svg viewBox="0 0 20 20" fill="none"><path d="M10,0 L11.5,7 L18,10 L11.5,13 L10,20 L8.5,13 L2,10 L8.5,7Z" fill="#febc2e"/></svg>
   </div>
-  <h2 class="fi">Your Course Won't <em>Launch Itself</em></h2>
-  <p class="final-sub fi fi-d1">You've scrolled this far for a reason. That idea in your head? It deserves to exist in the world. Let's make it happen together, in 3 days.</p>
+  <h2 class="fi">Your Low-Ticket Offer Won't <em>Build Itself</em></h2>
+  <p class="final-sub fi fi-d1">You've scrolled this far for a reason. That idea in your head? It deserves to exist in the world, and to actually make you money. Let's make it happen together in 3 days.</p>
 
   <div class="final-promise fi fi-d1">
     <div class="final-promise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" fill="#fff"/></svg></div>
     <div>
       <h3>Here's My Promise to You</h3>
-      <p>By the end of Day 3, you will walk away with a complete, actionable launch plan or I'll personally hop on a call to help you finish it. No fluff. No theory. Just results.</p>
+      <p>By the end of Day 3, you will walk away with a <strong>validated low-ticket offer idea</strong>, <strong>messaging that converts</strong>, and a <strong>complete AI prompt toolkit</strong>, or I'll personally make sure you get there. No fluff. No theory. Just results.</p>
       <ul>
-        <li>Validated course idea</li>
-        <li>AI-built sales funnel</li>
-        <li>21-day launch roadmap</li>
-        <li>Email sequence templates</li>
-        <li>Pricing strategy locked</li>
-        <li>Launch-day checklist</li>
+        <li>Validated low-ticket offer idea</li>
+        <li>Messaging clarity that converts</li>
+        <li>A complete AI prompt toolkit that does in hours what used to take months to build</li>
       </ul>
     </div>
   </div>
