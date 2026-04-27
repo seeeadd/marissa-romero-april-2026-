@@ -2660,10 +2660,10 @@ var submitting=false;
 document.getElementById('_mrSubmit').addEventListener('click',function(){
 if(submitting)return;
 var n=document.getElementById('_mrName').value.trim(),em=document.getElementById('_mrEmail').value.trim();
-var cc=document.getElementById('_mrCC').value.replace(/[A-Z]+$/,''),ph=document.getElementById('_mrPhone').value.trim().replace(/\D/g,'');
+var cc=document.getElementById('_mrCC').value.replace(/[A-Z]+$/,''),ph=document.getElementById('_mrPhone').value.trim().replace(/\D/g,'').replace(/^0+/,'');
 if(!n||n.length<2){document.getElementById('_mrName').focus();document.getElementById('_mrName').style.borderColor='#ff4f49';return}
 if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){document.getElementById('_mrEmail').focus();document.getElementById('_mrEmail').style.borderColor='#ff4f49';return}
-if(!ph||ph.length<7){document.getElementById('_mrPhone').focus();document.getElementById('_mrPhone').style.borderColor='#ff4f49';return}
+if(!ph||ph.length<7||(cc.replace(/\D/g,'')+ph).length>15){document.getElementById('_mrPhone').focus();document.getElementById('_mrPhone').style.borderColor='#ff4f49';return}
 var fullPhone=cc+ph;
 submitting=true;
 var btn=document.getElementById('_mrSubmit'),sp=btn.querySelector('span');
