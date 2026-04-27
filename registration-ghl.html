@@ -69,7 +69,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero{position:relative;padding:64px 3% 56px;overflow:hidden;background:linear-gradient(170deg,#eef9f8 0%,var(--warm) 35%,var(--warmbg) 100%)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(10,209,217,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(255,79,73,.04) 0%,transparent 40%);pointer-events:none;z-index:1}
 .hero::after{content:'';position:absolute;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(10,209,217,.08) 0%,rgba(22,208,156,.04) 40%,transparent 70%);pointer-events:none;z-index:0;filter:blur(40px)}
-.hero-inner{max-width:1520px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:52px;align-items:center;position:relative;z-index:5}
+.hero-inner{max-width:1520px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:52px;align-items:start;position:relative;z-index:5}
 .hero-left,.hero-right{min-width:0}
 .hero-left{position:relative}
 .device-frame{background:var(--ablack);overflow:hidden;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03),0 0 80px rgba(10,209,217,.04);border:1px solid rgba(255,255,255,.08);position:relative;margin-top:20px}
@@ -90,8 +90,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:1;
 }
 .vsl-fake-progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.16);z-index:6;overflow:hidden;pointer-events:none}
-.vsl-fake-fill{height:100%;width:0;background:linear-gradient(90deg,#0ad1d9,#16d09c,#7ccb61);box-shadow:0 0 8px rgba(10,209,217,.5);animation:vslFakeProgress 100s linear forwards}
-@keyframes vslFakeProgress{0%{width:0%}10%{width:55%}100%{width:97%}}
+.vsl-fake-fill{height:100%;width:0;background:linear-gradient(90deg,#0ad1d9,#16d09c,#7ccb61);box-shadow:0 0 8px rgba(10,209,217,.5);animation:vslFakeProgress 240s linear forwards;animation-play-state:paused}
+.vsl-frame.vsl-progress-on .vsl-fake-fill{animation-play-state:running}
+@keyframes vslFakeProgress{0%{width:0%}4%{width:40%}100%{width:95%}}
 .vsl-click-block{
   position:absolute;inset:0;z-index:2;
   background:transparent;cursor:default;pointer-events:auto;
@@ -1267,16 +1268,16 @@ body::before,body::after{display:none !important}
           vslPostMsg('playVideo');
           vslIsMuted = false;
           vslIsPlaying = true;
-          if(f){f.classList.remove('vsl-muted');f.classList.add('vsl-active','vsl-playing');}
+          if(f){f.classList.remove('vsl-muted');f.classList.add('vsl-active','vsl-playing','vsl-progress-on');}
         }
         function vslTogglePlay(e){
           if(e){e.preventDefault();e.stopPropagation();}
           if(vslFirstInteraction){vslFirstClick(e);return;}
           var f = document.getElementById('vslFrame');
           if(vslIsPlaying){
-            vslPostMsg('pauseVideo');vslIsPlaying=false;if(f)f.classList.remove('vsl-playing');
+            vslPostMsg('pauseVideo');vslIsPlaying=false;if(f){f.classList.remove('vsl-playing');f.classList.remove('vsl-progress-on');}
           } else {
-            vslPostMsg('playVideo');vslIsPlaying=true;if(f)f.classList.add('vsl-playing');
+            vslPostMsg('playVideo');vslIsPlaying=true;if(f){f.classList.add('vsl-playing');f.classList.add('vsl-progress-on');}
           }
         }
         function vslToggleMute(e){
