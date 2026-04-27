@@ -213,6 +213,9 @@ body.vsl-fs-active{overflow:hidden!important;touch-action:none!important;overscr
 .vsl-frame:fullscreen .vsl-iframe,.vsl-frame:-webkit-full-screen .vsl-iframe{
   position:absolute!important;inset:0!important;width:100vw!important;height:100vh!important;
 }
+.vsl-frame.vsl-fs .vsl-min-controls,
+.vsl-frame:fullscreen .vsl-min-controls,
+.vsl-frame:-webkit-full-screen .vsl-min-controls{opacity:1!important;pointer-events:auto!important}
 .hero-annot{display:inline-block;margin:8px 0 2px;font-family:var(--script);font-size:clamp(18px,2vw,24px);color:var(--cherry);transform:rotate(-2deg);white-space:nowrap;z-index:6;opacity:.85}
 .hero-annot svg{width:40px;height:28px;vertical-align:middle;margin-left:-2px}
 .hero-right{position:relative;z-index:5;align-self:center;background:radial-gradient(ellipse 120% 110% at 30% 50%,rgba(245,241,236,.95) 30%,rgba(245,241,236,.7) 60%,transparent 100%);padding:28px 28px 28px 8px;border-radius:16px}
@@ -1294,7 +1297,17 @@ body::before,body::after{display:none !important}
           if(e){e.preventDefault();e.stopPropagation();}
           var f = document.getElementById('vslFrame');
           if(!f) return;
-          if(f.classList.contains('vsl-fs')){vslPseudoFs(f);return;}
+          var nativeFsEl = document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement;
+          // If currently fullscreen (native OR pseudo) — exit
+          if(nativeFsEl||f.classList.contains('vsl-fs')){
+            if(nativeFsEl){
+              var exit = document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen;
+              if(exit){try{var px=exit.call(document);if(px&&px.then){px.catch(function(){});}}catch(err){}}
+            }
+            if(f.classList.contains('vsl-fs')){vslPseudoFs(f);}
+            return;
+          }
+          // Enter
           var isMobile = ('ontouchstart' in window)||(navigator.maxTouchPoints>0)||window.innerWidth<900;
           if(isMobile){vslPseudoFs(f);return;}
           var req = f.requestFullscreen||f.webkitRequestFullscreen||f.mozRequestFullScreen||f.msRequestFullscreen;
