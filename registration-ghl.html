@@ -72,7 +72,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero-inner{max-width:1520px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:52px;align-items:start;position:relative;z-index:5}
 .hero-left,.hero-right{min-width:0}
 .hero-left{position:relative}
-.device-frame{background:var(--ablack);overflow:hidden;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03),0 0 80px rgba(10,209,217,.04);border:1px solid rgba(255,255,255,.08);position:relative;margin-top:20px}
+.device-frame{background:var(--ablack);overflow:hidden;box-shadow:var(--sh-xl),inset 0 1px 0 rgba(255,255,255,.03),0 0 80px rgba(10,209,217,.04);border:1px solid rgba(255,255,255,.08);position:relative;margin-top:70px}
 .device-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tg);z-index:3}
 .device-bar{display:flex;align-items:center;gap:6px;padding:10px 16px;background:rgba(0,0,0,.4);border-bottom:1px solid rgba(255,255,255,.05);position:relative;z-index:2}
 .device-dot{width:10px;height:10px;border-radius:50%}
@@ -1167,13 +1167,13 @@ body::before,body::after{display:none !important}
   </div>
 
   <!-- Floating Stripe notification accents (background) -->
-  <div class="deco-float deco-bob" style="top:8%;left:2%;width:170px;opacity:.7;z-index:2">
+  <div class="deco-float deco-bob" style="top:4%;left:max(16px,calc((100vw - 1520px)/2 + 16px));width:170px;opacity:.85;z-index:6">
     <svg viewBox="0 0 170 52" fill="none"><rect x="0" y="0" width="170" height="52" rx="10" fill="#fff" stroke="#e0ddd8" stroke-width="1.2"/><rect x="10" y="10" width="26" height="26" rx="6" fill="#635bff"/><text x="23" y="28" font-family="Helvetica,sans-serif" font-size="17" fill="#fff" text-anchor="middle" font-weight="900">S</text><text x="46" y="22" font-family="Helvetica,sans-serif" font-size="9" fill="#1a1a2e" font-weight="700">New payment!</text><text x="46" y="38" font-family="Helvetica,sans-serif" font-size="14" fill="#16d09c" font-weight="900">+$487.00</text></svg>
   </div>
-  <div class="deco-float deco-bob-3" style="bottom:12%;right:1%;width:150px;opacity:.45;z-index:6;filter:blur(1.5px)">
+  <div class="deco-float deco-bob-3" style="bottom:10%;right:max(16px,calc((100vw - 1520px)/2 + 16px));width:150px;opacity:.7;z-index:6;filter:blur(.5px)">
     <svg viewBox="0 0 150 46" fill="none"><rect x="0" y="0" width="150" height="46" rx="8" fill="#fff" stroke="#e0ddd8" stroke-width="1.2"/><rect x="8" y="8" width="22" height="22" rx="5" fill="#635bff"/><text x="19" y="24" font-family="Helvetica,sans-serif" font-size="15" fill="#fff" text-anchor="middle" font-weight="900">S</text><text x="38" y="19" font-family="Helvetica,sans-serif" font-size="8" fill="#aaa">just now</text><text x="38" y="34" font-family="Helvetica,sans-serif" font-size="12" fill="#16d09c" font-weight="800">+$97.00</text></svg>
   </div>
-  <div class="deco-float deco-bob-2" style="top:45%;left:1.5%;width:130px;opacity:.4;z-index:2;filter:blur(1.5px)">
+  <div class="deco-float deco-bob-2" style="top:48%;left:max(16px,calc((100vw - 1520px)/2 + 16px));width:130px;opacity:.65;z-index:6;filter:blur(.5px)">
     <svg viewBox="0 0 130 40" fill="none"><rect x="0" y="0" width="130" height="40" rx="7" fill="#fff" stroke="#e0ddd8" stroke-width="1"/><circle cx="18" cy="20" r="11" fill="#16d09c" opacity=".12"/><text x="18" y="24.5" font-family="Helvetica,sans-serif" font-size="13" fill="#16d09c" text-anchor="middle" font-weight="900">$</text><text x="38" y="17" font-family="Helvetica,sans-serif" font-size="7" fill="#999">Course sale</text><text x="38" y="31" font-family="Helvetica,sans-serif" font-size="11" fill="#16d09c" font-weight="800">+$97</text></svg>
   </div>
 
