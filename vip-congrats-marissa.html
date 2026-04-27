@@ -336,11 +336,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 @keyframes nudgeArrowGold{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
 .sms-cta-sec{position:relative;padding:80px 3% 70px;background:var(--warmbg);overflow:hidden;margin-top:40px}
 .sms-cta-sec::before{content:'';position:absolute;inset:0;opacity:.04;background-image:var(--grain);pointer-events:none;z-index:1}
-.sms-cta-inner{max-width:1080px;margin:0 auto;position:relative;z-index:5;display:grid;grid-template-columns:420px 1fr;gap:40px;align-items:center}
-.sms-cta-photo{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:480px}
+.sms-cta-inner{max-width:1200px;margin:0 auto;position:relative;z-index:5;display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:center}
+.sms-cta-photo{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:560px}
 .sms-cta-photo .halo{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:120%;height:90%;background:radial-gradient(ellipse at center,rgba(241,194,50,.36) 0%,rgba(212,168,39,.18) 30%,rgba(245,223,160,.08) 55%,transparent 70%);filter:blur(28px);pointer-events:none;z-index:0}
 .sms-cta-photo .halo-2{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80%;height:60%;background:radial-gradient(ellipse at center,rgba(255,79,73,.16) 0%,rgba(255,79,73,.05) 40%,transparent 65%);filter:blur(22px);pointer-events:none;z-index:0}
-.sms-cta-photo img{position:relative;z-index:2;width:100%;max-width:420px;height:auto;display:block;filter:drop-shadow(0 16px 32px rgba(40,30,0,.22))}
+.sms-cta-photo img{position:relative;z-index:2;width:100%;max-width:520px;height:auto;display:block;filter:drop-shadow(0 16px 32px rgba(40,30,0,.22))}
 .sms-cta-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(241,194,50,.1);border:1px solid rgba(241,194,50,.28);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sun-dk);margin-bottom:14px}
 .sms-cta-tag .dot{display:inline-block;width:7px;height:7px;background:var(--cherry);border-radius:50%;animation:textPulseGold 1.5s ease-in-out infinite}
 .sms-cta-script{font-family:var(--script);font-size:clamp(28px,3.6vw,40px);color:var(--cherry);line-height:1;margin-bottom:8px;transform:rotate(-1.8deg);display:inline-block}
@@ -377,11 +377,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <div class="fi" style="text-align:center;margin-bottom:16px">
     <p style="font-family:var(--script);font-size:clamp(20px,2.4vw,26px);color:var(--sun)">watch this before Day 1!</p>
   </div>
-  <div class="fi fi-d1" style="width:100%;aspect-ratio:16/9;background:url('https://img.youtube.com/vi/yGqa5-dwyrw/maxresdefault.jpg') center/cover no-repeat, #000;cursor:pointer;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/yGqa5-dwyrw?autoplay=1&rel=0\' frameborder=\'0\' allow=\'autoplay;encrypted-media\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>';this.style.cursor='default'">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.15),rgba(0,0,0,.45));pointer-events:none"></div>
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;background:rgba(241,194,50,.95);clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 4px 12px rgba(241,194,50,.4))"><svg width="24" height="24" viewBox="0 0 24 24" fill="#151210"><polygon points="8,5 19,12 8,21"/></svg></div>
+  <div class="fi fi-d1" style="width:100%;aspect-ratio:16/9;background:#000;position:relative;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);overflow:hidden">
+    <iframe src="https://player.vimeo.com/video/1187127979?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&quality=1080p" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" title="MARISSA Success Confirmation vid"></iframe>
   </div>
 </section>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <section class="sms-cta-sec">
   <div class="deco-leaf deco-leaf-bg deco-leaf-sway" style="top:-60px;left:-110px;width:280px;height:280px;transform:rotate(-30deg)"><img src="img/palm2.png" alt="" onerror="this.parentElement.style.display='none'"></div>
@@ -392,7 +392,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <div class="sms-cta-photo fi">
       <div class="halo"></div>
       <div class="halo-2"></div>
-      <img src="https://i.imgur.com/drUkRlA.png" alt="Marissa pointing at the text CTA">
+      <img src="https://i.imgur.com/OGaVj0x.png" alt="Marissa pointing at the text CTA">
     </div>
 
     <div class="sms-cta-body fi fi-d1">
