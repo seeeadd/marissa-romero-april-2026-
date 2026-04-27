@@ -1273,17 +1273,21 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 (function(){var t='\u2728 VIP Upgrade \u2014 Digital Course Launch Lab    ';var b=new Blob(['setInterval(function(){postMessage(1)},120)'],{type:'text/javascript'});var w=new Worker(URL.createObjectURL(b)),i=0;w.onmessage=function(){document.title=t.substring(i)+t.substring(0,i);i=(i+1)%t.length}})();
 </script>
 
-<!-- ═══ VIP PAGEVIEW TAG — fires GHL webhook so we can nudge non-buyers ═══ -->
+<!-- ═══ VIP PAGE: AFFILIATE CAPTURE + PAGEVIEW TAG ═══ -->
 <script>
 (function() {
   var params = new URLSearchParams(window.location.search);
-  var email = params.get('email') || localStorage.getItem('reg_email');
 
+  // Affiliate tracking (existing)
+  var amId = params.get('am_id');
+  if (amId) localStorage.setItem('am_id', amId);
+
+  // VIP pageview tagging (new)
+  var email = params.get('email') || localStorage.getItem('reg_email');
   if (!email) {
     console.log('No email found, skipping VIP pageview tag');
     return;
   }
-
   localStorage.setItem('reg_email', email);
 
   var data = new URLSearchParams();
