@@ -1272,3 +1272,29 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 /* ═══ TITLE TICKER ═══ */
 (function(){var t='\u2728 VIP Upgrade \u2014 Digital Course Launch Lab    ';var b=new Blob(['setInterval(function(){postMessage(1)},120)'],{type:'text/javascript'});var w=new Worker(URL.createObjectURL(b)),i=0;w.onmessage=function(){document.title=t.substring(i)+t.substring(0,i);i=(i+1)%t.length}})();
 </script>
+
+<!-- ═══ VIP PAGEVIEW TAG — fires GHL webhook so we can nudge non-buyers ═══ -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var email = params.get('email') || localStorage.getItem('reg_email');
+
+  if (!email) {
+    console.log('No email found, skipping VIP pageview tag');
+    return;
+  }
+
+  localStorage.setItem('reg_email', email);
+
+  var data = new URLSearchParams();
+  data.append('email', email);
+  data.append('source', 'vip-pageview');
+
+  fetch('https://services.leadconnectorhq.com/hooks/iYLlGEcg2QLnxXloNvS3/webhook-trigger/afb30610-f336-41f5-a78e-54763dd3f822', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: data.toString()
+  });
+})();
+</script>
