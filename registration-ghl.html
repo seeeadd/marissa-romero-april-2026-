@@ -2695,9 +2695,12 @@ closeBtn.addEventListener('click',hidePopup);
 ov.addEventListener('click',function(e){if(e.target===ov)hidePopup()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')hidePopup()});
 
+function isMobile(){return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.innerWidth<=768}
+function smartCTA(){if(isMobile()){window.location.href='sms:+14244462042?&body='+encodeURIComponent('LAUNCH LAB')}else{showPopup()}}
+if(/[?&]form=open/.test(window.location.search))showPopup();
 var openBtn=document.getElementById('openPopup');
-if(openBtn)openBtn.addEventListener('click',function(e){e.preventDefault();showPopup()});
-document.querySelectorAll('.openPopup').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();showPopup()})});
+if(openBtn)openBtn.addEventListener('click',function(e){e.preventDefault();smartCTA()});
+document.querySelectorAll('.openPopup').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();smartCTA()})});
 
 /* Exit intent */
 var registered=false,cooldown=false;
