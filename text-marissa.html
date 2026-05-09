@@ -14,7 +14,7 @@ if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)&&window.innerWidth>768
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{height:100%}
+html,body{height:100%;height:100dvh}
 body{
   font-family:'Open Sans',Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
@@ -22,12 +22,11 @@ body{
   color:#0a2628;
   display:flex;
   flex-direction:column;
-  min-height:100vh;
-  min-height:100dvh;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 .tap-link{
-  flex:1;
+  flex:1 1 auto;
+  min-height:0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -35,64 +34,54 @@ body{
   width:100%;
   text-decoration:none;
   color:inherit;
-  padding:40px 24px 48px;
+  padding:32px 24px;
   text-align:center;
   position:relative;
   cursor:pointer;
   user-select:none;
   background:
-    radial-gradient(circle at 50% 18%, rgba(13,197,207,.18) 0, transparent 50%),
-    radial-gradient(circle at 12% 88%, rgba(22,208,156,.16) 0, transparent 48%),
-    radial-gradient(circle at 88% 78%, rgba(124,203,97,.14) 0, transparent 46%),
+    radial-gradient(circle at 50% 12%, rgba(13,197,207,.22) 0, transparent 55%),
+    radial-gradient(circle at 12% 88%, rgba(22,208,156,.18) 0, transparent 50%),
+    radial-gradient(circle at 88% 78%, rgba(124,203,97,.14) 0, transparent 48%),
     #faf8f5;
   overflow:hidden;
-  animation:tap-zone-glow 2.4s ease-in-out infinite;
 }
-@keyframes tap-zone-glow{
-  0%,100%{box-shadow:inset 0 0 0 2px rgba(13,197,207,.18),inset 0 0 80px rgba(13,197,207,.06)}
-  50%{box-shadow:inset 0 0 0 4px rgba(13,197,207,.32),inset 0 0 120px rgba(13,197,207,.12)}
+.tap-link::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 0 rgba(13,197,207,0);
+  animation:zone-glow 3.6s cubic-bezier(.4,0,.6,1) infinite;
 }
-/* Ambient tap ripples scattered around the page */
+@keyframes zone-glow{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(13,197,207,.12),inset 0 0 60px rgba(13,197,207,.04)}
+  50%{box-shadow:inset 0 0 0 2px rgba(13,197,207,.28),inset 0 0 100px rgba(13,197,207,.1)}
+}
+
+/* Ambient ripples — slower, smoother */
 .ripple{
   position:absolute;
-  width:60px;
-  height:60px;
+  width:80px;
+  height:80px;
   border-radius:50%;
-  border:2px solid rgba(13,197,207,.5);
+  border:1.5px solid rgba(13,197,207,.45);
   pointer-events:none;
   z-index:1;
-  animation:ripple-out 3s ease-out infinite;
+  opacity:0;
+  animation:ripple 4.8s cubic-bezier(.25,.1,.25,1) infinite;
+  will-change:transform,opacity;
 }
 .ripple-1{top:14%;left:10%}
-.ripple-2{top:66%;right:12%;animation-delay:.6s;border-color:rgba(22,208,156,.5)}
-.ripple-3{top:32%;right:8%;animation-delay:1.2s;border-color:rgba(255,79,73,.45)}
-.ripple-4{bottom:18%;left:8%;animation-delay:1.8s;border-color:rgba(22,208,156,.5)}
-.ripple-5{top:48%;left:50%;transform:translateX(-50%);width:90px;height:90px;animation-delay:2.4s;border-color:rgba(13,197,207,.4)}
-@keyframes ripple-out{
-  0%{transform:scale(0);opacity:1}
-  80%{opacity:.4}
-  100%{transform:scale(3);opacity:0}
+.ripple-2{top:62%;right:14%;animation-delay:1.2s;border-color:rgba(22,208,156,.5)}
+.ripple-3{top:32%;right:8%;animation-delay:2.4s;border-color:rgba(255,79,73,.4)}
+.ripple-4{bottom:20%;left:8%;animation-delay:3.6s;border-color:rgba(22,208,156,.45)}
+@keyframes ripple{
+  0%{transform:scale(.3);opacity:0}
+  20%{opacity:.7}
+  100%{transform:scale(3.2);opacity:0}
 }
-.ripple-5{transform-origin:center}
-@keyframes ripple-out-center{
-  0%{transform:translateX(-50%) scale(0);opacity:1}
-  80%{opacity:.4}
-  100%{transform:translateX(-50%) scale(3);opacity:0}
-}
-.ripple-5{animation-name:ripple-out-center}
-/* Tropical leaf decoration */
-.leaf-bg{
-  position:absolute;
-  pointer-events:none;
-  opacity:.12;
-  filter:blur(2px) saturate(1.4);
-}
-.leaf-tl{top:-30px;left:-40px;width:160px;transform:rotate(-25deg)}
-.leaf-br{bottom:-20px;right:-50px;width:180px;transform:rotate(150deg)}
-.tap-link:active .cta-button{
-  transform:translateY(4px);
-  box-shadow:0 2px 0 #c93b35,0 0 0 0 rgba(255,79,73,0);
-}
+
 .event-pill{
   display:inline-flex;
   align-items:center;
@@ -105,9 +94,9 @@ body{
   letter-spacing:.14em;
   text-transform:uppercase;
   color:#0a8a92;
-  margin-bottom:24px;
+  margin-bottom:18px;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
 .event-pill::before{
   content:"";
@@ -116,33 +105,33 @@ body{
   background:#16d09c;
   border-radius:50%;
   box-shadow:0 0 0 4px rgba(22,208,156,.25);
-  animation:dot-pulse 1.8s ease-in-out infinite;
+  animation:dot-breathe 2.4s cubic-bezier(.4,0,.6,1) infinite;
 }
-@keyframes dot-pulse{
-  0%,100%{box-shadow:0 0 0 4px rgba(22,208,156,.25)}
-  50%{box-shadow:0 0 0 7px rgba(22,208,156,.1)}
+@keyframes dot-breathe{
+  0%,100%{box-shadow:0 0 0 4px rgba(22,208,156,.25);transform:scale(1)}
+  50%{box-shadow:0 0 0 8px rgba(22,208,156,.08);transform:scale(1.15)}
 }
 .handwritten{
   font-family:'Nanum Pen Script',cursive;
-  font-size:clamp(24px,6vw,38px);
+  font-size:clamp(22px,5.5vw,34px);
   color:#0a8a92;
-  margin-bottom:4px;
+  margin-bottom:2px;
   display:block;
   line-height:1;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
 .headline{
   font-family:Helvetica,Arial,sans-serif;
   font-weight:900;
-  font-size:clamp(44px,11vw,76px);
+  font-size:clamp(40px,10vw,68px);
   line-height:.95;
-  margin-bottom:16px;
+  margin-bottom:14px;
   letter-spacing:-.025em;
   color:#0a2628;
   display:block;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
 .headline em{
   font-style:normal;
@@ -152,49 +141,109 @@ body{
   color:transparent;
 }
 .subhead{
-  font-size:clamp(15px,4vw,18px);
+  font-size:clamp(14px,3.6vw,17px);
   font-weight:500;
   color:#4a5a5e;
-  margin-bottom:24px;
-  max-width:420px;
+  margin-bottom:20px;
+  max-width:380px;
   line-height:1.5;
   display:block;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
+
+/* Animated ticket graphic */
+.ticket-wrap{
+  display:block;
+  position:relative;
+  z-index:3;
+  margin:8px auto 22px;
+  width:min(320px,82vw);
+  animation:ticket-float 4.2s cubic-bezier(.4,0,.6,1) infinite;
+  filter:drop-shadow(0 12px 32px rgba(10,38,40,.18)) drop-shadow(0 4px 8px rgba(13,197,207,.12));
+  will-change:transform;
+}
+@keyframes ticket-float{
+  0%,100%{transform:translateY(0) rotate(-1.5deg)}
+  50%{transform:translateY(-10px) rotate(1.5deg)}
+}
+.ticket-wrap svg{display:block;width:100%;height:auto}
+.ticket-shimmer{
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 48%,rgba(255,255,255,.7) 50%,rgba(255,255,255,.5) 52%,transparent 70%);
+  mix-blend-mode:overlay;
+  animation:shimmer 3.8s cubic-bezier(.4,0,.6,1) infinite;
+  opacity:0;
+}
+@keyframes shimmer{
+  0%{transform:translateX(-100%);opacity:0}
+  40%{opacity:.9}
+  100%{transform:translateX(100%);opacity:0}
+}
+.sparkle{
+  position:absolute;
+  width:14px;
+  height:14px;
+  pointer-events:none;
+  animation:sparkle-pop 2.8s cubic-bezier(.4,0,.6,1) infinite;
+}
+.sparkle-1{top:-12px;left:14%;animation-delay:0s}
+.sparkle-2{top:30%;right:-10px;animation-delay:.9s}
+.sparkle-3{bottom:-8px;left:62%;animation-delay:1.8s}
+@keyframes sparkle-pop{
+  0%,100%{transform:scale(0) rotate(0);opacity:0}
+  40%{transform:scale(1) rotate(180deg);opacity:1}
+  60%{transform:scale(1) rotate(220deg);opacity:1}
+}
+
+/* Smooth bouncing arrow */
 .arrow-pointer{
   display:block;
-  margin:8px auto 12px;
+  margin:0 auto 12px;
   position:relative;
-  z-index:2;
-  animation:arrow-bob 1.4s ease-in-out infinite;
+  z-index:3;
+  animation:arrow-glide 1.8s cubic-bezier(.45,.05,.55,.95) infinite;
+  will-change:transform;
 }
-@keyframes arrow-bob{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(8px)}
+@keyframes arrow-glide{
+  0%,100%{transform:translateY(0);opacity:.7}
+  50%{transform:translateY(10px);opacity:1}
 }
+
 .cta-button{
   display:inline-block;
-  padding:24px 48px;
+  padding:22px 44px;
   background:#ff4f49;
   color:#fff;
   font-family:Helvetica,Arial,sans-serif;
   font-weight:900;
-  font-size:clamp(17px,4.8vw,22px);
+  font-size:clamp(16px,4.4vw,20px);
   text-transform:uppercase;
   letter-spacing:.08em;
-  box-shadow:0 6px 0 #c93b35,0 0 0 0 rgba(255,79,73,.55);
-  margin-bottom:14px;
-  transition:transform .08s ease,box-shadow .08s ease;
-  animation:cta-pulse 2s ease-out infinite;
+  box-shadow:0 6px 0 #c93b35;
+  margin-bottom:12px;
   position:relative;
-  z-index:2;
+  z-index:3;
+  will-change:transform;
 }
-@keyframes cta-pulse{
-  0%{box-shadow:0 6px 0 #c93b35,0 0 0 0 rgba(255,79,73,.55)}
-  70%{box-shadow:0 6px 0 #c93b35,0 0 0 26px rgba(255,79,73,0)}
-  100%{box-shadow:0 6px 0 #c93b35,0 0 0 0 rgba(255,79,73,0)}
+.cta-button::before{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:0;
+  border:2px solid #ff4f49;
+  opacity:0;
+  pointer-events:none;
+  animation:cta-ring 2.4s cubic-bezier(.25,.1,.25,1) infinite;
 }
+@keyframes cta-ring{
+  0%{transform:scale(.92);opacity:.7}
+  100%{transform:scale(1.5);opacity:0}
+}
+.tap-link:active .cta-button{transform:translateY(4px);box-shadow:0 2px 0 #c93b35}
 .cta-note{
   font-size:13px;
   font-weight:600;
@@ -202,10 +251,11 @@ body{
   letter-spacing:.04em;
   display:block;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
 .cta-note strong{color:#0a2628;font-weight:800}
 .fallback-bar{
+  flex:0 0 auto;
   padding:14px 24px;
   background:#ede8e2;
   text-align:center;
@@ -220,11 +270,11 @@ body{
   transition:color .15s ease;
 }
 .fallback-bar a:hover{color:#0a2628}
-@media(max-width:480px){
-  .tap-link{padding:28px 20px 36px}
-  .event-pill{margin-bottom:18px}
-  .leaf-tl{width:120px}
-  .leaf-br{width:140px}
+@media(max-width:380px){
+  .tap-link{padding:20px 18px}
+  .ticket-wrap{margin:6px auto 16px}
+  .event-pill{margin-bottom:14px}
+  .subhead{margin-bottom:14px}
 }
 @media(min-width:769px){
   .tap-link{padding:80px 40px}
@@ -238,33 +288,128 @@ body{
 <span class="ripple ripple-2"></span>
 <span class="ripple ripple-3"></span>
 <span class="ripple ripple-4"></span>
-<span class="ripple ripple-5"></span>
-
-<svg class="leaf-bg leaf-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g fill="none" stroke="#16d09c" stroke-width="2.5" stroke-linecap="round">
-    <path d="M100 20 Q105 100 100 180" />
-    <path d="M100 50 Q60 60 30 90" /><path d="M100 50 Q140 60 170 90" />
-    <path d="M100 90 Q55 100 25 130" /><path d="M100 90 Q145 100 175 130" />
-    <path d="M100 130 Q60 140 35 165" /><path d="M100 130 Q140 140 165 165" />
-  </g>
-</svg>
-<svg class="leaf-bg leaf-br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g fill="none" stroke="#7ccb61" stroke-width="2.5" stroke-linecap="round">
-    <path d="M100 20 Q105 100 100 180" />
-    <path d="M100 50 Q60 60 30 90" /><path d="M100 50 Q140 60 170 90" />
-    <path d="M100 90 Q55 100 25 130" /><path d="M100 90 Q145 100 175 130" />
-    <path d="M100 130 Q60 140 35 165" /><path d="M100 130 Q140 140 165 165" />
-  </g>
-</svg>
 
 <span class="event-pill">Launch Lab · June 9-11 · 100% Free</span>
 <span class="handwritten">one tap to text Marissa</span>
 <span class="headline">Lock In<br><em>Your Spot</em></span>
-<span class="subhead">Tap anywhere on the screen to send Marissa a quick text. She'll reply in seconds with your registration link.</span>
+<span class="subhead">Tap anywhere on the screen. iMessage opens prefilled. Hit send and Marissa replies with your registration link.</span>
 
-<svg class="arrow-pointer" width="56" height="64" viewBox="0 0 56 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M28 4 Q14 16 32 30 Q14 42 28 56" stroke="#0a8a92" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="2 6"/>
-  <path d="M18 48 L28 58 L38 48" stroke="#0a8a92" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<span class="ticket-wrap">
+  <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="ticketBody" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#0ad1d9"/>
+        <stop offset="50%" stop-color="#16d09c"/>
+        <stop offset="100%" stop-color="#7ccb61"/>
+      </linearGradient>
+      <linearGradient id="ticketStub" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0a2628"/>
+        <stop offset="100%" stop-color="#143a3d"/>
+      </linearGradient>
+      <pattern id="grain" patternUnits="userSpaceOnUse" width="3" height="3">
+        <rect width="3" height="3" fill="rgba(255,255,255,.04)"/>
+        <circle cx="1.5" cy="1.5" r=".5" fill="rgba(255,255,255,.15)"/>
+      </pattern>
+      <filter id="ticketShadow">
+        <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#0a2628" flood-opacity=".25"/>
+      </filter>
+    </defs>
+
+    <!-- Main ticket body with notched edges -->
+    <g filter="url(#ticketShadow)">
+      <!-- left stub (dark teal) -->
+      <path d="M8 12 Q8 4 16 4 L100 4 L100 64 Q92 64 92 70 Q92 76 100 76 L100 136 L16 136 Q8 136 8 128 Z"
+            fill="url(#ticketStub)"/>
+      <!-- right body (gradient) -->
+      <path d="M100 4 L304 4 Q312 4 312 12 L312 128 Q312 136 304 136 L100 136 L100 76 Q108 76 108 70 Q108 64 100 64 Z"
+            fill="url(#ticketBody)"/>
+      <rect x="100" y="4" width="212" height="132" fill="url(#grain)"/>
+    </g>
+
+    <!-- Perforation line -->
+    <line x1="100" y1="14" x2="100" y2="58" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-dasharray="2 4" stroke-linecap="round"/>
+    <line x1="100" y1="82" x2="100" y2="126" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-dasharray="2 4" stroke-linecap="round"/>
+
+    <!-- LEFT STUB content -->
+    <text x="54" y="32" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="8" font-weight="900" fill="#0dc5cf" letter-spacing="2">ADMIT</text>
+    <text x="54" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="8" font-weight="900" fill="#0dc5cf" letter-spacing="2">ONE</text>
+    <!-- Stub ticket icon -->
+    <g transform="translate(38 60)">
+      <rect x="0" y="0" width="32" height="22" rx="2" fill="none" stroke="#0dc5cf" stroke-width="1.5"/>
+      <circle cx="0" cy="11" r="3" fill="#0a2628"/>
+      <circle cx="32" cy="11" r="3" fill="#0a2628"/>
+      <line x1="16" y1="2" x2="16" y2="6" stroke="#0dc5cf" stroke-width="1.5" stroke-dasharray="1 2"/>
+      <line x1="16" y1="16" x2="16" y2="20" stroke="#0dc5cf" stroke-width="1.5" stroke-dasharray="1 2"/>
+    </g>
+    <text x="54" y="105" text-anchor="middle" font-family="'Nanum Pen Script',cursive" font-size="14" fill="#7ccb61">free seat</text>
+    <text x="54" y="124" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="700" fill="rgba(255,255,255,.4)" letter-spacing="1.5">No.LL2026</text>
+
+    <!-- RIGHT BODY content -->
+    <text x="208" y="34" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="900" fill="#0a2628" letter-spacing="-.5">LAUNCH LAB</text>
+    <text x="208" y="50" text-anchor="middle" font-family="'Nanum Pen Script',cursive" font-size="16" fill="#0a2628" opacity=".75">a 3-day live event</text>
+
+    <!-- Date row -->
+    <g transform="translate(118 64)">
+      <rect x="0" y="0" width="180" height="36" rx="0" fill="rgba(10,38,40,.18)"/>
+      <line x1="60" y1="6" x2="60" y2="30" stroke="rgba(10,38,40,.3)" stroke-width="1"/>
+      <line x1="120" y1="6" x2="120" y2="30" stroke="rgba(10,38,40,.3)" stroke-width="1"/>
+      <text x="30" y="16" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="800" fill="rgba(255,255,255,.7)" letter-spacing="1.5">DATE</text>
+      <text x="30" y="29" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="900" fill="#fff">JUNE 9-11</text>
+      <text x="90" y="16" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="800" fill="rgba(255,255,255,.7)" letter-spacing="1.5">TIME</text>
+      <text x="90" y="29" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="900" fill="#fff">3PM EST</text>
+      <text x="150" y="16" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="800" fill="rgba(255,255,255,.7)" letter-spacing="1.5">VENUE</text>
+      <text x="150" y="29" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" font-weight="900" fill="#fff">LIVE ZOOM</text>
+    </g>
+
+    <!-- Barcode -->
+    <g transform="translate(118 110)">
+      <rect x="0" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="4" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="7" y="0" width="3" height="14" fill="#0a2628"/>
+      <rect x="12" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="15" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="19" y="0" width="3" height="14" fill="#0a2628"/>
+      <rect x="24" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="27" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="31" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="34" y="0" width="3" height="14" fill="#0a2628"/>
+      <rect x="39" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="43" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="46" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="50" y="0" width="3" height="14" fill="#0a2628"/>
+      <rect x="55" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="58" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="62" y="0" width="1" height="14" fill="#0a2628"/>
+      <rect x="65" y="0" width="3" height="14" fill="#0a2628"/>
+      <rect x="70" y="0" width="2" height="14" fill="#0a2628"/>
+      <rect x="74" y="0" width="1" height="14" fill="#0a2628"/>
+      <text x="36" y="22" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="5" font-weight="700" fill="rgba(10,38,40,.55)" letter-spacing="1">DCLL · JUNE2026</text>
+    </g>
+
+    <!-- Stamp -->
+    <g transform="translate(228 102)" opacity=".85">
+      <circle cx="32" cy="16" r="22" fill="none" stroke="#ff4f49" stroke-width="2"/>
+      <circle cx="32" cy="16" r="18" fill="none" stroke="#ff4f49" stroke-width="1" stroke-dasharray="2 1"/>
+      <text x="32" y="13" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="6" font-weight="900" fill="#ff4f49" letter-spacing="1">FREE</text>
+      <text x="32" y="22" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="5" font-weight="900" fill="#ff4f49" letter-spacing=".5">REGISTER</text>
+    </g>
+  </svg>
+
+  <!-- Sparkles around the ticket -->
+  <svg class="sparkle sparkle-1" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z" fill="#0dc5cf"/>
+  </svg>
+  <svg class="sparkle sparkle-2" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z" fill="#ff4f49"/>
+  </svg>
+  <svg class="sparkle sparkle-3" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z" fill="#16d09c"/>
+  </svg>
+</span>
+
+<svg class="arrow-pointer" width="40" height="50" viewBox="0 0 40 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M20 4 L20 38" stroke="#0a8a92" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 5"/>
+  <path d="M10 32 L20 44 L30 32" stroke="#0a8a92" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 <span class="cta-button">Tap Anywhere</span>
