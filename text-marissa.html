@@ -183,22 +183,6 @@ body{
   40%{opacity:.9}
   100%{transform:translateX(100%);opacity:0}
 }
-.sparkle{
-  position:absolute;
-  width:14px;
-  height:14px;
-  pointer-events:none;
-  animation:sparkle-pop 2.8s cubic-bezier(.4,0,.6,1) infinite;
-}
-.sparkle-1{top:-12px;left:14%;animation-delay:0s}
-.sparkle-2{top:30%;right:-10px;animation-delay:.9s}
-.sparkle-3{bottom:-8px;left:62%;animation-delay:1.8s}
-@keyframes sparkle-pop{
-  0%,100%{transform:scale(0) rotate(0);opacity:0}
-  40%{transform:scale(1) rotate(180deg);opacity:1}
-  60%{transform:scale(1) rotate(220deg);opacity:1}
-}
-
 /* Smooth bouncing arrow */
 .arrow-pointer{
   display:block;
