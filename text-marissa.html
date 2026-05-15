@@ -336,6 +336,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
+  gap:8px;
   overflow:visible;
 }
 
@@ -352,8 +353,8 @@ body{
   transform:rotate(2deg);
   z-index:2;
   animation:qr-react 12s infinite ease-in-out;
-  margin-right:auto;
-  margin-left:auto;
+  flex:0 0 auto;
+  order:2;
 }
 @keyframes qr-react{
   0%,29%,52%,100%{
@@ -452,15 +453,17 @@ body{
   60%{transform:scale(1);opacity:.8}
 }
 
-/* PHONE SCENE - anchored to bottom-left of qr-card, peeks outside */
+/* PHONE SCENE - flex sibling, left of qr-card, no overlap */
 .phone-scene{
-  position:absolute;
-  bottom:-40px;
-  left:-110px;
+  position:relative;
+  flex:0 0 auto;
   width:200px;
-  height:380px;
+  height:420px;
+  order:1;
   z-index:4;
   pointer-events:none;
+  align-self:center;
+  margin-right:-20px; /* let scan beam reach into qr-card edge */
 }
 
 /* Pocket (jeans-style silhouette) */
@@ -602,8 +605,8 @@ body{
   background:#0a8a92;
 }
 .hint-1{
-  left:-130px;
-  bottom:50px;
+  left:-30px;
+  bottom:90px;
   animation-name:hint-1;
   transform:rotate(-4deg);
 }
@@ -629,8 +632,8 @@ body{
   50%,100%{opacity:0}
 }
 .hint-3{
-  bottom:60px;
-  left:50px;
+  bottom:30px;
+  left:40px;
   color:#16d09c;
   animation-name:hint-3;
   transform:rotate(2deg);
@@ -842,7 +845,7 @@ body{
   <div class="desktop-col-right">
     <div class="stage">
 
-      <!-- QR CARD (DOMINANT) - phone, sparks, hints all anchored inside -->
+      <!-- QR CARD (DOMINANT) -->
       <div class="qr-card">
         <div class="qr-img qr-img-loading" id="qr-render" aria-label="Scan to text Marissa">Generating QR...</div>
         <span class="qr-caption">point your camera here</span>
@@ -857,13 +860,16 @@ body{
           <span class="spark"></span>
         </div>
 
-        <!-- HINT LABELS -->
-        <span class="hint hint-1">pull it out of your pocket</span>
+        <!-- HINT on QR -->
         <span class="hint hint-2">open camera, point here</span>
-        <span class="hint hint-3">hit send →</span>
+      </div><!-- /.qr-card -->
 
-        <!-- PHONE SCENE -->
-        <div class="phone-scene">
+      <!-- PHONE SCENE (sibling of qr-card; flex order puts it on left) -->
+      <div class="phone-scene">
+
+        <!-- HINTS near phone -->
+        <span class="hint hint-1">pull it out of your pocket</span>
+        <span class="hint hint-3">hit send →</span>
 
         <!-- POCKET (jeans pocket silhouette w/ stitching) -->
         <div class="pocket">
@@ -1127,9 +1133,7 @@ body{
           </svg>
         </div>
 
-        </div><!-- /.phone-scene -->
-
-      </div><!-- /.qr-card -->
+      </div><!-- /.phone-scene -->
     </div><!-- /.stage -->
   </div><!-- /.desktop-col-right -->
 
@@ -1178,13 +1182,12 @@ if(document.documentElement.classList.contains('is-mobile')){
 /* ════════════════════════════════════════════════════════════
    QR CODE GENERATOR
    ────────────────────────────────────────────────────────────
-   Change QR_URL to whatever URL you control.
-   That URL should redirect to the SMS prefill:
-     sms:+14244462042?body=Hey%20Marissa%2C%20I%20want%20to%20join%20the%20Launch%20Lab%20June%209-11
-   To change behavior later, edit the redirect on YOUR URL.
-   The QR code itself stays the same.
+   QR encodes the SMS prefill directly. When scanned by iPhone
+   Camera or Android, it opens Messages with the body prefilled,
+   addressed to +1 (424) 446-2042 (Marissa).
+   To change phone or body, edit QR_URL below.
    ════════════════════════════════════════════════════════════ */
-var QR_URL = "https://offer.marissaromero.com/text";
+var QR_URL = "sms:+14244462042?&body=Hey%20Marissa%2C%20I%20want%20to%20join%20the%20Launch%20Lab%20June%209-11";
 
 function renderQR(){
   var target = document.getElementById('qr-render');
